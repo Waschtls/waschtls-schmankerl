@@ -99,6 +99,13 @@ const themen = [
     href: '/wissen/laktoseintoleranz-kinder',
     tag: 'Gesundheit',
   },
+  {
+    icon: '✅',
+    title: 'Welche Lebensmittel sind glutenfrei?',
+    desc: 'Die große Übersicht – was ist von Natur aus erlaubt, was ist tabu, und wo versteckt sich Gluten wo man es nicht erwartet.',
+    href: '/wissen/glutenfreie-lebensmittel',
+    tag: 'Grundlagen',
+  },
 ];
 
 export default function WissenPage() {

@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 const alle_rezepte = [
+  { title: 'Apfel-Zimt-Porridge', slug: '/rezepte/apfel-zimt-porridge', kat: 'Frühstück' },
   { title: 'Bananenmuffins (ohne Mehl)', slug: '/rezepte/bananenmuffins', kat: 'Snacks' },
+  { title: 'Energiebällchen', slug: '/rezepte/energiebaellchen', kat: 'Snacks' },
+  { title: 'Kokos-Milchreis', slug: '/rezepte/milchreis-kokos', kat: 'Dessert' },
+  { title: 'Kürbisrisotto', slug: '/rezepte/kuerbisrisotto', kat: 'Mittagessen' },
   { title: 'Nudeln mit Tomatensauce', slug: '/rezepte/nudeln-mit-tomatensauce', kat: 'Mittagessen' },
   { title: 'Pfannkuchen aus Reismehl', slug: '/rezepte/pfannkuchen-reismehl', kat: 'Frühstück' },
   { title: 'Pizza glutenfrei', slug: '/rezepte/pizza-glutenfrei', kat: 'Brot & Hefeteig' },
