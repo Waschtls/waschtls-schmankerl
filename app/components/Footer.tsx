@@ -39,6 +39,7 @@ export default function Footer() {
                 ['Frühstück', '/rezepte#fruehstueck'],
                 ['Mittagessen', '/rezepte#mittagessen'],
                 ['Snacks & Backen', '/rezepte#snacks'],
+                ['Alle Rezepte A–Z', '/rezepte/alle'],
                 ['Alle Rezepte', '/rezepte'],
               ].map(([label, href]) => (
                 <Link key={href} href={href} style={{ fontSize: '0.85rem', color: 'var(--mint)', opacity: 0.85 }}>
@@ -71,6 +72,7 @@ export default function Footer() {
             <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Mehr</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
+                ['FAQ', '/faq'],
                 ['Über uns', '/ueber-uns'],
                 ['Produkte', '/produkte'],
                 ['Impressum', '/impressum'],

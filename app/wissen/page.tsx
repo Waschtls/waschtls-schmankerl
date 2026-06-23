@@ -71,6 +71,34 @@ const themen = [
     href: '/wissen/kindern-erklaeren',
     tag: 'Familie',
   },
+  {
+    icon: '🌾',
+    title: 'Welches Mehl wofür?',
+    desc: 'Reismehl, Mandelmehl, Buchweizenmehl – welches glutenfreie Mehl eignet sich wofür und wie kombiniert man sie?',
+    href: '/wissen/welches-mehl-wofuer',
+    tag: 'Warenkunde',
+  },
+  {
+    icon: '🧪',
+    title: 'Xanthan & Flohsamenschalen',
+    desc: 'Warum braucht glutenfreies Backen Bindemittel – und was ist der Unterschied zwischen Xanthan und Flohsamenschalen?',
+    href: '/wissen/xanthan-flohsamenschalen',
+    tag: 'Warenkunde',
+  },
+  {
+    icon: '⚠️',
+    title: 'Kreuzkontamination',
+    desc: 'Was ist Kontamination, warum reichen Spuren für eine Reaktion – und wie schützt man das Kind zuhause und unterwegs?',
+    href: '/wissen/kreuzkontamination',
+    tag: 'Sicherheit',
+  },
+  {
+    icon: '🥛',
+    title: 'Laktoseintoleranz bei Zöliakie',
+    desc: 'Viele Kinder vertragen nach der Diagnose auch keine Milch mehr. Was dahinter steckt und warum das oft nur vorübergehend ist.',
+    href: '/wissen/laktoseintoleranz-kinder',
+    tag: 'Gesundheit',
+  },
 ];
 
 export default function WissenPage() {

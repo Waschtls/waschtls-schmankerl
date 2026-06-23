@@ -14,6 +14,11 @@ const kategorien = [
     desc: 'Pfannkuchen, Waffeln, Porridge – der beste Start in den Tag',
   },
   {
+    id: 'grundrezepte',
+    label: '📋 Grundrezepte & Teige',
+    desc: 'Pizzateig, Hefeteig, Mürbeteig – einmal lernen, viele Rezepte damit backen',
+  },
+  {
     id: 'backen',
     label: '🎂 Backen & Kuchen',
     desc: 'Kuchen, Muffins, Kekse – für Alltag und besondere Anlässe',
@@ -21,7 +26,7 @@ const kategorien = [
   {
     id: 'hefeteig',
     label: '🍞 Brot & Hefeteig',
-    desc: 'Glutenfreies Brot, Brötchen und Pizzateig selbst gemacht',
+    desc: 'Glutenfreies Brot, Brötchen und Pizzaboden selbst gemacht',
   },
   {
     id: 'mittagessen',
@@ -30,13 +35,23 @@ const kategorien = [
   },
   {
     id: 'snacks',
-    label: '🍪 Snacks & Kleinigkeiten',
+    label: '🍪 Snacks & Brotdose',
     desc: 'Für die Brotdose, Ausflüge und Geburtstage',
   },
   {
     id: 'herzhaft',
     label: '🥘 Herzhaftes',
     desc: 'Suppen, Aufläufe, Eintöpfe – warm und sättigend',
+  },
+  {
+    id: 'kindergeburtstag',
+    label: '🎂 Kindergeburtstag',
+    desc: 'Kuchen und Snacks für den großen Tag – so gut dass alle mitessen wollen',
+  },
+  {
+    id: 'saisonal',
+    label: '🎄 Ostern & Weihnachten',
+    desc: 'Saisonale Backrezepte für die schönsten Feste im Jahr',
   },
 ];
 
@@ -47,7 +62,6 @@ const rezepte = [
     desc: 'Fluffig, schnell – kein Unterschied zum Original.',
     time: '20 Min.',
     kat: 'fruehstueck',
-    katLabel: 'Frühstück',
     emoji: '🥞',
   },
   {
@@ -56,7 +70,6 @@ const rezepte = [
     desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
     time: '50 Min.',
     kat: 'backen',
-    katLabel: 'Backen',
     emoji: '🍫',
   },
   {
@@ -65,7 +78,6 @@ const rezepte = [
     desc: 'Nur 4 Zutaten, kein Zucker – perfekte Schulmause.',
     time: '30 Min.',
     kat: 'snacks',
-    katLabel: 'Snacks',
     emoji: '🧁',
   },
   {
@@ -74,7 +86,6 @@ const rezepte = [
     desc: 'Der Alltagsklassiker – mit Reisnudeln genauso lecker.',
     time: '25 Min.',
     kat: 'mittagessen',
-    katLabel: 'Mittagessen',
     emoji: '🍝',
   },
   {
@@ -83,9 +94,11 @@ const rezepte = [
     desc: 'Knuspriger Boden – der Freitagsabend-Klassiker.',
     time: '45 Min.',
     kat: 'hefeteig',
-    katLabel: 'Brot & Hefeteig',
     emoji: '🍕',
   },
+  // Grundrezepte – Platzhalter mit "bald"
+  // Kindergeburtstag – Platzhalter
+  // Saisonal – Platzhalter
 ];
 
 export default function RezeptePage() {
@@ -106,23 +119,31 @@ export default function RezeptePage() {
       {/* Kategorien-Navigation */}
       <section className="section-sm" style={{ background: 'var(--cream-dark)', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
-          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
             {kategorien.map(({ id, label }) => (
               <a
                 key={id}
                 href={`#${id}`}
                 className="tag"
-                style={{
-                  padding: '0.4rem 1rem',
-                  fontSize: '0.875rem',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  transition: 'background 0.15s',
-                }}
+                style={{ padding: '0.4rem 1rem', fontSize: '0.82rem', cursor: 'pointer', textDecoration: 'none' }}
               >
                 {label}
               </a>
             ))}
+            <Link
+              href="/rezepte/alle"
+              style={{
+                padding: '0.4rem 1rem',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                color: 'var(--green-mid)',
+                textDecoration: 'none',
+                borderRadius: '999px',
+                border: '1.5px solid var(--green-mid)',
+              }}
+            >
+              A–Z Übersicht →
+            </Link>
           </div>
         </div>
       </section>
@@ -152,7 +173,7 @@ export default function RezeptePage() {
                       }}>
                         {emoji}
                       </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                      <div style={{ marginBottom: '0.4rem' }}>
                         <span style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>⏱ {time}</span>
                       </div>
                       <h3 style={{ fontSize: '0.95rem', marginBottom: '0.35rem' }}>{title}</h3>
@@ -160,7 +181,7 @@ export default function RezeptePage() {
                     </Link>
                   ))}
 
-                  {/* Platzhalter-Karte */}
+                  {/* Platzhalter */}
                   <div className="card" style={{
                     border: '2px dashed var(--border)',
                     background: 'transparent',
