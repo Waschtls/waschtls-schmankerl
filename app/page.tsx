@@ -119,40 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="section-sm" style={{
-        background: 'var(--green-deep)',
-        color: 'var(--white)',
-      }}>
-        <div className="container" style={{ maxWidth: '600px', textAlign: 'center' }}>
-          <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>📬</div>
-          <h2 style={{ color: 'var(--golden)', marginBottom: '0.75rem' }}>Bleib auf dem Laufenden</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', marginBottom: '1.5rem' }}>
-            Neue Rezepte und Tipps aus Augsburg – einmal im Monat, kein Spam.
-          </p>
-          <form style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <input
-              type="email"
-              placeholder="deine@email.de"
-              aria-label="E-Mail Adresse"
-              style={{
-                padding: '0.75rem 1rem',
-                borderRadius: '8px',
-                border: '1.5px solid var(--golden)',
-                background: 'rgba(255,255,255,0.08)',
-                color: 'var(--white)',
-                fontSize: '0.95rem',
-                minWidth: '220px',
-                outline: 'none',
-              }}
-            />
-            <button type="submit" className="btn btn-golden">Anmelden</button>
-          </form>
-          <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginTop: '0.75rem' }}>
-            Kein Spam. Abmeldung jederzeit.
-          </p>
-        </div>
-      </section>
+      {/* Newsletter – TODO: implementieren sobald Agent für automatisches Schreiben + Versand steht */}
     </>
   );
 }
