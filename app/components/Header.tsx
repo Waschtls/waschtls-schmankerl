@@ -28,16 +28,16 @@ export default function Header() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '80px',
+        height: '96px',
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <Image
             src="/logo.png"
             alt="Waschtls Schmankerl Logo"
-            width={80}
-            height={80}
-            style={{ objectFit: 'contain', width: 'auto', height: '64px' }}
+            width={120}
+            height={120}
+            style={{ objectFit: 'contain', width: '120px', height: 'auto' }}
           />
           <div>
             <span style={{
