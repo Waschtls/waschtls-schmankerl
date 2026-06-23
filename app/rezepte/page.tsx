@@ -4,53 +4,89 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Glutenfreie Rezepte für Kinder – Waschtls Schmankerl',
   description:
-    'Glutenfreie Rezepte die Kinder wirklich essen: Frühstück, Mittagessen, Snacks und Backen – einfach und alltagstauglich.',
+    'Glutenfreie Rezepte die Kinder wirklich essen: Frühstück, Backen, Snacks, Mittagessen und mehr – einfach, alltagstauglich, aus Augsburg.',
 };
+
+const kategorien = [
+  {
+    id: 'fruehstueck',
+    label: '🥞 Frühstück',
+    desc: 'Pfannkuchen, Waffeln, Porridge – der beste Start in den Tag',
+  },
+  {
+    id: 'backen',
+    label: '🎂 Backen & Kuchen',
+    desc: 'Kuchen, Muffins, Kekse – für Alltag und besondere Anlässe',
+  },
+  {
+    id: 'hefeteig',
+    label: '🍞 Brot & Hefeteig',
+    desc: 'Glutenfreies Brot, Brötchen und Pizzateig selbst gemacht',
+  },
+  {
+    id: 'mittagessen',
+    label: '🍝 Mittagessen',
+    desc: 'Schnelle Alltagsgerichte die die ganze Familie mag',
+  },
+  {
+    id: 'snacks',
+    label: '🍪 Snacks & Kleinigkeiten',
+    desc: 'Für die Brotdose, Ausflüge und Geburtstage',
+  },
+  {
+    id: 'herzhaft',
+    label: '🥘 Herzhaftes',
+    desc: 'Suppen, Aufläufe, Eintöpfe – warm und sättigend',
+  },
+];
 
 const rezepte = [
   {
     slug: 'pfannkuchen-reismehl',
     title: 'Pfannkuchen aus Reismehl',
-    desc: 'Fluffig, schnell und ein Frühstücks-Klassiker – kein Unterschied zu normalen Pfannkuchen.',
+    desc: 'Fluffig, schnell – kein Unterschied zum Original.',
     time: '20 Min.',
-    kat: 'Frühstück',
+    kat: 'fruehstueck',
+    katLabel: 'Frühstück',
     emoji: '🥞',
   },
   {
     slug: 'schokoladenkuchen-mandelmehl',
     title: 'Schokoladenkuchen mit Mandelmehl',
-    desc: 'Der saftigste Schokokuchen den wir kennen – und zufällig glutenfrei. Gelingt garantiert.',
+    desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
     time: '50 Min.',
-    kat: 'Backen',
+    kat: 'backen',
+    katLabel: 'Backen',
     emoji: '🍫',
   },
   {
     slug: 'bananenmuffins',
     title: 'Bananenmuffins (ohne Mehl)',
-    desc: 'Nur Bananen, Eier und Haferflocken (GF) – perfekte Schulmause ohne Zuckerschock.',
+    desc: 'Nur 4 Zutaten, kein Zucker – perfekte Schulmause.',
     time: '30 Min.',
-    kat: 'Snacks',
+    kat: 'snacks',
+    katLabel: 'Snacks',
     emoji: '🧁',
   },
   {
     slug: 'nudeln-mit-tomatensauce',
     title: 'Nudeln mit Tomatensauce',
-    desc: 'Der glutenfreie Alltags-Klassiker. Mit Reisnudeln oder Linsennudeln – Kinder merken keinen Unterschied.',
+    desc: 'Der Alltagsklassiker – mit Reisnudeln genauso lecker.',
     time: '25 Min.',
-    kat: 'Mittagessen',
+    kat: 'mittagessen',
+    katLabel: 'Mittagessen',
     emoji: '🍝',
   },
   {
     slug: 'pizza-glutenfrei',
     title: 'Glutenfreie Pizza',
-    desc: 'Knuspriger Boden aus Reismehl und Tapioka – für den wöchentlichen Pizza-Freitagabend.',
+    desc: 'Knuspriger Boden – der Freitagsabend-Klassiker.',
     time: '45 Min.',
-    kat: 'Mittagessen',
+    kat: 'hefeteig',
+    katLabel: 'Brot & Hefeteig',
     emoji: '🍕',
   },
 ];
-
-const kategorien = ['Alle', 'Frühstück', 'Mittagessen', 'Snacks', 'Backen'];
 
 export default function RezeptePage() {
   return (
@@ -62,55 +98,102 @@ export default function RezeptePage() {
           </div>
           <h1 style={{ color: 'var(--golden)', marginBottom: '0.5rem' }}>Glutenfreie Rezepte</h1>
           <p style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '560px' }}>
-            Gerichte die bei uns zuhause wirklich auf den Tisch kommen – und bei Kindern ankommen.
+            Was bei uns zuhause wirklich auf den Tisch kommt – und bei Kindern ankommt.
           </p>
         </div>
       </section>
 
-      {/* Kategorien */}
-      <section className="section-sm" style={{ borderBottom: '1px solid var(--border)' }}>
+      {/* Kategorien-Navigation */}
+      <section className="section-sm" style={{ background: 'var(--cream-dark)', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            {kategorien.map((kat, i) => (
-              <span
-                key={kat}
-                className={i === 0 ? 'tag tag-golden' : 'tag'}
-                style={{ cursor: 'pointer', padding: '0.35rem 1rem', fontSize: '0.875rem' }}
+          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+            {kategorien.map(({ id, label }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="tag"
+                style={{
+                  padding: '0.4rem 1rem',
+                  fontSize: '0.875rem',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  transition: 'background 0.15s',
+                }}
               >
-                {kat}
-              </span>
+                {label}
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Rezepte Grid */}
-      <section className="section">
-        <div className="container">
-          <div className="grid-3">
-            {rezepte.map(({ slug, title, desc, time, kat, emoji }) => (
-              <Link key={slug} href={`/rezepte/${slug}`} className="card card-link">
+      {/* Kategorien mit Rezepten */}
+      {kategorien.map(({ id, label, desc }) => {
+        const kat_rezepte = rezepte.filter(r => r.kat === id);
+        return (
+          <section key={id} id={id} className="section" style={{ borderBottom: '1px solid var(--border)' }}>
+            <div className="container">
+              <div style={{ marginBottom: '1.5rem' }}>
+                <h2 style={{ marginBottom: '0.25rem' }}>{label}</h2>
+                <p style={{ margin: 0, color: 'var(--text-light)', fontSize: '0.9rem' }}>{desc}</p>
+              </div>
+
+              {kat_rezepte.length > 0 ? (
+                <div className="grid-3">
+                  {kat_rezepte.map(({ slug, title, desc: rDesc, time, emoji }) => (
+                    <Link key={slug} href={`/rezepte/${slug}`} className="card card-link">
+                      <div style={{
+                        fontSize: '2.5rem',
+                        textAlign: 'center',
+                        background: 'var(--cream-dark)',
+                        borderRadius: '8px',
+                        padding: '1rem',
+                        marginBottom: '0.875rem',
+                      }}>
+                        {emoji}
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                        <span style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>⏱ {time}</span>
+                      </div>
+                      <h3 style={{ fontSize: '0.95rem', marginBottom: '0.35rem' }}>{title}</h3>
+                      <p style={{ margin: 0, fontSize: '0.85rem' }}>{rDesc}</p>
+                    </Link>
+                  ))}
+
+                  {/* Platzhalter-Karte */}
+                  <div className="card" style={{
+                    border: '2px dashed var(--border)',
+                    background: 'transparent',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
+                    minHeight: '180px',
+                    color: 'var(--text-light)',
+                    boxShadow: 'none',
+                  }}>
+                    <span style={{ fontSize: '1.5rem' }}>✏️</span>
+                    <span style={{ fontSize: '0.85rem' }}>Rezept kommt bald</span>
+                  </div>
+                </div>
+              ) : (
                 <div style={{
-                  fontSize: '3rem',
-                  textAlign: 'center',
-                  marginBottom: '1rem',
                   background: 'var(--cream-dark)',
-                  borderRadius: '8px',
-                  padding: '1.25rem',
+                  border: '2px dashed var(--border)',
+                  borderRadius: '12px',
+                  padding: '2rem',
+                  textAlign: 'center',
+                  color: 'var(--text-light)',
                 }}>
-                  {emoji}
+                  <span style={{ fontSize: '2rem', display: 'block', marginBottom: '0.5rem' }}>✏️</span>
+                  Rezepte für diese Kategorie kommen bald
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                  <span className="tag">{kat}</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>⏱ {time}</span>
-                </div>
-                <h3 style={{ fontSize: '1rem', marginBottom: '0.4rem' }}>{title}</h3>
-                <p style={{ margin: 0, fontSize: '0.875rem' }}>{desc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+              )}
+            </div>
+          </section>
+        );
+      })}
     </>
   );
 }
