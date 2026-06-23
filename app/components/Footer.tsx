@@ -40,6 +40,7 @@ export default function Footer() {
                 ['Mittagessen', '/rezepte#mittagessen'],
                 ['Snacks & Backen', '/rezepte#snacks'],
                 ['Alle Rezepte A–Z', '/rezepte/alle'],
+                ['Wochenplan erstellen', '/wochenplan'],
                 ['Alle Rezepte', '/rezepte'],
               ].map(([label, href]) => (
                 <Link key={href} href={href} style={{ fontSize: '0.85rem', color: 'var(--mint)', opacity: 0.85 }}>
