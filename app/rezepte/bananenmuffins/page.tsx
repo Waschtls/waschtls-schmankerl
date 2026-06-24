@@ -78,13 +78,13 @@ export default function Bananenmuffins() {
               Zertifiziert glutenfreie Haferflocken – wichtig, da normale Haferflocken oft durch Kreuzverunreinigung belastet sind.
             </p>
             <a
-              href="https://www.amazon.de/s?k=glutenfreie+haferflocken+zertifiziert&tag=waschtl-21"
-              target="_blank"
-              rel="noopener noreferrer sponsored"
+              href="/produkte"
+              
+              
               className="btn btn-golden"
               style={{ fontSize: '0.875rem' }}
             >
-              Auf Amazon ansehen →
+              Unsere Empfehlungen →
             </a>
             <p style={{ fontSize: '0.72rem', color: 'var(--text-light)', marginTop: '0.75rem', marginBottom: 0 }}>
               Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.

@@ -34,7 +34,8 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Laktoseintoleranz bei Zöliakie',desc: 'Warum viele Kinder beides haben',               href: '/wissen/laktoseintoleranz-kinder',      type: 'Wissen', tags: 'laktose milch intoleranz darm kinder' },
   { title: 'Welche Lebensmittel sind glutenfrei?', desc: 'Die große Übersicht: erlaubt & verboten', href: '/wissen/glutenfreie-lebensmittel',      type: 'Wissen', tags: 'lebensmittel liste erlaubt verboten einkauf' },
   { title: 'Alle Rezepte A–Z',             desc: 'Alphabetischer Rezept-Index',                    href: '/rezepte/alle',                         type: 'Seite', tags: 'alle rezepte übersicht index' },
-  { title: 'Wochenplan erstellen',          desc: 'Personalisierter Wochenplan aus unseren Rezepten',href: '/wochenplan',                          type: 'Seite', tags: 'wochenplan planer woche mahlzeiten' },
+  { title: 'Speiseplan erstellen',           desc: 'Persönlicher Speiseplan aus unseren Rezepten',    href: '/wochenplan',                          type: 'Seite', tags: 'speiseplan wochenplan planer woche mahlzeiten' },
+  { title: 'Aktuelles',                     desc: 'News & Forschung zu Zöliakie und Glutenunverträglichkeit', href: '/aktuelles',                   type: 'Seite', tags: 'aktuelles news forschung zöliakie gluten' },
   { title: 'FAQ – Häufige Fragen',          desc: 'Antworten auf die häufigsten Elternfragen',      href: '/faq',                                  type: 'Seite', tags: 'faq fragen antworten häufig' },
   { title: 'Produkte & Empfehlungen',       desc: 'Produkte die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
   { title: 'Nach Zutaten suchen',           desc: 'Welche Rezepte kann ich mit meinen Zutaten kochen?', href: '/rezepte/nach-zutaten',             type: 'Seite', tags: 'zutaten kühlschrank zutatenliste rezept finden' },
@@ -59,10 +60,11 @@ const typeStyle: Record<string, { bg: string; color: string }> = {
 };
 
 const nav = [
-  { label: 'Rezepte',   href: '/rezepte' },
-  { label: 'Wissen',    href: '/wissen' },
-  { label: 'Produkte',  href: '/produkte' },
-  { label: 'Über uns',  href: '/ueber-uns' },
+  { label: 'Rezepte',    href: '/rezepte' },
+  { label: 'Wissen',     href: '/wissen' },
+  { label: 'Aktuelles',  href: '/aktuelles' },
+  { label: 'Produkte',   href: '/produkte' },
+  { label: 'Über uns',   href: '/ueber-uns' },
 ];
 
 // ── Such-Modal ─────────────────────────────────────────────────────────────────
@@ -206,7 +208,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                 <div style={{ padding: '1rem 1.25rem 1.25rem' }}>
                   <p style={{ fontSize: '0.72rem', color: 'var(--text-light)', margin: '0 0 0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Schnellzugriff</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                    {['Pfannkuchen', 'Pizza', 'Wochenplan', 'Mehl', 'Brotdose', 'Schule'].map(q => (
+                    {['Pfannkuchen', 'Pizza', 'Speiseplan', 'Mehl', 'Brotdose', 'Schule'].map(q => (
                       <button key={q} onClick={() => setQuery(q)} style={{ padding: '0.35rem 0.8rem', borderRadius: '999px', border: '1.5px solid var(--border)', background: 'var(--cream-dark)', fontSize: '0.8rem', cursor: 'pointer', color: 'var(--text-mid)' }}>
                         {q}
                       </button>
@@ -293,7 +295,7 @@ export default function Header() {
 
           {/* Desktop Nav + Suche */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <nav style={{ display: 'flex', gap: '0.25rem' }} aria-label="Hauptnavigation">
+            <nav className="desktop-nav" style={{ display: 'flex', gap: '0.25rem' }} aria-label="Hauptnavigation">
               {nav.map(({ label, href }) => {
                 const active = pathname === href || pathname.startsWith(href + '/');
                 return (
@@ -360,7 +362,7 @@ export default function Header() {
 
         <style>{`
           @media (max-width: 640px) {
-            nav { display: none !important; }
+            .desktop-nav { display: none !important; }
             .desktop-search-btn { display: none !important; }
             .mobile-actions { display: flex !important; }
             .search-label, .search-shortcut { display: none; }

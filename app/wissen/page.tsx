@@ -125,6 +125,20 @@ export default function WissenPage() {
           <p style={{ color: 'rgba(255,255,255,0.82)', maxWidth: '580px', fontSize: '1.05rem' }}>
             Was Eltern nach der Diagnose wirklich wissen müssen – von den Grundlagen bis zum Alltag.
           </p>
+          <div style={{
+            marginTop: '1.25rem', padding: '0.875rem 1.25rem',
+            background: 'rgba(255,255,255,0.06)',
+            border: '1px solid rgba(255,255,255,0.12)',
+            borderRadius: '8px',
+            fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75,
+            maxWidth: '600px',
+          }}>
+            <strong style={{ color: 'rgba(255,255,255,0.7)' }}>Hinweis:</strong>{' '}
+            Alle Inhalte sind sorgfältig recherchiert, aber kein Ersatz für ärztliche Beratung.
+            Die Forschung zu Zöliakie und verwandten Erkrankungen entwickelt sich ständig weiter –
+            neue Erkenntnisse können bestehende Empfehlungen verändern. Bei Fragen zu Diagnose,
+            Therapie oder Ernährung bitte immer einen Arzt oder eine Ernährungsberatung hinzuziehen.
+          </div>
         </div>
       </section>
 

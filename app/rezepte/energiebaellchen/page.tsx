@@ -52,10 +52,9 @@ export default function EnergiebaellchenPage() {
         'Weniger Süße: Honig auf 2 EL reduzieren und eine zerdrückte reife Banane zugeben',
       ]}
       affiliate={{
-        text: 'Zertifiziert glutenfreie Haferflocken und gutes Mandelmus – wir bestellen beides online.',
-        href: 'https://www.amazon.de/s?k=glutenfreie+Haferflocken+Mandelmus&tag=waschtl-21',
-        label: 'Bei Amazon ansehen →',
+        text: 'Nur zertifiziert glutenfreie Haferflocken verwenden – Kreuzverunreinigung ist ein echtes Risiko.',
       }}
+      warenkundeLink={{ label: 'Kreuzkontamination: Wie Spuren entstehen und wie man sie vermeidet', href: '/wissen/kreuzkontamination' }}
       prev={{ title: 'Kokos-Milchreis', href: '/rezepte/milchreis-kokos' }}
     />
   );

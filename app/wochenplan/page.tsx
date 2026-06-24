@@ -241,7 +241,7 @@ export default function WochenplanPage() {
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
             <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> › Wochenplan
           </div>
-          <h1 style={{ color: 'var(--golden)', marginBottom: '0.5rem' }}>Glutenfreier Wochenplan</h1>
+          <h1 style={{ color: 'var(--golden)', marginBottom: '0.5rem' }}>Speiseplan erstellen</h1>
           <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '500px' }}>
             Filter einstellen – wir stellen deinen Plan aus Rezepten zusammen die wirklich zu euch passen.
           </p>

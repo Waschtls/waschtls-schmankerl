@@ -39,7 +39,7 @@ export default function Home() {
               Alle Rezepte →
             </Link>
             <Link href="/wochenplan" className="btn btn-outline" style={{ fontSize: '0.95rem', borderColor: 'var(--mint)', color: 'var(--mint)' }}>
-              Wochenplan erstellen →
+              Speiseplan erstellen →
             </Link>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function Home() {
                 NEU
               </div>
               <div style={{ fontSize: '2rem', marginBottom: '0.875rem' }}>📅</div>
-              <h3 style={{ marginBottom: '0.5rem' }}>Wochenplan-Maker</h3>
+              <h3 style={{ marginBottom: '0.5rem' }}>Speiseplan</h3>
               <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-mid)' }}>
                 Präferenzen einstellen – wir stellen deinen persönlichen Plan zusammen.
               </p>
@@ -109,7 +109,7 @@ export default function Home() {
                 fontSize: '0.72rem', fontWeight: 700, padding: '0.25rem 0.75rem',
                 borderRadius: '999px', letterSpacing: '0.05em',
               }}>
-                WOCHENPLAN-MAKER
+                SPEISEPLANER
               </span>
               <h2 style={{ color: 'var(--golden)', marginBottom: '0.875rem', fontSize: '1.5rem' }}>
                 Was koche ich diese Woche?
@@ -170,6 +170,17 @@ export default function Home() {
           <Link href="/ueber-uns" style={{ fontSize: '0.875rem', color: 'var(--green-mid)', fontWeight: 600 }}>
             Über uns →
           </Link>
+        </div>
+      </section>
+
+      {/* ── Affiliate-Hinweis ── */}
+      <section style={{ background: 'var(--cream)' }}>
+        <div className="container" style={{ maxWidth: '680px', padding: '1.25rem 1rem', borderTop: '1px solid var(--border)' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', textAlign: 'center', lineHeight: 1.75, margin: 0 }}>
+            Einige Links auf dieser Website sind Affiliate-Links (z.B. zu Amazon). Wenn du darüber einkaufst, verdienen wir eine kleine Provision –
+            für dich entstehen keine Mehrkosten. Das hilft uns, die Website zu finanzieren. Wir empfehlen ausschließlich Produkte, die wir selbst nutzen.{' '}
+            <a href="/produkte" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Zu unseren Empfehlungen →</a>
+          </p>
         </div>
       </section>
 

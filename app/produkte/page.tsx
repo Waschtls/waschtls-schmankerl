@@ -120,6 +120,20 @@ export default function ProdukteSeite() {
 
       <section className="section">
         <div className="container">
+
+          {/* Hinweisbox */}
+          <div style={{
+            marginBottom: '2.5rem', padding: '1rem 1.5rem',
+            background: 'rgba(149,213,178,0.1)',
+            border: '1.5px solid rgba(149,213,178,0.35)', borderRadius: '12px',
+            fontSize: '0.875rem', color: 'var(--text-dark)', lineHeight: 1.75,
+          }}>
+            <strong>Hinweis:</strong> Alle Empfehlungen basieren auf unserer eigenen Erfahrung als glutenfreie Familie.
+            Gleichartige Produkte anderer Hersteller sind natürlich genauso geeignet – schau einfach was in deinem Supermarkt,
+            Bioladen oder Reformhaus verfügbar ist. Die mit „Anzeige" markierten Links sind Affiliate-Links zu Amazon:
+            wir verdienen eine kleine Provision wenn du darüber kaufst, für dich entstehen <strong>keine Mehrkosten</strong>.
+          </div>
+
           {kategorien.map(({ title, emoji, produkte }) => (
             <div key={title} style={{ marginBottom: '3rem' }}>
               <h2 style={{ marginBottom: '1.25rem' }}>{emoji} {title}</h2>

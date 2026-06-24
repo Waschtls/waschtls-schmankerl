@@ -58,10 +58,9 @@ export default function KuerbisrisottoPage() {
         'Vegane Variante: Hefeflocken statt Parmesan verwenden',
       ]}
       affiliate={{
-        text: 'Glutenfreie Gemüsebrühe und Risottoreis – zuverlässige Produkte die wir selbst verwenden.',
-        href: 'https://www.amazon.de/s?k=glutenfreie+Gem%C3%BCsebr%C3%BChe+Risottoreis&tag=waschtl-21',
-        label: 'Produkte bei Amazon ansehen →',
+        text: 'Auf glutenfreie Gemüsebrühe achten – viele konventionelle Brühen enthalten versteckte Glutenspuren.',
       }}
+      warenkundeLink={{ label: 'Glutenfreie Lebensmittel: Die große Übersicht', href: '/wissen/glutenfreie-lebensmittel' }}
       prev={{ title: 'Apfel-Zimt-Porridge', href: '/rezepte/apfel-zimt-porridge' }}
       next={{ title: 'Kokos-Milchreis', href: '/rezepte/milchreis-kokos' }}
     />

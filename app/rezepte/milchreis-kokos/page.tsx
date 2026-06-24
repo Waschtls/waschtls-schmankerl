@@ -51,6 +51,9 @@ export default function MilchreisKokosPage() {
         'Laktoseintolerant? Komplett mit Kokosmilch (700 ml) machen – noch cremiger',
         'Reste im Kühlschrank bis zu 3 Tage haltbar – beim Aufwärmen etwas Milch zugeben',
       ]}
+      affiliate={{
+        text: 'Kokosmilch aus der Dose (mind. 17% Fett) macht diesen Milchreis besonders cremig – auf glutenfreie Zertifizierung achten.',
+      }}
       prev={{ title: 'Kürbisrisotto', href: '/rezepte/kuerbisrisotto' }}
       next={{ title: 'Energiebällchen', href: '/rezepte/energiebaellchen' }}
     />

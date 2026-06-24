@@ -86,13 +86,13 @@ export default function Schokoladenkuchen() {
               Blanchiertes Mandelmehl macht den Unterschied – fein gemahlen, ohne Schale, glutenfrei zertifiziert.
             </p>
             <a
-              href="https://www.amazon.de/s?k=mandelmehl+blanchiert+glutenfrei&tag=waschtl-21"
-              target="_blank"
-              rel="noopener noreferrer sponsored"
+              href="/produkte"
+              
+              
               className="btn btn-golden"
               style={{ fontSize: '0.875rem' }}
             >
-              Auf Amazon ansehen →
+              Unsere Empfehlungen →
             </a>
             <p style={{ fontSize: '0.72rem', color: 'var(--text-light)', marginTop: '0.75rem', marginBottom: 0 }}>
               Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.

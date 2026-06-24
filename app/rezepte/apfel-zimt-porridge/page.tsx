@@ -51,10 +51,9 @@ export default function ApfelZimtPorridgePage() {
         'Wer es nussig mag: ein EL Mandelmus einrühren macht es noch cremiger',
       ]}
       affiliate={{
-        text: 'Zertifiziert glutenfreie Haferflocken – wir bestellen sie regelmäßig online, da die Auswahl im Supermarkt oft begrenzt ist.',
-        href: 'https://www.amazon.de/s?k=glutenfreie+Haferflocken&tag=waschtl-21',
-        label: 'Glutenfreie Haferflocken bei Amazon →',
+        text: 'Für Zöliakiepatienten gilt: nur zertifiziert glutenfreie Haferflocken verwenden – normaler Hafer ist in der Regel kontaminiert.',
       }}
+      warenkundeLink={{ label: 'Welches Getreide & Mehl wofür?', href: '/wissen/welches-mehl-wofuer' }}
       next={{ title: 'Kürbisrisotto', href: '/rezepte/kuerbisrisotto' }}
     />
   );
