@@ -5,94 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
-// ── Zutaten-Index ─────────────────────────────────────────────────────────────
-
-type RecipeWithIngredients = {
-  title: string;
-  slug: string;
-  kat: string;
-  zutaten: string[]; // Schlüsselzutaten (lowercase)
-};
-
-const RECIPES_WITH_INGREDIENTS: RecipeWithIngredients[] = [
-  {
-    title: 'Apfel-Zimt-Porridge',
-    slug: '/rezepte/apfel-zimt-porridge',
-    kat: 'Frühstück',
-    zutaten: ['haferflocken', 'apfel', 'zimt', 'milch', 'honig'],
-  },
-  {
-    title: 'Pfannkuchen aus Reismehl',
-    slug: '/rezepte/pfannkuchen-reismehl',
-    kat: 'Frühstück',
-    zutaten: ['reismehl', 'eier', 'milch', 'butter'],
-  },
-  {
-    title: 'Nudeln mit Tomatensauce',
-    slug: '/rezepte/nudeln-mit-tomatensauce',
-    kat: 'Mittagessen',
-    zutaten: ['nudeln', 'tomaten', 'knoblauch', 'zwiebel', 'olivenöl'],
-  },
-  {
-    title: 'Kürbisrisotto',
-    slug: '/rezepte/kuerbisrisotto',
-    kat: 'Mittagessen',
-    zutaten: ['kürbis', 'reis', 'gemüsebrühe', 'zwiebel', 'parmesan', 'knoblauch'],
-  },
-  {
-    title: 'Pizza glutenfrei',
-    slug: '/rezepte/pizza-glutenfrei',
-    kat: 'Brot & Hefeteig',
-    zutaten: ['reismehl', 'hefe', 'tomaten', 'käse', 'olivenöl'],
-  },
-  {
-    title: 'Bananenmuffins',
-    slug: '/rezepte/bananenmuffins',
-    kat: 'Snacks',
-    zutaten: ['banane', 'eier', 'mandelmehl', 'backpulver', 'honig'],
-  },
-  {
-    title: 'Energiebällchen',
-    slug: '/rezepte/energiebaellchen',
-    kat: 'Snacks',
-    zutaten: ['haferflocken', 'erdnussbutter', 'honig', 'kakao', 'schokolade'],
-  },
-  {
-    title: 'Kokos-Milchreis',
-    slug: '/rezepte/milchreis-kokos',
-    kat: 'Dessert',
-    zutaten: ['milchreis', 'kokosmilch', 'milch', 'zucker', 'vanille'],
-  },
-  {
-    title: 'Schokoladenkuchen',
-    slug: '/rezepte/schokoladenkuchen-mandelmehl',
-    kat: 'Backen',
-    zutaten: ['mandelmehl', 'schokolade', 'eier', 'butter', 'zucker', 'kakao'],
-  },
-];
-
-// Alle eindeutigen Zutaten für die Chip-Auswahl
-const ALL_INGREDIENTS = [
-  'Apfel', 'Banane', 'Backpulver', 'Butter', 'Eier', 'Erdnussbutter',
-  'Gemüsebrühe', 'Haferflocken', 'Honig', 'Kakao', 'Käse', 'Knoblauch',
-  'Kokosmilch', 'Kürbis', 'Mandelmehl', 'Milch', 'Milchreis', 'Nudeln',
-  'Olivenöl', 'Parmesan', 'Reis', 'Reismehl', 'Schokolade', 'Tomaten',
-  'Vanille', 'Zimt', 'Zucker', 'Zwiebel',
-];
-
-function searchByIngredients(selected: string[]): RecipeWithIngredients[] {
-  if (selected.length === 0) return [];
-  const lc = selected.map(s => s.toLowerCase());
-  return RECIPES_WITH_INGREDIENTS
-    .map(r => ({
-      ...r,
-      matches: lc.filter(z => r.zutaten.includes(z)).length,
-    }))
-    .filter(r => r.matches > 0)
-    .sort((a, b) => b.matches - a.matches)
-    .slice(0, 6);
-}
-
 // ── Such-Index ─────────────────────────────────────────────────────────────────
 
 type SearchItem = {
@@ -125,6 +37,7 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Wochenplan erstellen',          desc: 'Personalisierter Wochenplan aus unseren Rezepten',href: '/wochenplan',                          type: 'Seite', tags: 'wochenplan planer woche mahlzeiten' },
   { title: 'FAQ – Häufige Fragen',          desc: 'Antworten auf die häufigsten Elternfragen',      href: '/faq',                                  type: 'Seite', tags: 'faq fragen antworten häufig' },
   { title: 'Produkte & Empfehlungen',       desc: 'Produkte die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
+  { title: 'Nach Zutaten suchen',           desc: 'Welche Rezepte kann ich mit meinen Zutaten kochen?', href: '/rezepte/nach-zutaten',             type: 'Seite', tags: 'zutaten kühlschrank zutatenliste rezept finden' },
 ];
 
 function searchText(query: string): SearchItem[] {
@@ -164,11 +77,6 @@ function SearchModal({ onClose }: { onClose: () => void }) {
   const [results, setResults] = useState<SearchItem[]>([]);
   const [active, setActive]   = useState(0);
 
-  // Tab: Zutaten
-  const [selected, setSelected]         = useState<string[]>([]);
-  const [ingredientQuery, setIQ]        = useState('');
-  const [ingredientResults, setIR]      = useState<RecipeWithIngredients[]>([]);
-
   const inputRef = useRef<HTMLInputElement>(null);
   const router   = useRouter();
 
@@ -178,10 +86,6 @@ function SearchModal({ onClose }: { onClose: () => void }) {
     setResults(searchText(query));
     setActive(0);
   }, [query]);
-
-  useEffect(() => {
-    setIR(searchByIngredients(selected));
-  }, [selected]);
 
   const navigate = useCallback((href: string) => {
     router.push(href);
@@ -200,14 +104,6 @@ function SearchModal({ onClose }: { onClose: () => void }) {
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [results, active, navigate, onClose, tab]);
-
-  const toggleIngredient = (ing: string) => {
-    setSelected(s => s.includes(ing) ? s.filter(x => x !== ing) : [...s, ing]);
-  };
-
-  const visibleIngredients = ingredientQuery
-    ? ALL_INGREDIENTS.filter(i => i.toLowerCase().includes(ingredientQuery.toLowerCase()))
-    : ALL_INGREDIENTS;
 
   const tabStyle = (t: Tab): React.CSSProperties => ({
     flex: 1, padding: '0.6rem 1rem',
@@ -323,106 +219,23 @@ function SearchModal({ onClose }: { onClose: () => void }) {
 
           {/* ── Tab: Zutaten ── */}
           {tab === 'zutaten' && (
-            <div>
-              {/* Zutaten-Suchfeld */}
-              <div style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 1.25rem', gap: '0.75rem', borderBottom: '1px solid var(--border)' }}>
-                <span style={{ fontSize: '1rem', color: 'var(--text-light)' }}>🔎</span>
-                <input
-                  value={ingredientQuery}
-                  onChange={e => setIQ(e.target.value)}
-                  placeholder="Zutat suchen oder unten auswählen…"
-                  style={{ flex: 1, border: 'none', outline: 'none', fontSize: '0.9rem', background: 'transparent', color: 'var(--text-dark)' }}
-                />
+            <div style={{ padding: '1.5rem 1.25rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2.5rem' }}>🧺</div>
+              <div>
+                <p style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-dark)', margin: '0 0 0.4rem' }}>
+                  Was habe ich zu Hause?
+                </p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-mid)', margin: 0, lineHeight: 1.6 }}>
+                  Wähle auf der nächsten Seite die Zutaten aus die du da hast – wir zeigen welche Rezepte du damit kochen kannst.
+                </p>
               </div>
-
-              {/* Ausgewählte Zutaten */}
-              {selected.length > 0 && (
-                <div style={{ padding: '0.625rem 1.25rem', background: 'rgba(149,213,178,0.1)', borderBottom: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', gap: '0.35rem', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-light)', fontWeight: 600, marginRight: '0.25rem' }}>Ausgewählt:</span>
-                  {selected.map(s => (
-                    <button key={s} onClick={() => toggleIngredient(s)} style={{
-                      padding: '0.2rem 0.6rem', borderRadius: '999px',
-                      border: 'none', background: 'var(--green-deep)', color: 'var(--golden)',
-                      fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', gap: '0.3rem',
-                    }}>
-                      {s} ✕
-                    </button>
-                  ))}
-                  <button onClick={() => setSelected([])} style={{ marginLeft: 'auto', fontSize: '0.72rem', color: 'var(--text-light)', background: 'none', border: 'none', cursor: 'pointer' }}>
-                    Alle löschen
-                  </button>
-                </div>
-              )}
-
-              {/* Zutaten-Chips */}
-              <div style={{ padding: '0.875rem 1.25rem', maxHeight: '160px', overflowY: 'auto', borderBottom: '1px solid var(--border)' }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
-                  {visibleIngredients.map(ing => {
-                    const isSelected = selected.includes(ing);
-                    return (
-                      <button
-                        key={ing}
-                        onClick={() => toggleIngredient(ing)}
-                        style={{
-                          padding: '0.3rem 0.75rem', borderRadius: '999px',
-                          border: `1.5px solid ${isSelected ? 'var(--green-deep)' : 'var(--border)'}`,
-                          background: isSelected ? 'var(--green-deep)' : 'var(--cream-dark)',
-                          color: isSelected ? 'var(--golden)' : 'var(--text-mid)',
-                          fontSize: '0.78rem', fontWeight: isSelected ? 700 : 400,
-                          cursor: 'pointer', transition: 'all 0.12s',
-                        }}
-                      >
-                        {ing}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Rezept-Ergebnisse */}
-              {selected.length === 0 && (
-                <div style={{ padding: '1.25rem', textAlign: 'center', color: 'var(--text-light)', fontSize: '0.875rem' }}>
-                  Wähle Zutaten aus die du zuhause hast – wir zeigen dir passende Rezepte.
-                </div>
-              )}
-
-              {selected.length > 0 && ingredientResults.length === 0 && (
-                <div style={{ padding: '1.25rem', textAlign: 'center', color: 'var(--text-light)', fontSize: '0.875rem' }}>
-                  Kein Rezept mit diesen Zutaten – bald kommen mehr! 😊
-                </div>
-              )}
-
-              {ingredientResults.length > 0 && (
-                <ul style={{ margin: 0, padding: '0.5rem 0', listStyle: 'none', maxHeight: '220px', overflowY: 'auto' }}>
-                  {(ingredientResults as (RecipeWithIngredients & { matches: number })[]).map(item => (
-                    <li key={item.slug}>
-                      <button
-                        onClick={() => navigate(item.slug)}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '0.875rem',
-                          width: '100%', padding: '0.7rem 1.25rem',
-                          background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left',
-                          transition: 'background 0.1s',
-                        }}
-                        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(27,67,50,0.06)')}
-                        onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
-                      >
-                        <span style={{ padding: '0.15rem 0.55rem', borderRadius: '999px', fontSize: '0.7rem', fontWeight: 700, background: 'var(--golden)', color: 'var(--green-deep)', whiteSpace: 'nowrap' }}>
-                          Rezept
-                        </span>
-                        <div style={{ flex: 1 }}>
-                          <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-dark)' }}>{item.title}</div>
-                          <div style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>{item.kat}</div>
-                        </div>
-                        <span style={{ fontSize: '0.72rem', color: 'var(--mint)', fontWeight: 700, flexShrink: 0 }}>
-                          {item.matches}/{selected.length} Zutaten
-                        </span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <button
+                onClick={() => navigate('/rezepte/nach-zutaten')}
+                className="btn btn-golden"
+                style={{ fontSize: '0.9rem' }}
+              >
+                Zur Zutaten-Suche →
+              </button>
             </div>
           )}
 
@@ -430,7 +243,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
           <div style={{ padding: '0.45rem 1.25rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '1rem', fontSize: '0.7rem', color: 'var(--text-light)' }}>
             {tab === 'suche'
               ? <><span>↑↓ navigieren</span><span>↵ öffnen</span><span>Esc schließen</span></>
-              : <><span>Mehrere Zutaten möglich</span><span>Esc schließen</span></>
+              : <><span>Esc schließen</span></>
             }
           </div>
         </div>
