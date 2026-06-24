@@ -1,162 +1,250 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Glutenfreie Rezepte für Kinder – Waschtls Schmankerl',
-  description:
-    'Glutenfreie Rezepte die Kinder wirklich essen: Frühstück, Mittagessen, Abendessen, Backen, Snacks und mehr – einfach, alltagstauglich, aus Augsburg.',
-};
+// ── Kategorien ────────────────────────────────────────────────────────────────
 
-const kategorien = [
-  {
-    id: 'fruehstueck',
-    label: '🥞 Frühstück',
-    desc: 'Pfannkuchen, Waffeln, Porridge – der beste Start in den Tag',
-  },
-  {
-    id: 'mittagessen',
-    label: '🍝 Mittagessen',
-    desc: 'Schnelle Alltagsgerichte die die ganze Familie mag',
-  },
-  {
-    id: 'abendessen',
-    label: '🥘 Abendessen',
-    desc: 'Was koche ich heute Abend? Schnell, warm, glutenfrei',
-  },
-  {
-    id: 'grundrezepte',
-    label: '📋 Grundrezepte & Teige',
-    desc: 'Pizzateig, Hefeteig, Mürbeteig – einmal lernen, viele Rezepte damit backen',
-  },
-  {
-    id: 'backen',
-    label: '🎂 Backen & Kuchen',
-    desc: 'Kuchen, Muffins, Kekse – für Alltag und besondere Anlässe',
-  },
-  {
-    id: 'hefeteig',
-    label: '🍞 Brot & Hefeteig',
-    desc: 'Glutenfreies Brot, Brötchen und Pizzaboden selbst gemacht',
-  },
-  {
-    id: 'snacks',
-    label: '🍪 Snacks & Brotdose',
-    desc: 'Für die Brotdose, Ausflüge und Geburtstage',
-  },
-  {
-    id: 'dessert',
-    label: '🍨 Desserts & Süßes',
-    desc: 'Eis, Milchreis, Mousse – süße Abschlüsse ohne Gluten',
-  },
-  {
-    id: 'kindergeburtstag',
-    label: '🎉 Kindergeburtstag',
-    desc: 'Kuchen und Snacks für den großen Tag – so gut dass alle mitessen wollen',
-  },
-  {
-    id: 'saisonal',
-    label: '🎄 Ostern & Weihnachten',
-    desc: 'Saisonale Backrezepte für die schönsten Feste im Jahr',
-  },
+const KATEGORIEN = [
+  { id: 'alle',           label: '✨ Alle' },
+  { id: 'fruehstueck',   label: '🥞 Frühstück' },
+  { id: 'mittagessen',   label: '🍝 Mittagessen' },
+  { id: 'abendessen',    label: '🥘 Abendessen' },
+  { id: 'snacks',        label: '🍪 Snacks & Brotdose' },
+  { id: 'backen',        label: '🎂 Backen & Kuchen' },
+  { id: 'hefeteig',      label: '🍞 Brot & Hefeteig' },
+  { id: 'dessert',       label: '🍨 Desserts' },
+  { id: 'kindergeburtstag', label: '🎉 Kindergeburtstag' },
+  { id: 'grundrezepte',  label: '📋 Grundrezepte' },
+  { id: 'saisonal',      label: '🎄 Saisonal' },
 ];
 
-// naturalGf = von Natur aus glutenfrei, kein Spezialmehl nötig
-const rezepte = [
+// ── Rezept-Daten ──────────────────────────────────────────────────────────────
+// tags[] = zusätzliche Kategorien (neben kat als Primärkategorie)
+// ⚠️ TODO-Kommentare = Rezepte die Sebastian noch schreiben soll
+
+type Rezept = {
+  slug: string;
+  title: string;
+  desc: string;
+  time: string;
+  kat: string;
+  tags: string[];
+  emoji: string;
+  naturalGf: boolean;
+  kleinkind: boolean;
+  todo?: boolean; // true = Platzhalter, noch kein echtes Rezept
+};
+
+const REZEPTE: Rezept[] = [
+  // ── Frühstück ──
   {
     slug: 'pfannkuchen-reismehl',
     title: 'Pfannkuchen aus Reismehl',
     desc: 'Fluffig, schnell – kein Unterschied zum Original.',
-    time: '20 Min.',
-    kat: 'fruehstueck',
-    emoji: '🥞',
-    naturalGf: false,
-    kleinkind: true,
+    time: '20 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
+    emoji: '🥞', naturalGf: false, kleinkind: true,
   },
   {
     slug: 'apfel-zimt-porridge',
     title: 'Apfel-Zimt-Porridge',
     desc: 'Cremig, warm, 10 Minuten – perfekt für den Schulmorgen.',
-    time: '10 Min.',
-    kat: 'fruehstueck',
-    emoji: '🍎',
-    naturalGf: true,
-    kleinkind: true,
+    time: '10 Min.', kat: 'fruehstueck', tags: [],
+    emoji: '🍎', naturalGf: true, kleinkind: true,
   },
+  // ⚠️ TODO: Rührei / Omelette glutenfrei
+  // ⚠️ TODO: Buchweizen-Waffeln
+  {
+    slug: 'fruehstueck-placeholder-1',
+    title: 'Buchweizenwaffeln',
+    desc: 'Knusprig, von Natur aus glutenfrei – kommt bald.',
+    time: '~25 Min.', kat: 'fruehstueck', tags: [],
+    emoji: '🧇', naturalGf: true, kleinkind: true, todo: true,
+  },
+
+  // ── Mittagessen ──
   {
     slug: 'nudeln-mit-tomatensauce',
     title: 'Nudeln mit Tomatensauce',
     desc: 'Der Alltagsklassiker – mit Reisnudeln genauso lecker.',
-    time: '25 Min.',
-    kat: 'mittagessen',
-    emoji: '🍝',
-    naturalGf: false,
-    kleinkind: true,
+    time: '25 Min.', kat: 'mittagessen', tags: ['abendessen'],
+    emoji: '🍝', naturalGf: false, kleinkind: true,
   },
   {
     slug: 'kuerbisrisotto',
     title: 'Kürbisrisotto',
     desc: 'Cremig, herbstlich, von Natur aus glutenfrei.',
-    time: '40 Min.',
-    kat: 'mittagessen',
-    emoji: '🎃',
-    naturalGf: true,
-    kleinkind: true,
+    time: '40 Min.', kat: 'mittagessen', tags: ['abendessen'],
+    emoji: '🎃', naturalGf: true, kleinkind: false,
   },
+  // ⚠️ TODO: Kartoffelsuppe
+  {
+    slug: 'mittagessen-placeholder-1',
+    title: 'Kartoffelsuppe bayerisch',
+    desc: 'Sämig, wärmend, ohne Gluten – kommt bald.',
+    time: '~45 Min.', kat: 'mittagessen', tags: ['abendessen'],
+    emoji: '🥣', naturalGf: true, kleinkind: true, todo: true,
+  },
+
+  // ── Abendessen ──
   {
     slug: 'pizza-glutenfrei',
     title: 'Glutenfreie Pizza',
     desc: 'Knuspriger Boden – der Freitagsabend-Klassiker.',
-    time: '45 Min.',
-    kat: 'hefeteig',
-    emoji: '🍕',
-    naturalGf: false,
-    kleinkind: true,
+    time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
+    emoji: '🍕', naturalGf: false, kleinkind: true,
   },
+  // ⚠️ TODO: Gefüllte Paprika
+  {
+    slug: 'abendessen-placeholder-1',
+    title: 'Gefüllte Paprika mit Reis',
+    desc: 'Von Natur aus glutenfrei, bunt und sättigend – kommt bald.',
+    time: '~50 Min.', kat: 'abendessen', tags: [],
+    emoji: '🫑', naturalGf: true, kleinkind: true, todo: true,
+  },
+  // ⚠️ TODO: Hähnchen mit Ofengemüse
+  {
+    slug: 'abendessen-placeholder-2',
+    title: 'Hähnchen mit Ofengemüse',
+    desc: 'Ein-Blech-Gericht, minimal Aufwand – kommt bald.',
+    time: '~55 Min.', kat: 'abendessen', tags: [],
+    emoji: '🍗', naturalGf: true, kleinkind: true, todo: true,
+  },
+
+  // ── Backen & Kuchen ──
   {
     slug: 'schokoladenkuchen-mandelmehl',
-    title: 'Schokoladenkuchen mit Mandelmehl',
+    title: 'Schokoladenkuchen (Mandelmehl)',
     desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
-    time: '50 Min.',
-    kat: 'backen',
-    emoji: '🍫',
-    naturalGf: false,
-    kleinkind: true,
+    time: '50 Min.', kat: 'backen', tags: ['kindergeburtstag'],
+    emoji: '🍫', naturalGf: false, kleinkind: true,
   },
+  // ⚠️ TODO: Käsekuchen ohne Boden
+  {
+    slug: 'backen-placeholder-1',
+    title: 'Käsekuchen ohne Boden',
+    desc: 'Cremig, von Natur aus glutenfrei – kommt bald.',
+    time: '~60 Min.', kat: 'backen', tags: ['kindergeburtstag'],
+    emoji: '🍰', naturalGf: true, kleinkind: true, todo: true,
+  },
+
+  // ── Brot & Hefeteig ──
+  // ⚠️ TODO: Glutenfreies Sauerteigbrot (bayerisch)
+  {
+    slug: 'hefeteig-placeholder-1',
+    title: 'Glutenfreies Sauerteigbrot',
+    desc: 'Bayerische Brotkultur ohne Gluten – kommt bald.',
+    time: '~2 Std.', kat: 'hefeteig', tags: [],
+    emoji: '🍞', naturalGf: false, kleinkind: false, todo: true,
+  },
+  // ⚠️ TODO: Brötchen / Semmel glutenfrei
+  {
+    slug: 'hefeteig-placeholder-2',
+    title: 'Glutenfreie Semmel',
+    desc: 'Knusprig wie vom Bäcker – kommt bald.',
+    time: '~50 Min.', kat: 'hefeteig', tags: [],
+    emoji: '🥖', naturalGf: false, kleinkind: true, todo: true,
+  },
+
+  // ── Snacks & Brotdose ──
   {
     slug: 'bananenmuffins',
     title: 'Bananenmuffins (ohne Mehl)',
     desc: 'Nur 4 Zutaten, kein Zucker – perfekte Schulmause.',
-    time: '30 Min.',
-    kat: 'snacks',
-    emoji: '🧁',
-    naturalGf: true,
-    kleinkind: true,
+    time: '30 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
+    emoji: '🧁', naturalGf: true, kleinkind: true,
   },
   {
     slug: 'energiebaellchen',
     title: 'Energiebällchen',
-    desc: 'Ohne Backen, ohne Zucker – der Powerschnack für die Brotdose.',
-    time: '15 Min.',
-    kat: 'snacks',
-    emoji: '🟤',
-    naturalGf: true,
-    kleinkind: true,
+    desc: 'Ohne Backen, ohne Zucker – der Powerschnack.',
+    time: '15 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
+    emoji: '🟤', naturalGf: true, kleinkind: true,
   },
+  // ⚠️ TODO: Reiskuchen / Reiswaffeln selbstgemacht
+  {
+    slug: 'snacks-placeholder-1',
+    title: 'Haferflocken-Kekse',
+    desc: 'Einfach, schnell, kein Zucker – kommt bald.',
+    time: '~20 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
+    emoji: '🍪', naturalGf: true, kleinkind: true, todo: true,
+  },
+
+  // ── Desserts ──
   {
     slug: 'milchreis-kokos',
     title: 'Kokos-Milchreis',
-    desc: 'Cremig, leicht süß – Kinder lieben ihn, und er macht sich fast von selbst.',
-    time: '35 Min.',
-    kat: 'dessert',
-    emoji: '🥥',
-    naturalGf: true,
-    kleinkind: true,
+    desc: 'Cremig, leicht süß – macht sich fast von selbst.',
+    time: '35 Min.', kat: 'dessert', tags: [],
+    emoji: '🥥', naturalGf: true, kleinkind: true,
+  },
+  // ⚠️ TODO: Erdbeereis (selber machen)
+  {
+    slug: 'dessert-placeholder-1',
+    title: 'Erdbeereis (2 Zutaten)',
+    desc: 'Nur Erdbeeren und Sahne – von Natur aus glutenfrei, kommt bald.',
+    time: '~10 Min.', kat: 'dessert', tags: [],
+    emoji: '🍓', naturalGf: true, kleinkind: true, todo: true,
+  },
+
+  // ── Grundrezepte ──
+  // ⚠️ TODO: Grundrezepte-Sektion
+  {
+    slug: 'grundrezepte-placeholder-1',
+    title: 'Glutenfreier Pizzateig (Grundrezept)',
+    desc: 'Einmal lernen – für Pizza, Focaccia, Flammkuchen – kommt bald.',
+    time: '~30 Min.', kat: 'grundrezepte', tags: [],
+    emoji: '🍕', naturalGf: false, kleinkind: false, todo: true,
+  },
+  {
+    slug: 'grundrezepte-placeholder-2',
+    title: 'Glutenfreier Mürbeteig',
+    desc: 'Für Tarte, Kekse, Quiche – kommt bald.',
+    time: '~20 Min.', kat: 'grundrezepte', tags: [],
+    emoji: '🥧', naturalGf: false, kleinkind: false, todo: true,
+  },
+
+  // ── Kindergeburtstag ──
+  // (Die Rezepte kommen via tags von oben – hier nur echte KiGa-spezifische)
+  // ⚠️ TODO: Regenbogen-Brownies glutenfrei
+  {
+    slug: 'kiga-placeholder-1',
+    title: 'Brownies (Mandelmehl)',
+    desc: 'Saftig, schokoladig – gelingen garantiert – kommt bald.',
+    time: '~35 Min.', kat: 'kindergeburtstag', tags: [],
+    emoji: '🍫', naturalGf: false, kleinkind: true, todo: true,
+  },
+
+  // ── Saisonal ──
+  // ⚠️ TODO: Lebkuchen, Zimtsterne, Osterkuchen
+  {
+    slug: 'saisonal-placeholder-1',
+    title: 'Glutenfreie Zimtsterne',
+    desc: 'Weihnachtsgebäck ohne Gluten – von Natur aus! – kommt bald.',
+    time: '~45 Min.', kat: 'saisonal', tags: [],
+    emoji: '⭐', naturalGf: true, kleinkind: true, todo: true,
+  },
+  {
+    slug: 'saisonal-placeholder-2',
+    title: 'Osterkuchen mit Mandeln',
+    desc: 'Saftiger Mandelkuchen für Ostern – kommt bald.',
+    time: '~50 Min.', kat: 'saisonal', tags: [],
+    emoji: '🐰', naturalGf: false, kleinkind: true, todo: true,
   },
 ];
 
+// ── Komponente ────────────────────────────────────────────────────────────────
+
 export default function RezeptePage() {
+  const [aktiv, setAktiv] = useState('alle');
+
+  const gefiltert = aktiv === 'alle'
+    ? REZEPTE
+    : REZEPTE.filter(r => r.kat === aktiv || r.tags.includes(aktiv));
+
   return (
     <>
+      {/* Hero */}
       <section style={{ background: 'var(--green-deep)', padding: '3rem 0 2.5rem' }}>
         <div className="container">
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
@@ -170,59 +258,56 @@ export default function RezeptePage() {
       </section>
 
       {/* Legende */}
-      <section style={{ background: 'var(--cream-dark)', padding: '0.75rem 0', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ background: 'var(--cream-dark)', padding: '0.7rem 0', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
-          <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'center', fontSize: '0.8rem', color: 'var(--text-light)' }}>
+          <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'center', fontSize: '0.78rem', color: 'var(--text-light)' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{
-                background: 'var(--mint)',
-                color: 'var(--green-deep)',
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                padding: '0.15rem 0.5rem',
-                borderRadius: '999px',
-              }}>ohne Spezialmehl</span>
+              <span style={{ background: 'var(--mint)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px' }}>ohne Spezialmehl</span>
               von Natur aus glutenfrei
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{
-                background: 'var(--golden)',
-                color: 'var(--green-deep)',
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                padding: '0.15rem 0.5rem',
-                borderRadius: '999px',
-              }}>👶 kleinkindtauglich</span>
-              auch für Kleine geeignet
+              <span style={{ background: 'var(--golden)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px' }}>👶</span>
+              kleinkindtauglich
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px', border: '1.5px dashed var(--border)', color: 'var(--text-light)' }}>kommt bald</span>
+              in Arbeit
             </span>
           </div>
         </div>
       </section>
 
-      {/* Kategorien-Navigation */}
-      <section className="section-sm" style={{ background: 'white', borderBottom: '1px solid var(--border)' }}>
+      {/* Kategorie-Filter */}
+      <section style={{ background: 'white', padding: '1rem 0', borderBottom: '2px solid var(--border)', position: 'sticky', top: '96px', zIndex: 50 }}>
         <div className="container">
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            {kategorien.map(({ id, label }) => (
-              <a
+          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            {KATEGORIEN.map(({ id, label }) => (
+              <button
                 key={id}
-                href={`#${id}`}
-                className="tag"
-                style={{ padding: '0.4rem 0.875rem', fontSize: '0.8rem', cursor: 'pointer', textDecoration: 'none' }}
+                onClick={() => setAktiv(id)}
+                style={{
+                  padding: '0.4rem 0.875rem',
+                  borderRadius: '999px',
+                  border: `1.5px solid ${aktiv === id ? 'var(--green-deep)' : 'var(--border)'}`,
+                  background: aktiv === id ? 'var(--green-deep)' : 'transparent',
+                  color: aktiv === id ? 'var(--golden)' : 'var(--text-mid)',
+                  fontSize: '0.8rem',
+                  fontWeight: aktiv === id ? 700 : 400,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s',
+                  whiteSpace: 'nowrap',
+                }}
               >
                 {label}
-              </a>
+              </button>
             ))}
             <Link
               href="/rezepte/alle"
               style={{
-                padding: '0.4rem 0.875rem',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                color: 'var(--green-mid)',
-                textDecoration: 'none',
-                borderRadius: '999px',
-                border: '1.5px solid var(--green-mid)',
+                padding: '0.4rem 0.875rem', fontSize: '0.8rem', fontWeight: 600,
+                color: 'var(--green-mid)', textDecoration: 'none',
+                borderRadius: '999px', border: '1.5px solid var(--green-mid)',
+                whiteSpace: 'nowrap',
               }}
             >
               A–Z →
@@ -231,94 +316,92 @@ export default function RezeptePage() {
         </div>
       </section>
 
-      {/* Kategorien mit Rezepten */}
-      {kategorien.map(({ id, label, desc }) => {
-        const kat_rezepte = rezepte.filter(r => r.kat === id);
-        return (
-          <section key={id} id={id} className="section" style={{ borderBottom: '1px solid var(--border)' }}>
-            <div className="container">
-              <div style={{ marginBottom: '1.5rem' }}>
-                <h2 style={{ marginBottom: '0.25rem' }}>{label}</h2>
-                <p style={{ margin: 0, color: 'var(--text-light)', fontSize: '0.9rem' }}>{desc}</p>
-              </div>
+      {/* Ergebnis */}
+      <section className="section">
+        <div className="container">
+          {/* Anzahl */}
+          <p style={{ fontSize: '0.82rem', color: 'var(--text-light)', marginBottom: '1.5rem' }}>
+            {gefiltert.filter(r => !r.todo).length} Rezepte
+            {gefiltert.filter(r => r.todo).length > 0 && ` · ${gefiltert.filter(r => r.todo).length} in Arbeit`}
+            {aktiv !== 'alle' && ` in „${KATEGORIEN.find(k => k.id === aktiv)?.label}"`}
+          </p>
 
-              {kat_rezepte.length > 0 ? (
-                <div className="grid-3">
-                  {kat_rezepte.map(({ slug, title, desc: rDesc, time, emoji, naturalGf, kleinkind }) => (
-                    <Link key={slug} href={`/rezepte/${slug}`} className="card card-link">
-                      <div style={{
-                        fontSize: '2.5rem',
-                        textAlign: 'center',
-                        background: 'var(--cream-dark)',
-                        borderRadius: '8px',
-                        padding: '1rem',
-                        marginBottom: '0.75rem',
-                        position: 'relative',
-                      }}>
-                        {emoji}
-                      </div>
-                      <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '0.5rem', alignItems: 'center' }}>
-                        <span style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>⏱ {time}</span>
-                        {naturalGf && (
-                          <span style={{
-                            background: 'var(--mint)',
-                            color: 'var(--green-deep)',
-                            fontSize: '0.65rem',
-                            fontWeight: 700,
-                            padding: '0.1rem 0.45rem',
-                            borderRadius: '999px',
-                          }}>ohne Spezialmehl</span>
-                        )}
-                        {kleinkind && (
-                          <span style={{
-                            background: 'var(--golden)',
-                            color: 'var(--green-deep)',
-                            fontSize: '0.65rem',
-                            fontWeight: 700,
-                            padding: '0.1rem 0.45rem',
-                            borderRadius: '999px',
-                          }}>👶</span>
-                        )}
-                      </div>
-                      <h3 style={{ fontSize: '0.95rem', marginBottom: '0.35rem' }}>{title}</h3>
-                      <p style={{ margin: 0, fontSize: '0.85rem' }}>{rDesc}</p>
-                    </Link>
-                  ))}
-
-                  {/* Platzhalter */}
-                  <div className="card" style={{
-                    border: '2px dashed var(--border)',
-                    background: 'transparent',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    gap: '0.5rem',
-                    minHeight: '180px',
-                    color: 'var(--text-light)',
-                    boxShadow: 'none',
+          <div className="grid-3">
+            {gefiltert.map(({ slug, title, desc, time, emoji, naturalGf, kleinkind, todo }) => (
+              todo ? (
+                /* Platzhalter-Karte */
+                <div key={slug} className="card" style={{
+                  border: '2px dashed var(--border)', background: 'transparent',
+                  boxShadow: 'none', opacity: 0.65,
+                }}>
+                  <div style={{
+                    fontSize: '2.25rem', textAlign: 'center',
+                    background: 'var(--cream-dark)', borderRadius: '8px',
+                    padding: '1rem', marginBottom: '0.75rem',
                   }}>
-                    <span style={{ fontSize: '1.5rem' }}>✏️</span>
-                    <span style={{ fontSize: '0.85rem' }}>Rezept kommt bald</span>
+                    {emoji}
                   </div>
+                  <div style={{ marginBottom: '0.5rem' }}>
+                    <span style={{
+                      fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.5rem',
+                      borderRadius: '999px', border: '1.5px dashed var(--border)',
+                      color: 'var(--text-light)',
+                    }}>kommt bald</span>
+                  </div>
+                  <h3 style={{ fontSize: '0.95rem', marginBottom: '0.35rem', color: 'var(--text-mid)' }}>{title}</h3>
+                  <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-light)' }}>{desc}</p>
                 </div>
               ) : (
-                <div style={{
-                  background: 'var(--cream-dark)',
-                  border: '2px dashed var(--border)',
-                  borderRadius: '12px',
-                  padding: '2rem',
-                  textAlign: 'center',
-                  color: 'var(--text-light)',
-                }}>
-                  <span style={{ fontSize: '2rem', display: 'block', marginBottom: '0.5rem' }}>✏️</span>
-                  Rezepte für diese Kategorie kommen bald
-                </div>
-              )}
+                /* Echte Rezept-Karte */
+                <Link key={slug} href={`/rezepte/${slug}`} className="card card-link">
+                  <div style={{
+                    fontSize: '2.5rem', textAlign: 'center',
+                    background: 'var(--cream-dark)', borderRadius: '8px',
+                    padding: '1rem', marginBottom: '0.75rem',
+                  }}>
+                    {emoji}
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '0.5rem', alignItems: 'center' }}>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>⏱ {time}</span>
+                    {naturalGf && (
+                      <span style={{ background: 'var(--mint)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.1rem 0.45rem', borderRadius: '999px' }}>
+                        ohne Spezialmehl
+                      </span>
+                    )}
+                    {kleinkind && (
+                      <span style={{ background: 'var(--golden)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.1rem 0.45rem', borderRadius: '999px' }}>
+                        👶
+                      </span>
+                    )}
+                  </div>
+                  <h3 style={{ fontSize: '0.95rem', marginBottom: '0.35rem' }}>{title}</h3>
+                  <p style={{ margin: 0, fontSize: '0.85rem' }}>{desc}</p>
+                </Link>
+              )
+            ))}
+          </div>
+
+          {/* Link zu Feste-Seite */}
+          {(aktiv === 'alle' || aktiv === 'kindergeburtstag') && (
+            <div style={{
+              marginTop: '2rem', padding: '1.25rem 1.5rem',
+              background: 'rgba(233,196,106,0.1)', border: '1.5px solid rgba(233,196,106,0.35)',
+              borderRadius: '12px', display: 'flex', alignItems: 'center',
+              justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap',
+            }}>
+              <div>
+                <p style={{ fontWeight: 700, margin: '0 0 0.25rem', color: 'var(--green-deep)' }}>🎉 Kindergeburtstag planen?</p>
+                <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-mid)' }}>
+                  Alle Rezepte für Feste, Tipps und den Wissens-Artikel auf einen Blick.
+                </p>
+              </div>
+              <Link href="/rezepte/feste-geburtstage" style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--green-mid)', whiteSpace: 'nowrap' }}>
+                Zur Feste-Seite →
+              </Link>
             </div>
-          </section>
-        );
-      })}
+          )}
+        </div>
+      </section>
     </>
   );
 }

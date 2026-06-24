@@ -36,6 +36,8 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Alle Rezepte A–Z',             desc: 'Alphabetischer Rezept-Index',                    href: '/rezepte/alle',                         type: 'Seite', tags: 'alle rezepte übersicht index' },
   { title: 'Speiseplan erstellen',           desc: 'Persönlicher Speiseplan aus unseren Rezepten',    href: '/wochenplan',                          type: 'Seite', tags: 'speiseplan wochenplan planer woche mahlzeiten' },
   { title: 'Aktuelles',                     desc: 'News & Forschung zu Zöliakie und Glutenunverträglichkeit', href: '/aktuelles',                   type: 'Seite', tags: 'aktuelles news forschung zöliakie gluten' },
+  { title: 'Unterwegs',                     desc: 'Restaurants, Bäckereien & Tipps in Augsburg und Bayern',   href: '/unterwegs',                   type: 'Seite', tags: 'unterwegs restaurant augsburg münchen reisen urlaub bäckerei' },
+  { title: 'Feste & Kindergeburtstag',      desc: 'Party-Rezepte, Checklisten und Tipps fürs Feiern',         href: '/rezepte/feste-geburtstage',   type: 'Seite', tags: 'geburtstag party fest kindergeburtstag backen kuchen' },
   { title: 'FAQ – Häufige Fragen',          desc: 'Antworten auf die häufigsten Elternfragen',      href: '/faq',                                  type: 'Seite', tags: 'faq fragen antworten häufig' },
   { title: 'Produkte & Empfehlungen',       desc: 'Produkte die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
   { title: 'Nach Zutaten suchen',           desc: 'Welche Rezepte kann ich mit meinen Zutaten kochen?', href: '/rezepte/nach-zutaten',             type: 'Seite', tags: 'zutaten kühlschrank zutatenliste rezept finden' },
@@ -63,6 +65,7 @@ const nav = [
   { label: 'Rezepte',    href: '/rezepte' },
   { label: 'Wissen',     href: '/wissen' },
   { label: 'Aktuelles',  href: '/aktuelles' },
+  { label: 'Unterwegs',  href: '/unterwegs' },
   { label: 'Produkte',   href: '/produkte' },
   { label: 'Über uns',   href: '/ueber-uns' },
 ];
