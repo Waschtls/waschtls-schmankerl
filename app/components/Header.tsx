@@ -501,6 +501,7 @@ export default function Header() {
               onClick={() => setSearchOpen(true)}
               aria-label="Suche öffnen"
               title="Suche (⌘K)"
+              className="desktop-search-btn"
               style={{
                 marginLeft: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem',
                 padding: '0.4rem 0.75rem', borderRadius: '8px',
@@ -547,6 +548,7 @@ export default function Header() {
         <style>{`
           @media (max-width: 640px) {
             nav { display: none !important; }
+            .desktop-search-btn { display: none !important; }
             .mobile-actions { display: flex !important; }
             .search-label, .search-shortcut { display: none; }
           }
