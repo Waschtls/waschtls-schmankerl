@@ -28,8 +28,9 @@ export default function UeberUns() {
           <h2>Hallo, ich bin Waschtl – aus Augsburg</h2>
           <p>
             Ich bin Vater, Augsburger und Fan von gutem Essen – egal ob klassisch bayerisch oder international.
-            Bei uns zuhause gab es beides: die Kasnockn und die Leberknödelsuppe der Oma, aber genauso oft
-            Schnitzel mit Kartoffelbrei, Fleischküchler, Spaghetti Bolognese, Pizza vom Blech oder ein würziges Chili.
+            Bei uns zuhause gab es beides: die Kasnockn und die Leberknödelsuppe der Oma, die Armen Ritter
+            die sie uns Kindern immer gemacht hat – aber genauso oft
+            Schnitzel mit Kartoffelbrei, Fleischküchler, Spaghetti Bolognese oder Pizza vom Blech.
             Eine echte Familienküche eben – nicht auf ein Einziges festgelegt, aber immer mit Herzblut gekocht.
           </p>
           <p>
@@ -49,11 +50,11 @@ export default function UeberUns() {
 
           <h2>Warum „Waschtl" – und warum „Schmankerl"?</h2>
           <p>
-            Waschtl ist mein Spitzname – so wie man das halt hat in Augsburg. Ein Schmankerl ist im
+            Waschtl ist mein Spitzname – den hab ich von meinen Kumpels bekommen, so wie man das halt hat in Augsburg. Ein Schmankerl ist im
             Bayerischen eine besondere Gaumenfreude, etwas Feines das man mit Herzblut kocht und gerne teilt.
             Der Name war eigentlich für einen klassischen Foodblog gedacht. Die Diagnose hat den Blog
             zu etwas anderem gemacht: einem Ort für echte Schmankerl ohne Gluten.
-            Ob das jetzt Kässpatzen sind oder ein veganes Chili – Hauptsache es schmeckt fein.
+            Ob das jetzt Kässpatzen sind, eine glutenfreie Pizza, oder Arme Ritter wie die Oma sie gemacht hat – Hauptsache es schmeckt fein.
           </p>
           <p>
             Mittlerweile isst die ganze Familie glutenfrei. Nicht weil wir müssen – sondern weil wir

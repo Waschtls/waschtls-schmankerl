@@ -8,7 +8,7 @@ export const metadata = {
 export default function FleischkuechlePage() {
   return (
     <RecipeLayout
-      title="Fleischküchle (bayerische Frikadellen)"
+      title="Fleischküchler"
       kat="Mittagessen"
       badges={[
         { type: 'golden', label: '👶 kleinkindtauglich' },
