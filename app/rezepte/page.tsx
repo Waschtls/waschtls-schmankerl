@@ -59,17 +59,65 @@ const REZEPTE: Rezept[] = [
     time: '10 Min.', kat: 'fruehstueck', tags: [],
     emoji: '🍎', naturalGf: true, kleinkind: true,
   },
+  {
+    slug: 'french-toast',
+    title: 'French Toast',
+    desc: 'Goldbraun, vanillig – Frühstück und süßes Mittagessen in einem.',
+    time: '20 Min.', kat: 'fruehstueck', tags: ['mittagessen', 'kindergeburtstag'],
+    emoji: '🍞', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'waffeln-klassisch',
+    title: 'Waffeln (klassisch)',
+    desc: 'Knusprig, einfrierbar, mit jedem Waffeleisen – immer ein Erfolg.',
+    time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
+    emoji: '🧇', naturalGf: false, kleinkind: true,
+  },
   // ⚠️ TODO: Rührei / Omelette glutenfrei
-  // ⚠️ TODO: Buchweizen-Waffeln
   {
     slug: 'fruehstueck-placeholder-1',
     title: 'Buchweizenwaffeln',
     desc: 'Knusprig, von Natur aus glutenfrei – kommt bald.',
     time: '~25 Min.', kat: 'fruehstueck', tags: [],
-    emoji: '🧇', naturalGf: true, kleinkind: true, todo: true,
+    emoji: '🍫', naturalGf: true, kleinkind: true, todo: true,
   },
 
   // ── Mittagessen ──
+  {
+    slug: 'rindergulasch',
+    title: 'Rindergulasch',
+    desc: 'Sämig, ohne Stärke – schmort sich von selbst. Zu Semmelknödeln ein Traum.',
+    time: '2 Std.', kat: 'mittagessen', tags: ['abendessen'],
+    emoji: '🥘', naturalGf: true, kleinkind: false,
+  },
+  {
+    slug: 'spaghetti-bolognese',
+    title: 'Spaghetti Bolognese',
+    desc: 'Der Familienklassiker – Soße einfrieren, Pasta frisch kochen.',
+    time: '45 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
+    emoji: '🍝', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'fleischkuechle',
+    title: 'Fleischküchle',
+    desc: 'Bayerische Frikadellen – saftig, würzig, einfrierbar.',
+    time: '30 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
+    emoji: '🍖', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'chicken-nuggets-selbstgemacht',
+    title: 'Chicken Nuggets (selbstgemacht)',
+    desc: 'Aus dem Ofen, knuspriger als tiefgekühlt – Kindergeburtstagsgarant.',
+    time: '30 Min.', kat: 'mittagessen', tags: ['kindergeburtstag'],
+    emoji: '🐔', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'reiberdatschi-kartoffelpuffer',
+    title: 'Reiberdatschi',
+    desc: 'Bayerische Kartoffelpuffer – von Natur aus GF, knusprig, mit Apfelmus.',
+    time: '30 Min.', kat: 'mittagessen', tags: ['snacks', 'abendessen'],
+    emoji: '🥔', naturalGf: true, kleinkind: true,
+  },
   {
     slug: 'nudeln-mit-tomatensauce',
     title: 'Nudeln mit Tomatensauce',
@@ -133,6 +181,20 @@ const REZEPTE: Rezept[] = [
 
   // ── Backen & Kuchen ──
   {
+    slug: 'brownies-schokolade',
+    title: 'Brownies (Schokolade)',
+    desc: 'Saftig, dunkel, mit echter Schokolade – Kindergeburtstagsklassiker.',
+    time: '40 Min.', kat: 'backen', tags: ['kindergeburtstag', 'dessert'],
+    emoji: '🍫', naturalGf: false, kleinkind: false,
+  },
+  {
+    slug: 'zwetschgendatschi',
+    title: 'Zwetschgendatschi',
+    desc: 'Echter bayerischer Pflaumenkuchen – saisonal, auf Hefeteig.',
+    time: '100 Min.', kat: 'backen', tags: ['saisonal', 'dessert', 'hefeteig'],
+    emoji: '🍑', naturalGf: false, kleinkind: true,
+  },
+  {
     slug: 'schokoladenkuchen-mandelmehl',
     title: 'Schokoladenkuchen (Mandelmehl)',
     desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
@@ -149,6 +211,13 @@ const REZEPTE: Rezept[] = [
   },
 
   // ── Brot & Hefeteig ──
+  {
+    slug: 'laugenbrezeln-glutenfrei',
+    title: 'Laugenbrezeln (glutenfrei)',
+    desc: 'Weich, salzig, original bayerisch – mit Natron-Lauge.',
+    time: '2 Std.', kat: 'hefeteig', tags: ['backen', 'snacks'],
+    emoji: '🥨', naturalGf: false, kleinkind: false,
+  },
   // ⚠️ TODO: Glutenfreies Sauerteigbrot (bayerisch)
   {
     slug: 'hefeteig-placeholder-1',
@@ -208,7 +277,20 @@ const REZEPTE: Rezept[] = [
   },
 
   // ── Grundrezepte ──
-  // ⚠️ TODO: Grundrezepte-Sektion
+  {
+    slug: 'grundrezept-hefeteig-suess',
+    title: 'Grundrezept: Süßer Hefeteig',
+    desc: 'Die Basis für Zopf, Dampfnudeln, Schnecken und Zwetschgendatschi.',
+    time: '90 Min.', kat: 'grundrezepte', tags: ['hefeteig', 'backen'],
+    emoji: '🧑‍🍳', naturalGf: false, kleinkind: false,
+  },
+  {
+    slug: 'semmelknoedel',
+    title: 'Semmelknödel',
+    desc: 'Das bayerische Grundrezept – zu Gulasch, Braten, Pilzsoße.',
+    time: '35 Min.', kat: 'grundrezepte', tags: ['mittagessen', 'abendessen'],
+    emoji: '🥟', naturalGf: false, kleinkind: false,
+  },
   {
     slug: 'grundrezepte-placeholder-1',
     title: 'Glutenfreier Pizzateig (Grundrezept)',
@@ -225,15 +307,7 @@ const REZEPTE: Rezept[] = [
   },
 
   // ── Kindergeburtstag ──
-  // (Die Rezepte kommen via tags von oben – hier nur echte KiGa-spezifische)
-  // ⚠️ TODO: Regenbogen-Brownies glutenfrei
-  {
-    slug: 'kiga-placeholder-1',
-    title: 'Brownies (Mandelmehl)',
-    desc: 'Saftig, schokoladig – gelingen garantiert – kommt bald.',
-    time: '~35 Min.', kat: 'kindergeburtstag', tags: [],
-    emoji: '🍫', naturalGf: false, kleinkind: true, todo: true,
-  },
+  // (Die meisten Rezepte kommen via tags von oben)
 
   // ── Saisonal ──
   // ⚠️ TODO: Lebkuchen, Zimtsterne, Osterkuchen

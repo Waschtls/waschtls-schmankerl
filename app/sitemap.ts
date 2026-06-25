@@ -9,8 +9,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'apfel-zimt-porridge',
     'pfannkuchen-reismehl',
     'pfannkuchen-klassisch',
+    'french-toast',
+    'waffeln-klassisch',
     'nudeln-mit-tomatensauce',
     'kuerbisrisotto',
+    'rindergulasch',
+    'spaghetti-bolognese',
+    'fleischkuechle',
+    'chicken-nuggets-selbstgemacht',
+    'reiberdatschi-kartoffelpuffer',
     'schnitzel-kartoffelbrei',
     'kaesspatzen',
     'veganes-chili',
@@ -19,6 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'energiebaellchen',
     'milchreis-kokos',
     'schokoladenkuchen-mandelmehl',
+    'brownies-schokolade',
+    'zwetschgendatschi',
+    'grundrezept-hefeteig-suess',
+    'semmelknoedel',
+    'laugenbrezeln-glutenfrei',
   ];
 
   const wissen = [
