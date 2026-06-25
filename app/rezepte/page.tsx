@@ -46,6 +46,13 @@ const REZEPTE: Rezept[] = [
     emoji: '🥞', naturalGf: false, kleinkind: true,
   },
   {
+    slug: 'pfannkuchen-klassisch',
+    title: 'Pfannkuchen (klassisch)',
+    desc: 'Mit Schär Mix It – hauchdünn, goldbraun, hält beim Wenden.',
+    time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
+    emoji: '🫓', naturalGf: false, kleinkind: true,
+  },
+  {
     slug: 'apfel-zimt-porridge',
     title: 'Apfel-Zimt-Porridge',
     desc: 'Cremig, warm, 10 Minuten – perfekt für den Schulmorgen.',
@@ -94,6 +101,27 @@ const REZEPTE: Rezept[] = [
     time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
     emoji: '🍕', naturalGf: false, kleinkind: true,
   },
+  {
+    slug: 'schnitzel-kartoffelbrei',
+    title: 'Schnitzel mit Kartoffelbrei',
+    desc: 'Knusprig paniert, cremiger Brei – der Lieblings-Freitag.',
+    time: '35 Min.', kat: 'abendessen', tags: ['mittagessen', 'kindergeburtstag'],
+    emoji: '🥩', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'kaesspatzen',
+    title: 'Kässpatzen',
+    desc: 'Echtes bayerisches Schmankerl – mit Schär Mix It genauso cremig.',
+    time: '40 Min.', kat: 'abendessen', tags: ['mittagessen'],
+    emoji: '🧀', naturalGf: false, kleinkind: false,
+  },
+  {
+    slug: 'veganes-chili',
+    title: 'Veganes Chili con Carne',
+    desc: 'Mit DM veganem Hack – herzhaft, sättigend, glutenfrei.',
+    time: '35 Min.', kat: 'abendessen', tags: ['mittagessen'],
+    emoji: '🌶', naturalGf: true, kleinkind: false,
+  },
   // ⚠️ TODO: Gefüllte Paprika
   {
     slug: 'abendessen-placeholder-1',
@@ -101,14 +129,6 @@ const REZEPTE: Rezept[] = [
     desc: 'Von Natur aus glutenfrei, bunt und sättigend – kommt bald.',
     time: '~50 Min.', kat: 'abendessen', tags: [],
     emoji: '🫑', naturalGf: true, kleinkind: true, todo: true,
-  },
-  // ⚠️ TODO: Hähnchen mit Ofengemüse
-  {
-    slug: 'abendessen-placeholder-2',
-    title: 'Hähnchen mit Ofengemüse',
-    desc: 'Ein-Blech-Gericht, minimal Aufwand – kommt bald.',
-    time: '~55 Min.', kat: 'abendessen', tags: [],
-    emoji: '🍗', naturalGf: true, kleinkind: true, todo: true,
   },
 
   // ── Backen & Kuchen ──
