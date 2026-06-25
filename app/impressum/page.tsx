@@ -47,6 +47,11 @@ export default function Impressum() {
             Diese Website enthält Affiliate-Links, insbesondere Links zum Amazon-Partnerprogramm. Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Alle Affiliate-Links sind auf der Website deutlich als „Anzeige" gekennzeichnet.
           </p>
 
+          <h2>Produktnennungen</h2>
+          <p>
+            Produktnennungen und Markenempfehlungen in unseren Rezepten und Artikeln (z.&nbsp;B. bestimmte Mehlmarken, Lebensmittelhersteller oder Produktlinien) sind redaktionelle Empfehlungen auf Basis eigener Erfahrung – ohne Gegenleistung des jeweiligen Herstellers. Es besteht kein wirtschaftliches Verhältnis zu den genannten Marken, sofern nicht ausdrücklich als Affiliate-Link oder Anzeige gekennzeichnet.
+          </p>
+
           <h2>Haftungsausschluss</h2>
           <p>
             Die Inhalte dieser Website dienen ausschließlich der allgemeinen Information und ersetzen keine ärztliche Beratung oder Behandlung. Bei gesundheitlichen Fragen wenden Sie sich bitte an einen Arzt oder eine Ärztin.

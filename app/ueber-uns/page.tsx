@@ -89,6 +89,7 @@ export default function UeberUns() {
               Wenn ihr über diese Links einkauft, erhalten wir eine kleine Provision. Für euch entstehen dabei keine Mehrkosten.
               Die Einnahmen helfen uns, die Website, das Hosting und den Zeitaufwand für neue Rezepte und Artikel zu finanzieren.
               Wir empfehlen ausschließlich Produkte die wir selbst im Einsatz haben und für gut befunden haben.
+              Produktnennungen ohne „Anzeige"-Kennzeichnung (z.&nbsp;B. Markenmehl in Rezepten) sind redaktionelle Empfehlungen ohne Gegenleistung des Herstellers.
             </p>
           </div>
 
