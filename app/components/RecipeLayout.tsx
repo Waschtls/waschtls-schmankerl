@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import PortionenScaler from './PortionenScaler';
+import SocialShare from './SocialShare';
 
 const SITE_URL = 'https://www.waschtls-schmankerl.de';
 
@@ -14,6 +16,8 @@ type Naehrwerte = {
   ballaststoffe: number;
 };
 
+type RelatedRecipe = { title: string; slug: string; emoji: string; time: string };
+
 type RecipeLayoutProps = {
   title: string;
   kat: string;
@@ -24,20 +28,18 @@ type RecipeLayoutProps = {
   minuten: number | string;
   portionen: number | string;
   schwierigkeit?: string;
+  publishDate?: string;           // z.B. "15. Juni 2025" oder ISO-Datum
   zutaten: string[];
   zubereitung: string[];
   naehrwerte: Naehrwerte;
   infoBox?: string;
   tipps?: string[];
-  // affiliate.text beschreibt was man braucht → Link geht immer zu /produkte
   affiliate?: { text: string };
-  // Optional: Link zu einem Wissen-/Warenkunde-Artikel
   warenkundeLink?: { label: string; href: string };
+  relatedRecipes?: RelatedRecipe[];
   prev?: { title: string; href: string };
   next?: { title: string; href: string };
 };
-
-// ── Hilfs-Typen ───────────────────────────────────────────────────────────────
 
 type MetaItem = { icon: string; label: string };
 type NwItem   = { label: string; value: string; accent?: boolean };
@@ -46,24 +48,25 @@ type NwItem   = { label: string; value: string; accent?: boolean };
 
 export default function RecipeLayout({
   title, kat, badges, breadcrumbParent, tagline, useCases,
-  minuten, portionen, schwierigkeit,
+  minuten, portionen, schwierigkeit, publishDate,
   zutaten, zubereitung, naehrwerte, infoBox, tipps,
-  affiliate, warenkundeLink, prev, next,
+  affiliate, warenkundeLink, relatedRecipes, prev, next,
 }: RecipeLayoutProps) {
 
-  // ── JSON-LD (Schema.org Recipe) ───────────────────────────────────────────
-  const jsonLd = {
+  // ── JSON-LD: Schema.org Recipe ────────────────────────────────────────────
+  const recipeJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
     name: title,
     description: tagline,
     author: { '@type': 'Person', name: 'Waschtl', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: "Waschtls Schmankerl", url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'Waschtls Schmankerl', url: SITE_URL },
+    ...(publishDate ? { datePublished: publishDate } : {}),
     recipeCategory: kat,
     recipeCuisine: 'Glutenfrei',
-    keywords: `glutenfrei, ${kat.toLowerCase()}, ${badges.map(b => b.label.replace(/^[^\w]+/, '')).join(', ')}`,
-    cookTime: `PT${minuten}M`,
-    totalTime: `PT${minuten}M`,
+    keywords: `glutenfrei, ${kat.toLowerCase()}, glutenfreie Rezepte, Zöliakie`,
+    cookTime: typeof minuten === 'number' ? `PT${minuten}M` : undefined,
+    totalTime: typeof minuten === 'number' ? `PT${minuten}M` : undefined,
     recipeYield: `${portionen} Portionen`,
     recipeIngredient: zutaten.filter(z => !z.startsWith('—')),
     recipeInstructions: zubereitung.map((schritt, i) => ({
@@ -80,6 +83,17 @@ export default function RecipeLayout({
       fiberContent: `${naehrwerte.ballaststoffe} g`,
     },
     suitableForDiet: 'https://schema.org/GlutenFreeDiet',
+  };
+
+  // ── JSON-LD: BreadcrumbList ───────────────────────────────────────────────
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: breadcrumbParent?.label ?? 'Rezepte', item: `${SITE_URL}${breadcrumbParent?.href ?? '/rezepte'}` },
+      { '@type': 'ListItem', position: 3, name: title },
+    ],
   };
 
   // Meta-Zeile
@@ -100,29 +114,25 @@ export default function RecipeLayout({
 
   return (
     <>
-      {/* ── JSON-LD für Google Rich Snippets ── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* ── JSON-LD ── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* ── HERO ── */}
       <section style={{ background: 'var(--green-deep)', padding: '2.75rem 0 2.25rem' }}>
         <div className="container">
+          {/* Breadcrumb */}
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
             <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> ›{' '}
             {breadcrumbParent ? (
-              <>
-                <Link href={breadcrumbParent.href} style={{ color: 'var(--mint)' }}>{breadcrumbParent.label}</Link> ›{' '}
-              </>
+              <><Link href={breadcrumbParent.href} style={{ color: 'var(--mint)' }}>{breadcrumbParent.label}</Link> › </>
             ) : (
-              <>
-                <Link href="/rezepte" style={{ color: 'var(--mint)' }}>Rezepte</Link> ›{' '}
-              </>
+              <><Link href="/rezepte" style={{ color: 'var(--mint)' }}>Rezepte</Link> › </>
             )}
             {title}
           </div>
 
+          {/* Kategorie + Badges */}
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', margin: '1rem 0 0.875rem' }}>
             <span style={{
               fontSize: '0.72rem', fontWeight: 700, padding: '0.2rem 0.7rem',
@@ -139,20 +149,41 @@ export default function RecipeLayout({
             ))}
           </div>
 
+          {/* Titel */}
           <h1 style={{
-            color: 'var(--golden)',
-            fontSize: 'clamp(1.7rem, 4vw, 2.5rem)',
-            lineHeight: 1.15, marginBottom: 0,
+            color: 'var(--golden)', fontSize: 'clamp(1.7rem, 4vw, 2.5rem)',
+            lineHeight: 1.15, marginBottom: '0.75rem',
           }}>
             {title}
           </h1>
+
+          {/* Autorenzeile */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>
+              Von <strong style={{ color: 'var(--mint)' }}>Waschtl</strong>
+              {publishDate && <> · {publishDate}</>}
+            </span>
+
+            {/* Jump-to-Recipe Button */}
+            <a
+              href="#zutaten"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
+                padding: '0.3rem 0.85rem', borderRadius: '999px',
+                background: 'var(--golden)', color: 'var(--green-deep)',
+                fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none',
+                border: 'none', cursor: 'pointer',
+              }}
+            >
+              ↓ Direkt zum Rezept
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ── TAGLINE + USE CASES ── */}
       <section style={{
-        background: 'var(--cream-dark)',
-        padding: '1.75rem 0 1.5rem',
+        background: 'var(--cream-dark)', padding: '1.75rem 0 1.5rem',
         borderBottom: '3px solid var(--golden)',
       }}>
         <div className="container" style={{ maxWidth: '720px' }}>
@@ -210,32 +241,15 @@ export default function RecipeLayout({
             display: 'grid', gridTemplateColumns: '1fr 1fr',
             gap: '1.5rem', marginBottom: '2.5rem',
           }}>
-            {/* Zutaten */}
-            <div className="card" style={{ padding: '1.5rem' }}>
+            {/* Zutaten – mit Portionen-Scaler und Anchor-ID */}
+            <div id="zutaten" className="card" style={{ padding: '1.5rem', scrollMarginTop: '120px' }}>
               <h2 style={{
                 fontSize: '1rem', fontWeight: 700, marginBottom: '1rem',
                 color: 'var(--green-deep)',
-                display: 'flex', alignItems: 'center', gap: '0.4rem',
               }}>
                 🧺 Zutaten
               </h2>
-              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-                {zutaten.map((z, i) => (
-                  <li key={i} style={{
-                    display: 'flex', alignItems: 'flex-start', gap: '0.65rem',
-                    fontSize: '0.88rem', color: 'var(--text-dark)', lineHeight: 1.55,
-                  }}>
-                    <span style={{
-                      flexShrink: 0, width: '16px', height: '16px',
-                      marginTop: '0.18rem', borderRadius: '4px',
-                      background: 'rgba(149,213,178,0.2)',
-                      border: '1.5px solid var(--mint)',
-                      display: 'inline-block',
-                    }} />
-                    {z}
-                  </li>
-                ))}
-              </ul>
+              <PortionenScaler portionen={portionen} zutaten={zutaten} />
             </div>
 
             {/* Nährwerte */}
@@ -276,8 +290,7 @@ export default function RecipeLayout({
             {zubereitung.map((schritt, i) => (
               <li key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <span style={{
-                  flexShrink: 0,
-                  width: '32px', height: '32px', borderRadius: '50%',
+                  flexShrink: 0, width: '32px', height: '32px', borderRadius: '50%',
                   background: 'var(--green-deep)', color: 'var(--golden)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontWeight: 800, fontSize: '0.85rem', lineHeight: 1,
@@ -285,11 +298,7 @@ export default function RecipeLayout({
                 }}>
                   {i + 1}
                 </span>
-                <p style={{
-                  margin: 0, paddingTop: '0.35rem',
-                  fontSize: '0.95rem', lineHeight: 1.75,
-                  color: 'var(--text-dark)',
-                }}>
+                <p style={{ margin: 0, paddingTop: '0.35rem', fontSize: '0.95rem', lineHeight: 1.75, color: 'var(--text-dark)' }}>
                   {schritt}
                 </p>
               </li>
@@ -304,11 +313,7 @@ export default function RecipeLayout({
               border: '1.5px solid rgba(233,196,106,0.35)',
               marginBottom: '2rem',
             }}>
-              <h3 style={{
-                fontSize: '0.95rem', margin: '0 0 1rem',
-                color: 'var(--green-deep)',
-                display: 'flex', alignItems: 'center', gap: '0.4rem',
-              }}>
+              <h3 style={{ fontSize: '0.95rem', margin: '0 0 1rem', color: 'var(--green-deep)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 💡 Tipps &amp; Tricks
               </h3>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
@@ -335,19 +340,14 @@ export default function RecipeLayout({
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               gap: '1rem', flexWrap: 'wrap',
             }}>
-              <div style={{ fontSize: '0.875rem', color: 'var(--text-dark)' }}>
-                📚 <strong>Mehr zum Thema</strong>
-              </div>
-              <Link href={warenkundeLink.href} style={{
-                fontSize: '0.85rem', fontWeight: 700,
-                color: 'var(--green-mid)', whiteSpace: 'nowrap',
-              }}>
+              <div style={{ fontSize: '0.875rem', color: 'var(--text-dark)' }}>📚 <strong>Mehr zum Thema</strong></div>
+              <Link href={warenkundeLink.href} style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--green-mid)', whiteSpace: 'nowrap' }}>
                 {warenkundeLink.label} →
               </Link>
             </div>
           )}
 
-          {/* Produkte-Callout (kein direkter Amazon-Link) */}
+          {/* Produkte-Callout */}
           {affiliate && (
             <div style={{
               padding: '1rem 1.25rem', borderRadius: '10px',
@@ -359,33 +359,60 @@ export default function RecipeLayout({
               <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-mid)', flex: 1 }}>
                 🛒 {affiliate.text}
               </p>
-              <Link href="/produkte" style={{
-                fontSize: '0.85rem', fontWeight: 700,
-                color: 'var(--green-mid)', whiteSpace: 'nowrap', flexShrink: 0,
-              }}>
+              <Link href="/produkte" style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--green-mid)', whiteSpace: 'nowrap', flexShrink: 0 }}>
                 Unsere Empfehlungen →
               </Link>
             </div>
           )}
 
+          {/* Social Share */}
+          <div style={{
+            paddingTop: '1.5rem', marginBottom: '1.5rem',
+            borderTop: '1px solid var(--border)',
+          }}>
+            <SocialShare title={title} />
+          </div>
+
           {/* Vor/Zurück-Navigation */}
           {(prev || next) && (
             <nav aria-label="Rezept-Navigation" style={{
               display: 'flex', justifyContent: 'space-between',
-              gap: '1rem', paddingTop: '1.5rem',
+              gap: '1rem', paddingTop: '1rem',
               borderTop: '1px solid var(--border)', flexWrap: 'wrap',
             }}>
               {prev ? (
-                <Link href={prev.href} style={{ fontSize: '0.875rem', color: 'var(--green-mid)', fontWeight: 500 }}>
-                  ← {prev.title}
-                </Link>
+                <Link href={prev.href} style={{ fontSize: '0.875rem', color: 'var(--green-mid)', fontWeight: 500 }}>← {prev.title}</Link>
               ) : <span />}
               {next ? (
-                <Link href={next.href} style={{ fontSize: '0.875rem', color: 'var(--green-mid)', fontWeight: 500 }}>
-                  {next.title} →
-                </Link>
+                <Link href={next.href} style={{ fontSize: '0.875rem', color: 'var(--green-mid)', fontWeight: 500 }}>{next.title} →</Link>
               ) : <span />}
             </nav>
+          )}
+
+          {/* Ähnliche Rezepte */}
+          {relatedRecipes && relatedRecipes.length > 0 && (
+            <div style={{ marginTop: '3rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--green-deep)' }}>
+                Das könnte dir auch gefallen
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.75rem' }}>
+                {relatedRecipes.map(r => (
+                  <Link key={r.slug} href={`/rezepte/${r.slug}`} style={{ textDecoration: 'none' }}>
+                    <div style={{
+                      padding: '1rem', borderRadius: '10px',
+                      background: 'var(--cream-dark)', border: '1.5px solid var(--border)',
+                      transition: 'border-color 0.15s',
+                    }}>
+                      <div style={{ fontSize: '1.5rem', marginBottom: '0.4rem' }}>{r.emoji}</div>
+                      <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--green-deep)', lineHeight: 1.3, marginBottom: '0.25rem' }}>
+                        {r.title}
+                      </div>
+                      <div style={{ fontSize: '0.72rem', color: 'var(--text-light)' }}>{r.time}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </section>
@@ -395,7 +422,9 @@ export default function RecipeLayout({
           .recipe-cols { grid-template-columns: 1fr !important; }
         }
         @media print {
-          header, footer, nav[aria-label="Rezept-Navigation"] { display: none !important; }
+          header, footer, nav[aria-label="Rezept-Navigation"],
+          a[href*="pinterest"], a[href*="wa.me"], button { display: none !important; }
+          #zutaten { break-inside: avoid; }
         }
       `}</style>
     </>

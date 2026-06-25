@@ -205,3 +205,41 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 480px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
+
+/* ---- Print ---- */
+@media print {
+  /* Keine Navigation, Footer, Teilen-Buttons */
+  header, footer,
+  nav[aria-label="Rezept-Navigation"],
+  a[href*="pinterest"],
+  a[href*="wa.me"],
+  button[aria-label="Link kopieren"],
+  .newsletter-banner,
+  [class*="affiliate"] {
+    display: none !important;
+  }
+
+  /* Hintergrundfarben mitdrucken */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body { font-size: 11pt; color: #000; background: #fff; }
+
+  /* Hero stark komprimieren */
+  section:first-of-type {
+    padding: 1rem 0 !important;
+    background: #1B4332 !important;
+  }
+
+  h1 { font-size: 20pt !important; }
+
+  /* Zutaten + Nährwerte nebeneinander halten */
+  #zutaten { break-inside: avoid; }
+  .recipe-cols { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+
+  /* Seitenumbrüche */
+  h2 { break-after: avoid; }
+  ol li { break-inside: avoid; }
+
+  /* Links ausschreiben */
+  a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+}

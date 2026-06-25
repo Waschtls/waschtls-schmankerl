@@ -52,7 +52,7 @@ export default function SpaghettiBoloPage() {
         'Für Kleinkinder: Rotwein durch Gemüsebrühe ersetzen und Pasta etwas länger kochen.',
         'Je länger die Soße köchelt, desto intensiver. Wer Zeit hat: 45–60 Minuten bei ganz schwacher Hitze.',
         'Soße ohne Pasta einfrieren: portionsweise in Gefrierbeutel, hält 3 Monate. An stressigen Abenden einfach auftauen und frische Pasta kochen.',
-        'Mit Zucchini, Karotten oder Spinach strecken – Kinder merken's kaum, wenn das Gemüse sehr fein ist.',
+        'Mit Zucchini, Karotten oder Spinat strecken – Kinder merken es kaum, wenn das Gemüse sehr fein ist.',
       ]}
       affiliate={{ text: 'Barilla Glutenfrei Spaghetti sind in vielen Supermärkten erhältlich und kommen dem Original am nächsten. Weitere Empfehlungen auf unserer Produktseite.' }}
       warenkundeLink={{ label: 'Nudeln mit einfacher Tomatensauce (vegetarisch)', href: '/rezepte/nudeln-mit-tomatensauce' }}

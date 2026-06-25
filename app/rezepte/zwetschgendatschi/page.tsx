@@ -51,10 +51,10 @@ export default function ZwetschgendatschiPage() {
       ]}
       naehrwerte={{ kalorien: 285, kohlenhydrate: 47, protein: 5, fett: 8, ballaststoffe: 3 }}
       tipps={[
-        'Klassisch bayerisch: ohne Streusel, nur Zimt-Zucker. Wer's knuspriger mag: Streusel drauf.',
+        'Klassisch bayerisch: ohne Streusel, nur Zimt-Zucker. Wer es knuspriger mag: Streusel drauf.',
         'Teig muss nicht glatt wie ein Spiegel sein – rustikale Oberfläche ist typisch und schön.',
         'Zum Einfrieren: in Stücke schneiden, einzeln einfrieren. Im Ofen bei 160 °C ca. 15 Minuten aufbacken.',
-        'Mit Tiefkühlzwetschgen geht's auch – gut abtauen und gut abtropfen lassen, sonst wird der Teig nass.',
+        'Mit Tiefkühlzwetschgen geht es auch – gut abtauen und gut abtropfen lassen, sonst wird der Teig nass.',
         'Wenn Zwetschgen nicht Saison haben: Pflaumen funktionieren genauso gut.',
       ]}
       affiliate={{ text: 'Schär Mix It ist unsere Basis für den Hefeteig – verlässlich und mit gutem Ergebnis. Weitere Empfehlungen auf unserer Produktseite.' }}

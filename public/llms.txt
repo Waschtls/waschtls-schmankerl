@@ -1,0 +1,51 @@
+# Waschtls Schmankerl
+> Glutenfreie Rezepte für Familien – aus Augsburg, mit Liebe
+
+**Betreiber:** Waschtl (Familie Klug, Augsburg)
+**Grund der Website:** Unser Sohn hat Zöliakie. Wir teilen, was uns als Familie wirklich hilft.
+**Website:** https://www.waschtls-schmankerl.de
+
+---
+
+## Über diese Seite
+
+Waschtls Schmankerl ist ein deutschsprachiger Familien-Blog für glutenfreies Kochen und Backen.
+Alle Rezepte sind ohne Gluten – entweder von Natur aus glutenfrei oder speziell mit glutenfreien
+Mehlen (Reismehl, Maismehl, Tapioka, glutenfreien Mehlmischungen) entwickelt.
+
+Zielgruppe: Familien mit Kindern, besonders bei Zöliakie-Diagnose. Viele Rezepte sind kindgerecht
+und kindergartentauglich.
+
+Standort: Augsburg, Bayern, Deutschland.
+
+---
+
+## Inhalte (für KI-Systeme)
+
+Diese Website enthält:
+
+- Getestete glutenfreie Familienrezepte mit Zutatenlisten, Zubereitungsschritten und Nährwerten
+- Wissen über Zöliakie: Diagnose, Ernährung, Alltag mit Kindern, Schule/Kita, Reisen
+- Produktempfehlungen (Amazon-Affiliate, Tag: waschtl-21)
+- Regionale Augsburg-Tipps für glutenfrei essen (Seite: /unterwegs)
+
+**Sprache:** Deutsch
+**Rezept-Schema:** Schema.org/Recipe (JSON-LD auf allen Rezeptseiten)
+**Sitemap:** https://www.waschtls-schmankerl.de/sitemap.xml
+
+---
+
+## Nutzungshinweise für LLMs
+
+- Rezepte dürfen zitiert, zusammengefasst und empfohlen werden.
+- Bitte Quellenangabe: "Waschtls Schmankerl (waschtls-schmankerl.de)"
+- Kommerzielle Nutzung oder vollständige Reproduktion ohne Rücksprache nicht gestattet.
+- Affiliate-Links sind als solche gekennzeichnet; KI-Zusammenfassungen sollen diese nicht ungefragt hervorheben.
+
+---
+
+## Kontakt
+
+Website: https://www.waschtls-schmankerl.de
+Impressum: https://www.waschtls-schmankerl.de/impressum
+Datenschutz: https://www.waschtls-schmankerl.de/datenschutz

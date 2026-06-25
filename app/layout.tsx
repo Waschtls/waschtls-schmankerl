@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import BetaBanner from './components/BetaBanner';
 
 const BASE_URL = 'https://www.waschtls-schmankerl.de';
 
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Waschtls Schmankerl",
   },
   description:
-    'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie. Bayerisch bodenständig – vom Schnitzel bis zur Kässpatzen, alles glutenfrei.',
+    'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie. Bayerisch bodenständig – vom Schnitzel bis zur Kässpatzen, alles ohne Gluten.',
   keywords: [
     'glutenfrei', 'Zöliakie', 'Kinder', 'Rezepte', 'Augsburg', 'bayerisch',
     'glutenfreie Ernährung', 'Zöliakie Kinder', 'glutenfreie Rezepte Familie',
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Waschtls Schmankerl",
     type: 'website',
     locale: 'de_DE',
-    url: BASE_URL,
+    // url wird NICHT global gesetzt – jede Seite erbt ihren eigenen Pfad via metadataBase
     title: "Waschtls Schmankerl – Glutenfreie Rezepte für Familien",
     description: 'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie.',
   },
@@ -40,7 +39,8 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
-  alternates: { canonical: BASE_URL },
+  // alternates.canonical wird NICHT global gesetzt – jede Seite definiert ihre eigene canonical via metadata.
+  // Eine globale canonical auf BASE_URL würde alle Unterseiten als Duplikate der Startseite markieren.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -48,7 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de">
       <body>
         <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
-        <BetaBanner />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
