@@ -4,36 +4,44 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 
 // ── Zutaten-Kategorien ────────────────────────────────────────────────────────
+// Wasser, Salz, Öl und Standardgewürze sind NICHT gelistet
 
 const INGREDIENT_GROUPS = [
   {
     label: '🥛 Milch & Milchprodukte',
-    items: ['Milch', 'Butter', 'Parmesan', 'Käse', 'Kokosmilch'],
+    items: ['Milch', 'Butter', 'Parmesan', 'Käse', 'Kokosmilch', 'Joghurt', 'Sahne', 'Mozzarella', 'Frischkäse', 'Schmand'],
   },
   {
     label: '🥚 Eier & Backzutaten',
-    items: ['Eier', 'Reismehl', 'Mandelmehl', 'GF Mehlmischung', 'Hefe', 'Backpulver'],
+    items: ['Eier', 'Reismehl', 'Mandelmehl', 'GF Mehlmischung', 'Schär Mix It', 'Hefe', 'Backpulver', 'Natron', 'Vanillezucker', 'Maisstärke', 'Buchweizenmehl'],
   },
   {
     label: '🌾 Getreide & Grundnahrung',
-    items: ['Haferflocken (GF)', 'GF Nudeln', 'Risottoreis', 'Milchreis'],
+    items: ['Haferflocken (GF)', 'GF Nudeln', 'Risottoreis', 'Milchreis', 'Reis (Langkorn)', 'Kartoffeln', 'Polenta', 'Quinoa', 'GF Paniermehl', 'Maismehl'],
+  },
+  {
+    label: '🥩 Fleisch & Fisch',
+    items: ['Hähnchenbrust', 'Schweineschnitzel', 'Rinderhack', 'Lachs', 'Thunfisch (Dose)', 'Veganes Hack (DM)', 'Garnelen'],
   },
   {
     label: '🧅 Gemüse',
-    items: ['Kürbis', 'Tomaten', 'Knoblauch', 'Zwiebel'],
+    items: ['Kürbis', 'Tomaten', 'Knoblauch', 'Zwiebel', 'Paprika', 'Zucchini', 'Möhren', 'Brokkoli', 'Spinat', 'Champignons', 'Lauch', 'Süßkartoffel', 'Erbsen (TK)', 'Mais (Dose)', 'Kidneybohnen (Dose)'],
   },
   {
     label: '🍌 Obst',
-    items: ['Apfel', 'Banane'],
+    items: ['Apfel', 'Banane', 'Zitrone', 'Beeren (TK)', 'Erdbeeren', 'Mango', 'Birne'],
+  },
+  {
+    label: '🥜 Nüsse & Saaten',
+    items: ['Erdnussbutter', 'Walnüsse', 'Sesam', 'Leinsamen', 'Kürbiskerne', 'Cashewmus'],
   },
   {
     label: '🫙 Vorratskammer',
-    items: ['Erdnussbutter', 'Honig', 'Kakao', 'Schokolade', 'GF Gemüsebrühe'],
+    items: ['Honig', 'Kakao', 'Schokolade', 'GF Gemüsebrühe', 'Tomaten passiert (Dose)', 'Tomaten gehackt (Dose)', 'Tamari (GF Sojasoße)', 'Olivenöl', 'Senf', 'Apfelessig', 'GF Brühwürfel', 'Kokosmilch (Dose)'],
   },
 ];
 
-// ── Rezepte mit Hauptzutaten ──────────────────────────────────────────────────
-// Nur Zutaten die man nicht immer hat (kein Wasser, Salz, Öl, Gewürze)
+// ── Rezept-Daten ──────────────────────────────────────────────────────────────
 
 type RecipeEntry = {
   title: string;
@@ -52,9 +60,14 @@ const RECIPES: RecipeEntry[] = [
     keyIngredients: ['Haferflocken (GF)', 'Apfel', 'Milch'],
   },
   {
-    title: 'Pfannkuchen', slug: '/rezepte/pfannkuchen-reismehl',
-    kat: 'Frühstück', minuten: 25, naturalGf: false, kleinkind: true,
+    title: 'Pfannkuchen (Reismehl)', slug: '/rezepte/pfannkuchen-reismehl',
+    kat: 'Frühstück', minuten: 20, naturalGf: false, kleinkind: true,
     keyIngredients: ['Reismehl', 'Eier', 'Milch'],
+  },
+  {
+    title: 'Pfannkuchen (klassisch)', slug: '/rezepte/pfannkuchen-klassisch',
+    kat: 'Frühstück', minuten: 25, naturalGf: false, kleinkind: true,
+    keyIngredients: ['Schär Mix It', 'Eier', 'Milch'],
   },
   {
     title: 'Nudeln mit Tomatensauce', slug: '/rezepte/nudeln-mit-tomatensauce',
@@ -65,6 +78,21 @@ const RECIPES: RecipeEntry[] = [
     title: 'Kürbisrisotto', slug: '/rezepte/kuerbisrisotto',
     kat: 'Mittagessen', minuten: 40, naturalGf: true, kleinkind: false,
     keyIngredients: ['Kürbis', 'Risottoreis', 'GF Gemüsebrühe', 'Zwiebel', 'Parmesan'],
+  },
+  {
+    title: 'Schnitzel mit Kartoffelbrei', slug: '/rezepte/schnitzel-kartoffelbrei',
+    kat: 'Abendessen', minuten: 35, naturalGf: false, kleinkind: true,
+    keyIngredients: ['Schweineschnitzel', 'GF Paniermehl', 'Kartoffeln', 'Eier', 'Butter', 'Milch'],
+  },
+  {
+    title: 'Kässpatzen', slug: '/rezepte/kaesspatzen',
+    kat: 'Abendessen', minuten: 40, naturalGf: false, kleinkind: false,
+    keyIngredients: ['Schär Mix It', 'Eier', 'Käse'],
+  },
+  {
+    title: 'Veganes Chili', slug: '/rezepte/veganes-chili',
+    kat: 'Abendessen', minuten: 35, naturalGf: true, kleinkind: false,
+    keyIngredients: ['Veganes Hack (DM)', 'Kidneybohnen (Dose)', 'Mais (Dose)', 'Tomaten passiert (Dose)', 'Tomaten gehackt (Dose)'],
   },
   {
     title: 'Pizza glutenfrei', slug: '/rezepte/pizza-glutenfrei',
@@ -122,8 +150,8 @@ export default function NachZutatenPage() {
     return RECIPES.filter(r => r.keyIngredients.every(i => selected.includes(i))).length;
   }, [selected]);
 
-  const selectAll   = () => setSelected(allIngredients);
-  const clearAll    = () => setSelected([]);
+  const selectAll = () => setSelected(allIngredients);
+  const clearAll  = () => setSelected([]);
 
   return (
     <>
@@ -138,7 +166,8 @@ export default function NachZutatenPage() {
             🧺 Was habe ich zu Hause?
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '520px' }}>
-            Wähle die Zutaten aus die du gerade da hast – wir zeigen welche Rezepte du damit kochen kannst. Wasser, Salz, Öl und Standardgewürze sind nicht aufgelistet.
+            Wähle die Zutaten aus die du gerade da hast – wir zeigen welche Rezepte du damit kochen kannst.
+            Wasser, Salz, Öl und Standardgewürze sind nicht aufgelistet.
           </p>
         </div>
       </section>
@@ -150,14 +179,21 @@ export default function NachZutatenPage() {
             {/* ── Links: Zutatenliste ── */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-                <h2 style={{ fontSize: '1rem', margin: 0 }}>Zutaten auswählen</h2>
+                <h2 style={{ fontSize: '1rem', margin: 0 }}>
+                  Zutaten auswählen
+                  {selected.length > 0 && (
+                    <span style={{ marginLeft: '0.5rem', fontSize: '0.75rem', fontWeight: 400, color: 'var(--text-light)' }}>
+                      ({selected.length} ausgewählt)
+                    </span>
+                  )}
+                </h2>
                 <div style={{ display: 'flex', gap: '0.75rem' }}>
                   <button onClick={selectAll} style={{ fontSize: '0.75rem', color: 'var(--green-mid)', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 600 }}>
-                    Alle auswählen
+                    Alle
                   </button>
                   {selected.length > 0 && (
                     <button onClick={clearAll} style={{ fontSize: '0.75rem', color: 'var(--text-light)', background: 'none', border: 'none', cursor: 'pointer' }}>
-                      Löschen ({selected.length})
+                      Löschen
                     </button>
                   )}
                 </div>
@@ -175,11 +211,11 @@ export default function NachZutatenPage() {
                         const isSelected = selected.includes(ing);
                         return (
                           <button key={ing} onClick={() => toggleIng(ing)} style={{
-                            padding: '0.35rem 0.8rem', borderRadius: '999px',
+                            padding: '0.32rem 0.75rem', borderRadius: '999px',
                             border: `1.5px solid ${isSelected ? 'var(--mint)' : 'var(--border)'}`,
                             background: isSelected ? 'rgba(149,213,178,0.2)' : 'var(--cream-dark)',
                             color: isSelected ? 'var(--green-deep)' : 'var(--text-mid)',
-                            fontSize: '0.8rem', fontWeight: isSelected ? 700 : 400,
+                            fontSize: '0.78rem', fontWeight: isSelected ? 700 : 400,
                             cursor: 'pointer', transition: 'all 0.12s',
                           }}>
                             {isSelected ? '✓ ' : ''}{ing}
@@ -244,7 +280,7 @@ export default function NachZutatenPage() {
                     textDecoration: 'none', color: 'var(--text-dark)',
                     transition: 'border-color 0.15s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.borderColor = r.have === r.total ? 'var(--green-mid)' : 'var(--green-mid)')}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--green-mid)')}
                   onMouseLeave={e => (e.currentTarget.style.borderColor = r.have === r.total ? 'var(--mint)' : 'var(--border)')}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.4rem' }}>
@@ -252,7 +288,7 @@ export default function NachZutatenPage() {
                       <span style={{
                         fontSize: '0.7rem', fontWeight: 700, padding: '0.15rem 0.5rem', borderRadius: '999px', flexShrink: 0, marginLeft: '0.5rem',
                         background: r.have === r.total ? 'var(--mint)' : 'rgba(233,196,106,0.3)',
-                        color: r.have === r.total ? 'var(--green-deep)' : 'var(--green-deep)',
+                        color: 'var(--green-deep)',
                       }}>
                         {r.have === r.total ? '✓ Komplett' : `${r.have}/${r.total}`}
                       </span>
@@ -269,12 +305,12 @@ export default function NachZutatenPage() {
                 ))}
               </div>
 
-              {/* Link zum Wochenplan */}
+              {/* Link zum Speiseplan */}
               {selected.length > 0 && results.length > 0 && (
                 <div style={{ marginTop: '1.25rem', padding: '0.875rem 1rem', background: 'rgba(149,213,178,0.1)', border: '1.5px solid var(--mint)', borderRadius: '10px', fontSize: '0.82rem', lineHeight: 1.6 }}>
                   <strong>Für die ganze Woche planen?</strong>{' '}
                   <Link href="/wochenplan" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>
-                    Zum Wochenplan-Maker →
+                    Zum Speiseplan →
                   </Link>
                 </div>
               )}

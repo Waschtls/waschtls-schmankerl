@@ -36,10 +36,16 @@ const ALL_RECIPES: Recipe[] = [
     histaminarm: true, zuckerfrei: true, laktosefrei: true, fruktosearm: false, nussfrei: true, eifrei: true, einfrierbar: false,
   },
   {
-    title: 'Pfannkuchen', slug: '/rezepte/pfannkuchen-reismehl',
-    slots: ['fruehstueck'], minuten: 25,
+    title: 'Pfannkuchen (Reismehl)', slug: '/rezepte/pfannkuchen-reismehl',
+    slots: ['fruehstueck'], minuten: 20,
     naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
     histaminarm: true, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: true,
+  },
+  {
+    title: 'Pfannkuchen (klassisch)', slug: '/rezepte/pfannkuchen-klassisch',
+    slots: ['fruehstueck'], minuten: 25,
+    naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
+    histaminarm: true, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: true,
   },
   {
     title: 'Nudeln mit Tomatensauce', slug: '/rezepte/nudeln-mit-tomatensauce',
@@ -52,6 +58,24 @@ const ALL_RECIPES: Recipe[] = [
     slots: ['mittagessen', 'abendessen'], minuten: 40,
     naturalGf: true, kleinkind: false, vegetarisch: true, vegan: false, pescetarisch: true,
     histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: true,
+  },
+  {
+    title: 'Schnitzel mit Kartoffelbrei', slug: '/rezepte/schnitzel-kartoffelbrei',
+    slots: ['mittagessen', 'abendessen'], minuten: 35,
+    naturalGf: false, kleinkind: true, vegetarisch: false, vegan: false, pescetarisch: false,
+    histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: true,
+  },
+  {
+    title: 'Kässpatzen', slug: '/rezepte/kaesspatzen',
+    slots: ['mittagessen', 'abendessen'], minuten: 40,
+    naturalGf: false, kleinkind: false, vegetarisch: true, vegan: false, pescetarisch: true,
+    histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
+  },
+  {
+    title: 'Veganes Chili', slug: '/rezepte/veganes-chili',
+    slots: ['mittagessen', 'abendessen'], minuten: 35,
+    naturalGf: true, kleinkind: false, vegetarisch: true, vegan: true, pescetarisch: true,
+    histaminarm: false, zuckerfrei: true, laktosefrei: true, fruktosearm: false, nussfrei: true, eifrei: true, einfrierbar: true,
   },
   {
     title: 'Pizza glutenfrei', slug: '/rezepte/pizza-glutenfrei',
@@ -169,7 +193,201 @@ function buildPlan(prefs: Prefs): Plan {
   return plan;
 }
 
-// ── UI ────────────────────────────────────────────────────────────────────────
+// ── Bild-Export ───────────────────────────────────────────────────────────────
+
+function downloadPlanAsImage(plan: Plan, days: string[]) {
+  const SCALE   = 2;
+  const W       = 1120;
+  const HDR_H   = 68;
+  const DAY_H   = 36;
+  const SLOT_H  = 88;
+  const FTR_H   = 30;
+  const LBL_W   = 108;
+
+  const nDays = days.length;
+  const dayW  = (W - LBL_W) / nDays;
+  const H     = HDR_H + DAY_H + SLOTS.length * SLOT_H + FTR_H;
+
+  const canvas = document.createElement('canvas');
+  canvas.width  = W * SCALE;
+  canvas.height = H * SCALE;
+  const ctx = canvas.getContext('2d')!;
+  ctx.scale(SCALE, SCALE);
+
+  const C = {
+    bg:      '#FEFAE0',
+    bgDark:  '#F2EAC3',
+    green:   '#1B4332',
+    golden:  '#E9C46A',
+    mint:    '#95D5B2',
+    text:    '#2C2416',
+    muted:   '#7A6B52',
+    border:  '#DDD5BA',
+  };
+
+  // Hintergrund
+  ctx.fillStyle = C.bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Header ──
+  ctx.fillStyle = C.green;
+  ctx.fillRect(0, 0, W, HDR_H);
+
+  ctx.fillStyle = C.golden;
+  ctx.font = 'bold 17px Georgia, serif';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Waschtls Schmankerl', 20, 24);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '12px Arial, sans-serif';
+  ctx.fillText('Glutenfreier Speiseplan · waschtls-schmankerl.de', 20, 50);
+
+  const dateStr = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+  ctx.fillStyle = 'rgba(255,255,255,0.38)';
+  ctx.font = '11px Arial, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(dateStr, W - 18, 50);
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+
+  // ── Tagzeile ──
+  const tagY = HDR_H;
+  ctx.fillStyle = C.bgDark;
+  ctx.fillRect(0, tagY, W, DAY_H);
+
+  // Goldene Trennlinie unten
+  ctx.fillStyle = C.golden;
+  ctx.fillRect(0, tagY + DAY_H - 2, W, 2);
+
+  // Ecke links (grün, für Slot-Labels)
+  ctx.fillStyle = C.green;
+  ctx.fillRect(0, tagY, LBL_W, DAY_H);
+
+  days.forEach((tag, i) => {
+    const x = LBL_W + i * dayW;
+    if (i > 0) {
+      ctx.fillStyle = C.border;
+      ctx.fillRect(x, tagY, 1, H - tagY - FTR_H);
+    }
+    ctx.fillStyle = C.green;
+    ctx.font = 'bold 12px Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(tag, x + dayW / 2, tagY + DAY_H / 2);
+  });
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+
+  // ── Slot-Zeilen ──
+  SLOTS.forEach(({ key, label }, si) => {
+    const y = HDR_H + DAY_H + si * SLOT_H;
+
+    // Zebra-Hintergrund
+    if (si % 2 === 1) {
+      ctx.fillStyle = 'rgba(0,0,0,0.022)';
+      ctx.fillRect(LBL_W, y, W - LBL_W, SLOT_H);
+    }
+
+    // Zeilenrand unten
+    ctx.fillStyle = C.border;
+    ctx.fillRect(0, y + SLOT_H - 1, W, 1);
+
+    // Slot-Label (grüne Spalte)
+    ctx.fillStyle = C.green;
+    ctx.fillRect(0, y, LBL_W, SLOT_H);
+
+    const slotText = label.replace(/^[^ ]+ /, ''); // Emoji entfernen
+    ctx.fillStyle = 'rgba(255,255,255,0.82)';
+    ctx.font = 'bold 9.5px Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(slotText, LBL_W / 2, y + SLOT_H / 2);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+
+    // Zellen
+    days.forEach((tag, di) => {
+      const recipe = plan[tag][key];
+      const x = LBL_W + di * dayW;
+      const pad = 9;
+      const cellW = dayW - pad * 2 - 2;
+
+      if (recipe) {
+        // Karten-Hintergrund
+        ctx.fillStyle = 'rgba(149,213,178,0.1)';
+        ctx.strokeStyle = C.mint;
+        ctx.lineWidth = 1;
+        roundRect(ctx, x + 5, y + 6, dayW - 10, SLOT_H - 12, 5);
+        ctx.fill();
+        ctx.stroke();
+
+        // Rezepttitel (Zeilenumbruch)
+        ctx.fillStyle = C.text;
+        ctx.font = 'bold 10.5px Arial, sans-serif';
+        ctx.textBaseline = 'top';
+        const words = recipe.title.split(' ');
+        let line = '';
+        let ly = y + 14;
+        for (const w of words) {
+          const test = line ? `${line} ${w}` : w;
+          if (ctx.measureText(test).width > cellW && line) {
+            ctx.fillText(line, x + pad + 4, ly);
+            line = w; ly += 13;
+          } else { line = test; }
+        }
+        ctx.fillText(line, x + pad + 4, ly);
+
+        // Zeit
+        ctx.fillStyle = C.muted;
+        ctx.font = '9px Arial, sans-serif';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(`⏱ ${recipe.minuten} Min.`, x + pad + 4, y + SLOT_H - 10);
+        ctx.textBaseline = 'alphabetic';
+      } else {
+        ctx.fillStyle = C.border;
+        ctx.font = 'italic 10px Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('—', x + dayW / 2, y + SLOT_H / 2);
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'alphabetic';
+      }
+    });
+  });
+
+  // ── Footer ──
+  ctx.fillStyle = C.green;
+  ctx.fillRect(0, H - FTR_H, W, FTR_H);
+  ctx.fillStyle = C.golden;
+  ctx.font = '9.5px Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Waschtls Schmankerl · Glutenfreie Rezepte für Familien · waschtls-schmankerl.de', W / 2, H - FTR_H / 2);
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+
+  // Download
+  const link = document.createElement('a');
+  link.download = 'waschtls-speiseplan.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+// ── UI-Bausteine ──────────────────────────────────────────────────────────────
 
 function Pill({ label, active, onToggle }: { label: string; active: boolean; onToggle: () => void }) {
   return (
@@ -325,9 +543,20 @@ export default function WochenplanPage() {
           <div className="container" style={{ maxWidth: '1060px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
               <p style={{ margin: 0, color: 'var(--text-light)', fontSize: '0.82rem' }}>Klick auf ein Rezept öffnet alle Details.</p>
-              <button onClick={() => window.print()} style={{ padding: '0.4rem 0.9rem', borderRadius: '8px', border: '1.5px solid var(--border)', background: 'transparent', color: 'var(--text-mid)', fontSize: '0.8rem', cursor: 'pointer' }}>
-                🖨 Plan drucken
-              </button>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <button
+                  onClick={() => downloadPlanAsImage(plan, days)}
+                  style={{ padding: '0.4rem 0.9rem', borderRadius: '8px', border: '1.5px solid var(--green-mid)', background: 'var(--green-mid)', color: 'white', fontSize: '0.8rem', cursor: 'pointer', fontWeight: 600 }}
+                >
+                  📷 Als Bild speichern
+                </button>
+                <button
+                  onClick={() => window.print()}
+                  style={{ padding: '0.4rem 0.9rem', borderRadius: '8px', border: '1.5px solid var(--border)', background: 'transparent', color: 'var(--text-mid)', fontSize: '0.8rem', cursor: 'pointer' }}
+                >
+                  🖨 Drucken
+                </button>
+              </div>
             </div>
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '680px' }}>
@@ -356,7 +585,7 @@ export default function WochenplanPage() {
               </table>
             </div>
             <div style={{ marginTop: '1.5rem', padding: '0.875rem 1.25rem', background: 'rgba(149,213,178,0.1)', border: '1.5px solid var(--mint)', borderRadius: '10px', fontSize: '0.82rem', lineHeight: 1.7, color: 'var(--text-mid)' }}>
-              <strong>Noch Lücken?</strong> Mit jedem neuen Rezept wird der Plan vollständiger. „Nicht verfügbar" heißt: Kategorie passt zu den Filtern, Rezept ist noch in Arbeit. 😊
+              <strong>Noch Lücken?</strong> Mit jedem neuen Rezept wird der Plan vollständiger. „Nicht verfügbar" bedeutet: Kategorie passt zu den Filtern, Rezept ist noch in Arbeit. 😊
             </div>
             <div style={{ marginTop: '1.25rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/rezepte" className="btn btn-outline">Alle Rezepte →</Link>
