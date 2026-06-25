@@ -4,11 +4,11 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Wenns mal schnell gehen muss – Glutenfreie Convenience-Produkte',
   description: 'Glutenfreie Fertigprodukte die wirklich funktionieren: Falafel, Gnocchi, Schlemmerfilet, TK-Pizza und mehr. Ehrliche Einschätzungen aus unserem Alltag mit Zöliakie.',
-  alternates: { canonical: 'https://www.waschtls-schmankerl.de/schnellkueche' },
+  alternates: { canonical: 'https://www.waschtls-schmankerl.de/vorratskiste' },
   openGraph: {
     title: 'Wenns mal schnell gehen muss – Glutenfreie Convenience',
     description: 'Was wirklich funktioniert wenn keine Zeit zum Kochen ist – getestet in unserer Zöliakie-Familie.',
-    url: 'https://www.waschtls-schmankerl.de/schnellkueche',
+    url: 'https://www.waschtls-schmankerl.de/vorratskiste',
   },
 };
 
@@ -241,7 +241,7 @@ export default function SchnellkuechePage() {
       <section style={{ background: 'var(--green-deep)', padding: '2.75rem 0 2.25rem' }}>
         <div className="container">
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
-            <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> › Schnellküche
+            <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> › Vorratskiste
           </div>
           <h1 style={{ color: 'var(--golden)', marginBottom: '0.6rem', marginTop: '1rem' }}>
             ⚡ Wenns mal schnell gehen muss

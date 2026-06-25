@@ -12,7 +12,7 @@ const HERO_REZEPTE = [
   { emoji: '🥞', title: 'Pfannkuchen',    href: '/rezepte/pfannkuchen-klassisch',   zeit: '25 Min' },
   { emoji: '🍖', title: 'Fleischküchler', href: '/rezepte/fleischkuechle',           zeit: '30 Min' },
   { emoji: '🍕', title: 'Pizza',          href: '/rezepte/pizza-glutenfrei',         zeit: '60 Min' },
-  { emoji: '🧆', title: 'Schnellküche',   href: '/schnellkueche',                    zeit: 'neu ⚡', highlight: true },
+  { emoji: '🧆', title: 'Vorratskiste',   href: '/vorratskiste',                    zeit: 'neu ⚡', highlight: true },
 ];
 
 const NEUE_REZEPTE = [

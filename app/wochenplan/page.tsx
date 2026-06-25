@@ -114,42 +114,42 @@ const ALL_RECIPES: Recipe[] = [
 
 const CONVENIENCE: Recipe[] = [
   {
-    title: '⚡ dm Bio-Falafel (TK)', slug: '/schnellkueche',
+    title: '⚡ dm Bio-Falafel (TK)', slug: '/vorratskiste',
     slots: ['mittagessen', 'abendessen'], minuten: 15,
     naturalGf: true, kleinkind: true, vegetarisch: true, vegan: true, pescetarisch: true,
     histaminarm: false, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: false,
     convenience: true,
   },
   {
-    title: '⚡ Schär Gnocchi (getrocknet)', slug: '/schnellkueche',
+    title: '⚡ Schär Gnocchi (getrocknet)', slug: '/vorratskiste',
     slots: ['mittagessen', 'abendessen'], minuten: 10,
     naturalGf: false, kleinkind: true, vegetarisch: true, vegan: true, pescetarisch: true,
     histaminarm: true, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: false,
     convenience: true,
   },
   {
-    title: '⚡ iglo Schlemmerfilet Spinat', slug: '/schnellkueche',
+    title: '⚡ iglo Schlemmerfilet Spinat', slug: '/vorratskiste',
     slots: ['mittagessen', 'abendessen'], minuten: 20,
     naturalGf: true, kleinkind: true, vegetarisch: false, vegan: false, pescetarisch: true,
     histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: false,
     convenience: true,
   },
   {
-    title: '⚡ TK-Blätterteig-Snack', slug: '/schnellkueche',
+    title: '⚡ TK-Blätterteig-Snack', slug: '/vorratskiste',
     slots: ['abendessen', 'snack'], minuten: 20,
     naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
     histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
     convenience: true,
   },
   {
-    title: '⚡ GF TK-Nuggets', slug: '/schnellkueche',
+    title: '⚡ GF TK-Nuggets', slug: '/vorratskiste',
     slots: ['mittagessen', 'abendessen'], minuten: 15,
     naturalGf: false, kleinkind: true, vegetarisch: false, vegan: false, pescetarisch: false,
     histaminarm: false, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
     convenience: true,
   },
   {
-    title: '⚡ Schär TK-Pizza', slug: '/schnellkueche',
+    title: '⚡ Schär TK-Pizza', slug: '/vorratskiste',
     slots: ['abendessen'], minuten: 15,
     naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
     histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
@@ -477,7 +477,7 @@ function RecipeCell({ recipe }: { recipe: Recipe | null }) {
   );
   if (recipe.convenience) {
     return (
-      <Link href="/schnellkueche" target="_blank" style={{
+      <Link href="/vorratskiste" target="_blank" style={{
         display: 'block', padding: '0.55rem 0.75rem', borderRadius: '8px',
         background: 'rgba(233,196,106,0.1)', border: '1.5px solid rgba(233,196,106,0.4)',
         textDecoration: 'none', color: 'var(--text-dark)', fontSize: '0.82rem', fontWeight: 500, lineHeight: 1.35,
