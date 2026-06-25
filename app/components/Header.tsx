@@ -65,15 +65,22 @@ const typeStyle: Record<string, { bg: string; color: string }> = {
   Seite:  { bg: 'var(--terracotta)',  color: '#fff' },
 };
 
-const nav = [
+const navMain = [
   { label: 'Rezepte',      href: '/rezepte' },
   { label: 'Schnellküche', href: '/schnellkueche' },
   { label: 'Wissen',       href: '/wissen' },
-  { label: 'Aktuelles',    href: '/aktuelles' },
-  { label: 'Unterwegs',    href: '/unterwegs' },
-  { label: 'Produkte',     href: '/produkte' },
-  { label: 'Über uns',     href: '/ueber-uns' },
+  { label: 'Speiseplan',   href: '/wochenplan' },
 ];
+
+const navMehr = [
+  { label: 'Aktuelles',  href: '/aktuelles' },
+  { label: 'Unterwegs',  href: '/unterwegs' },
+  { label: 'Produkte',   href: '/produkte' },
+  { label: 'Über uns',   href: '/ueber-uns' },
+];
+
+// Für Mobilmenü alle zusammen
+const nav = [...navMain, ...navMehr];
 
 // ── Such-Modal ─────────────────────────────────────────────────────────────────
 
@@ -267,7 +274,20 @@ function SearchModal({ onClose }: { onClose: () => void }) {
 export default function Header() {
   const [menuOpen,   setMenuOpen]   = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mehrOpen,   setMehrOpen]   = useState(false);
+  const mehrRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  // Mehr-Dropdown schließen beim Klick außerhalb
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (mehrRef.current && !mehrRef.current.contains(e.target as Node)) {
+        setMehrOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -303,41 +323,85 @@ export default function Header() {
 
           {/* Desktop Nav + Suche */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <nav className="desktop-nav" style={{ display: 'flex', gap: '0.25rem' }} aria-label="Hauptnavigation">
-              {nav.map(({ label, href }) => {
+            <nav className="desktop-nav" style={{ display: 'flex', gap: '0.15rem', alignItems: 'center' }} aria-label="Hauptnavigation">
+              {navMain.map(({ label, href }) => {
                 const active = pathname === href || pathname.startsWith(href + '/');
                 return (
                   <Link key={href} href={href} style={{
-                    padding: '0.45rem 0.9rem', borderRadius: '6px',
-                    fontWeight: active ? 600 : 500, fontSize: '0.9rem',
+                    padding: '0.4rem 0.8rem', borderRadius: '6px',
+                    fontWeight: active ? 600 : 500, fontSize: '0.875rem',
                     color: active ? 'var(--golden)' : 'var(--mint)',
                     background: active ? 'rgba(233,196,106,0.12)' : 'transparent',
-                    transition: 'all 0.15s',
+                    transition: 'all 0.15s', whiteSpace: 'nowrap',
                   }}>
                     {label}
                   </Link>
                 );
               })}
+
+              {/* Mehr-Dropdown */}
+              <div ref={mehrRef} style={{ position: 'relative' }}>
+                <button
+                  onClick={() => setMehrOpen(o => !o)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '0.25rem',
+                    padding: '0.4rem 0.8rem', borderRadius: '6px',
+                    fontWeight: 500, fontSize: '0.875rem',
+                    color: navMehr.some(n => pathname.startsWith(n.href)) ? 'var(--golden)' : 'var(--mint)',
+                    background: mehrOpen ? 'rgba(149,213,178,0.1)' : 'transparent',
+                    border: 'none', cursor: 'pointer',
+                  }}
+                >
+                  Mehr <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>{mehrOpen ? '▲' : '▼'}</span>
+                </button>
+                {mehrOpen && (
+                  <div style={{
+                    position: 'absolute', top: 'calc(100% + 8px)', right: 0,
+                    background: 'var(--green-deep)',
+                    border: '1.5px solid rgba(149,213,178,0.25)',
+                    borderRadius: '10px', padding: '0.5rem',
+                    minWidth: '160px', zIndex: 150,
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+                  }}>
+                    {navMehr.map(({ label, href }) => {
+                      const active = pathname === href || pathname.startsWith(href + '/');
+                      return (
+                        <Link key={href} href={href}
+                          onClick={() => setMehrOpen(false)}
+                          style={{
+                            display: 'block', padding: '0.5rem 0.75rem',
+                            borderRadius: '6px', fontSize: '0.875rem',
+                            color: active ? 'var(--golden)' : 'var(--mint)',
+                            fontWeight: active ? 600 : 400,
+                            background: active ? 'rgba(233,196,106,0.1)' : 'transparent',
+                            whiteSpace: 'nowrap',
+                          }}>
+                          {label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </nav>
 
+            {/* Suche – Icon only */}
             <button
               onClick={() => setSearchOpen(true)}
-              aria-label="Suche öffnen"
+              aria-label="Suche öffnen (⌘K)"
               title="Suche (⌘K)"
               className="desktop-search-btn"
               style={{
-                marginLeft: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem',
-                padding: '0.4rem 0.75rem', borderRadius: '8px',
+                marginLeft: '0.35rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '36px', height: '36px', borderRadius: '8px',
                 border: '1.5px solid rgba(149,213,178,0.35)',
                 background: 'rgba(149,213,178,0.08)',
-                color: 'var(--mint)', cursor: 'pointer', fontSize: '0.82rem',
+                color: 'var(--mint)', cursor: 'pointer', fontSize: '1rem',
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--mint)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(149,213,178,0.35)'; }}
             >
-              <span>🔍</span>
-              <span className="search-label">Suche</span>
-              <span className="search-shortcut" style={{ fontSize: '0.7rem', opacity: 0.6, fontFamily: 'monospace' }}>⌘K</span>
+              🔍
             </button>
           </div>
 
