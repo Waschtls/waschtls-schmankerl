@@ -1,8 +1,8 @@
 import RecipeLayout from '@/app/components/RecipeLayout';
 
 export const metadata = {
-  title: 'Veganes Chili con Carne | Waschtls Schmankerl',
-  description: 'Veganes Chili mit Hack von DM – herzhaft, sättigend und von Natur aus glutenfrei. Fertig in 35 Minuten.',
+  title: 'Glutenfreies veganes Chili con Carne – von Natur aus glutenfrei',
+  description: 'Veganes Chili mit Hack von DM – herzhaft, sättigend, von Natur aus glutenfrei. In 35 Minuten auf dem Tisch, ideal zum Einfrieren.',
 };
 
 export default function VeganesChiliPage() {

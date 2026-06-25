@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+const SITE_URL = 'https://www.waschtls-schmankerl.de';
+
 // ── Typen ─────────────────────────────────────────────────────────────────────
 
 export type RecipeBadge = { type: 'mint' | 'golden'; label: string };
@@ -49,6 +51,37 @@ export default function RecipeLayout({
   affiliate, warenkundeLink, prev, next,
 }: RecipeLayoutProps) {
 
+  // ── JSON-LD (Schema.org Recipe) ───────────────────────────────────────────
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: title,
+    description: tagline,
+    author: { '@type': 'Person', name: 'Waschtl', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: "Waschtls Schmankerl", url: SITE_URL },
+    recipeCategory: kat,
+    recipeCuisine: 'Glutenfrei',
+    keywords: `glutenfrei, ${kat.toLowerCase()}, ${badges.map(b => b.label.replace(/^[^\w]+/, '')).join(', ')}`,
+    cookTime: `PT${minuten}M`,
+    totalTime: `PT${minuten}M`,
+    recipeYield: `${portionen} Portionen`,
+    recipeIngredient: zutaten.filter(z => !z.startsWith('—')),
+    recipeInstructions: zubereitung.map((schritt, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      text: schritt,
+    })),
+    nutrition: {
+      '@type': 'NutritionInformation',
+      calories: `${naehrwerte.kalorien} kcal`,
+      carbohydrateContent: `${naehrwerte.kohlenhydrate} g`,
+      proteinContent: `${naehrwerte.protein} g`,
+      fatContent: `${naehrwerte.fett} g`,
+      fiberContent: `${naehrwerte.ballaststoffe} g`,
+    },
+    suitableForDiet: 'https://schema.org/GlutenFreeDiet',
+  };
+
   // Meta-Zeile
   const metaItems: MetaItem[] = [
     { icon: '⏱', label: `${minuten} Min.` },
@@ -67,6 +100,12 @@ export default function RecipeLayout({
 
   return (
     <>
+      {/* ── JSON-LD für Google Rich Snippets ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* ── HERO ── */}
       <section style={{ background: 'var(--green-deep)', padding: '2.75rem 0 2.25rem' }}>
         <div className="container">

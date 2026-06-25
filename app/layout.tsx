@@ -4,21 +4,43 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import BetaBanner from './components/BetaBanner';
 
+const BASE_URL = 'https://www.waschtls-schmankerl.de';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
-    default: "Waschtl's Schmankerl – Glutenfrei & aus Augsburg",
-    template: "%s | Waschtl's Schmankerl",
+    default: "Waschtls Schmankerl – Glutenfreie Rezepte für Familien",
+    template: "%s | Waschtls Schmankerl",
   },
   description:
-    'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie, die Zöliakie kennt. Bayerisch-schwäbisch, bodenständig, lecker.',
-  keywords: ['glutenfrei', 'Zöliakie', 'Kinder', 'Rezepte', 'Augsburg', 'bayerisch', 'glutenfreie Ernährung'],
-  authors: [{ name: 'Sebastian Klug' }],
+    'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie. Bayerisch bodenständig – vom Schnitzel bis zur Kässpatzen, alles glutenfrei.',
+  keywords: [
+    'glutenfrei', 'Zöliakie', 'Kinder', 'Rezepte', 'Augsburg', 'bayerisch',
+    'glutenfreie Ernährung', 'Zöliakie Kinder', 'glutenfreie Rezepte Familie',
+    'glutenfrei kochen', 'Zöliakie Rezepte', 'glutenfrei backen',
+  ],
+  authors: [{ name: 'Waschtl', url: BASE_URL }],
+  creator: "Waschtls Schmankerl",
+  publisher: "Waschtls Schmankerl",
   openGraph: {
-    siteName: "Waschtl's Schmankerl",
+    siteName: "Waschtls Schmankerl",
     type: 'website',
     locale: 'de_DE',
+    url: BASE_URL,
+    title: "Waschtls Schmankerl – Glutenfreie Rezepte für Familien",
+    description: 'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie.',
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Waschtls Schmankerl – Glutenfreie Rezepte für Familien",
+    description: 'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+  alternates: { canonical: BASE_URL },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
