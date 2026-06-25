@@ -17,7 +17,7 @@ type SearchItem = {
 
 const SEARCH_INDEX: SearchItem[] = [
   { title: 'Apfel-Zimt-Porridge',          desc: 'Frühstück · 10 Min · ohne Spezialmehl',          href: '/rezepte/apfel-zimt-porridge',         type: 'Rezept', tags: 'apfel zimt porridge haferflocken frühstück schnell kleinkind' },
-  { title: 'Pfannkuchen aus Reismehl',      desc: 'Frühstück · 25 Min · kleinkindtauglich',         href: '/rezepte/pfannkuchen-reismehl',         type: 'Rezept', tags: 'pfannkuchen reismehl frühstück crepes' },
+  { title: 'Schnellküche & Convenience',     desc: 'GF Fertigprodukte die wirklich funktionieren',   href: '/schnellkueche',                        type: 'Seite',  tags: 'schnell fertig convenience falafel gnocchi fischstäbchen tk pizza nuggets blätterteig schlemmerfilet dm iglo schär' },
   { title: 'Nudeln mit Tomatensauce',       desc: 'Mittagessen · 25 Min · kleinkindtauglich',       href: '/rezepte/nudeln-mit-tomatensauce',      type: 'Rezept', tags: 'nudeln pasta tomaten mittagessen kinder schnell' },
   { title: 'Kürbisrisotto',                 desc: 'Mittagessen · 40 Min · ohne Spezialmehl',        href: '/rezepte/kuerbisrisotto',               type: 'Rezept', tags: 'kürbis risotto reis mittagessen herbst' },
   { title: 'Pizza glutenfrei',              desc: 'Brot & Hefeteig · 60 Min',                       href: '/rezepte/pizza-glutenfrei',             type: 'Rezept', tags: 'pizza hefeteig brot abendessen belag' },
@@ -66,12 +66,13 @@ const typeStyle: Record<string, { bg: string; color: string }> = {
 };
 
 const nav = [
-  { label: 'Rezepte',    href: '/rezepte' },
-  { label: 'Wissen',     href: '/wissen' },
-  { label: 'Aktuelles',  href: '/aktuelles' },
-  { label: 'Unterwegs',  href: '/unterwegs' },
-  { label: 'Produkte',   href: '/produkte' },
-  { label: 'Über uns',   href: '/ueber-uns' },
+  { label: 'Rezepte',      href: '/rezepte' },
+  { label: 'Schnellküche', href: '/schnellkueche' },
+  { label: 'Wissen',       href: '/wissen' },
+  { label: 'Aktuelles',    href: '/aktuelles' },
+  { label: 'Unterwegs',    href: '/unterwegs' },
+  { label: 'Produkte',     href: '/produkte' },
+  { label: 'Über uns',     href: '/ueber-uns' },
 ];
 
 // ── Such-Modal ─────────────────────────────────────────────────────────────────

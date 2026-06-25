@@ -24,6 +24,7 @@ type Recipe = {
   nussfrei: boolean;
   eifrei: boolean;
   einfrierbar: boolean;
+  convenience?: boolean;  // Fertigprodukt – kein Link, ⚡-Icon
 };
 
 // ── Rezept-Daten ──────────────────────────────────────────────────────────────
@@ -36,7 +37,7 @@ const ALL_RECIPES: Recipe[] = [
     histaminarm: true, zuckerfrei: true, laktosefrei: true, fruktosearm: false, nussfrei: true, eifrei: true, einfrierbar: false,
   },
   {
-    title: 'Pfannkuchen (Reismehl)', slug: '/rezepte/pfannkuchen-reismehl',
+    title: 'Pfannkuchen (klassisch)', slug: '/rezepte/pfannkuchen-klassisch',
     slots: ['fruehstueck'], minuten: 20,
     naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
     histaminarm: true, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: true,
@@ -109,6 +110,53 @@ const ALL_RECIPES: Recipe[] = [
   },
 ];
 
+// ── Convenience-Produkte ──────────────────────────────────────────────────────
+
+const CONVENIENCE: Recipe[] = [
+  {
+    title: '⚡ dm Bio-Falafel (TK)', slug: '/schnellkueche',
+    slots: ['mittagessen', 'abendessen'], minuten: 15,
+    naturalGf: true, kleinkind: true, vegetarisch: true, vegan: true, pescetarisch: true,
+    histaminarm: false, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: false,
+    convenience: true,
+  },
+  {
+    title: '⚡ Schär Gnocchi (getrocknet)', slug: '/schnellkueche',
+    slots: ['mittagessen', 'abendessen'], minuten: 10,
+    naturalGf: false, kleinkind: true, vegetarisch: true, vegan: true, pescetarisch: true,
+    histaminarm: true, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: false,
+    convenience: true,
+  },
+  {
+    title: '⚡ iglo Schlemmerfilet Spinat', slug: '/schnellkueche',
+    slots: ['mittagessen', 'abendessen'], minuten: 20,
+    naturalGf: true, kleinkind: true, vegetarisch: false, vegan: false, pescetarisch: true,
+    histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: true, einfrierbar: false,
+    convenience: true,
+  },
+  {
+    title: '⚡ TK-Blätterteig-Snack', slug: '/schnellkueche',
+    slots: ['abendessen', 'snack'], minuten: 20,
+    naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
+    histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
+    convenience: true,
+  },
+  {
+    title: '⚡ GF TK-Nuggets', slug: '/schnellkueche',
+    slots: ['mittagessen', 'abendessen'], minuten: 15,
+    naturalGf: false, kleinkind: true, vegetarisch: false, vegan: false, pescetarisch: false,
+    histaminarm: false, zuckerfrei: true, laktosefrei: true, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
+    convenience: true,
+  },
+  {
+    title: '⚡ Schär TK-Pizza', slug: '/schnellkueche',
+    slots: ['abendessen'], minuten: 15,
+    naturalGf: false, kleinkind: true, vegetarisch: true, vegan: false, pescetarisch: true,
+    histaminarm: false, zuckerfrei: true, laktosefrei: false, fruktosearm: true, nussfrei: true, eifrei: false, einfrierbar: false,
+    convenience: true,
+  },
+];
+
 // ── Konstanten ────────────────────────────────────────────────────────────────
 
 const TAGE_5 = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
@@ -128,6 +176,7 @@ type Prefs = {
   vegetarisch: boolean; vegan: boolean; pescetarisch: boolean;
   histaminarm: boolean; zuckerfrei: boolean;
   laktosefrei: boolean; fruktosearm: boolean; nussfrei: boolean; eifrei: boolean;
+  mitConvenience: boolean;
   woche: '5' | '7';
 };
 
@@ -136,12 +185,17 @@ const DEFAULT_PREFS: Prefs = {
   vegetarisch: false, vegan: false, pescetarisch: false,
   histaminarm: false, zuckerfrei: false,
   laktosefrei: false, fruktosearm: false, nussfrei: false, eifrei: false,
+  mitConvenience: false,
   woche: '5',
 };
 
 // ── Plan-Logik ────────────────────────────────────────────────────────────────
 
 function shuffle<T>(arr: T[]): T[] { return [...arr].sort(() => Math.random() - 0.5); }
+
+function getPool(prefs: Prefs): Recipe[] {
+  return prefs.mitConvenience ? [...ALL_RECIPES, ...CONVENIENCE] : ALL_RECIPES;
+}
 
 function applyFilters(pool: Recipe[], prefs: Prefs): Recipe[] {
   return pool.filter(r => {
@@ -163,7 +217,7 @@ function applyFilters(pool: Recipe[], prefs: Prefs): Recipe[] {
 }
 
 function pickForSlot(slotKey: SlotKey, prefs: Prefs, count: number): (Recipe | null)[] {
-  const pool = applyFilters(ALL_RECIPES.filter(r => r.slots.includes(slotKey)), prefs);
+  const pool = applyFilters(getPool(prefs).filter(r => r.slots.includes(slotKey)), prefs);
   if (pool.length === 0) return Array(count).fill(null);
   const shuffled = shuffle(pool);
   return Array.from({ length: count }, (_, i) => shuffled[i % shuffled.length]);
@@ -421,6 +475,20 @@ function RecipeCell({ recipe }: { recipe: Recipe | null }) {
       Nicht verfügbar ✨
     </div>
   );
+  if (recipe.convenience) {
+    return (
+      <Link href="/schnellkueche" target="_blank" style={{
+        display: 'block', padding: '0.55rem 0.75rem', borderRadius: '8px',
+        background: 'rgba(233,196,106,0.1)', border: '1.5px solid rgba(233,196,106,0.4)',
+        textDecoration: 'none', color: 'var(--text-dark)', fontSize: '0.82rem', fontWeight: 500, lineHeight: 1.35,
+      }}>
+        {recipe.title}
+        <span style={{ display: 'block', fontSize: '0.68rem', color: 'var(--text-light)', marginTop: '0.15rem' }}>
+          🛒 ca. {recipe.minuten} Min. · Fertigprodukt
+        </span>
+      </Link>
+    );
+  }
   return (
     <Link href={recipe.slug} target="_blank" style={{
       display: 'block', padding: '0.55rem 0.75rem', borderRadius: '8px',
@@ -472,10 +540,11 @@ export default function WochenplanPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem 2.5rem', marginBottom: '1.25rem' }}>
             <FilterGroup label="⚙️ Praktisch">
-              <Pill label="👶 Kleinkindtauglich"  active={prefs.kleinkind}   onToggle={() => toggle('kleinkind')} />
-              <Pill label="💚 Ohne Spezialmehl"   active={prefs.nurNatGf}    onToggle={() => toggle('nurNatGf')} />
-              <Pill label="⚡ Schnell (≤ 30 Min)" active={prefs.schnell}     onToggle={() => toggle('schnell')} />
-              <Pill label="❄️ Einfrierbar"         active={prefs.einfrierbar} onToggle={() => toggle('einfrierbar')} />
+              <Pill label="👶 Kleinkindtauglich"    active={prefs.kleinkind}       onToggle={() => toggle('kleinkind')} />
+              <Pill label="💚 Ohne Spezialmehl"     active={prefs.nurNatGf}        onToggle={() => toggle('nurNatGf')} />
+              <Pill label="⚡ Schnell (≤ 30 Min)"   active={prefs.schnell}         onToggle={() => toggle('schnell')} />
+              <Pill label="❄️ Einfrierbar"           active={prefs.einfrierbar}     onToggle={() => toggle('einfrierbar')} />
+              <Pill label="🛒 Fertigprodukte einplanen" active={prefs.mitConvenience} onToggle={() => toggle('mitConvenience')} />
             </FilterGroup>
 
             <FilterGroup label="🥦 Ernährungsweise">
