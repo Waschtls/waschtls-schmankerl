@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const rezepte = [
     'apfel-zimt-porridge',
-    'pfannkuchen-reismehl',
     'pfannkuchen-klassisch',
     'french-toast',
     'waffeln-klassisch',

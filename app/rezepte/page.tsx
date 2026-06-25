@@ -39,13 +39,6 @@ type Rezept = {
 const REZEPTE: Rezept[] = [
   // ── Frühstück ──
   {
-    slug: 'pfannkuchen-reismehl',
-    title: 'Pfannkuchen aus Reismehl',
-    desc: 'Fluffig, schnell – kein Unterschied zum Original.',
-    time: '20 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
-    emoji: '🥞', naturalGf: false, kleinkind: true,
-  },
-  {
     slug: 'pfannkuchen-klassisch',
     title: 'Pfannkuchen (klassisch)',
     desc: 'Mit Schär Mix It – hauchdünn, goldbraun, hält beim Wenden.',
