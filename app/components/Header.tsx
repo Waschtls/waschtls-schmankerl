@@ -45,6 +45,7 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'FAQ – Häufige Fragen',          desc: 'Antworten auf die häufigsten Elternfragen',      href: '/faq',                                  type: 'Seite', tags: 'faq fragen antworten häufig' },
   { title: 'Produkte & Empfehlungen',       desc: 'Produkte die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
   { title: 'Nach Zutaten suchen',           desc: 'Welche Rezepte kann ich mit meinen Zutaten kochen?', href: '/rezepte/nach-zutaten',             type: 'Seite', tags: 'zutaten kühlschrank zutatenliste rezept finden' },
+  { title: 'Vorlagen & Vordrucke',          desc: 'Musterbriefe, Notfallkarten und Checklisten für Kita & Schule', href: '/wissen/vorlagen', type: 'Wissen', tags: 'vorlagen vordrucke musterbrief brief kita schule erzieher lehrer formular notfallkarte checkliste ausflug ausflugskarte' },
 ];
 
 function searchText(query: string): SearchItem[] {
