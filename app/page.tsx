@@ -38,9 +38,9 @@ export default function Home() {
             <Link href="/rezepte" className="btn btn-golden">
               Alle Rezepte →
             </Link>
-            <Link href="/wochenplan" className="btn btn-outline"
+            <Link href="/wissen/erstdiagnose" className="btn btn-outline"
               style={{ borderColor: 'var(--mint)', color: 'var(--mint)' }}>
-              Speiseplan →
+              Gerade diagnostiziert? →
             </Link>
           </div>
         </div>
