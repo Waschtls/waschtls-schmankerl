@@ -113,6 +113,13 @@ const themen = [
     href: '/wissen/glutenfreie-lebensmittel',
     tag: 'Grundlagen',
   },
+  {
+    icon: '📄',
+    title: 'Vorlagen & Vordrucke',
+    desc: 'Musterbriefe für Kita und Schule, Notfallkarten fürs Kind und Checklisten für Elterngespräche – zum direkten Kopieren.',
+    href: '/wissen/vorlagen',
+    tag: 'Alltag',
+  },
 ];
 
 export default function WissenPage() {
