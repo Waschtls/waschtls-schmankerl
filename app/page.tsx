@@ -7,13 +7,6 @@ export const metadata: Metadata = {
     'Glutenfreie Rezepte und ehrliche Alltagstipps von einer Augsburger Familie mit Zöliakie. Echter Alltag, echte Küche – bayerisch, bodenständig, ohne Gluten.',
 };
 
-const KATEGORIEN = [
-  { emoji: '🌅', label: 'Frühstück',    href: '/rezepte?kat=fruehstueck', count: 8  },
-  { emoji: '🍽',  label: 'Mittagessen',  href: '/rezepte?kat=mittagessen', count: 10 },
-  { emoji: '🥐',  label: 'Backen',       href: '/rezepte?kat=backen',      count: 7  },
-  { emoji: '🧺',  label: 'Vorratskiste', href: '/vorratskiste',            count: null, highlight: true },
-];
-
 export default function Home() {
   return (
     <>
@@ -61,14 +54,14 @@ export default function Home() {
             textTransform: 'uppercase', color: 'var(--green-mid)',
             marginBottom: '0.6rem',
           }}>
-            Was du hier findest
+            Läuft — versprochen
           </p>
           <p style={{
             fontSize: '1.05rem', color: 'var(--text-dark)', lineHeight: 1.7,
             maxWidth: '600px', marginBottom: '1.75rem',
           }}>
-            Kein reiner Rezeptblog. Wir zeigen wie der Alltag mit Zöliakie wirklich funktioniert —
-            von der Erstdiagnose bis zum Schulalltag.
+            Glutenfrei kochen, Schule organisieren, auswärts essen — alles lösbar.
+            Wir haben es durchgespielt, du musst das Rad nicht neu erfinden.
           </p>
           <div style={{
             display: 'grid',
@@ -87,12 +80,6 @@ export default function Home() {
                 titel: 'Kind in Kita oder Schule',
                 text: 'Musterbrief, Checkliste und Tipps für Geburtstage.',
                 href: '/wissen/schule-kita',
-              },
-              {
-                icon: '⚠️',
-                titel: 'Kreuzkontamination verstehen',
-                text: 'Warum „glutenfrei kochen" nicht reicht – und was hilft.',
-                href: '/wissen/kreuzkontamination',
               },
               {
                 icon: '🍳',
@@ -117,44 +104,6 @@ export default function Home() {
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.55 }}>
                     {item.text}
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Kategorien ── */}
-      <section className="section">
-        <div className="container">
-          <div className="grid-4">
-            {KATEGORIEN.map(k => (
-              <Link key={k.href} href={k.href} style={{ textDecoration: 'none' }}>
-                <div style={{
-                  padding: '1.5rem 1.25rem',
-                  background: k.highlight ? 'var(--green-deep)' : 'var(--cream-dark)',
-                  border: `1.5px solid ${k.highlight ? 'transparent' : 'var(--border)'}`,
-                  borderRadius: '12px',
-                  transition: 'transform 0.15s, box-shadow 0.15s',
-                  textAlign: 'center',
-                }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '0.6rem' }}>{k.emoji}</div>
-                  <div style={{
-                    fontWeight: 700, fontSize: '0.95rem',
-                    color: k.highlight ? 'var(--golden)' : 'var(--green-deep)',
-                    marginBottom: '0.3rem',
-                  }}>
-                    {k.label}
-                  </div>
-                  {k.count ? (
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>
-                      {k.count} Rezepte
-                    </div>
-                  ) : (
-                    <div style={{ fontSize: '0.75rem', color: 'rgba(149,213,178,0.7)' }}>
-                      Fertigprodukte
-                    </div>
-                  )}
                 </div>
               </Link>
             ))}
