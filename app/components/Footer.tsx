@@ -31,35 +31,16 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Rezepte */}
+          {/* Navigation */}
           <div>
-            <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Rezepte</h4>
+            <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Seiten</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
-                ['Frühstück', '/rezepte#fruehstueck'],
-                ['Mittagessen', '/rezepte#mittagessen'],
-                ['Snacks & Backen', '/rezepte#snacks'],
-                ['Alle Rezepte A–Z', '/rezepte/alle'],
-                ['Wochenplan erstellen', '/wochenplan'],
-                ['Alle Rezepte', '/rezepte'],
-              ].map(([label, href]) => (
-                <Link key={href} href={href} style={{ fontSize: '0.85rem', color: 'var(--mint)', opacity: 0.85 }}>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Wissen */}
-          <div>
-            <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Wissen</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-              {[
-                ['Was ist Zöliakie?', '/wissen/was-ist-zoeliakiie'],
-                ['Diagnose bei Kindern', '/wissen/diagnose-kinder'],
-                ['Schule & Kita', '/wissen/schule-kita'],
-                ['Reisen glutenfrei', '/wissen/reisen'],
-                ['Alle Infos', '/wissen'],
+                ['Vorratskiste', '/vorratskiste'],
+                ['Aktuelles', '/aktuelles'],
+                ['Unterwegs', '/unterwegs'],
+                ['Produkte', '/produkte'],
+                ['Über uns', '/ueber-uns'],
               ].map(([label, href]) => (
                 <Link key={href} href={href} style={{ fontSize: '0.85rem', color: 'var(--mint)', opacity: 0.85 }}>
                   {label}
@@ -70,12 +51,9 @@ export default function Footer() {
 
           {/* Meta */}
           <div>
-            <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Mehr</h4>
+            <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Rechtliches</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
-                ['Kontakt', '/kontakt'],
-                ['Über uns', '/ueber-uns'],
-                ['FAQ', '/faq'],
                 ['Impressum', '/impressum'],
                 ['Datenschutz', '/datenschutz'],
               ].map(([label, href]) => (
