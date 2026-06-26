@@ -53,6 +53,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Für wen ist diese Website? ── */}
+      <section style={{ background: 'var(--cream)', padding: '2.5rem 0 2rem', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: '820px' }}>
+          <p style={{
+            fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
+            textTransform: 'uppercase', color: 'var(--green-mid)',
+            marginBottom: '0.6rem',
+          }}>
+            Was du hier findest
+          </p>
+          <p style={{
+            fontSize: '1.05rem', color: 'var(--text-dark)', lineHeight: 1.7,
+            maxWidth: '600px', marginBottom: '1.75rem',
+          }}>
+            Kein reiner Rezeptblog. Wir zeigen wie der Alltag mit Zöliakie wirklich funktioniert —
+            von der Erstdiagnose bis zum Schulalltag.
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '0.85rem',
+          }}>
+            {[
+              {
+                icon: '🆘',
+                titel: 'Gerade diagnostiziert?',
+                text: 'Was jetzt sofort zu tun ist – Schritt für Schritt.',
+                href: '/wissen/erstdiagnose',
+              },
+              {
+                icon: '🏫',
+                titel: 'Kind in Kita oder Schule',
+                text: 'Musterbrief, Checkliste und Tipps für Geburtstage.',
+                href: '/wissen/schule-kita',
+              },
+              {
+                icon: '⚠️',
+                titel: 'Kreuzkontamination verstehen',
+                text: 'Warum „glutenfrei kochen" nicht reicht – und was hilft.',
+                href: '/wissen/kreuzkontamination',
+              },
+              {
+                icon: '🍳',
+                titel: 'Glutenfrei kochen',
+                text: 'Echte Rezepte, die bei uns täglich auf den Tisch kommen.',
+                href: '/rezepte',
+              },
+            ].map(item => (
+              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  padding: '1.1rem 1.2rem',
+                  background: '#fff',
+                  border: '1.5px solid var(--border)',
+                  borderRadius: '10px',
+                  height: '100%',
+                  transition: 'border-color 0.15s',
+                }}>
+                  <div style={{ fontSize: '1.4rem', marginBottom: '0.45rem' }}>{item.icon}</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)', marginBottom: '0.3rem' }}>
+                    {item.titel}
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.55 }}>
+                    {item.text}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Kategorien ── */}
       <section className="section">
         <div className="container">
