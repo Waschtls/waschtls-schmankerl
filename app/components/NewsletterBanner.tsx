@@ -1,3 +1,8 @@
+// Newsletter vorübergehend deaktiviert – Formspree-ID noch nicht eingetragen.
+// Wieder aktivieren: FORMSPREE_ID eintragen und 'return null' entfernen.
+export default function NewsletterBanner() { return null; }
+
+/*
 'use client';
 
 import { useState } from 'react';
@@ -125,3 +130,5 @@ const bannerStyle: React.CSSProperties = {
   borderTop: '3px solid var(--golden)',
   padding: '2rem 0',
 };
+
+*/

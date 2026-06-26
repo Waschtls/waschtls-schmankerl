@@ -73,9 +73,9 @@ export default function Footer() {
             <h4 style={{ color: 'var(--golden)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>Mehr</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
-                ['FAQ', '/faq'],
+                ['Kontakt', '/kontakt'],
                 ['Über uns', '/ueber-uns'],
-                ['Produkte', '/produkte'],
+                ['FAQ', '/faq'],
                 ['Impressum', '/impressum'],
                 ['Datenschutz', '/datenschutz'],
               ].map(([label, href]) => (

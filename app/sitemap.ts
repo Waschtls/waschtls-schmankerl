@@ -33,16 +33,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const wissen = [
+    'erstdiagnose',
+    'schule-kita',
+    'kreuzkontamination',
+    'kindern-erklaeren',
     'was-ist-zoeliakiie',
     'diagnose-kinder',
-    'schule-kita',
     'welches-mehl-wofuer',
     'xanthan-flohsamenschalen',
-    'kreuzkontamination',
     'laktoseintoleranz-kinder',
     'glutenfreie-lebensmittel',
     'naehrstoffe',
-    'kindern-erklaeren',
     'ernaehrung-grundlagen',
     'geburtstage',
     'reisen',
@@ -56,12 +57,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Hauptseiten
     { url: `${BASE}/rezepte`,        lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
     { url: `${BASE}/wissen`,         lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE}/produkte`,       lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/vorratskiste`,   lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/wochenplan`,     lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/aktuelles`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.7 },
-    { url: `${BASE}/unterwegs`,      lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE}/unterwegs`,      lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/aktuelles`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.6 },
     { url: `${BASE}/ueber-uns`,      lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${BASE}/faq`,            lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE}/kontakt`,        lastModified: now, changeFrequency: 'yearly',  priority: 0.4 },
+    { url: `${BASE}/produkte`,       lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE}/faq`,            lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
 
     // Rezept-Unterseiten
     { url: `${BASE}/rezepte/alle`,             lastModified: now, changeFrequency: 'weekly',  priority: 0.8 },
