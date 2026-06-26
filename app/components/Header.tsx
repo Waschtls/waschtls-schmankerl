@@ -68,7 +68,7 @@ const typeStyle: Record<string, { bg: string; color: string }> = {
 const navMain = [
   { label: 'Rezepte',    href: '/rezepte' },
   { label: 'Wissen',     href: '/wissen' },
-  { label: 'Speiseplan', href: '/wochenplan' },
+  { label: 'Speiseplan erstellen', href: '/wochenplan' },
 ];
 
 const navMehr = [
@@ -307,10 +307,10 @@ export default function Header() {
         position: 'sticky', top: 0, zIndex: 100,
         borderBottom: '3px solid var(--golden)',
       }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '96px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '128px' }}>
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Image src="/logo.png" alt="Waschtls Schmankerl Logo" width={120} height={120} style={{ objectFit: 'contain', width: '120px', height: 'auto' }} />
+            <Image src="/logo.png" alt="Waschtls Schmankerl Logo" width={240} height={240} style={{ objectFit: 'contain', width: '240px', height: 'auto' }} />
             <div>
               <span style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--golden)', display: 'block', lineHeight: 1.1 }}>
                 Waschtl&apos;s Schmankerl

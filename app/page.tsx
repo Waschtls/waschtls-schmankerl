@@ -99,34 +99,26 @@ export default function Home() {
 
       {/* ── Was du hier findest ── */}
       <section style={{ background: '#fff', padding: '2.5rem 0', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: '820px' }}>
+        <div className="container" style={{ maxWidth: '680px' }}>
           <p style={{
             fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
             textTransform: 'uppercase', color: 'var(--green-mid)',
-            marginBottom: '1.1rem', margin: '0 0 1.1rem',
+            margin: '0 0 1rem',
           }}>
             Was du hier findest
           </p>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '1.25rem',
-          }}>
-            {[
-              { icon: '🍳', titel: 'Rezepte', text: 'Alltagsrezepte die funktionieren – vom Schnellessen bis zum Geburtstagskuchen.' },
-              { icon: '📚', titel: 'Wissen', text: 'Von der Erstdiagnose bis zur Kita – verständlich erklärt, kein Fachjargon.' },
-              { icon: '🧳', titel: 'Unterwegs', text: 'Restaurants, Bäckereien und was wir auf Reisen immer einpacken.' },
-              { icon: '📅', titel: 'Speiseplan', text: 'Kein tägliches Grübeln mehr – ein Wochenplan aus unseren Rezepten.' },
-            ].map(item => (
-              <div key={item.titel} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <span style={{ fontSize: '1.4rem', flexShrink: 0, marginTop: '0.1rem' }}>{item.icon}</span>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--green-deep)', marginBottom: '0.25rem' }}>{item.titel}</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{item.text}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p style={{ fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.9, margin: 0 }}>
+            Der Kern der Website sind <Link href="/rezepte" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Rezepte</Link> – echte Alltagsküche, die bei uns täglich funktioniert, vom schnellen Mittagessen bis zum{' '}
+            <Link href="/rezepte/feste-geburtstage" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Kindergeburtstagskuchen</Link>.
+            Daneben gibt es einen <Link href="/wissen" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Wissensbereich</Link> für alle die gerade frisch diagnostiziert sind oder konkrete Fragen haben –
+            etwa wie man das Thema{' '}
+            <Link href="/wissen/schule-kita" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>in der Kita oder Schule</Link> angeht,
+            oder was es mit <Link href="/wissen/kreuzkontamination" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Kreuzkontamination im Alltag</Link> auf sich hat.
+            Wer nicht jeden Tag neu überlegen möchte was auf den Tisch kommt, findet beim{' '}
+            <Link href="/wochenplan" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Speiseplan</Link> eine fertige Wochenstruktur.
+            Und für alles außerhalb der eigenen Küche – Restaurants, Reisen, Bäckereien – ist die{' '}
+            <Link href="/unterwegs" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Unterwegs</Link>-Seite der richtige Einstieg.
+          </p>
         </div>
       </section>
 
