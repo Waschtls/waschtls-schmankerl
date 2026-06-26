@@ -5,13 +5,31 @@ import { useState } from 'react';
 export default function FindMeGFSearch() {
   const [city, setCity] = useState('');
   const [locating, setLocating] = useState(false);
+  const [searching, setSearching] = useState(false);
   const [error, setError] = useState('');
 
-  function handleSearch(e: React.FormEvent) {
+  async function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     if (!city.trim()) return;
-    const url = `https://www.findmeglutenfree.com/search?address=${encodeURIComponent(city.trim())}&distance=10`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    setSearching(true);
+    setError('');
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city.trim())}&format=json&limit=1&countrycodes=de,at,ch`,
+        { headers: { 'Accept-Language': 'de' } }
+      );
+      const data = await res.json();
+      if (data && data.length > 0) {
+        const { lat, lon } = data[0];
+        window.open(`https://www.findmeglutenfree.com/map#lat=${lat}&lng=${lon}`, '_blank', 'noopener,noreferrer');
+      } else {
+        setError('Ort nicht gefunden. Bitte anders schreiben.');
+      }
+    } catch {
+      setError('Suche fehlgeschlagen. Bitte nochmal versuchen.');
+    } finally {
+      setSearching(false);
+    }
   }
 
   function handleGeolocate() {
@@ -62,12 +80,12 @@ export default function FindMeGFSearch() {
             cursor: 'pointer', fontFamily: 'inherit', flexShrink: 0,
           }}
         >
-          Suchen →
+          {searching ? '…' : 'Suchen →'}
         </button>
         <button
           type="button"
           onClick={handleGeolocate}
-          disabled={locating}
+          disabled={locating || searching}
           title="Meinen Standort verwenden"
           style={{
             padding: '0.55rem 0.75rem', borderRadius: '8px',
