@@ -247,6 +247,150 @@ export default function UnterwegsPage() {
             </div>
           ))}
 
+          {/* ── Restaurant anfragen ── */}
+          <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '3.5rem' }}>
+            <h2 style={{ fontSize: '1.25rem', color: 'var(--green-deep)', marginBottom: '0.4rem' }}>
+              📞 So fragen wir im Restaurant an
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-mid)', marginBottom: '1.25rem', maxWidth: '620px', lineHeight: 1.75 }}>
+              Ein kurzer Anruf vorher spart viel Stress am Tisch. Das sagen wir – einfach kopieren und anpassen:
+            </p>
+            <div className="card" style={{ background: 'var(--cream-dark)', border: '1.5px solid var(--border)', marginBottom: '1.25rem' }}>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '1rem', marginTop: 0 }}>
+                — Vorlage Telefonat / E-Mail —
+              </p>
+              <div style={{ fontSize: '0.9rem', lineHeight: 2, color: 'var(--text-dark)' }}>
+                <p style={{ margin: '0 0 0.75rem' }}>
+                  „Guten Tag, wir möchten mit unserer Familie zu Ihnen kommen – unser Kind hat Zöliakie,
+                  eine Autoimmunerkrankung. Es darf kein Gluten essen, und das bedeutet auch keine
+                  Kreuzverunreinigung. Haben Sie Gerichte die sicher glutenfrei zubereitet werden –
+                  also getrennte Töpfe, saubere Flächen, kein gemeinsames Frittieröl?"
+                </p>
+                <p style={{ margin: 0 }}>
+                  Wenn ja: „Super, darf ich kurz fragen was genau möglich ist? Dann weiß ich was
+                  mein Kind bestellen kann, und Sie wissen vorher Bescheid."
+                </p>
+              </div>
+            </div>
+            <div className="card" style={{ background: 'rgba(149,213,178,0.06)', border: '1.5px solid rgba(149,213,178,0.25)' }}>
+              <h4 style={{ fontSize: '0.875rem', marginBottom: '0.6rem', color: 'var(--green-deep)' }}>
+                💡 Was eine gute Antwort ist
+              </h4>
+              <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: 1.85, color: 'var(--text-mid)' }}>
+                Wenn der Kellner sofort weiß was Zöliakie ist und konkrete Antworten gibt – gut.
+                Wenn er sagt „wir machen das Gericht einfach ohne Mehl" aber keine Ahnung von
+                Kreuzverunreinigung hat – lieber woanders hingehen oder selbst einpacken.
+              </p>
+            </div>
+          </div>
+
+          {/* ── Hotel anfragen ── */}
+          <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '3.5rem' }}>
+            <h2 style={{ fontSize: '1.25rem', color: 'var(--green-deep)', marginBottom: '0.4rem' }}>
+              🏨 Hotel mit Zöliakie: Muster-E-Mail
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-mid)', marginBottom: '1.25rem', maxWidth: '620px', lineHeight: 1.75 }}>
+              Bei Buchung einfach mitschicken – die meisten Hotels sind sehr kooperativ wenn man früh genug fragt.
+            </p>
+            <div className="card" style={{ background: 'var(--cream-dark)', border: '1.5px solid var(--border)' }}>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '1rem', marginTop: 0 }}>
+                — Kopiervorlage —
+              </p>
+              <div style={{ fontSize: '0.9rem', lineHeight: 2, color: 'var(--text-dark)' }}>
+                <p style={{ margin: '0 0 0.75rem' }}>
+                  Betreff: Buchung [Datum] – glutenfreie Ernährung für Kind mit Zöliakie
+                </p>
+                <p style={{ margin: '0 0 0.75rem' }}>Sehr geehrte Damen und Herren,</p>
+                <p style={{ margin: '0 0 0.75rem' }}>
+                  wir freuen uns auf unseren Aufenthalt vom [Datum] bis [Datum]. Unser Kind [Alter]
+                  hat Zöliakie und muss streng glutenfrei essen. Glutenfrei bedeutet für uns: kein
+                  Weizen, Roggen, Gerste, Dinkel – und keine Kreuzverunreinigung beim Kochen.
+                </p>
+                <p style={{ margin: '0 0 0.5rem' }}>Dürfen wir fragen:</p>
+                <ul style={{ margin: '0 0 0.75rem', paddingLeft: '1.25rem' }}>
+                  <li style={{ marginBottom: '0.3rem' }}>Kann die Küche glutenfreie Gerichte mit getrennten Utensilien zubereiten?</li>
+                  <li style={{ marginBottom: '0.3rem' }}>Gibt es beim Frühstück glutenfreie Optionen (Brot, Müsli)?</li>
+                  <li style={{ marginBottom: '0.3rem' }}>Können wir das Küchenpersonal kurz darüber informieren wenn wir ankommen?</li>
+                </ul>
+                <p style={{ margin: 0 }}>
+                  Herzlichen Dank – wir freuen uns auf eine Rückmeldung.<br />
+                  Mit freundlichen Grüßen, [Euer Name]
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Reise-Packungsliste ── */}
+          <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '3.5rem' }}>
+            <h2 style={{ fontSize: '1.25rem', color: 'var(--green-deep)', marginBottom: '0.4rem' }}>
+              🧳 Was wir immer mitpacken
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-mid)', marginBottom: '1.5rem', maxWidth: '620px', lineHeight: 1.75 }}>
+              Für Tagesausflüge, Raststätten, lange Autofahrten und Urlaubstage wo die Küche unsicher ist.
+            </p>
+            <div className="grid-2">
+              {[
+                {
+                  icon: '🍞',
+                  kategorie: 'Brot & Beilage',
+                  items: [
+                    'Selbst gebackenes GF-Brot (hält 3–4 Tage)',
+                    'GF-Reiswaffeln oder Maiskekse',
+                    'Toastbrot Schär (einzeln verpackt)',
+                    'GF-Cracker als Beilage',
+                  ],
+                },
+                {
+                  icon: '🍫',
+                  kategorie: 'Snacks unterwegs',
+                  items: [
+                    'Zertifizierte GF-Schokoriegel',
+                    'Reiswaffelpackungen',
+                    'Nüsse und Trockenfrüchte (ohne Zusätze)',
+                    'Energiebällchen selbst gemacht (Datteln/Nüsse)',
+                  ],
+                },
+                {
+                  icon: '🍝',
+                  kategorie: 'Für die Ferienwohnung',
+                  items: [
+                    'GF-Nudeln (1–2 Packungen)',
+                    'Tomatensoße in der Dose (rein)',
+                    'GF-Brühwürfel',
+                    'Reisbeutel (kocht überall)',
+                  ],
+                },
+                {
+                  icon: '🫙',
+                  kategorie: 'Küchen-Basics',
+                  items: [
+                    'Eigenes Schneidebrett (faltbar)',
+                    'Kleines eigenes Sieb',
+                    'Alufolie für den Grill',
+                    'Tamari-Sojasoße (kleines Fläschchen)',
+                  ],
+                },
+              ].map(k => (
+                <div key={k.kategorie} className="card">
+                  <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{k.icon}</div>
+                  <h4 style={{ fontSize: '0.875rem', marginBottom: '0.6rem', color: 'var(--green-deep)' }}>{k.kategorie}</h4>
+                  <ul style={{ margin: 0, paddingLeft: '1.1rem' }}>
+                    {k.items.map(item => (
+                      <li key={item} style={{ fontSize: '0.8rem', lineHeight: 1.85, color: 'var(--text-mid)' }}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="card" style={{ marginTop: '1.25rem', background: 'rgba(233,196,106,0.08)', border: '1.5px solid rgba(233,196,106,0.3)' }}>
+              <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.85 }}>
+                <strong>Unser Grundprinzip:</strong> Im Zweifel selbst einpacken. Lieber die Reiswaffel
+                aus dem Rucksack als die Panik am Raststätten-Buffet. Mit einem gut bestückten
+                „GF-Notfallrucksack" fahren wir seit Jahren entspannt durch jeden Urlaub.
+              </p>
+            </div>
+          </div>
+
           {/* Online-Quellen */}
           <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem' }}>
             <h2 style={{ fontSize: '1.2rem', color: 'var(--green-deep)', marginBottom: '1.25rem' }}>

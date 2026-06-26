@@ -9,6 +9,13 @@ export const metadata: Metadata = {
 
 const themen = [
   {
+    icon: '🆘',
+    title: 'Was jetzt? – Erstdiagnose',
+    desc: 'Dein Kind hat gerade die Diagnose bekommen. Was sofort wichtig ist, was warten kann – und wie du deinem Kind davon erzählst.',
+    href: '/wissen/erstdiagnose',
+    tag: 'Erstdiagnose',
+  },
+  {
     icon: '🔬',
     title: 'Was ist Zöliakie?',
     desc: 'Wie Zöliakie entsteht, was im Körper passiert und warum lebenslang glutenfrei essen so wichtig ist.',
@@ -142,11 +149,38 @@ export default function WissenPage() {
         </div>
       </section>
 
-      {/* Themen */}
-      <section className="section">
+      {/* Erstdiagnose – prominente erste Karte */}
+      <section className="section" style={{ paddingBottom: '0.5rem' }}>
+        <div className="container">
+          <Link href={themen[0].href} style={{ textDecoration: 'none', display: 'block', maxWidth: '760px' }}>
+            <div style={{
+              padding: '1.75rem 2rem',
+              background: 'var(--green-deep)',
+              borderRadius: '14px',
+              display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap',
+              transition: 'opacity 0.15s',
+            }}>
+              <span style={{ fontSize: '2.5rem', flexShrink: 0 }}>{themen[0].icon}</span>
+              <div style={{ flex: 1, minWidth: '200px' }}>
+                <span style={{
+                  display: 'inline-block', marginBottom: '0.35rem',
+                  fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
+                  textTransform: 'uppercase', color: 'var(--mint)',
+                }}>{themen[0].tag}</span>
+                <h3 style={{ color: 'var(--golden)', margin: '0 0 0.4rem', fontSize: '1.15rem' }}>{themen[0].title}</h3>
+                <p style={{ margin: 0, fontSize: '0.875rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7 }}>{themen[0].desc}</p>
+              </div>
+              <span style={{ color: 'var(--mint)', fontWeight: 700, fontSize: '1.25rem', flexShrink: 0 }}>→</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Alle anderen Themen */}
+      <section className="section" style={{ paddingTop: '1.5rem' }}>
         <div className="container">
           <div className="grid-3">
-            {themen.map(({ icon, title, desc, href, tag }) => (
+            {themen.slice(1).map(({ icon, title, desc, href, tag }) => (
               <Link key={href} href={href} className="card card-link">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                   <span style={{ fontSize: '1.75rem' }}>{icon}</span>
