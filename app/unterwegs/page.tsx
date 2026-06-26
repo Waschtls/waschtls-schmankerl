@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import FindMeGFSearch from '../components/FindMeGFSearch';
 
 export const metadata: Metadata = {
   title: 'Glutenfrei Unterwegs – Augsburg, Bayern & Restaurants',
@@ -200,32 +201,26 @@ export default function UnterwegsPage() {
       <section style={{ background: 'var(--green-deep)', padding: '2rem 0' }}>
         <div className="container" style={{ maxWidth: '820px' }}>
           <div style={{
-            display: 'flex', gap: '1.5rem', alignItems: 'center',
-            flexWrap: 'wrap',
             background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(149,213,178,0.25)',
             borderRadius: '14px', padding: '1.5rem 1.75rem',
           }}>
-            <div style={{ fontSize: '2.5rem', flexShrink: 0 }}>📱</div>
-            <div style={{ flex: 1, minWidth: '220px' }}>
-              <p style={{ color: 'var(--golden)', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.3rem' }}>
-                Find Me Gluten Free – unser täglicher Begleiter
-              </p>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>
-                Die App zeigt glutenfreie Restaurants weltweit – bewertet von echten Zöliakikern.
-                Für Augsburg sind dutzende Einträge mit Sicherheitsbewertungen vorhanden.
-                Vor jedem Restaurantbesuch schauen wir dort zuerst rein.
-              </p>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', marginBottom: '1.1rem', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '2rem', flexShrink: 0 }}>📱</span>
+              <div>
+                <p style={{ color: 'var(--golden)', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.3rem' }}>
+                  Find Me Gluten Free – unser täglicher Begleiter
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>
+                  Die App zeigt glutenfreie Restaurants weltweit – bewertet von echten Zöliakikern
+                  mit echten Sicherheitsbewertungen. Vor jedem Restaurantbesuch schauen wir dort zuerst rein.
+                </p>
+              </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flexShrink: 0 }}>
-              <a href="https://www.findmeglutenfree.com/de/augsburg" target="_blank" rel="noopener noreferrer"
-                className="btn btn-golden" style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', textAlign: 'center' }}>
-                Augsburg durchsuchen →
-              </a>
-              <a href="https://www.findmeglutenfree.com/app" target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: '0.78rem', color: 'var(--mint)', textAlign: 'center', opacity: 0.8 }}>
-                App kostenlos herunterladen
-              </a>
-            </div>
+            <FindMeGFSearch />
+            <a href="https://www.findmeglutenfree.com/app" target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-block', marginTop: '0.75rem', fontSize: '0.78rem', color: 'rgba(149,213,178,0.7)' }}>
+              App kostenlos herunterladen →
+            </a>
           </div>
         </div>
       </section>
