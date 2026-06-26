@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import FindMeGFSearch from '../components/FindMeGFSearch';
 
 export const metadata: Metadata = {
   title: 'Glutenfrei Unterwegs – Augsburg, Bayern & Restaurants',
@@ -197,31 +196,58 @@ export default function UnterwegsPage() {
         </div>
       </section>
 
-      {/* Find Me Gluten Free – prominente Sektion */}
-      <section style={{ background: 'var(--green-deep)', padding: '2rem 0' }}>
+      {/* Google Maps + Find Me GF */}
+      <section style={{ background: 'var(--cream)', padding: '2rem 0', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: '820px' }}>
-          <div style={{
-            background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(149,213,178,0.25)',
-            borderRadius: '14px', padding: '1.5rem 1.75rem',
-          }}>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', marginBottom: '1.1rem', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '2rem', flexShrink: 0 }}>📱</span>
-              <div>
-                <p style={{ color: 'var(--golden)', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.3rem' }}>
-                  Find Me Gluten Free – unser täglicher Begleiter
-                </p>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>
-                  Die App zeigt glutenfreie Restaurants weltweit – bewertet von echten Zöliakikern
-                  mit echten Sicherheitsbewertungen. Vor jedem Restaurantbesuch schauen wir dort zuerst rein.
-                </p>
-              </div>
-            </div>
-            <FindMeGFSearch />
-            <a href="https://www.findmeglutenfree.com/app" target="_blank" rel="noopener noreferrer"
-              style={{ display: 'inline-block', marginTop: '0.75rem', fontSize: '0.78rem', color: 'rgba(149,213,178,0.7)' }}>
-              App kostenlos herunterladen →
+          <h2 style={{ fontSize: '1.2rem', color: 'var(--green-deep)', marginBottom: '0.35rem' }}>
+            🗺 Glutenfreie Restaurants auf der Karte
+          </h2>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-mid)', marginBottom: '1.1rem', lineHeight: 1.7 }}>
+            Google Maps Suche nach glutenfreien Restaurants in der Umgebung – einfach Standort aktivieren oder Stadt eingeben.
+          </p>
+          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1.5px solid var(--border)', marginBottom: '1rem' }}>
+            <iframe
+              src="https://maps.google.com/maps?q=glutenfreie+Restaurant&output=embed&hl=de&z=12"
+              width="100%"
+              height="400"
+              style={{ border: 0, display: 'block' }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Glutenfreie Restaurants in der Umgebung"
+            />
+          </div>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <a
+              href="https://www.google.com/maps/search/glutenfreie+Restaurants/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block', padding: '0.55rem 1.1rem',
+                background: 'var(--green-deep)', color: '#fff',
+                borderRadius: '8px', fontSize: '0.875rem', fontWeight: 700,
+                textDecoration: 'none',
+              }}
+            >
+              In Google Maps öffnen →
+            </a>
+            <a
+              href="https://www.findmeglutenfree.com/de/augsburg"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block', padding: '0.55rem 1.1rem',
+                background: 'transparent', color: 'var(--green-mid)',
+                border: '1.5px solid var(--green-mid)',
+                borderRadius: '8px', fontSize: '0.875rem', fontWeight: 700,
+                textDecoration: 'none',
+              }}
+            >
+              Find Me Gluten Free →
             </a>
           </div>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', marginTop: '0.6rem', lineHeight: 1.6 }}>
+            Find Me Gluten Free: Community-App mit Sicherheitsbewertungen von echten Zöliakikern – unser täglicher Begleiter vor jedem Restaurantbesuch.
+          </p>
         </div>
       </section>
 
