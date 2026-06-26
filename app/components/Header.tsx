@@ -307,10 +307,10 @@ export default function Header() {
         position: 'sticky', top: 0, zIndex: 100,
         borderBottom: '3px solid var(--golden)',
       }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '128px' }}>
+        <div className="container header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '128px' }}>
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Image src="/logo.png" alt="Waschtls Schmankerl Logo" width={240} height={240} style={{ objectFit: 'contain', width: '240px', height: 'auto' }} />
+            <Image src="/logo.png" alt="Waschtls Schmankerl Logo" width={240} height={240} className="site-logo" style={{ objectFit: 'contain', height: 'auto' }} />
             <div>
               <span style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--golden)', display: 'block', lineHeight: 1.1 }}>
                 Waschtl&apos;s Schmankerl
@@ -433,11 +433,14 @@ export default function Header() {
         )}
 
         <style>{`
+          .site-logo { width: 240px; }
           @media (max-width: 640px) {
             .desktop-nav { display: none !important; }
             .desktop-search-btn { display: none !important; }
             .mobile-actions { display: flex !important; }
             .search-label, .search-shortcut { display: none; }
+            .site-logo { width: 72px !important; }
+            .header-inner { height: 64px !important; }
           }
         `}</style>
       </header>
