@@ -18,21 +18,21 @@ export default function Home() {
             fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
             textTransform: 'uppercase', color: 'var(--mint)',
           }}>
-            Unser Sohn hat Zöliakie
+            Eine Familie. Eine Diagnose. Kein Drama.
           </span>
           <h1 style={{
             color: 'var(--golden)',
             fontSize: 'clamp(1.75rem, 4vw, 2.6rem)',
             lineHeight: 1.2, marginBottom: '1rem',
           }}>
-            Kochen ohne Gluten –<br />trotzdem alles essen.
+            Alles über das glutenfreie Leben mit Kindern.
           </h1>
           <p style={{
             color: 'rgba(255,255,255,0.72)',
             fontSize: '1rem', lineHeight: 1.8,
             marginBottom: '2rem', maxWidth: '460px',
           }}>
-            Echte Rezepte aus unserem Alltag. Keine Diät-Küche, keine Kompromisse beim Geschmack.
+            Küche, Kita, Urlaub, Alltag. Bodenständige Hilfe von einer Familie die es selbst durchlebt hat.
           </p>
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <Link href="/rezepte" className="btn btn-golden">
