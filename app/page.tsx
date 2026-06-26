@@ -97,6 +97,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Was du hier findest ── */}
+      <section style={{ background: '#fff', padding: '2.5rem 0', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: '820px' }}>
+          <p style={{
+            fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
+            textTransform: 'uppercase', color: 'var(--green-mid)',
+            marginBottom: '1.1rem', margin: '0 0 1.1rem',
+          }}>
+            Was du hier findest
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: '1.25rem',
+          }}>
+            {[
+              { icon: '🍳', titel: 'Rezepte', text: 'Alltagsrezepte die funktionieren – vom Schnellessen bis zum Geburtstagskuchen.' },
+              { icon: '📚', titel: 'Wissen', text: 'Von der Erstdiagnose bis zur Kita – verständlich erklärt, kein Fachjargon.' },
+              { icon: '🧳', titel: 'Unterwegs', text: 'Restaurants, Bäckereien und was wir auf Reisen immer einpacken.' },
+              { icon: '📅', titel: 'Speiseplan', text: 'Kein tägliches Grübeln mehr – ein Wochenplan aus unseren Rezepten.' },
+            ].map(item => (
+              <div key={item.titel} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <span style={{ fontSize: '1.4rem', flexShrink: 0, marginTop: '0.1rem' }}>{item.icon}</span>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--green-deep)', marginBottom: '0.25rem' }}>{item.titel}</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{item.text}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Story-Zeile ── */}
       <section style={{
         background: 'var(--cream-dark)',

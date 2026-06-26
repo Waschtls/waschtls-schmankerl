@@ -66,17 +66,17 @@ const typeStyle: Record<string, { bg: string; color: string }> = {
 };
 
 const navMain = [
-  { label: 'Rezepte',      href: '/rezepte' },
-  { label: 'Vorratskiste', href: '/vorratskiste' },
-  { label: 'Wissen',       href: '/wissen' },
-  { label: 'Speiseplan',   href: '/wochenplan' },
+  { label: 'Rezepte',    href: '/rezepte' },
+  { label: 'Wissen',     href: '/wissen' },
+  { label: 'Speiseplan', href: '/wochenplan' },
 ];
 
 const navMehr = [
-  { label: 'Aktuelles',  href: '/aktuelles' },
-  { label: 'Unterwegs',  href: '/unterwegs' },
-  { label: 'Produkte',   href: '/produkte' },
-  { label: 'Über uns',   href: '/ueber-uns' },
+  { label: 'Vorratskiste', href: '/vorratskiste' },
+  { label: 'Aktuelles',   href: '/aktuelles' },
+  { label: 'Unterwegs',   href: '/unterwegs' },
+  { label: 'Produkte',    href: '/produkte' },
+  { label: 'Über uns',    href: '/ueber-uns' },
 ];
 
 // Für Mobilmenü alle zusammen
