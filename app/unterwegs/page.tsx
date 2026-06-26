@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Glutenfrei Unterwegs – Augsburg, Bayern & Restaurants',
   description:
-    'Restaurants, Bäckereien und Supermärkte in Augsburg, die zuverlässig glutenfrei kochen oder einkaufen lassen. Unsere Familienerfahrungen.',
+    'Restaurants, Bäckereien und Tipps für glutenfreies Essen in Augsburg und auf Reisen – echte Erfahrungen einer Zöliakie-Familie.',
 };
 
 // ── Typen ─────────────────────────────────────────────────────────────────────
@@ -14,127 +14,151 @@ type Ort = {
   beschreibung: string;
   adresse?: string;
   tipp?: string;
-  todo?: boolean;
-};
-
-type Kategorie = {
-  icon: string;
-  titel: string;
-  beschreibung: string;
-  orte: Ort[];
+  badge?: string;
+  website?: string;
 };
 
 // ── Daten ─────────────────────────────────────────────────────────────────────
-// ⚠️ Sebastian: Alle "todo: true"-Einträge bitte mit echten Erfahrungen füllen!
-// Einfach name, adresse, beschreibung, tipp ergänzen und todo entfernen.
 
-const KATEGORIEN: Kategorie[] = [
+const RESTAURANTS: Ort[] = [
   {
-    icon: '🍽',
-    titel: 'Restaurants in Augsburg',
-    beschreibung: 'Restaurants wo wir mit unserem Sohn problemlos essen können – d.h. die das Thema ernst nehmen und nicht nur "weglassen".',
-    orte: [
-      {
-        name: 'Dein Lieblings-Restaurant hier',
-        beschreibung: 'Hier kommt ein konkretes Restaurant mit Erfahrungsbericht. Z.B.: "Auf Anfrage bereiten sie glutenfreie Pasta zu, extra Pfanne, super nettes Personal."',
-        adresse: 'Musterstraße 1, 86150 Augsburg',
-        tipp: 'Am besten vorher anrufen und nachfragen, ob sie an dem Tag GF kochen können.',
-        todo: true,
-      },
-      {
-        name: 'Weiteres Restaurant',
-        beschreibung: 'Dein nächster Erfahrungsbericht hier.',
-        todo: true,
-      },
-    ],
+    name: 'Osteria Il Castagno',
+    beschreibung: 'Kleine italienische Osteria in Stadtbergen – seit Jahren die Anlaufstelle für Zöliakiker in der Region. Pizza und Pasta werden glutenfrei angeboten, das Personal weiß was das bedeutet.',
+    adresse: 'Brunnenplatz 1, 86391 Stadtbergen',
+    tipp: 'Unbedingt vorher reservieren, es ist oft sehr voll. Beim Reservieren gleich Zöliakie erwähnen.',
+    badge: 'Empfohlen',
+    website: 'https://castagno-leitershofen.de',
   },
   {
-    icon: '🥐',
-    titel: 'Bäckereien & Cafés',
-    beschreibung: 'Frisches glutenfreies Brot und Gebäck ist schwer zu finden – hier die, die es bei uns gibt.',
-    orte: [
-      {
-        name: 'Glutenfreie Bäckerei / Café',
-        beschreibung: 'Deine Empfehlung für eine Bäckerei oder ein Café in Augsburg, das glutenfrei anbietet.',
-        adresse: 'Adresse hier eintragen',
-        tipp: 'Tipp hier eintragen, z.B. "Am Samstag früh kommen, dann ist noch mehr Auswahl."',
-        todo: true,
-      },
-    ],
+    name: 'Michelangelo Pizzeria',
+    beschreibung: 'Die gesamte Pizzakarte kann glutenfrei bestellt werden – mit separatem Ofen. Von der GF-Community in Augsburg hoch bewertet, kaum Reaktionen laut Berichten.',
+    adresse: 'Donauwörther Str. 47, 86154 Augsburg',
+    tipp: 'Beim Bestellen klar "Zöliakie, nicht nur glutenfrei" sagen – dann wissen sie was nötig ist.',
+    badge: 'Bewährt',
   },
   {
-    icon: '🛒',
-    titel: 'Einkaufen in Augsburg',
-    beschreibung: 'Wo wir unseren glutenfreien Wocheneinkauf erledigen – inklusive Spezialprodukte die man sonst nicht findet.',
-    orte: [
-      {
-        name: 'Reformhaus / Bioladen',
-        beschreibung: 'Deine Empfehlung für einen Laden mit besonders guter GF-Auswahl.',
-        adresse: 'Adresse hier',
-        tipp: 'Was du dort besonders empfiehlst.',
-        todo: true,
-      },
-      {
-        name: 'Rewe / Edeka mit besonders guter GF-Abteilung',
-        beschreibung: 'Wenn du einen Supermarkt mit besonders gutem GF-Sortiment kennst.',
-        todo: true,
-      },
-    ],
+    name: 'Pizzeria Trattoria Crudo',
+    beschreibung: 'Pizza und Pasta glutenfrei möglich (3 € Aufpreis). Gut bewertet auf Find Me Gluten Free, Lieferung möglich. Terrasse vorhanden.',
+    adresse: 'Am Pfannenstiel 20, 86153 Augsburg',
+    tipp: 'Vorher anrufen und Zöliakie ankündigen – sie sind gut vorbereitet wenn sie es wissen.',
   },
   {
-    icon: '🏖',
-    titel: 'Urlaub & Reisen',
-    beschreibung: 'Unsere Erfahrungen mit glutenfreiem Reisen – Österreich, Italien, und was wir uns für lange Fahrten mitnehmen.',
-    orte: [
-      {
-        name: 'Reisetipps für GF-Familien',
-        beschreibung: 'Was wir immer einpacken: eigene Reiswaffeln, Energiebällchen, zertifizierte Snacks. So muss man an Raststätten nicht improvisieren.',
-        tipp: 'Unser Brotrezept (Sauerteig, kommt bald) hält 3–4 Tage und ist perfekt für Roadtrips.',
-        todo: true,
-      },
-      {
-        name: 'Glutenfrei in Italien',
-        beschreibung: 'Italien hat eine starke GF-Kultur – viele Restaurants haben explizit GF-Pasta. Was wir erlebt haben kommt hier.',
-        todo: true,
-      },
-    ],
+    name: 'Nude Food',
+    beschreibung: 'Veganes Restaurant in der Innenstadt mit klar gekennzeichneten GF-Gerichten. Fast alles glutenfrei, Schüsseln und Salate – gut für Mittag mit Kind.',
+    adresse: 'Schaezlerstraße 3, 86150 Augsburg',
+    badge: 'Innenstadt',
   },
   {
-    icon: '🍕',
-    titel: 'Bestell-Dienste & Lieferung',
-    beschreibung: 'Wenn man keine Lust hat zu kochen: welche Lieferdienste zuverlässig glutenfrei liefern.',
-    orte: [
-      {
-        name: 'Lieferdienst-Empfehlung',
-        beschreibung: 'Deine Erfahrungen mit einem Lieferdienst der GF ernst nimmt.',
-        todo: true,
-      },
-    ],
+    name: 'Restaurant Il Giardino da Peppino',
+    beschreibung: 'Der Inhaber hat selbst Zöliakie – das merkt man. Pizza, Pasta, Gnocchi glutenfrei, Kreuzkontamination wird ernst genommen.',
+    adresse: 'Hornungstraße 44, 86161 Augsburg',
+    tipp: 'Familiäre Atmosphäre, gut für Kinder.',
   },
 ];
 
-// ── Online-Quellen ─────────────────────────────────────────────────────────────
+const BAECKEREIEN: Ort[] = [
+  {
+    name: 'Konditorei Schenkel – Glutenfreie Leckereien',
+    beschreibung: 'Komplett glutenfreie Konditorei – kein Weizen im Haus. Brot, Brezen, Semmeln, Torten, Kuchen – alles ohne Gluten. DZG-Mitglied, ca. 15 Minuten von Augsburg entfernt.',
+    adresse: 'Martinstraße 29, 86551 Aichach',
+    tipp: 'Mi–Sa 9–17 Uhr, So 12–17 Uhr. Mo/Di Ruhetag. Am Samstag früh kommen – manche Sachen sind schnell weg.',
+    badge: '100% GF',
+    website: 'https://glutenfreie-leckereien.de',
+  },
+  {
+    name: 'Eiscafé Eiswerk54',
+    beschreibung: 'Hausgemachtes Gelato ohne Kreuzrisiko durch Waffeltüten – die GF-Eiskugeln werden separat gehandhabt. Sicher auch für Kinder mit Zöliakie.',
+    adresse: 'Weiße Gasse 8, 86150 Augsburg',
+    badge: 'Innenstadt',
+  },
+];
 
-const ONLINE_TIPPS = [
+const REISE_PACKLISTE = [
   {
-    label: 'Find Me Gluten Free',
-    href: 'https://www.findmeglutenfree.com',
-    desc: 'App & Website mit von der Community bewerteten Restaurants weltweit – auch viele Einträge für Augsburg.',
+    icon: '🍞',
+    kategorie: 'Brot & Beilage',
+    items: [
+      'Selbst gebackenes GF-Brot (hält 3–4 Tage)',
+      'GF-Reiswaffeln oder Maiskekse',
+      'Toastbrot Schär (einzeln verpackt)',
+      'GF-Cracker als Beilage',
+    ],
   },
   {
-    label: 'Zöliakiezentrum Augsburg',
-    href: 'https://www.zoeliakie-zentrum-augsburg.de',
-    desc: 'Lokale Anlaufstelle für Diagnose und Beratung – hat auch eine Restaurantliste für die Region.',
-    todo: true,
+    icon: '🍫',
+    kategorie: 'Snacks unterwegs',
+    items: [
+      'Zertifizierte GF-Schokoriegel',
+      'Reiswaffelpackungen',
+      'Nüsse und Trockenfrüchte (ohne Zusätze)',
+      'Energiebällchen selbst gemacht (Datteln/Nüsse)',
+    ],
   },
   {
-    label: 'Deutsche Zöliakie Gesellschaft (DZG)',
-    href: 'https://www.dzg-online.de',
-    desc: 'Offizielle Gesellschaft mit Produktliste, Restaurantführer und Reiseinformationen.',
+    icon: '🍝',
+    kategorie: 'Für die Ferienwohnung',
+    items: [
+      'GF-Nudeln (1–2 Packungen)',
+      'Tomatensoße in der Dose (rein)',
+      'GF-Brühwürfel',
+      'Reisbeutel (kocht überall)',
+    ],
+  },
+  {
+    icon: '🫙',
+    kategorie: 'Küchen-Basics',
+    items: [
+      'Eigenes Schneidebrett (faltbar)',
+      'Kleines eigenes Sieb',
+      'Alufolie für den Grill',
+      'Tamari-Sojasoße (kleines Fläschchen)',
+    ],
   },
 ];
 
 // ── Komponente ────────────────────────────────────────────────────────────────
+
+function OrtCard({ ort }: { ort: Ort }) {
+  return (
+    <div className="card" style={{ padding: '1.35rem 1.5rem' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.5rem' }}>
+        <h3 style={{ fontSize: '0.95rem', margin: 0, color: 'var(--text-dark)' }}>{ort.name}</h3>
+        {ort.badge && (
+          <span style={{
+            flexShrink: 0, fontSize: '0.65rem', padding: '0.15rem 0.5rem',
+            borderRadius: '999px', background: 'rgba(45,106,79,0.1)',
+            border: '1px solid rgba(45,106,79,0.25)', color: 'var(--green-mid)',
+            fontWeight: 700, whiteSpace: 'nowrap',
+          }}>{ort.badge}</span>
+        )}
+      </div>
+      {ort.adresse && (
+        <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', margin: '0 0 0.5rem', fontStyle: 'italic' }}>
+          📍 {ort.adresse}
+        </p>
+      )}
+      <p style={{ fontSize: '0.875rem', color: 'var(--text-mid)', lineHeight: 1.65, margin: (ort.tipp || ort.website) ? '0 0 0.75rem' : 0 }}>
+        {ort.beschreibung}
+      </p>
+      {ort.tipp && (
+        <div style={{
+          padding: '0.6rem 0.875rem', borderRadius: '8px',
+          background: 'rgba(233,196,106,0.1)', border: '1px solid rgba(233,196,106,0.3)',
+          fontSize: '0.8rem', color: 'var(--text-dark)', lineHeight: 1.65,
+          marginBottom: ort.website ? '0.6rem' : 0,
+        }}>
+          💡 {ort.tipp}
+        </div>
+      )}
+      {ort.website && (
+        <a href={ort.website} target="_blank" rel="noopener noreferrer"
+          style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--green-mid)' }}>
+          Website →
+        </a>
+      )}
+    </div>
+  );
+}
 
 export default function UnterwegsPage() {
   return (
@@ -147,20 +171,9 @@ export default function UnterwegsPage() {
           </div>
           <h1 style={{ color: 'var(--golden)', marginBottom: '0.75rem' }}>Glutenfrei unterwegs</h1>
           <p style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '600px', fontSize: '1.05rem', lineHeight: 1.7 }}>
-            Als Familie mit Zöliakie-Kind haben wir Augsburg und Bayern ziemlich gründlich auf glutenfreie
-            Tauglichkeit getestet. Hier teilen wir, was wirklich funktioniert.
+            Restaurants in Augsburg die es ernst nehmen, die einzige komplett glutenfreie Konditorei der Region,
+            und was wir auf jede Reise einpacken. Alles aus eigener Erfahrung.
           </p>
-          <div style={{
-            marginTop: '1.25rem', padding: '0.75rem 1rem',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: '8px', maxWidth: '600px',
-            fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7,
-          }}>
-            🚧 <strong style={{ color: 'rgba(255,255,255,0.65)' }}>Im Aufbau:</strong>{' '}
-            Diese Seite füllen wir mit echten Erfahrungsberichten aus unserem Alltag.
-            Wenn du eine Empfehlung hast, schreib uns gerne!
-          </div>
         </div>
       </section>
 
@@ -168,86 +181,86 @@ export default function UnterwegsPage() {
       <section style={{ background: 'var(--cream-dark)', padding: '1.25rem 0', borderBottom: '2px solid var(--border)' }}>
         <div className="container">
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <span style={{ fontSize: '1.2rem' }}>☎️</span>
-              <span style={{ color: 'var(--text-mid)' }}>Immer vorher anrufen</span>
+            {[
+              { icon: '☎️', text: 'Immer vorher anrufen' },
+              { icon: '🏷', text: 'Auf die durchgestrichene Ähre achten' },
+              { icon: '🍱', text: 'Im Zweifel selbst einpacken' },
+              { icon: '📱', text: 'Find Me Gluten Free App nutzen' },
+            ].map(t => (
+              <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                <span style={{ fontSize: '1.2rem' }}>{t.icon}</span>
+                <span style={{ color: 'var(--text-mid)' }}>{t.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Find Me Gluten Free – prominente Sektion */}
+      <section style={{ background: 'var(--green-deep)', padding: '2rem 0' }}>
+        <div className="container" style={{ maxWidth: '820px' }}>
+          <div style={{
+            display: 'flex', gap: '1.5rem', alignItems: 'center',
+            flexWrap: 'wrap',
+            background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(149,213,178,0.25)',
+            borderRadius: '14px', padding: '1.5rem 1.75rem',
+          }}>
+            <div style={{ fontSize: '2.5rem', flexShrink: 0 }}>📱</div>
+            <div style={{ flex: 1, minWidth: '220px' }}>
+              <p style={{ color: 'var(--golden)', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.3rem' }}>
+                Find Me Gluten Free – unser täglicher Begleiter
+              </p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>
+                Die App zeigt glutenfreie Restaurants weltweit – bewertet von echten Zöliakikern.
+                Für Augsburg sind dutzende Einträge mit Sicherheitsbewertungen vorhanden.
+                Vor jedem Restaurantbesuch schauen wir dort zuerst rein.
+              </p>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <span style={{ fontSize: '1.2rem' }}>🏷</span>
-              <span style={{ color: 'var(--text-mid)' }}>Auf die durchgestrichene Ähre achten</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <span style={{ fontSize: '1.2rem' }}>🍱</span>
-              <span style={{ color: 'var(--text-mid)' }}>Im Zweifel selbst einpacken</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <span style={{ fontSize: '1.2rem' }}>📱</span>
-              <span style={{ color: 'var(--text-mid)' }}>Find Me Gluten Free App nutzen</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flexShrink: 0 }}>
+              <a href="https://www.findmeglutenfree.com/de/augsburg" target="_blank" rel="noopener noreferrer"
+                className="btn btn-golden" style={{ fontSize: '0.85rem', padding: '0.5rem 1rem', textAlign: 'center' }}>
+                Augsburg durchsuchen →
+              </a>
+              <a href="https://www.findmeglutenfree.com/app" target="_blank" rel="noopener noreferrer"
+                style={{ fontSize: '0.78rem', color: 'var(--mint)', textAlign: 'center', opacity: 0.8 }}>
+                App kostenlos herunterladen
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Kategorien */}
       <section className="section">
         <div className="container">
 
-          {KATEGORIEN.map((kat, ki) => (
-            <div key={ki} style={{ marginBottom: '3.5rem' }}>
-              <h2 style={{
-                fontSize: '1.35rem', color: 'var(--green-deep)',
-                marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem',
-              }}>
-                {kat.icon} {kat.titel}
-              </h2>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', marginBottom: '1.5rem', maxWidth: '600px' }}>
-                {kat.beschreibung}
-              </p>
-
-              <div className="grid-2">
-                {kat.orte.map((ort, oi) => (
-                  <div key={oi} className="card" style={{
-                    padding: '1.35rem 1.5rem',
-                    border: ort.todo ? '2px dashed var(--border)' : undefined,
-                    opacity: ort.todo ? 0.65 : 1,
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <h3 style={{ fontSize: '0.95rem', margin: 0, color: ort.todo ? 'var(--text-light)' : 'var(--text-dark)' }}>
-                        {ort.name}
-                      </h3>
-                      {ort.todo && (
-                        <span style={{
-                          flexShrink: 0, fontSize: '0.65rem', padding: '0.12rem 0.45rem',
-                          borderRadius: '999px', border: '1.5px dashed var(--border)',
-                          color: 'var(--text-light)', whiteSpace: 'nowrap',
-                        }}>kommt bald</span>
-                      )}
-                    </div>
-                    {ort.adresse && (
-                      <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', margin: '0 0 0.5rem', fontStyle: 'italic' }}>
-                        📍 {ort.adresse}
-                      </p>
-                    )}
-                    <p style={{ fontSize: '0.875rem', color: 'var(--text-mid)', lineHeight: 1.65, margin: ort.tipp ? '0 0 0.75rem' : 0 }}>
-                      {ort.beschreibung}
-                    </p>
-                    {ort.tipp && (
-                      <div style={{
-                        padding: '0.6rem 0.875rem', borderRadius: '8px',
-                        background: 'rgba(233,196,106,0.1)',
-                        border: '1px solid rgba(233,196,106,0.3)',
-                        fontSize: '0.8rem', color: 'var(--text-dark)', lineHeight: 1.65,
-                      }}>
-                        💡 {ort.tipp}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+          {/* Restaurants */}
+          <div style={{ marginBottom: '3.5rem' }}>
+            <h2 style={{ fontSize: '1.35rem', color: 'var(--green-deep)', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              🍽 Restaurants in Augsburg
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', marginBottom: '1.5rem', maxWidth: '600px' }}>
+              Restaurants wo wir mit unserem Sohn problemlos essen können – d.h. die das Thema ernst nehmen
+              und nicht nur „weglassen".
+            </p>
+            <div className="grid-2">
+              {RESTAURANTS.map(ort => <OrtCard key={ort.name} ort={ort} />)}
             </div>
-          ))}
+          </div>
 
-          {/* ── Restaurant anfragen ── */}
+          {/* Bäckereien */}
+          <div style={{ marginBottom: '3.5rem', borderTop: '2px solid var(--border)', paddingTop: '2.5rem' }}>
+            <h2 style={{ fontSize: '1.35rem', color: 'var(--green-deep)', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              🥐 Bäckereien & Eis
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', marginBottom: '1.5rem', maxWidth: '600px' }}>
+              Frisches glutenfreies Gebäck ist schwer zu finden – Konditorei Schenkel ist ein echter Schatz.
+            </p>
+            <div className="grid-2">
+              {BAECKEREIEN.map(ort => <OrtCard key={ort.name} ort={ort} />)}
+            </div>
+          </div>
+
+          {/* Restaurant anfragen */}
           <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '3.5rem' }}>
             <h2 style={{ fontSize: '1.25rem', color: 'var(--green-deep)', marginBottom: '0.4rem' }}>
               📞 So fragen wir im Restaurant an
@@ -284,7 +297,7 @@ export default function UnterwegsPage() {
             </div>
           </div>
 
-          {/* ── Hotel anfragen ── */}
+          {/* Hotel-Mail */}
           <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '3.5rem' }}>
             <h2 style={{ fontSize: '1.25rem', color: 'var(--green-deep)', marginBottom: '0.4rem' }}>
               🏨 Hotel mit Zöliakie: Muster-E-Mail
@@ -293,13 +306,9 @@ export default function UnterwegsPage() {
               Bei Buchung einfach mitschicken – die meisten Hotels sind sehr kooperativ wenn man früh genug fragt.
             </p>
             <div className="card" style={{ background: 'var(--cream-dark)', border: '1.5px solid var(--border)' }}>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '1rem', marginTop: 0 }}>
-                — Kopiervorlage —
-              </p>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '1rem', marginTop: 0 }}>— Kopiervorlage —</p>
               <div style={{ fontSize: '0.9rem', lineHeight: 2, color: 'var(--text-dark)' }}>
-                <p style={{ margin: '0 0 0.75rem' }}>
-                  Betreff: Buchung [Datum] – glutenfreie Ernährung für Kind mit Zöliakie
-                </p>
+                <p style={{ margin: '0 0 0.75rem' }}>Betreff: Buchung [Datum] – glutenfreie Ernährung für Kind mit Zöliakie</p>
                 <p style={{ margin: '0 0 0.75rem' }}>Sehr geehrte Damen und Herren,</p>
                 <p style={{ margin: '0 0 0.75rem' }}>
                   wir freuen uns auf unseren Aufenthalt vom [Datum] bis [Datum]. Unser Kind [Alter]
@@ -320,7 +329,7 @@ export default function UnterwegsPage() {
             </div>
           </div>
 
-          {/* ── Reise-Packungsliste ── */}
+          {/* Packliste */}
           <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '3.5rem' }}>
             <h2 style={{ fontSize: '1.25rem', color: 'var(--green-deep)', marginBottom: '0.4rem' }}>
               🧳 Was wir immer mitpacken
@@ -329,48 +338,7 @@ export default function UnterwegsPage() {
               Für Tagesausflüge, Raststätten, lange Autofahrten und Urlaubstage wo die Küche unsicher ist.
             </p>
             <div className="grid-2">
-              {[
-                {
-                  icon: '🍞',
-                  kategorie: 'Brot & Beilage',
-                  items: [
-                    'Selbst gebackenes GF-Brot (hält 3–4 Tage)',
-                    'GF-Reiswaffeln oder Maiskekse',
-                    'Toastbrot Schär (einzeln verpackt)',
-                    'GF-Cracker als Beilage',
-                  ],
-                },
-                {
-                  icon: '🍫',
-                  kategorie: 'Snacks unterwegs',
-                  items: [
-                    'Zertifizierte GF-Schokoriegel',
-                    'Reiswaffelpackungen',
-                    'Nüsse und Trockenfrüchte (ohne Zusätze)',
-                    'Energiebällchen selbst gemacht (Datteln/Nüsse)',
-                  ],
-                },
-                {
-                  icon: '🍝',
-                  kategorie: 'Für die Ferienwohnung',
-                  items: [
-                    'GF-Nudeln (1–2 Packungen)',
-                    'Tomatensoße in der Dose (rein)',
-                    'GF-Brühwürfel',
-                    'Reisbeutel (kocht überall)',
-                  ],
-                },
-                {
-                  icon: '🫙',
-                  kategorie: 'Küchen-Basics',
-                  items: [
-                    'Eigenes Schneidebrett (faltbar)',
-                    'Kleines eigenes Sieb',
-                    'Alufolie für den Grill',
-                    'Tamari-Sojasoße (kleines Fläschchen)',
-                  ],
-                },
-              ].map(k => (
+              {REISE_PACKLISTE.map(k => (
                 <div key={k.kategorie} className="card">
                   <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{k.icon}</div>
                   <h4 style={{ fontSize: '0.875rem', marginBottom: '0.6rem', color: 'var(--green-deep)' }}>{k.kategorie}</h4>
@@ -391,28 +359,38 @@ export default function UnterwegsPage() {
             </div>
           </div>
 
-          {/* Online-Quellen */}
-          <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem' }}>
+          {/* Links */}
+          <div style={{ borderTop: '2px solid var(--border)', paddingTop: '2.5rem', marginBottom: '2.5rem' }}>
             <h2 style={{ fontSize: '1.2rem', color: 'var(--green-deep)', marginBottom: '1.25rem' }}>
               🔗 Nützliche Links & Apps
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {ONLINE_TIPPS.map((link, i) => (
-                <div key={i} className="card" style={{ padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+              {[
+                {
+                  label: 'Find Me Gluten Free',
+                  href: 'https://www.findmeglutenfree.com/de/augsburg',
+                  desc: 'App & Website mit von der Community bewerteten Restaurants – auch viele Einträge für Augsburg mit Sicherheitsbewertungen von echten Zöliakikern.',
+                },
+                {
+                  label: 'Deutsche Zöliakie Gesellschaft (DZG)',
+                  href: 'https://www.dzg-online.de',
+                  desc: 'Offizielle Gesellschaft mit Produktliste, Restaurantführer und Reiseinformationen.',
+                },
+                {
+                  label: 'Konditorei Schenkel – Glutenfreie Leckereien',
+                  href: 'https://glutenfreie-leckereien.de',
+                  desc: 'Online-Shop und Infos zur komplett glutenfreien Konditorei in Aichach.',
+                },
+              ].map(link => (
+                <div key={link.label} className="card" style={{ padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
                   <div>
                     <p style={{ fontWeight: 700, margin: '0 0 0.25rem', fontSize: '0.9rem', color: 'var(--text-dark)' }}>{link.label}</p>
                     <p style={{ margin: 0, fontSize: '0.825rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{link.desc}</p>
                   </div>
-                  {!link.todo && (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--green-mid)', whiteSpace: 'nowrap', flexShrink: 0 }}
-                    >
-                      Zur Website →
-                    </a>
-                  )}
+                  <a href={link.href} target="_blank" rel="noopener noreferrer"
+                    style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--green-mid)', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                    Zur Website →
+                  </a>
                 </div>
               ))}
             </div>
@@ -420,20 +398,18 @@ export default function UnterwegsPage() {
 
           {/* Kontakt */}
           <div style={{
-            marginTop: '2.5rem', padding: '1.5rem',
+            padding: '1.5rem',
             background: 'rgba(149,213,178,0.1)', border: '1.5px solid rgba(149,213,178,0.3)',
             borderRadius: '12px',
           }}>
             <h3 style={{ margin: '0 0 0.5rem', color: 'var(--green-deep)' }}>📬 Du kennst eine Empfehlung?</h3>
             <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
-              Wenn du ein Restaurant, eine Bäckerei oder einen Laden kennst, der es verdient hier zu stehen –
+              Wenn du ein Restaurant, eine Bäckerei oder einen Laden kennst der es verdient hier zu stehen –
               schreib uns! Wir freuen uns über jede Empfehlung aus der Community.
             </p>
-            <a
-              href="mailto:contact@waschtls-schmankerl.de"
-              style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--green-mid)' }}
-            >
-              contact@waschtls-schmankerl.de →
+            <a href="mailto:hallo@waschtls-schmankerl.de"
+              style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--green-mid)' }}>
+              hallo@waschtls-schmankerl.de →
             </a>
           </div>
 

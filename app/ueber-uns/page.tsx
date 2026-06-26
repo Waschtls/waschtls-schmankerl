@@ -4,103 +4,159 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Über uns – Waschtls Schmankerl',
   description:
-    'Eine Augsburger Familie mit Zöliakie – wie aus einer bunten Familienküche ein glutenfreier Alltag wurde, der trotzdem fein schmeckt.',
+    'Eine Augsburger Familie, ein Kind mit Zöliakie – wie wir gelernt haben das glutenfreie Leben in Küche, Kita, Schule und Urlaub zu meistern.',
 };
 
 export default function UeberUns() {
   return (
     <>
+      {/* Hero */}
       <section style={{ background: 'var(--green-deep)', padding: '3rem 0 2.5rem' }}>
-        <div className="container">
+        <div className="container" style={{ maxWidth: '680px' }}>
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
             <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> › Über uns
           </div>
-          <h1 style={{ color: 'var(--golden)', marginBottom: '0.5rem' }}>Über uns</h1>
-          <p style={{ color: 'rgba(255,255,255,0.8)' }}>Kein Ratgeber. Eine Familie.</p>
+          <span style={{
+            display: 'inline-block', marginBottom: '0.75rem',
+            fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
+            textTransform: 'uppercase', color: 'var(--mint)',
+          }}>
+            Kein Ratgeber. Eine Familie.
+          </span>
+          <h1 style={{ color: 'var(--golden)', marginBottom: '0.75rem' }}>Über uns</h1>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem', lineHeight: 1.8, margin: 0 }}>
+            Wie aus einer ganz normalen Familienküche ein glutenfreier Alltag wurde –
+            der trotzdem fein schmeckt, Schule funktioniert und Urlaub möglich ist.
+          </p>
         </div>
       </section>
 
       <section className="section">
-        <div className="container" style={{ maxWidth: '720px' }}>
+        <div className="container" style={{ maxWidth: '680px' }}>
 
-          <div style={{ fontSize: '4rem', textAlign: 'center', marginBottom: '1.5rem' }}>👨‍👦</div>
-
+          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>👨‍👦</div>
           <h2>Hallo, ich bin Waschtl – aus Augsburg</h2>
           <p>
-            Ich bin Vater, Augsburger und Fan von gutem Essen – egal ob klassisch bayerisch oder international.
-            Bei uns zuhause gab es die Armen Ritter die die Oma uns Kindern immer gemacht hat,
-            Schnitzel mit Kartoffelbrei, Fleischküchler, Spaghetti Bolognese, Pizza vom Blech.
-            Eine echte Familienküche – bunt, unkompliziert, immer mit Herzblut gekocht.
-            Eine echte Familienküche eben – nicht auf ein Einziges festgelegt, aber immer mit Herzblut gekocht.
+            Ich bin Vater, Augsburger und Fan von gutem Essen – egal ob klassisch bayerisch oder
+            international. Bei uns zuhause gab es die Armen Ritter die die Oma uns Kindern immer
+            gemacht hat, Schnitzel mit Kartoffelbrei, Fleischküchler, Spaghetti Bolognese, Pizza
+            vom Blech. Eine echte Familienküche – bunt, unkompliziert, immer mit Herzblut gekocht.
           </p>
           <p>
-            Dann kam die Diagnose: Mein Sohn hat Zöliakie. Er war noch klein, als wir es herausfanden –
+            Dann kam die Diagnose: Mein Sohn hat Zöliakie. Er war noch klein als wir es herausfanden –
             und mit der Diagnose kam das große Umdenken. Kein Weizen mehr. Kein normaler Knödel.
             Keine Brezel vom Bäcker. Kein Schnitzel ohne Nachfragen.
-            Für eine Familie die so gerne und so vielfältig kocht war das erstmal ein echter Schock.
           </p>
           <p>
-            Was danach kam, war gleichzeitig mühsam und überraschend schön: Wir haben nicht einfach auf
-            Genuss verzichtet – wir haben ihn neu entdeckt. Rezept für Rezept, Zutat für Zutat.
-            Und wir haben festgestellt, dass glutenfrei kochen nicht bedeutet auf Geschmack zu verzichten.
-            Es bedeutet nur, anders zu denken. Und manchmal sogar feiner zu kochen.
+            Was danach kam war gleichzeitig mühsam und überraschend schön: Wir haben nicht einfach
+            auf Genuss verzichtet – wir haben ihn neu entdeckt. Rezept für Rezept, Zutat für Zutat.
+            Und wir haben festgestellt, dass glutenfrei kochen nicht bedeutet auf Geschmack zu
+            verzichten. Es bedeutet nur, anders zu denken.
           </p>
 
-          <hr className="divider" />
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '2rem 0' }} />
 
-          <h2>Warum „Waschtl" – und warum „Schmankerl"?</h2>
+          <h2>Warum diese Website mehr ist als ein Rezeptblog</h2>
           <p>
-            Waschtl ist mein Spitzname – den hab ich von meinen Kumpels bekommen. Ein Schmankerl ist im
-            Bayerischen eine besondere Gaumenfreude, etwas Feines das man mit Herzblut kocht und gerne teilt.
-            Der Name war eigentlich für einen klassischen Foodblog gedacht. Die Diagnose hat den Blog
-            zu etwas anderem gemacht: einem Ort für echte Schmankerl ohne Gluten.
-            Ob das jetzt Kässpatzen sind, eine glutenfreie Pizza, oder Arme Ritter wie die Oma sie gemacht hat – Hauptsache es schmeckt fein.
+            Am Anfang dachten wir: wir brauchen neue Rezepte. Stimmt – aber das war nur ein
+            Bruchteil des Lebens das sich verändert hat.
           </p>
           <p>
-            Mittlerweile isst die ganze Familie glutenfrei. Nicht weil wir müssen – sondern weil wir
-            gemerkt haben, dass es einfacher und schöner ist wenn alle das Gleiche essen.
-            Keine zwei Töpfe. Kein Aufpassen am Tisch. Einfach Essen.
+            Wir mussten verstehen wie Kreuzkontamination funktioniert und warum „die nehmen einfach
+            kein Mehl" nicht reicht. Wir mussten der Kita erklären was Zöliakie ist –
+            und zwar so, dass es beim Geburtstagskuchen der anderen Kinder auch wirklich umgesetzt
+            wird. Wir mussten lernen wie man im Restaurant fragt ohne jeden Kellner zu überfordern.
+            Und wir mussten herausfinden wie Urlaub mit einem Zöliakie-Kind geht, ohne ständig
+            Angst zu haben.
+          </p>
+          <p>
+            All das steht hier – nicht als Ratgeber von Experten, sondern als ehrliche
+            Erfahrungssammlung einer Familie die es selbst täglich lebt.
           </p>
 
-          <hr className="divider" />
-
-          <h2>Was ihr hier findet</h2>
-          <div className="grid-2" style={{ marginTop: '1rem', marginBottom: '2rem' }}>
-            {[
-              { icon: '🍳', title: 'Rezepte', desc: 'Die bei uns zuhause wirklich auf den Tisch kommen – von bayerisch bis international, alle glutenfrei.', href: '/rezepte' },
-              { icon: '📅', title: 'Speiseplan', desc: 'Personalisierter Wochenplan nach euren Präferenzen – schnell, kleinkindtauglich, als Bild speicherbar.', href: '/wochenplan' },
-              { icon: '📚', title: 'Wissen', desc: 'Was Eltern nach der Diagnose wirklich brauchen – von Grundlagen bis Schule & Kita.', href: '/wissen' },
-              { icon: '🛒', title: 'Produkte', desc: 'Was wir selbst verwenden – ohne Fake-Empfehlungen, mit ehrlichem Hinweis auf Affiliate-Links.', href: '/produkte' },
-            ].map(({ icon, title, desc, href }) => (
-              <Link key={href} href={href} className="card card-link">
-                <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>{icon}</div>
-                <h4 style={{ marginBottom: '0.25rem' }}>{title}</h4>
-                <p style={{ margin: 0, fontSize: '0.875rem' }}>{desc}</p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '0.85rem',
+            margin: '1.75rem 0',
+          }}>
+            {([
+              { icon: '🍳', titel: 'Küche', text: 'Rezepte, Mehlkunde, Kreuzverunreinigung vermeiden', href: '/rezepte' },
+              { icon: '🏫', titel: 'Kita & Schule', text: 'Musterbrief, Checkliste, Geburtstagstipps', href: '/wissen/schule-kita' },
+              { icon: '🍽', titel: 'Restaurant', text: 'Wie wir fragen, worauf wir achten', href: '/unterwegs' },
+              { icon: '✈️', titel: 'Reisen', text: 'Packliste, Hotel-Mail, was wir einpacken', href: '/unterwegs' },
+              { icon: '🆘', titel: 'Erstdiagnose', text: 'Was sofort zu tun ist – Schritt für Schritt', href: '/wissen/erstdiagnose' },
+              { icon: '🧺', titel: 'Vorratskiste', text: 'Welche Produkte wir wirklich empfehlen', href: '/vorratskiste' },
+            ] as { icon: string; titel: string; text: string; href: string }[]).map(item => (
+              <Link key={item.titel} href={item.href} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  padding: '1rem 1.1rem',
+                  background: 'var(--cream-dark)',
+                  border: '1.5px solid var(--border)',
+                  borderRadius: '10px', height: '100%',
+                }}>
+                  <div style={{ fontSize: '1.3rem', marginBottom: '0.35rem' }}>{item.icon}</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--green-deep)', marginBottom: '0.25rem' }}>
+                    {item.titel}
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-mid)', lineHeight: 1.55 }}>
+                    {item.text}
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
 
-          {/* Affiliate-Transparenz */}
-          <div className="card" style={{ background: 'rgba(149,213,178,0.08)', border: '1.5px solid rgba(149,213,178,0.3)', marginBottom: '2rem' }}>
-            <h3 style={{ fontSize: '0.95rem', marginBottom: '0.5rem', color: 'var(--green-deep)' }}>
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '2rem 0' }} />
+
+          <h2>Warum „Waschtl" – und warum „Schmankerl"?</h2>
+          <p>
+            Waschtl ist mein Spitzname – den hab ich von meinen Kumpels bekommen. Ein Schmankerl
+            ist im Bayerischen eine besondere Gaumenfreude, etwas Feines das man mit Herzblut kocht
+            und gerne teilt. Der Name war eigentlich für einen klassischen Foodblog gedacht.
+            Die Diagnose hat den Blog zu etwas anderem gemacht.
+          </p>
+          <p>
+            Mittlerweile isst die ganze Familie glutenfrei. Nicht weil wir müssen – sondern weil
+            wir gemerkt haben, dass es einfacher und schöner ist wenn alle das Gleiche essen.
+            Keine zwei Töpfe. Kein Aufpassen am Tisch. Einfach Essen.
+          </p>
+
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '2rem 0' }} />
+
+          <blockquote style={{
+            margin: '0 0 2rem',
+            padding: '1.25rem 1.5rem',
+            borderLeft: '4px solid var(--golden)',
+            background: 'var(--cream-dark)',
+            borderRadius: '0 10px 10px 0',
+            fontSize: '1rem',
+            fontStyle: 'italic',
+            color: 'var(--text-dark)',
+            lineHeight: 1.8,
+          }}>
+            „Glutenfrei kochen bedeutet nicht auf Genuss verzichten – es bedeutet, die Küche die
+            man liebt neu zu entdecken."
+          </blockquote>
+
+          <div className="card" style={{ background: 'var(--cream-dark)' }}>
+            <h3 style={{ fontSize: '1rem', marginBottom: '0.75rem', color: 'var(--green-deep)' }}>
               🔗 Transparenz: Affiliate-Links
             </h3>
-            <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>
-              Einige Produktlinks auf dieser Website führen zu Amazon und sind Affiliate-Links – erkennbar am Hinweis „Anzeige".
-              Wenn ihr über diese Links einkauft, erhalten wir eine kleine Provision. Für euch entstehen dabei keine Mehrkosten.
-              Die Einnahmen helfen uns, die Website, das Hosting und den Zeitaufwand für neue Rezepte und Artikel zu finanzieren.
-              Wir empfehlen ausschließlich Produkte die wir selbst im Einsatz haben und für gut befunden haben.
-              Produktnennungen ohne „Anzeige"-Kennzeichnung (z.&nbsp;B. Markenmehl in Rezepten) sind redaktionelle Empfehlungen ohne Gegenleistung des Herstellers.
+            <p style={{ fontSize: '0.875rem', lineHeight: 1.75, margin: 0, color: 'var(--text-mid)' }}>
+              Einige Produktlinks auf dieser Website führen zu Amazon und sind Affiliate-Links –
+              erkennbar am Hinweis „Anzeige". Wenn ihr über diese Links einkauft, erhalten wir eine
+              kleine Provision. Für euch entstehen dabei keine Mehrkosten. Wir empfehlen
+              ausschließlich Produkte die wir selbst im Einsatz haben.
+              Produktnennungen ohne „Anzeige"-Kennzeichnung (z.&nbsp;B. Mehlmarken in Rezepten)
+              sind redaktionelle Empfehlungen ohne Gegenleistung.
             </p>
           </div>
 
-          <div className="card" style={{ background: 'var(--cream-dark)', textAlign: 'center' }}>
-            <p style={{ fontSize: '1rem', fontStyle: 'italic', color: 'var(--green-deep)', margin: '0 0 1rem' }}>
-              „Glutenfrei kochen bedeutet nicht auf Genuss verzichten –
-              es bedeutet, die Küche die man liebt neu zu entdecken."
-            </p>
-            <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-light)' }}>Waschtl, Waschtls Schmankerl – Augsburg</p>
+          <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <Link href="/kontakt" className="btn btn-golden">Schreib uns →</Link>
           </div>
+
         </div>
       </section>
     </>
