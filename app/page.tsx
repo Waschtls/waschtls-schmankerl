@@ -71,57 +71,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Für wen ist diese Website? ── */}
-      <section style={{ background: 'var(--cream)', padding: '2.5rem 0 2rem', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: '820px' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '0.85rem',
-          }}>
-            {[
-              {
-                icon: '🆘',
-                titel: 'Gerade diagnostiziert?',
-                text: 'Was jetzt sofort zu tun ist – Schritt für Schritt.',
-                href: '/wissen/erstdiagnose',
-              },
-              {
-                icon: '🏫',
-                titel: 'Kind in Kita oder Schule',
-                text: 'Musterbrief, Checkliste und Tipps für Geburtstage.',
-                href: '/wissen/schule-kita',
-              },
-              {
-                icon: '🍳',
-                titel: 'Glutenfrei kochen',
-                text: 'Echte Rezepte, die bei uns täglich auf den Tisch kommen.',
-                href: '/rezepte',
-              },
-            ].map(item => (
-              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-                <div style={{
-                  padding: '1.1rem 1.2rem',
-                  background: '#fff',
-                  border: '1.5px solid var(--border)',
-                  borderRadius: '10px',
-                  height: '100%',
-                  transition: 'border-color 0.15s',
-                }}>
-                  <div style={{ fontSize: '1.4rem', marginBottom: '0.45rem' }}>{item.icon}</div>
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)', marginBottom: '0.3rem' }}>
-                    {item.titel}
-                  </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.55 }}>
-                    {item.text}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Story-Zeile ── */}
       <section style={{
         background: 'var(--cream-dark)',
