@@ -35,7 +35,7 @@ export default function UeberUns() {
         <div className="container" style={{ maxWidth: '680px' }}>
 
           <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>👨‍👦</div>
-          <h2>Hallo, ich bin Waschtl – aus Augsburg</h2>
+          <h2>Hallo, ich bin Waschtl</h2>
           <p>
             Ich bin Vater, Augsburger und Fan von gutem Essen – egal ob klassisch bayerisch oder
             international. Bei uns zuhause gab es die Armen Ritter die die Oma uns Kindern immer
