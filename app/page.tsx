@@ -32,7 +32,7 @@ export default function Home() {
             fontSize: '1rem', lineHeight: 1.8,
             marginBottom: '2rem', maxWidth: '460px',
           }}>
-            Küche, Kita, Urlaub, Alltag. Bodenständige Hilfe von einer Familie die es selbst durchlebt hat.
+            Küche, Kita, Urlaub, Alltag. Tipps von einer Familie, die es selbst tagtäglich lebt.
           </p>
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <Link href="/rezepte" className="btn btn-golden">
@@ -49,20 +49,6 @@ export default function Home() {
       {/* ── Für wen ist diese Website? ── */}
       <section style={{ background: 'var(--cream)', padding: '2.5rem 0 2rem', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: '820px' }}>
-          <p style={{
-            fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
-            textTransform: 'uppercase', color: 'var(--green-mid)',
-            marginBottom: '0.6rem',
-          }}>
-            Läuft — versprochen
-          </p>
-          <p style={{
-            fontSize: '1.05rem', color: 'var(--text-dark)', lineHeight: 1.7,
-            maxWidth: '600px', marginBottom: '1.75rem',
-          }}>
-            Glutenfrei kochen, Schule organisieren, auswärts essen — alles lösbar.
-            Wir haben es durchgespielt, du musst das Rad nicht neu erfinden.
-          </p>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
@@ -122,7 +108,7 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '2.25rem', flexShrink: 0 }}>👨‍👦</span>
             <p style={{ flex: 1, minWidth: '200px', margin: 0, fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
-              Wir kochen seit der Zöliakie-Diagnose unseres Sohnes glutenfrei – und haben gelernt: es geht nichts verloren.
+              Wie kochen wir jetzt? Was passiert im Kindergarten? Wie gehen wir ins Restaurant? Diese Fragen haben wir uns gestellt – und stellen sie uns zum Teil immer noch. Aber wir bekommen immer mehr Routine.
             </p>
             <Link href="/ueber-uns" style={{
               flexShrink: 0, fontSize: '0.85rem',
