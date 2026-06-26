@@ -30,7 +30,7 @@ export default function Impressum() {
 
           <h3>Kontakt</h3>
           <p>
-            E-Mail: <a href="mailto:contact@waschtls-schmankerl.de" style={{ color: 'var(--green-mid)' }}>contact@waschtls-schmankerl.de</a>
+            E-Mail: <a href="mailto:hallo@waschtls-schmankerl.de" style={{ color: 'var(--green-mid)' }}>hallo@waschtls-schmankerl.de</a>
           </p>
 
           <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
@@ -60,6 +60,19 @@ export default function Impressum() {
           <h2>Urheberrecht</h2>
           <p>
             Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors.
+          </p>
+
+          <h2>Streitschlichtung</h2>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
+            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer"
+              style={{ color: 'var(--green-mid)' }}>
+              https://ec.europa.eu/consumers/odr/
+            </a>
+          </p>
+          <p>
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
           </p>
         </div>
       </section>
