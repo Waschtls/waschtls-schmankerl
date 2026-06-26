@@ -97,7 +97,6 @@ export default function ErstdiagnosePage() {
               ganze Geschirr weg? Darf er zu Freunden essen gehen? – All diese Fragen auf einmal.
               Atmen. Schritt für Schritt. Es wird."
             </p>
-            <p style={{ margin: '0.75rem 0 0', fontSize: '0.8rem', color: 'var(--text-light)' }}>— Waschtl, Vater</p>
           </div>
         </div>
       </section>
