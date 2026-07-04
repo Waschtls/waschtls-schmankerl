@@ -46,6 +46,12 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Produkte & Empfehlungen',       desc: 'Produkte die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
   { title: 'Nach Zutaten suchen',           desc: 'Welche Rezepte kann ich mit meinen Zutaten kochen?', href: '/rezepte/nach-zutaten',             type: 'Seite', tags: 'zutaten kühlschrank zutatenliste rezept finden' },
   { title: 'Vorlagen & Vordrucke',          desc: 'Musterbriefe, Notfallkarten und Checklisten für Kita & Schule', href: '/wissen/vorlagen', type: 'Wissen', tags: 'vorlagen vordrucke musterbrief brief kita schule erzieher lehrer formular notfallkarte checkliste ausflug ausflugskarte' },
+  { title: 'Quark-Gemüse-Fladen',           desc: 'Snacks & Abendessen · 30 Min · hochprotein',               href: '/rezepte/quark-gemuese-fladen',        type: 'Rezept', tags: 'quark fladen gemüse paprika käse salami backen snack abendessen protein' },
+  { title: 'Flammkuchen-Ofenpfannkuchen',   desc: 'Abendessen · 30 Min · 113 kcal pro Stück',                 href: '/rezepte/flammkuchen-ofenpfannkuchen', type: 'Rezept', tags: 'flammkuchen pfannkuchen quark käse schinken frühlingszwiebel ofen herzhaft' },
+  { title: 'Bananenbrot mit Nutella',        desc: 'Backen · 60 Min · Brotdose-geeignet',                      href: '/rezepte/bananenbrot-nutella',          type: 'Rezept', tags: 'banane brot nutella füllung kuchen backen schokolade dessert brotdose' },
+  { title: 'Frozen Banana Bites',           desc: 'Dessert · 15 Min + einfrieren · 83 kcal',                  href: '/rezepte/frozen-banana-bites',          type: 'Rezept', tags: 'eis frozen banane schokolade quark einfrieren dessert sommer kinder' },
+  { title: 'Protein-Bagel (glutenfrei)',    desc: 'Brot & Backen · 30 Min · 22g Eiweiß',                      href: '/rezepte/protein-bagel',               type: 'Rezept', tags: 'bagel protein quark eiweiß brot backen frühstück brotdose ohne hefe' },
+  { title: 'Apfel-Zimt Baked Oats',        desc: 'Frühstück · 40 Min · 44g Eiweiß · GF-Hafer',               href: '/rezepte/apfel-zimt-baked-oats',        type: 'Rezept', tags: 'baked oats hafer apfel zimt frühstück warm ofen haferflocken crumble' },
 ];
 
 function searchText(query: string): SearchItem[] {
