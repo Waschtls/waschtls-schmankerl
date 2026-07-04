@@ -39,6 +39,20 @@ type Rezept = {
 const REZEPTE: Rezept[] = [
   // ── Frühstück ──
   {
+    slug: 'apfel-zimt-baked-oats',
+    title: 'Apfel-Zimt Baked Oats',
+    desc: 'Warmes Frühstück wie ein Mini-Crumble – 44 g Eiweiß, nur GF-Haferflocken.',
+    time: '40 Min.', kat: 'fruehstueck', tags: ['snacks'],
+    emoji: '🍎', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'protein-bagel',
+    title: 'Protein-Bagel',
+    desc: 'Quark-Teig, kein Hefe-Warten – 22 g Eiweiß pro Bagel.',
+    time: '30 Min.', kat: 'fruehstueck', tags: ['hefeteig'],
+    emoji: '🥯', naturalGf: false, kleinkind: true,
+  },
+  {
     slug: 'pfannkuchen-klassisch',
     title: 'Pfannkuchen (klassisch)',
     desc: 'Mit Schär Mix It – hauchdünn, goldbraun, hält beim Wenden.',
@@ -136,6 +150,20 @@ const REZEPTE: Rezept[] = [
 
   // ── Abendessen ──
   {
+    slug: 'quark-gemuese-fladen',
+    title: 'Quark-Gemüse-Fladen',
+    desc: 'Fluffig, herzhaft, hochprotein – mit Paprika, Salami und Käse.',
+    time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
+    emoji: '🫓', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'flammkuchen-ofenpfannkuchen',
+    title: 'Flammkuchen-Ofenpfannkuchen',
+    desc: 'Quark-Basis, Schinken und Käse – wie ein Flammkuchen, nur einfacher.',
+    time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
+    emoji: '🧀', naturalGf: false, kleinkind: true,
+  },
+  {
     slug: 'pizza-glutenfrei',
     title: 'Glutenfreie Pizza',
     desc: 'Knuspriger Boden – der Freitagsabend-Klassiker.',
@@ -173,6 +201,13 @@ const REZEPTE: Rezept[] = [
   },
 
   // ── Backen & Kuchen ──
+  {
+    slug: 'bananenbrot-nutella',
+    title: 'Bananenbrot mit Nutella-Füllung',
+    desc: 'Saftiger Kuchen mit Nutella-Kern – einfrierbar, für die Brotdose.',
+    time: '60 Min.', kat: 'backen', tags: ['dessert', 'snacks'],
+    emoji: '🍌', naturalGf: false, kleinkind: true,
+  },
   {
     slug: 'brownies-schokolade',
     title: 'Brownies (Schokolade)',
@@ -253,6 +288,13 @@ const REZEPTE: Rezept[] = [
   },
 
   // ── Desserts ──
+  {
+    slug: 'frozen-banana-bites',
+    title: 'Frozen Banana Bites',
+    desc: 'Eis ohne Eismaschine – Quark, Banane, Schokolade. Nur 83 kcal.',
+    time: '15 Min. + 4h', kat: 'dessert', tags: ['snacks', 'kindergeburtstag'],
+    emoji: '🍫', naturalGf: true, kleinkind: true,
+  },
   {
     slug: 'milchreis-kokos',
     title: 'Kokos-Milchreis',
