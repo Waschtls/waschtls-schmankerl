@@ -80,15 +80,6 @@ const REZEPTE: Rezept[] = [
     time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
     emoji: '🧇', naturalGf: false, kleinkind: true,
   },
-  // ⚠️ TODO: Rührei / Omelette glutenfrei
-  {
-    slug: 'fruehstueck-placeholder-1',
-    title: 'Buchweizenwaffeln',
-    desc: 'Knusprig, von Natur aus glutenfrei – kommt bald.',
-    time: '~25 Min.', kat: 'fruehstueck', tags: [],
-    emoji: '🍫', naturalGf: true, kleinkind: true, todo: true,
-  },
-
   // ── Mittagessen ──
   {
     slug: 'rindergulasch',
@@ -139,15 +130,6 @@ const REZEPTE: Rezept[] = [
     time: '40 Min.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🎃', naturalGf: true, kleinkind: false,
   },
-  // ⚠️ TODO: Kartoffelsuppe
-  {
-    slug: 'mittagessen-placeholder-1',
-    title: 'Kartoffelsuppe bayerisch',
-    desc: 'Sämig, wärmend, ohne Gluten – kommt bald.',
-    time: '~45 Min.', kat: 'mittagessen', tags: ['abendessen'],
-    emoji: '🥣', naturalGf: true, kleinkind: true, todo: true,
-  },
-
   // ── Abendessen ──
   {
     slug: 'quark-gemuese-fladen',
@@ -191,15 +173,6 @@ const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen'],
     emoji: '🌶', naturalGf: true, kleinkind: false,
   },
-  // ⚠️ TODO: Gefüllte Paprika
-  {
-    slug: 'abendessen-placeholder-1',
-    title: 'Gefüllte Paprika mit Reis',
-    desc: 'Von Natur aus glutenfrei, bunt und sättigend – kommt bald.',
-    time: '~50 Min.', kat: 'abendessen', tags: [],
-    emoji: '🫑', naturalGf: true, kleinkind: true, todo: true,
-  },
-
   // ── Backen & Kuchen ──
   {
     slug: 'bananenbrot-nutella',
@@ -229,15 +202,6 @@ const REZEPTE: Rezept[] = [
     time: '50 Min.', kat: 'backen', tags: ['kindergeburtstag'],
     emoji: '🍫', naturalGf: false, kleinkind: true,
   },
-  // ⚠️ TODO: Käsekuchen ohne Boden
-  {
-    slug: 'backen-placeholder-1',
-    title: 'Käsekuchen ohne Boden',
-    desc: 'Cremig, von Natur aus glutenfrei – kommt bald.',
-    time: '~60 Min.', kat: 'backen', tags: ['kindergeburtstag'],
-    emoji: '🍰', naturalGf: true, kleinkind: true, todo: true,
-  },
-
   // ── Brot & Hefeteig ──
   {
     slug: 'laugenbrezeln-glutenfrei',
@@ -246,23 +210,6 @@ const REZEPTE: Rezept[] = [
     time: '2 Std.', kat: 'hefeteig', tags: ['backen', 'snacks'],
     emoji: '🥨', naturalGf: false, kleinkind: false,
   },
-  // ⚠️ TODO: Glutenfreies Sauerteigbrot (bayerisch)
-  {
-    slug: 'hefeteig-placeholder-1',
-    title: 'Glutenfreies Sauerteigbrot',
-    desc: 'Bayerische Brotkultur ohne Gluten – kommt bald.',
-    time: '~2 Std.', kat: 'hefeteig', tags: [],
-    emoji: '🍞', naturalGf: false, kleinkind: false, todo: true,
-  },
-  // ⚠️ TODO: Brötchen / Semmel glutenfrei
-  {
-    slug: 'hefeteig-placeholder-2',
-    title: 'Glutenfreie Semmel',
-    desc: 'Knusprig wie vom Bäcker – kommt bald.',
-    time: '~50 Min.', kat: 'hefeteig', tags: [],
-    emoji: '🥖', naturalGf: false, kleinkind: true, todo: true,
-  },
-
   // ── Snacks & Brotdose ──
   {
     slug: 'bananenmuffins',
@@ -278,15 +225,6 @@ const REZEPTE: Rezept[] = [
     time: '15 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
     emoji: '🟤', naturalGf: true, kleinkind: true,
   },
-  // ⚠️ TODO: Reiskuchen / Reiswaffeln selbstgemacht
-  {
-    slug: 'snacks-placeholder-1',
-    title: 'Haferflocken-Kekse',
-    desc: 'Einfach, schnell, kein Zucker – kommt bald.',
-    time: '~20 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
-    emoji: '🍪', naturalGf: true, kleinkind: true, todo: true,
-  },
-
   // ── Desserts ──
   {
     slug: 'frozen-banana-bites',
@@ -302,15 +240,6 @@ const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'dessert', tags: [],
     emoji: '🥥', naturalGf: true, kleinkind: true,
   },
-  // ⚠️ TODO: Erdbeereis (selber machen)
-  {
-    slug: 'dessert-placeholder-1',
-    title: 'Erdbeereis (2 Zutaten)',
-    desc: 'Nur Erdbeeren und Sahne – von Natur aus glutenfrei, kommt bald.',
-    time: '~10 Min.', kat: 'dessert', tags: [],
-    emoji: '🍓', naturalGf: true, kleinkind: true, todo: true,
-  },
-
   // ── Grundrezepte ──
   {
     slug: 'grundrezept-hefeteig-suess',
@@ -325,40 +254,6 @@ const REZEPTE: Rezept[] = [
     desc: 'Das bayerische Grundrezept – zu Gulasch, Braten, Pilzsoße.',
     time: '35 Min.', kat: 'grundrezepte', tags: ['mittagessen', 'abendessen'],
     emoji: '🥟', naturalGf: false, kleinkind: false,
-  },
-  {
-    slug: 'grundrezepte-placeholder-1',
-    title: 'Glutenfreier Pizzateig (Grundrezept)',
-    desc: 'Einmal lernen – für Pizza, Focaccia, Flammkuchen – kommt bald.',
-    time: '~30 Min.', kat: 'grundrezepte', tags: [],
-    emoji: '🍕', naturalGf: false, kleinkind: false, todo: true,
-  },
-  {
-    slug: 'grundrezepte-placeholder-2',
-    title: 'Glutenfreier Mürbeteig',
-    desc: 'Für Tarte, Kekse, Quiche – kommt bald.',
-    time: '~20 Min.', kat: 'grundrezepte', tags: [],
-    emoji: '🥧', naturalGf: false, kleinkind: false, todo: true,
-  },
-
-  // ── Kindergeburtstag ──
-  // (Die meisten Rezepte kommen via tags von oben)
-
-  // ── Saisonal ──
-  // ⚠️ TODO: Lebkuchen, Zimtsterne, Osterkuchen
-  {
-    slug: 'saisonal-placeholder-1',
-    title: 'Glutenfreie Zimtsterne',
-    desc: 'Weihnachtsgebäck ohne Gluten – von Natur aus! – kommt bald.',
-    time: '~45 Min.', kat: 'saisonal', tags: [],
-    emoji: '⭐', naturalGf: true, kleinkind: true, todo: true,
-  },
-  {
-    slug: 'saisonal-placeholder-2',
-    title: 'Osterkuchen mit Mandeln',
-    desc: 'Saftiger Mandelkuchen für Ostern – kommt bald.',
-    time: '~50 Min.', kat: 'saisonal', tags: [],
-    emoji: '🐰', naturalGf: false, kleinkind: true, todo: true,
   },
 ];
 
