@@ -182,8 +182,8 @@ export const REZEPTE: Rezept[] = [
   },
   {
     slug: 'pizza-glutenfrei',
-    title: 'Glutenfreie Pizza',
-    desc: 'Knuspriger Boden – der Freitagsabend-Klassiker.',
+    title: 'Neapolitanische Pizza (glutenfrei)',
+    desc: 'Echter Hefeteig, 8 Ballen à 310 g – mit dem Ooni oder Backofen.',
     time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
     image: '/images/pizza-glutenfrei.jpg',
     emoji: '🍕', naturalGf: false, kleinkind: true,
