@@ -15,6 +15,7 @@ export default function WaffelnKlassischPage() {
       ]}
       tagline="Die Waffel ist bei uns Frühstück, Dessert und Kindergeburtstag in einem. Mit glutenfreiem Mehl gelingen sie genauso knusprig wie früher – und weil man sie gut einfrieren kann, lohnt sich immer eine Doppelportion."
       useCases={['Sonntagsfrühstück', 'Kindergeburtstag-Buffet', 'Dessert mit Eis', 'Einfrieren und auftoasten']}
+      heroImage="/images/waffeln-klassisch.jpg"
       minuten={25}
       portionen={4}
       schwierigkeit="Einfach"

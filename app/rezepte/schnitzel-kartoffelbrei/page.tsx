@@ -16,6 +16,7 @@ export default function SchnitzelPage() {
       ]}
       tagline="Das Schnitzel das jeder kennt – glutenfrei genauso knusprig, genauso lecker. Mit selbstgemachtem Kartoffelbrei der cremiger ist als jedes Pulver."
       useCases={['Freitagsessen', 'Wochenendfavorit', 'Wenn Oma kommt', 'Kindergeburtstag']}
+      heroImage="/images/schnitzel-kartoffelbrei.jpg"
       minuten={35}
 
       portionen={4}

@@ -84,7 +84,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Waffeln (klassisch)',
     desc: 'Knusprig, einfrierbar, mit jedem Waffeleisen – immer ein Erfolg.',
     time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
-    emoji: '🧇', naturalGf: false, kleinkind: true,
+    emoji: '🧇', image: '/images/waffeln-klassisch.jpg', naturalGf: false, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -92,7 +92,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Dicke Pfannkuchen',
     desc: 'Fluffige amerikanische Pancakes – glutenfrei, mit Früchten und Ahornsirup.',
     time: '20 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
-    emoji: '🥞', naturalGf: false, kleinkind: true,
+    emoji: '🥞', image: '/images/dicke-pfannkuchen.jpg', naturalGf: false, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -141,7 +141,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Reiberdatschi',
     desc: 'Bayerische Kartoffelpuffer – von Natur aus GF, knusprig, mit Apfelmus.',
     time: '30 Min.', kat: 'mittagessen', tags: ['snacks', 'abendessen'],
-    emoji: '🥔', naturalGf: true, kleinkind: true,
+    emoji: '🥔', image: '/images/reiberdatschi.jpg', naturalGf: true, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
   {
@@ -182,7 +182,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Neapolitanische Pizza (glutenfrei)',
     desc: 'Echter Hefeteig, 8 Ballen à 310 g – mit dem Ooni oder Backofen.',
     time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
-    emoji: '🍕', naturalGf: false, kleinkind: true,
+    emoji: '🍕', image: '/images/pizza-glutenfrei.jpg', naturalGf: false, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -190,7 +190,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Schnitzel mit Kartoffelbrei',
     desc: 'Knusprig paniert, cremiger Brei – der Lieblings-Freitag.',
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen', 'kindergeburtstag'],
-    emoji: '🥩', naturalGf: false, kleinkind: true,
+    emoji: '🥩', image: '/images/schnitzel-kartoffelbrei.jpg', naturalGf: false, kleinkind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
