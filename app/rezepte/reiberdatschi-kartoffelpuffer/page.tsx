@@ -16,7 +16,6 @@ export default function ReiberdatschiPage() {
       ]}
       tagline="In Bayern heißen sie Reiberdatschi, im Rest von Deutschland Kartoffelpuffer – das Rezept ist dasselbe, der Dialekt nicht. Kartoffeln, Zwiebel, Ei, Stärke. Fertig. Von Natur aus glutenfrei, in 30 Minuten auf dem Tisch und einer der wenigen Momente, wo man beim Essen an nix anderes denken muss."
       useCases={['Schnelles Mittagessen', 'Abendessen', 'Beilage', 'Kleinkindessen']}
-      heroImage="/images/reiberdatschi.jpg"
       minuten={30}
       portionen="4 (ca. 12 Puffer)"
       schwierigkeit="Einfach"
