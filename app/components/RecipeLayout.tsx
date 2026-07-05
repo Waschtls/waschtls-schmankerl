@@ -129,7 +129,14 @@ export default function RecipeLayout({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* ── HERO ── */}
-      <section style={{ background: 'var(--green-deep)', padding: '2.75rem 0 2.25rem' }}>
+      <section style={{
+        background: heroImage
+          ? `linear-gradient(rgba(27,67,50,0.82), rgba(27,67,50,0.88)), url(${heroImage})`
+          : 'var(--green-deep)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        padding: '2.75rem 0 2.25rem',
+      }}>
         <div className="container">
           {/* Breadcrumb */}
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
@@ -329,19 +336,6 @@ export default function RecipeLayout({
               </div>
             </div>
           </div>
-
-          {/* Bild zwischen Zutaten und Zubereitung */}
-          {heroImage && (
-            <img
-              src={heroImage}
-              alt={title}
-              style={{
-                width: '100%', height: 'auto', borderRadius: '12px',
-                display: 'block', margin: '2rem 0',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
-              }}
-            />
-          )}
 
           {/* Zubereitung */}
           <h2 style={{ fontSize: '1.25rem', marginBottom: '1.25rem' }}>Zubereitung</h2>
