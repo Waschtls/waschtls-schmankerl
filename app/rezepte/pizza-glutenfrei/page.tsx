@@ -17,6 +17,7 @@ export default function Pizza() {
       ]}
       tagline="Knuspriger Boden aus Reismehl und Tapioka – der Freitagsabend-Klassiker, endlich glutenfrei. Der Teig gelingt zuverlässig, kein Spezialmix nötig."
       useCases={['🍕 Freitagsabend', '👨‍👩‍👧 Familie', '👶 Kleinkind', '🎉 Kindergeburtstag']}
+      heroImage="/images/pizza-glutenfrei.jpg"
       minuten={45}
       portionen={4}
       einheit="Portionen"

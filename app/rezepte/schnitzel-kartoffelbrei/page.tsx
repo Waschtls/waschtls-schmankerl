@@ -18,6 +18,7 @@ export default function SchnitzelPage() {
       useCases={['Freitagsessen', 'Wochenendfavorit', 'Wenn Oma kommt', 'Kindergeburtstag']}
       heroImage="/images/schnitzel-kartoffelbrei.jpg"
       minuten={35}
+
       portionen={4}
       schwierigkeit="Einfach"
       zutaten={[
