@@ -5,6 +5,7 @@ import { useState } from 'react';
 type Props = {
   portionen: number | string;
   zutaten: string[];
+  einheit?: string; // z.B. 'Stücke', 'Muffins', 'Kugeln' — default 'Portionen'
 };
 
 // Skaliert eine Zutatenzeile anhand eines Faktors.
@@ -27,7 +28,7 @@ function scaleIngredient(text: string, factor: number): string {
   );
 }
 
-export default function PortionenScaler({ portionen, zutaten }: Props) {
+export default function PortionenScaler({ portionen, zutaten, einheit = 'Portionen' }: Props) {
   const isNumeric = typeof portionen === 'number';
   const base = isNumeric ? (portionen as number) : 1;
   const [count, setCount] = useState(base);
@@ -37,7 +38,7 @@ export default function PortionenScaler({ portionen, zutaten }: Props) {
 
   return (
     <div>
-      {/* Portionen-Steuerung – nur bei numerischen Portionen */}
+      {/* Steuerung – nur bei numerischen Portionen/Stücken */}
       {isNumeric && (
         <div style={{
           display: 'flex', alignItems: 'center', gap: '0.5rem',
@@ -49,11 +50,11 @@ export default function PortionenScaler({ portionen, zutaten }: Props) {
           width: 'fit-content',
         }}>
           <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-mid)', marginRight: '0.25rem' }}>
-            Portionen:
+            {einheit}:
           </span>
           <button
             onClick={() => setCount(c => Math.max(1, c - 1))}
-            aria-label="Weniger Portionen"
+            aria-label={`Weniger ${einheit}`}
             style={{
               width: 28, height: 28, borderRadius: '50%',
               background: 'var(--green-deep)', color: 'var(--golden)',
@@ -68,7 +69,7 @@ export default function PortionenScaler({ portionen, zutaten }: Props) {
           }}>{count}</span>
           <button
             onClick={() => setCount(c => Math.min(c + 1, base * 4))}
-            aria-label="Mehr Portionen"
+            aria-label={`Mehr ${einheit}`}
             style={{
               width: 28, height: 28, borderRadius: '50%',
               background: 'var(--green-deep)', color: 'var(--golden)',

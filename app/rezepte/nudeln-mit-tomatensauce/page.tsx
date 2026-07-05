@@ -1,118 +1,61 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import RecipeLayout from '../../components/RecipeLayout';
 
 export const metadata: Metadata = {
   title: 'Glutenfreie Nudeln mit Tomatensauce – Waschtls Schmankerl',
-  description:
-    'Der glutenfreie Alltagsklassiker: Reisnudeln mit selbstgemachter Tomatensauce – schnell, lecker, kinderfreundlich.',
+  description: 'Der glutenfreie Alltagsklassiker: Reisnudeln mit selbstgemachter Tomatensauce – schnell, lecker, kinderfreundlich.',
 };
 
-export default function Nudeln() {
+export default function NudelnMitTomatensauce() {
   return (
-    <>
-      <section style={{ background: 'var(--green-deep)', padding: '3rem 0 2.5rem' }}>
-        <div className="container">
-          <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
-            <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> ›{' '}
-            <Link href="/rezepte" style={{ color: 'var(--mint)' }}>Rezepte</Link> › Nudeln mit Tomatensauce
-          </div>
-          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
-            <span className="tag">Mittagessen</span>
-            <span className="tag tag-golden">⏱ 25 Min.</span>
-            <span className="tag">Alltagsklassiker</span>
-          </div>
-          <h1 style={{ color: 'var(--golden)', marginBottom: '0.5rem' }}>Nudeln mit Tomatensauce</h1>
-          <p style={{ color: 'rgba(255,255,255,0.8)' }}>
-            Der Lieblingsklassiker – mit Reisnudeln genauso gut wie das Original.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container" style={{ maxWidth: '720px' }}>
-          <div className="grid-2" style={{ marginBottom: '2.5rem' }}>
-            <div className="card" style={{ borderLeft: '4px solid var(--terracotta)' }}>
-              <h3 style={{ marginBottom: '1rem' }}>Zutaten (4 Personen)</h3>
-              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: 0 }}>
-                <li>400 g glutenfreie Pasta (Reisnudeln oder Linsennudeln)</li>
-                <li>1 Dose gehackte Tomaten (400 g)</li>
-                <li>2 EL Tomatenmark</li>
-                <li>1 Zwiebel</li>
-                <li>2 Knoblauchzehen</li>
-                <li>2 EL Olivenöl</li>
-                <li>Salz, Pfeffer, Oregano, Basilikum</li>
-                <li>Parmesan zum Servieren (optional)</li>
-              </ul>
-            </div>
-            <div className="card">
-              <h3 style={{ marginBottom: '0.75rem' }}>Nudeln im Vergleich</h3>
-              <div style={{ display: 'grid', gap: '0.5rem' }}>
-                {[
-                  { name: 'Reisnudeln', note: 'Mildster Geschmack, am ähnlichsten zu Weizennudeln' },
-                  { name: 'Linsennudeln', note: 'Mehr Eiweiß, leicht erdiger Geschmack' },
-                  { name: 'Kichererbsennudeln', note: 'Fester, nussiger Geschmack' },
-                  { name: 'Buchweizennudeln', note: 'Kräftiger, für Ältere' },
-                ].map(({ name, note }) => (
-                  <div key={name} style={{ fontSize: '0.85rem' }}>
-                    <strong>{name}</strong>
-                    <p style={{ margin: 0, color: 'var(--text-light)', fontSize: '0.8rem' }}>{note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <h2>Zubereitung</h2>
-          <ol style={{ paddingLeft: '1.5rem', color: 'var(--text-mid)', lineHeight: 2.2, marginBottom: '2rem' }}>
-            <li>Zwiebel fein würfeln, Knoblauch pressen.</li>
-            <li>Olivenöl in einem Topf erhitzen. Zwiebel glasig dünsten (ca. 3 Min.), Knoblauch dazugeben.</li>
-            <li>Tomatenmark unterrühren, kurz anschwitzen (1 Min.).</li>
-            <li>Dosentomaten dazugeben. Mit Salz, Pfeffer, Oregano und etwas Zucker abschmecken.</li>
-            <li>Bei mittlerer Hitze 15 Minuten köcheln lassen. Am Ende frisches Basilikum unterrühren.</li>
-            <li>Parallel die Nudeln nach Packungsanleitung in Salzwasser kochen. <strong>Achtung:</strong> Glutenfreie Nudeln werden schneller weich – lieber 1 Minute früher probieren.</li>
-            <li>Nudeln abgießen (eigenes Sieb!), sofort mit der Sauce servieren.</li>
-          </ol>
-
-          <div className="card" style={{ background: 'var(--cream-dark)', marginBottom: '2rem' }}>
-            <h4 style={{ marginBottom: '0.5rem' }}>⚠️ Kreuzverunreinigung beim Kochen</h4>
-            <p style={{ margin: 0, fontSize: '0.9rem' }}>
-              Immer ein eigenes Sieb für glutenfreie Nudeln verwenden. Wer noch normale Nudeln im Haushalt hat: nach der Benutzung gründlich spülen reicht nicht – besser eigenes Kochgeschirr für das Kind.
-            </p>
-          </div>
-
-          <div className="affiliate-box">
-            <span className="affiliate-label">Anzeige</span>
-            <h4>🍝 Unsere liebsten glutenfreien Nudeln</h4>
-            <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>
-              Reisnudeln, Linsennudeln und mehr – in verschiedenen Formen für jeden Anlass.
-            </p>
-            <a
-              href="/produkte"
-              
-              
-              className="btn btn-golden"
-              style={{ fontSize: '0.875rem' }}
-            >
-              Unsere Empfehlungen →
-            </a>
-            <p style={{ fontSize: '0.72rem', color: 'var(--text-light)', marginTop: '0.75rem', marginBottom: 0 }}>
-              Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.
-            </p>
-          </div>
-
-          <hr className="divider" />
-          <div className="grid-2">
-            <Link href="/rezepte/pizza-glutenfrei" className="card card-link" style={{ borderLeft: '4px solid var(--terracotta)' }}>
-              <strong>🍕 Glutenfreie Pizza</strong>
-              <p style={{ margin: '0.4rem 0 0', fontSize: '0.875rem' }}>Der Freitagsklassiker.</p>
-            </Link>
-            <Link href="/rezepte" className="card card-link" style={{ borderLeft: '4px solid var(--golden)' }}>
-              <strong>🍳 Alle Rezepte</strong>
-              <p style={{ margin: '0.4rem 0 0', fontSize: '0.875rem' }}>Mehr glutenfreie Ideen.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+    <RecipeLayout
+      title="Nudeln mit Tomatensauce"
+      kat="Mittagessen"
+      badges={[
+        { type: 'mint', label: '🌿 vegan' },
+        { type: 'golden', label: '👶 kleinkindtauglich' },
+      ]}
+      tagline="Der Lieblingsklassiker – mit Reisnudeln genauso gut wie das Original. Die Soße lässt sich einfrieren, die Nudeln kocht man frisch dazu."
+      useCases={['🏫 Schultag', '⏱ Unter 30 Min', '👶 Kleinkind', '❄️ Soße einfrieren']}
+      minuten={25}
+      portionen={4}
+      einheit="Portionen"
+      schwierigkeit="Einfach"
+      warum="Soße einfrieren, Nudeln frisch kochen – der schnellste Alltagsklassiker. Reisnudeln schmecken am ähnlichsten zu Weizennudeln."
+      zutaten={[
+        '400 g glutenfreie Pasta (Reisnudeln oder Linsennudeln)',
+        '— Tomatensauce',
+        '1 Dose gehackte Tomaten (400 g)',
+        '2 EL Tomatenmark',
+        '1 Zwiebel',
+        '2 Knoblauchzehen',
+        '2 EL Olivenöl',
+        'Salz, Pfeffer, Oregano, Basilikum',
+        'Parmesan zum Servieren (optional)',
+      ]}
+      naehrwerte={{ kalorien: 380, kohlenhydrate: 62, protein: 13, fett: 8, ballaststoffe: 5 }}
+      zubereitung={[
+        'Zwiebel fein hacken, Knoblauch pressen.',
+        'Olivenöl in einem Topf erhitzen, Zwiebel glasig dünsten (ca. 3 Min.), Knoblauch kurz mitdünsten.',
+        'Tomatenmark einrühren und 1 Min. anrösten.',
+        'Gehackte Tomaten dazugeben, mit Salz, Pfeffer, Oregano und Basilikum würzen. 15 Min. bei mittlerer Hitze köcheln.',
+        'Parallel Salzwasser aufkochen und GF-Pasta nach Packungsanleitung kochen – meist 2–3 Min. weniger als angegeben probieren.',
+        'Pasta abgießen, mit Soße vermengen, sofort servieren. Mit Parmesan bestreuen.',
+      ]}
+      tipps={[
+        'Reisnudeln schmecken am ähnlichsten zu Weizennudeln – milder Geschmack, ähnliche Konsistenz.',
+        'Linsennudeln geben mehr Eiweiß, haben einen leicht erdigen Geschmack – für Ältere oft bevorzugt.',
+        'GF-Nudeln sofort nach dem Kochen servieren – sie kleben beim Stehen stärker zusammen als Weizennudeln.',
+        'Soße portionsweise einfrieren – dann ist Mittagessen in 10 Min. fertig.',
+        'Einen Schuss Nudelkochwasser zur Soße geben macht sie sämiger.',
+      ]}
+      affiliate={{ text: 'GF-Pasta zertifiziert glutenfrei kaufen – viele Marken sind im Supermarkt erhältlich.' }}
+      warenkundeLink={{ label: 'Glutenfreie Lebensmittel – worauf achten?', href: '/wissen/glutenfreie-lebensmittel' }}
+      relatedRecipes={[
+        { title: 'Spaghetti Bolognese', slug: 'spaghetti-bolognese', emoji: '🍝', time: '45 Min.' },
+        { title: 'Veganes Chili', slug: 'veganes-chili', emoji: '🌶', time: '35 Min.' },
+        { title: 'Kürbisrisotto', slug: 'kuerbisrisotto', emoji: '🎃', time: '40 Min.' },
+      ]}
+    />
   );
 }

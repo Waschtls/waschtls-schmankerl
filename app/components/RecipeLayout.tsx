@@ -16,6 +16,8 @@ type Naehrwerte = {
   ballaststoffe: number;
 };
 
+type ZeitplanItem = { label: string; value: string; icon: string };
+
 type RelatedRecipe = { title: string; slug: string; emoji: string; time: string };
 
 type RecipeLayoutProps = {
@@ -27,8 +29,11 @@ type RecipeLayoutProps = {
   useCases: string[];
   minuten: number | string;
   portionen: number | string;
+  einheit?: string;              // 'Stücke' | 'Muffins' | 'Portionen' (default)
   schwierigkeit?: string;
-  publishDate?: string;           // z.B. "15. Juni 2025" oder ISO-Datum
+  publishDate?: string;
+  zeitplan?: ZeitplanItem[];     // Vorbereitung / Gehzeit / Backzeit / Gesamt
+  warum?: string;                // Kurzer Text im rechten Spalte unter Nährwerte
   zutaten: string[];
   zubereitung: string[];
   naehrwerte: Naehrwerte;
@@ -48,7 +53,8 @@ type NwItem   = { label: string; value: string; accent?: boolean };
 
 export default function RecipeLayout({
   title, kat, badges, breadcrumbParent, tagline, useCases,
-  minuten, portionen, schwierigkeit, publishDate,
+  minuten, portionen, einheit = 'Portionen', schwierigkeit, publishDate,
+  zeitplan, warum,
   zutaten, zubereitung, naehrwerte, infoBox, tipps,
   affiliate, warenkundeLink, relatedRecipes, prev, next,
 }: RecipeLayoutProps) {
@@ -67,7 +73,7 @@ export default function RecipeLayout({
     keywords: `glutenfrei, ${kat.toLowerCase()}, glutenfreie Rezepte, Zöliakie`,
     cookTime: typeof minuten === 'number' ? `PT${minuten}M` : undefined,
     totalTime: typeof minuten === 'number' ? `PT${minuten}M` : undefined,
-    recipeYield: `${portionen} Portionen`,
+    recipeYield: `${portionen} ${einheit}`,
     recipeIngredient: zutaten.filter(z => !z.startsWith('—')),
     recipeInstructions: zubereitung.map((schritt, i) => ({
       '@type': 'HowToStep',
@@ -99,7 +105,7 @@ export default function RecipeLayout({
   // Meta-Zeile
   const metaItems: MetaItem[] = [
     { icon: '⏱', label: `${minuten} Min.` },
-    { icon: '👥', label: `${portionen} Portionen` },
+    { icon: '👥', label: `${portionen} ${einheit}` },
   ];
   if (schwierigkeit) metaItems.push({ icon: '📊', label: schwierigkeit });
 
@@ -111,6 +117,9 @@ export default function RecipeLayout({
     { label: 'Fett',          value: `${naehrwerte.fett} g` },
     { label: 'Ballaststoffe', value: `${naehrwerte.ballaststoffe} g` },
   ];
+
+  // "Warum dieses Rezept?" – explizit oder erste 1-2 Sätze aus tagline
+  const warumText = warum ?? tagline.split(/(?<=\.)\s+/)[0];
 
   return (
     <>
@@ -163,8 +172,6 @@ export default function RecipeLayout({
               Von <strong style={{ color: 'var(--mint)' }}>Waschtl</strong>
               {publishDate && <> · {publishDate}</>}
             </span>
-
-            {/* Jump-to-Recipe Button */}
             <a
               href="#zutaten"
               style={{
@@ -172,7 +179,6 @@ export default function RecipeLayout({
                 padding: '0.3rem 0.85rem', borderRadius: '999px',
                 background: 'var(--golden)', color: 'var(--green-deep)',
                 fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none',
-                border: 'none', cursor: 'pointer',
               }}
             >
               ↓ Direkt zum Rezept
@@ -223,7 +229,7 @@ export default function RecipeLayout({
           )}
 
           {/* Meta-Bar */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1.5rem' }}>
             {metaItems.map(({ icon, label }) => (
               <div key={label} style={{
                 display: 'flex', alignItems: 'center', gap: '0.45rem',
@@ -236,12 +242,35 @@ export default function RecipeLayout({
             ))}
           </div>
 
+          {/* Zeitplan-Grid (optional) */}
+          {zeitplan && zeitplan.length > 0 && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${zeitplan.length}, 1fr)`,
+              gap: '0.65rem',
+              marginBottom: '2rem',
+            }}>
+              {zeitplan.map(({ label, value, icon }) => (
+                <div key={label} style={{
+                  padding: '0.875rem 0.75rem',
+                  background: 'var(--cream-dark)',
+                  borderRadius: '10px',
+                  textAlign: 'center',
+                }}>
+                  <div style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>{icon}</div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>{label}</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)' }}>{value}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* 2-Spalten: Zutaten + Nährwerte */}
           <div className="recipe-cols" style={{
             display: 'grid', gridTemplateColumns: '1fr 1fr',
             gap: '1.5rem', marginBottom: '2.5rem',
           }}>
-            {/* Zutaten – mit Portionen-Scaler und Anchor-ID */}
+            {/* Links: Zutaten + Scaler */}
             <div id="zutaten" className="card" style={{ padding: '1.5rem', scrollMarginTop: '120px' }}>
               <h2 style={{
                 fontSize: '1rem', fontWeight: 700, marginBottom: '1rem',
@@ -249,15 +278,15 @@ export default function RecipeLayout({
               }}>
                 🧺 Zutaten
               </h2>
-              <PortionenScaler portionen={portionen} zutaten={zutaten} />
+              <PortionenScaler portionen={portionen} zutaten={zutaten} einheit={einheit} />
             </div>
 
-            {/* Nährwerte */}
+            {/* Rechts: Nährwerte + Warum */}
             <div className="card" style={{ padding: '1.5rem' }}>
               <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--green-deep)' }}>
                 📊 Nährwerte{' '}
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-light)', fontWeight: 400 }}>
-                  pro Portion
+                  pro {einheit === 'Portionen' ? 'Portion' : einheit.replace(/en$/, '')}
                 </span>
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem' }}>
@@ -278,9 +307,25 @@ export default function RecipeLayout({
                   </div>
                 ))}
               </div>
-              <p style={{ margin: '0.875rem 0 0', fontSize: '0.68rem', color: 'var(--text-light)', lineHeight: 1.5 }}>
-                Richtwerte, berechnet ohne Toppings/Beilagen.
+              <p style={{ margin: '0.75rem 0 0', fontSize: '0.68rem', color: 'var(--text-light)', lineHeight: 1.5 }}>
+                Richtwerte, ohne Toppings/Beilagen.
               </p>
+
+              {/* Warum dieses Rezept? */}
+              <div style={{
+                marginTop: '1.1rem', paddingTop: '1rem',
+                borderTop: '1px solid var(--border)',
+              }}>
+                <div style={{
+                  fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase',
+                  letterSpacing: '0.05em', color: 'var(--text-light)', marginBottom: '0.45rem',
+                }}>
+                  Warum dieses Rezept?
+                </div>
+                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-dark)', lineHeight: 1.75 }}>
+                  {warumText}
+                </p>
+              </div>
             </div>
           </div>
 
@@ -366,10 +411,7 @@ export default function RecipeLayout({
           )}
 
           {/* Social Share */}
-          <div style={{
-            paddingTop: '1.5rem', marginBottom: '1.5rem',
-            borderTop: '1px solid var(--border)',
-          }}>
+          <div style={{ paddingTop: '1.5rem', marginBottom: '1.5rem', borderTop: '1px solid var(--border)' }}>
             <SocialShare title={title} />
           </div>
 
