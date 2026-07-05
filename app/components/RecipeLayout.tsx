@@ -407,8 +407,8 @@ export default function RecipeLayout({
           {warenkundeLink && (
             <div style={{
               padding: '0.875rem 1.25rem', borderRadius: '10px',
-              background: 'rgba(149,213,178,0.08)',
-              border: '1.5px solid rgba(149,213,178,0.3)',
+              background: 'var(--cream-dark)',
+              border: '1px solid var(--border)',
               marginBottom: '1.25rem',
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               gap: '1rem', flexWrap: 'wrap',
