@@ -221,8 +221,7 @@ export default function RecipeLayout({
               src={heroImage}
               alt={title}
               style={{
-                width: '100%', borderRadius: '12px',
-                maxHeight: '480px', objectFit: 'cover',
+                width: '100%', height: 'auto', borderRadius: '12px',
                 display: 'block', boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
               }}
             />

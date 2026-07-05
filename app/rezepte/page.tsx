@@ -498,8 +498,7 @@ export default function RezeptePage() {
                       src={image}
                       alt={title}
                       style={{
-                        width: '100%', borderRadius: '8px',
-                        height: '160px', objectFit: 'cover',
+                        width: '100%', height: 'auto', borderRadius: '8px',
                         display: 'block', marginBottom: '0.75rem',
                       }}
                     />
