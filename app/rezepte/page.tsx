@@ -38,6 +38,7 @@ type Rezept = {
   kat: string;
   tags: string[];
   emoji: string;
+  image?: string;       // z.B. '/images/granola.jpg'
   naturalGf: boolean;
   kleinkind: boolean;
   vegetarisch: boolean;
@@ -97,6 +98,14 @@ const REZEPTE: Rezept[] = [
     time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
     emoji: '🧇', naturalGf: false, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+  },
+  {
+    slug: 'granola',
+    title: 'Schokoladen-Granola',
+    desc: 'Knuspriges GF-Granola mit Kokosfett, Ahornsirup & Schokomus – hält 1 Woche.',
+    time: '20 Min.', kat: 'fruehstueck', tags: ['snacks'],
+    emoji: '🥣', image: '/images/granola.jpg', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: false, milchfrei: true, eierfrei: true,
   },
   // ── Mittagessen ──
   {
@@ -457,7 +466,7 @@ export default function RezeptePage() {
           </p>
 
           <div className="grid-3">
-            {gefiltert.map(({ slug, title, desc, time, emoji, naturalGf, kleinkind, todo }) => (
+            {gefiltert.map(({ slug, title, desc, time, emoji, image, naturalGf, kleinkind, todo }) => (
               todo ? (
                 /* Platzhalter-Karte */
                 <div key={slug} className="card" style={{
@@ -484,13 +493,25 @@ export default function RezeptePage() {
               ) : (
                 /* Echte Rezept-Karte */
                 <Link key={slug} href={`/rezepte/${slug}`} className="card card-link">
-                  <div style={{
-                    fontSize: '2.5rem', textAlign: 'center',
-                    background: 'var(--cream-dark)', borderRadius: '8px',
-                    padding: '1rem', marginBottom: '0.75rem',
-                  }}>
-                    {emoji}
-                  </div>
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={title}
+                      style={{
+                        width: '100%', borderRadius: '8px',
+                        height: '160px', objectFit: 'cover',
+                        display: 'block', marginBottom: '0.75rem',
+                      }}
+                    />
+                  ) : (
+                    <div style={{
+                      fontSize: '2.5rem', textAlign: 'center',
+                      background: 'var(--cream-dark)', borderRadius: '8px',
+                      padding: '1rem', marginBottom: '0.75rem',
+                    }}>
+                      {emoji}
+                    </div>
+                  )}
                   <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '0.5rem', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>⏱ {time}</span>
                     {naturalGf && (

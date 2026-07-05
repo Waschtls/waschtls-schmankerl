@@ -34,6 +34,7 @@ type RecipeLayoutProps = {
   publishDate?: string;
   zeitplan?: ZeitplanItem[];     // Vorbereitung / Gehzeit / Backzeit / Gesamt
   warum?: string;                // Kurzer Text im rechten Spalte unter Nährwerte
+  heroImage?: string;            // z.B. '/images/granola.jpg' – wird zwischen Tagline und Inhalt angezeigt
   zutaten: string[];
   zubereitung: string[];
   naehrwerte: Naehrwerte;
@@ -54,7 +55,7 @@ type NwItem   = { label: string; value: string; accent?: boolean };
 export default function RecipeLayout({
   title, kat, badges, breadcrumbParent, tagline, useCases,
   minuten, portionen, einheit = 'Portionen', schwierigkeit, publishDate,
-  zeitplan, warum,
+  zeitplan, warum, heroImage,
   zutaten, zubereitung, naehrwerte, infoBox, tipps,
   affiliate, warenkundeLink, relatedRecipes, prev, next,
 }: RecipeLayoutProps) {
@@ -211,6 +212,23 @@ export default function RecipeLayout({
           </div>
         </div>
       </section>
+
+      {/* ── HERO-BILD (optional) ── */}
+      {heroImage && (
+        <div style={{ background: 'var(--cream-dark)', padding: '1.5rem 0 0' }}>
+          <div className="container" style={{ maxWidth: '800px' }}>
+            <img
+              src={heroImage}
+              alt={title}
+              style={{
+                width: '100%', borderRadius: '12px',
+                maxHeight: '480px', objectFit: 'cover',
+                display: 'block', boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+              }}
+            />
+          </div>
+        </div>
+      )}
 
       {/* ── INHALT ── */}
       <section className="section">

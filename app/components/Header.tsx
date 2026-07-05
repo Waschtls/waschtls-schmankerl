@@ -56,6 +56,7 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Hamburger Brötchen',           desc: 'Brot & Hefeteig · 3 Std. · Grill · einfrierbar',            href: '/rezepte/hamburger-broetchen',          type: 'Rezept', tags: 'hamburger burger brötchen brot hefeteig grill sommer einfrieren sesam flohsamenschalen reismehl' },
   { title: 'Lebkuchen-Plätzchen',         desc: 'Backen · 4 Std. · Weihnachten · zum Ausstechen',            href: '/rezepte/lebkuchen-plaetzchen',         type: 'Rezept', tags: 'lebkuchen plätzchen weihnachten ausstechen backen kekse ingwer zimt nelken zuckerrübensirup icing' },
   { title: 'Italienische Focaccia',        desc: 'Brot & Hefeteig · 2 Std. · kein Kneten · Caputo',           href: '/rezepte/italienische-focaccia',        type: 'Rezept', tags: 'focaccia italienisch brot knoblauch knoblauchbutter parmesan caputo fioreglut hefeteig' },
+  { title: 'Schokoladen-Granola',          desc: 'Frühstück · 20 Min. · vegan · milchfrei · 1 Woche haltbar',  href: '/rezepte/granola',                      type: 'Rezept', tags: 'granola müsli haferflocken kokosfett ahornsirup schokomus schokolade vegan milchfrei frühstück joghurt skyr batch' },
 ];
 
 function searchText(query: string): SearchItem[] {
