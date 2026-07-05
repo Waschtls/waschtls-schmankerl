@@ -1,14 +1,14 @@
 import RecipeLayout from '@/app/components/RecipeLayout';
 
 export const metadata = {
-  title: 'Dicke Pfannkuchen (American Pancakes) glutenfrei – Waschtls Schmankerl',
+  title: 'Pancakes glutenfrei – Waschtls Schmankerl',
   description: 'Fluffige, dicke Pancakes – glutenfrei und in 20 Minuten fertig. Mit Erdbeeren, Blaubeeren und Ahornsirup der perfekte Sonntagsmorgen.',
 };
 
 export default function DickePfannkuchenPage() {
   return (
     <RecipeLayout
-      title="Dicke Pfannkuchen"
+      title="Pancakes"
       kat="Frühstück"
       badges={[
         { type: 'golden', label: '👶 kleinkindtauglich' },

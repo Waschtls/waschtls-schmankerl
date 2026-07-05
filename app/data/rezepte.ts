@@ -89,7 +89,7 @@ export const REZEPTE: Rezept[] = [
   },
   {
     slug: 'dicke-pfannkuchen',
-    title: 'Dicke Pfannkuchen',
+    title: 'Pancakes',
     desc: 'Fluffige amerikanische Pancakes – glutenfrei, mit Früchten und Ahornsirup.',
     time: '20 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
     emoji: '🥞', image: '/images/dicke-pfannkuchen.jpg', naturalGf: false, kleinkind: true,
