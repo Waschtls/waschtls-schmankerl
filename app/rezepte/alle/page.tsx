@@ -8,15 +8,49 @@ export const metadata: Metadata = {
 };
 
 const alle_rezepte = [
-  { title: 'Apfel-Zimt-Porridge', slug: '/rezepte/apfel-zimt-porridge', kat: 'Frühstück' },
-  { title: 'Bananenmuffins (ohne Mehl)', slug: '/rezepte/bananenmuffins', kat: 'Snacks' },
-  { title: 'Energiebällchen', slug: '/rezepte/energiebaellchen', kat: 'Snacks' },
-  { title: 'Kokos-Milchreis', slug: '/rezepte/milchreis-kokos', kat: 'Dessert' },
-  { title: 'Kürbisrisotto', slug: '/rezepte/kuerbisrisotto', kat: 'Mittagessen' },
-  { title: 'Nudeln mit Tomatensauce', slug: '/rezepte/nudeln-mit-tomatensauce', kat: 'Mittagessen' },
-  { title: 'Pfannkuchen aus Reismehl', slug: '/rezepte/pfannkuchen-reismehl', kat: 'Frühstück' },
-  { title: 'Pizza glutenfrei', slug: '/rezepte/pizza-glutenfrei', kat: 'Brot & Hefeteig' },
-  { title: 'Schokoladenkuchen mit Mandelmehl', slug: '/rezepte/schokoladenkuchen-mandelmehl', kat: 'Backen' },
+  // Frühstück
+  { title: 'Apfel-Zimt Baked Oats',            slug: '/rezepte/apfel-zimt-baked-oats',         kat: 'Frühstück' },
+  { title: 'Apfel-Zimt-Porridge',               slug: '/rezepte/apfel-zimt-porridge',            kat: 'Frühstück' },
+  { title: 'French Toast',                       slug: '/rezepte/french-toast',                   kat: 'Frühstück' },
+  { title: 'Pfannkuchen (klassisch)',            slug: '/rezepte/pfannkuchen-klassisch',          kat: 'Frühstück' },
+  { title: 'Pfannkuchen aus Reismehl',          slug: '/rezepte/pfannkuchen-reismehl',           kat: 'Frühstück' },
+  { title: 'Protein-Bagel',                     slug: '/rezepte/protein-bagel',                  kat: 'Frühstück' },
+  { title: 'Schokoladen-Granola',               slug: '/rezepte/granola',                        kat: 'Frühstück' },
+  { title: 'Waffeln (klassisch)',               slug: '/rezepte/waffeln-klassisch',              kat: 'Frühstück' },
+  // Mittagessen
+  { title: 'Chicken Nuggets (selbstgemacht)',   slug: '/rezepte/chicken-nuggets-selbstgemacht',  kat: 'Mittagessen' },
+  { title: 'Fleischküchle',                     slug: '/rezepte/fleischkuechle',                 kat: 'Mittagessen' },
+  { title: 'Kürbisrisotto',                     slug: '/rezepte/kuerbisrisotto',                 kat: 'Mittagessen' },
+  { title: 'Nudeln mit Tomatensauce',           slug: '/rezepte/nudeln-mit-tomatensauce',        kat: 'Mittagessen' },
+  { title: 'Reiberdatschi',                     slug: '/rezepte/reiberdatschi-kartoffelpuffer',  kat: 'Mittagessen' },
+  { title: 'Rindergulasch',                     slug: '/rezepte/rindergulasch',                  kat: 'Mittagessen' },
+  { title: 'Spaghetti Bolognese',               slug: '/rezepte/spaghetti-bolognese',            kat: 'Mittagessen' },
+  // Abendessen
+  { title: 'Flammkuchen-Ofenpfannkuchen',      slug: '/rezepte/flammkuchen-ofenpfannkuchen',    kat: 'Abendessen' },
+  { title: 'Glutenfreie Pizza',                 slug: '/rezepte/pizza-glutenfrei',               kat: 'Abendessen' },
+  { title: 'Kässpatzen',                        slug: '/rezepte/kaesspatzen',                    kat: 'Abendessen' },
+  { title: 'Quark-Gemüse-Fladen',              slug: '/rezepte/quark-gemuese-fladen',           kat: 'Abendessen' },
+  { title: 'Schnitzel mit Kartoffelbrei',       slug: '/rezepte/schnitzel-kartoffelbrei',        kat: 'Abendessen' },
+  { title: 'Veganes Chili con Carne',           slug: '/rezepte/veganes-chili',                  kat: 'Abendessen' },
+  // Backen
+  { title: 'Bananenbrot mit Nutella-Füllung',  slug: '/rezepte/bananenbrot-nutella',            kat: 'Backen' },
+  { title: 'Brownies (Schokolade)',             slug: '/rezepte/brownies-schokolade',            kat: 'Backen' },
+  { title: 'Lebkuchen-Plätzchen',              slug: '/rezepte/lebkuchen-plaetzchen',           kat: 'Backen' },
+  { title: 'Schokoladenkuchen (Mandelmehl)',    slug: '/rezepte/schokoladenkuchen-mandelmehl',   kat: 'Backen' },
+  { title: 'Zwetschgendatschi',                 slug: '/rezepte/zwetschgendatschi',              kat: 'Backen' },
+  // Brot & Hefeteig
+  { title: 'Hamburger Brötchen',               slug: '/rezepte/hamburger-broetchen',            kat: 'Brot & Hefeteig' },
+  { title: 'Hot Dog Brötchen',                 slug: '/rezepte/hotdog-broetchen',               kat: 'Brot & Hefeteig' },
+  { title: 'Italienische Focaccia',             slug: '/rezepte/italienische-focaccia',          kat: 'Brot & Hefeteig' },
+  { title: 'Laugenbrezeln (glutenfrei)',        slug: '/rezepte/laugenbrezeln-glutenfrei',       kat: 'Brot & Hefeteig' },
+  // Snacks & Dessert
+  { title: 'Bananenmuffins (ohne Mehl)',        slug: '/rezepte/bananenmuffins',                 kat: 'Snacks' },
+  { title: 'Energiebällchen',                   slug: '/rezepte/energiebaellchen',               kat: 'Snacks' },
+  { title: 'Frozen Banana Bites',               slug: '/rezepte/frozen-banana-bites',            kat: 'Dessert' },
+  { title: 'Kokos-Milchreis',                  slug: '/rezepte/milchreis-kokos',                kat: 'Dessert' },
+  // Grundrezepte
+  { title: 'Grundrezept: Süßer Hefeteig',      slug: '/rezepte/grundrezept-hefeteig-suess',     kat: 'Grundrezepte' },
+  { title: 'Semmelknödel',                     slug: '/rezepte/semmelknoedel',                  kat: 'Grundrezepte' },
 ].sort((a, b) => a.title.localeCompare(b.title, 'de'));
 
 // Gruppiert nach Anfangsbuchstabe
