@@ -135,7 +135,9 @@ export default function RecipeLayout({
 
       {/* ── HERO ── */}
       <section style={{
-        background: heroImage ? 'rgba(27,67,50,0.96)' : 'var(--green-deep)',
+        background: heroImage ? 'rgba(27,67,50,0.78)' : 'var(--green-deep)',
+        backdropFilter: heroImage ? 'blur(12px)' : undefined,
+        WebkitBackdropFilter: heroImage ? 'blur(12px)' : undefined,
         padding: '2.75rem 0 2.25rem',
       }}>
         <div className="container">
@@ -198,7 +200,9 @@ export default function RecipeLayout({
 
       {/* ── TAGLINE + USE CASES ── */}
       <section style={{
-        background: heroImage ? 'rgba(245,240,208,0.98)' : 'var(--cream-dark)',
+        background: heroImage ? 'rgba(245,240,208,0.82)' : 'var(--cream-dark)',
+        backdropFilter: heroImage ? 'blur(12px)' : undefined,
+        WebkitBackdropFilter: heroImage ? 'blur(12px)' : undefined,
         padding: '1.75rem 0 1.5rem',
         borderBottom: '3px solid var(--golden)',
       }}>
@@ -223,7 +227,11 @@ export default function RecipeLayout({
       </section>
 
       {/* ── INHALT ── */}
-      <section className="section" style={heroImage ? { background: 'rgba(254,250,224,0.97)' } : {}}>
+      <section className="section" style={heroImage ? {
+        background: 'rgba(254,250,224,0.82)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+      } : {}}>
         <div className="container" style={{ maxWidth: '800px' }}>
 
           {/* Info-Box */}
