@@ -32,6 +32,32 @@ export default function ItalienischeFocaccia() {
       <section className="section">
         <div className="container" style={{ maxWidth: '720px' }}>
 
+          {/* Zeitplan */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: '0.65rem',
+            marginBottom: '2rem',
+          }}>
+            {[
+              { label: 'Vorbereitung', value: '15 Min.', icon: '🥣' },
+              { label: 'Gehzeit', value: '1–1,5 Std.', icon: '⏳' },
+              { label: 'Backzeit', value: '25 Min.', icon: '🔥' },
+              { label: 'Gesamt', value: 'ca. 2 Std.', icon: '⏱' },
+            ].map(({ label, value, icon }) => (
+              <div key={label} style={{
+                padding: '0.875rem 0.75rem',
+                background: 'var(--cream-dark)',
+                borderRadius: '10px',
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>{icon}</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>{label}</div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)' }}>{value}</div>
+              </div>
+            ))}
+          </div>
+
           <div className="card" style={{ background: 'rgba(244,162,97,0.08)', border: '1.5px solid rgba(244,162,97,0.3)', marginBottom: '2rem' }}>
             <h4 style={{ color: 'var(--terracotta)', marginBottom: '0.5rem' }}>⚠️ Wichtig: Nur mit Caputo Fioreglut</h4>
             <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>
@@ -75,7 +101,7 @@ export default function ItalienischeFocaccia() {
 
             <div className="card">
               <h3 style={{ marginBottom: '0.75rem' }}>Warum dieses Rezept?</h3>
-              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: '0 0 1.5rem' }}>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: '0 0 1.25rem' }}>
                 <li>Kein Kneten nötig</li>
                 <li>Authentisch luftige Krume</li>
                 <li>Knoblauchbutter vor und nach dem Backen</li>
@@ -83,7 +109,7 @@ export default function ItalienischeFocaccia() {
                 <li>Als Beilage, Snack oder Sandwich-Brot</li>
               </ul>
               <div style={{ padding: '0.875rem 1rem', background: 'var(--cream-dark)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
-                <strong>Pro Stück:</strong> 186 kcal · 24 g KH · 3 g Eiweiß · 9 g Fett
+                <strong>Pro Stück (ca.):</strong> 186 kcal · 24 g KH · 3 g Eiweiß · 9 g Fett
               </div>
             </div>
           </div>
@@ -96,7 +122,7 @@ export default function ItalienischeFocaccia() {
             <li>Olivenöl und Petersilie einrühren. Beiseite stellen.</li>
           </ol>
 
-          <h3 style={{ fontSize: '1rem', color: 'var(--green-deep)', marginBottom: '0.5rem' }}>2. Teig &amp; Gehen</h3>
+          <h3 style={{ fontSize: '1rem', color: 'var(--green-deep)', marginBottom: '0.5rem' }}>2. Teig &amp; Gehzeit</h3>
           <ol style={{ paddingLeft: '1.5rem', color: 'var(--text-mid)', lineHeight: 2.2, marginBottom: '1.5rem' }}>
             <li>Caputo Fioreglut, Hefe, Zucker und Salz in einer großen Schüssel (oder Küchenmaschine mit Flachrührer) verquirlen.</li>
             <li>Warmes Wasser und Olivenöl dazugeben, <strong>4 Min. auf mittlerer Stufe</strong> rühren. Der Teig ist sehr klebrig – wie Keksteig. <strong>Kein Mehl nachgeben!</strong></li>
@@ -104,7 +130,7 @@ export default function ItalienischeFocaccia() {
             <li>Mit Folie abdecken und <strong>1–1,5 Std.</strong> an einem warmen Ort gehen lassen bis sich das Volumen verdoppelt hat.</li>
           </ol>
 
-          <h3 style={{ fontSize: '1rem', color: 'var(--green-deep)', marginBottom: '0.5rem' }}>3. Backen</h3>
+          <h3 style={{ fontSize: '1rem', color: 'var(--green-deep)', marginBottom: '0.5rem' }}>3. Backzeit</h3>
           <ol style={{ paddingLeft: '1.5rem', color: 'var(--text-mid)', lineHeight: 2.2, marginBottom: '2rem' }}>
             <li>In den letzten 30 Min. der Gehzeit: Backofen auf <strong>220°C Ober-/Unterhitze</strong> vorheizen.</li>
             <li>Den größten Teil der Knoblauchbutter über den Teig gießen (1–2 EL für später aufbewahren). Mit geölten Fingern tief in den Teig eindrücken – die typischen Focaccia-Dellen entstehen.</li>

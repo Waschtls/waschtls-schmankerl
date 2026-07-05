@@ -18,7 +18,7 @@ export default function HamburgerBroetchen() {
           </div>
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
             <span className="tag">Brot & Hefeteig</span>
-            <span className="tag tag-golden">⏱ 3 Std.</span>
+            <span className="tag tag-golden">⏱ 2,5 Std.</span>
             <span className="tag">6 Stück</span>
             <span className="tag">Grill</span>
           </div>
@@ -32,11 +32,37 @@ export default function HamburgerBroetchen() {
       <section className="section">
         <div className="container" style={{ maxWidth: '720px' }}>
 
+          {/* Zeitplan */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: '0.65rem',
+            marginBottom: '2rem',
+          }}>
+            {[
+              { label: 'Vorbereitung', value: '15 Min.', icon: '🥣' },
+              { label: 'Gehzeit', value: '1,5–2 Std.', icon: '⏳' },
+              { label: 'Backzeit', value: '17 Min.', icon: '🔥' },
+              { label: 'Gesamt', value: 'ca. 2,5 Std.', icon: '⏱' },
+            ].map(({ label, value, icon }) => (
+              <div key={label} style={{
+                padding: '0.875rem 0.75rem',
+                background: 'var(--cream-dark)',
+                borderRadius: '10px',
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>{icon}</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>{label}</div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)' }}>{value}</div>
+              </div>
+            ))}
+          </div>
+
           <div className="card" style={{ background: 'rgba(233,196,106,0.08)', border: '1.5px solid rgba(233,196,106,0.3)', marginBottom: '2rem' }}>
             <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>
               <strong>Hinweis:</strong> Hot Dog Brötchen nutzen denselben Teig –
-              nur die Form (Zylinder statt Scheibe) und der Belag (Mohn statt Sesam) unterscheiden sich.
-              Einfach doppelte Menge ansetzen und beide variieren.
+              nur die Form (rund statt lang) unterscheidet sich.
+              Einfach doppelte Menge ansetzen und beide Varianten backen.
             </p>
           </div>
 
@@ -79,15 +105,18 @@ export default function HamburgerBroetchen() {
 
             <div className="card">
               <h3 style={{ marginBottom: '0.75rem' }}>Warum dieses Rezept?</h3>
-              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: '0 0 1.5rem' }}>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: '0 0 1.25rem' }}>
                 <li>Weich und hält beim Belegen</li>
                 <li>Einfrierbar – Grill-Vorrat anlegen</li>
                 <li>Gleicher Teig wie die Hot Dog Brötchen</li>
                 <li>Kinder mögen sie – auch ohne Burger</li>
                 <li>Keine Fertigbrötchen mehr nötig</li>
               </ul>
-              <div style={{ padding: '0.875rem 1rem', background: 'var(--cream-dark)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
+              <div style={{ padding: '0.875rem 1rem', background: 'var(--cream-dark)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
                 <strong>Zutaten finden:</strong> Vollkornreismehl und Flohsamenschalen im Reformhaus, dm oder Bioladen. Tapioka- und Kartoffelstärke im Supermarkt.
+              </div>
+              <div style={{ padding: '0.875rem 1rem', background: 'var(--cream-dark)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
+                <strong>Pro Brötchen (ca.):</strong> 360 kcal · 57 g KH · 3 g Eiweiß · 11 g Fett
               </div>
             </div>
           </div>
@@ -131,7 +160,7 @@ export default function HamburgerBroetchen() {
           <div className="grid-2">
             <Link href="/rezepte/hotdog-broetchen" className="card card-link" style={{ borderLeft: '4px solid var(--mint)' }}>
               <strong>🌭 Hot Dog Brötchen</strong>
-              <p style={{ margin: '0.4rem 0 0', fontSize: '0.875rem' }}>Gleicher Teig, längliche Form, Mohn.</p>
+              <p style={{ margin: '0.4rem 0 0', fontSize: '0.875rem' }}>Gleicher Teig, längliche Form.</p>
             </Link>
             <Link href="/rezepte/italienische-focaccia" className="card card-link" style={{ borderLeft: '4px solid var(--terracotta)' }}>
               <strong>🫓 Italienische Focaccia</strong>

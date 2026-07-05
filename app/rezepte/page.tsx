@@ -19,9 +19,16 @@ const KATEGORIEN = [
   { id: 'saisonal',      label: '🎄 Saisonal' },
 ];
 
+const ERNAEHRUNG = [
+  { id: 'alle',          label: 'Alle', desc: '' },
+  { id: 'vegetarisch',   label: '🌿 Vegetarisch', desc: 'kein Fleisch, kein Fisch' },
+  { id: 'vegan',         label: '🌱 Vegan', desc: 'keine tierischen Produkte' },
+  { id: 'zuckerfrei',    label: '🚫🍬 Zuckerfrei', desc: 'kein zugesetzter Zucker' },
+  { id: 'milchfrei',     label: '🥛 Milchfrei', desc: 'keine Milch, Butter, Käse' },
+  { id: 'eierfrei',      label: '🥚 Eierfrei', desc: 'ohne Eier' },
+];
+
 // ── Rezept-Daten ──────────────────────────────────────────────────────────────
-// tags[] = zusätzliche Kategorien (neben kat als Primärkategorie)
-// ⚠️ TODO-Kommentare = Rezepte die Sebastian noch schreiben soll
 
 type Rezept = {
   slug: string;
@@ -33,7 +40,12 @@ type Rezept = {
   emoji: string;
   naturalGf: boolean;
   kleinkind: boolean;
-  todo?: boolean; // true = Platzhalter, noch kein echtes Rezept
+  vegetarisch: boolean;
+  vegan: boolean;
+  zuckerfrei: boolean;
+  milchfrei: boolean;
+  eierfrei: boolean;
+  todo?: boolean;
 };
 
 const REZEPTE: Rezept[] = [
@@ -44,6 +56,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Warmes Frühstück wie ein Mini-Crumble – 44 g Eiweiß, nur GF-Haferflocken.',
     time: '40 Min.', kat: 'fruehstueck', tags: ['snacks'],
     emoji: '🍎', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'protein-bagel',
@@ -51,6 +64,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Quark-Teig, kein Hefe-Warten – 22 g Eiweiß pro Bagel.',
     time: '30 Min.', kat: 'fruehstueck', tags: ['hefeteig'],
     emoji: '🥯', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'pfannkuchen-klassisch',
@@ -58,6 +72,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Mit Schär Mix It – hauchdünn, goldbraun, hält beim Wenden.',
     time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
     emoji: '🫓', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'apfel-zimt-porridge',
@@ -65,6 +80,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Cremig, warm, 10 Minuten – perfekt für den Schulmorgen.',
     time: '10 Min.', kat: 'fruehstueck', tags: [],
     emoji: '🍎', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
   },
   {
     slug: 'french-toast',
@@ -72,6 +88,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Goldbraun, vanillig – Frühstück und süßes Mittagessen in einem.',
     time: '20 Min.', kat: 'fruehstueck', tags: ['mittagessen', 'kindergeburtstag'],
     emoji: '🍞', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'waffeln-klassisch',
@@ -79,6 +96,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Knusprig, einfrierbar, mit jedem Waffeleisen – immer ein Erfolg.',
     time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
     emoji: '🧇', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   // ── Mittagessen ──
   {
@@ -87,6 +105,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Sämig, ohne Stärke – schmort sich von selbst. Zu Semmelknödeln ein Traum.',
     time: '2 Std.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🥘', naturalGf: true, kleinkind: false,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   {
     slug: 'spaghetti-bolognese',
@@ -94,6 +113,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Der Familienklassiker – Soße einfrieren, Pasta frisch kochen.',
     time: '45 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
     emoji: '🍝', naturalGf: false, kleinkind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   {
     slug: 'fleischkuechle',
@@ -101,6 +121,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Bayerische Frikadellen – saftig, würzig, einfrierbar.',
     time: '30 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
     emoji: '🍖', naturalGf: false, kleinkind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'chicken-nuggets-selbstgemacht',
@@ -108,6 +129,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Aus dem Ofen, knuspriger als tiefgekühlt – Kindergeburtstagsgarant.',
     time: '30 Min.', kat: 'mittagessen', tags: ['kindergeburtstag'],
     emoji: '🐔', naturalGf: false, kleinkind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'reiberdatschi-kartoffelpuffer',
@@ -115,6 +137,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Bayerische Kartoffelpuffer – von Natur aus GF, knusprig, mit Apfelmus.',
     time: '30 Min.', kat: 'mittagessen', tags: ['snacks', 'abendessen'],
     emoji: '🥔', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
   {
     slug: 'nudeln-mit-tomatensauce',
@@ -122,6 +145,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Der Alltagsklassiker – mit Reisnudeln genauso lecker.',
     time: '25 Min.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🍝', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   {
     slug: 'kuerbisrisotto',
@@ -129,6 +153,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Cremig, herbstlich, von Natur aus glutenfrei.',
     time: '40 Min.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🎃', naturalGf: true, kleinkind: false,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
   },
   // ── Abendessen ──
   {
@@ -137,6 +162,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Fluffig, herzhaft, hochprotein – mit Paprika, Salami und Käse.',
     time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
     emoji: '🫓', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'flammkuchen-ofenpfannkuchen',
@@ -144,6 +170,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Quark-Basis, Schinken und Käse – wie ein Flammkuchen, nur einfacher.',
     time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
     emoji: '🧀', naturalGf: false, kleinkind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'pizza-glutenfrei',
@@ -151,6 +178,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Knuspriger Boden – der Freitagsabend-Klassiker.',
     time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
     emoji: '🍕', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'schnitzel-kartoffelbrei',
@@ -158,6 +186,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Knusprig paniert, cremiger Brei – der Lieblings-Freitag.',
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen', 'kindergeburtstag'],
     emoji: '🥩', naturalGf: false, kleinkind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'kaesspatzen',
@@ -165,6 +194,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Echtes bayerisches Schmankerl – mit Schär Mix It genauso cremig.',
     time: '40 Min.', kat: 'abendessen', tags: ['mittagessen'],
     emoji: '🧀', naturalGf: false, kleinkind: false,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'veganes-chili',
@@ -172,6 +202,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Mit DM veganem Hack – herzhaft, sättigend, glutenfrei.',
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen'],
     emoji: '🌶', naturalGf: true, kleinkind: false,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   // ── Backen & Kuchen ──
   {
@@ -180,6 +211,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Saftiger Kuchen mit Nutella-Kern – einfrierbar, für die Brotdose.',
     time: '60 Min.', kat: 'backen', tags: ['dessert', 'snacks'],
     emoji: '🍌', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'brownies-schokolade',
@@ -187,6 +219,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Saftig, dunkel, mit echter Schokolade – Kindergeburtstagsklassiker.',
     time: '40 Min.', kat: 'backen', tags: ['kindergeburtstag', 'dessert'],
     emoji: '🍫', naturalGf: false, kleinkind: false,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'zwetschgendatschi',
@@ -194,6 +227,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Echter bayerischer Pflaumenkuchen – saisonal, auf Hefeteig.',
     time: '100 Min.', kat: 'backen', tags: ['saisonal', 'dessert', 'hefeteig'],
     emoji: '🍑', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'schokoladenkuchen-mandelmehl',
@@ -201,21 +235,32 @@ const REZEPTE: Rezept[] = [
     desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
     time: '50 Min.', kat: 'backen', tags: ['kindergeburtstag'],
     emoji: '🍫', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+  },
+  {
+    slug: 'lebkuchen-plaetzchen',
+    title: 'Lebkuchen-Plätzchen',
+    desc: 'Würzig, weich, hält die Form beim Ausstechen – ideal zum Verzieren mit Kindern.',
+    time: '4 Std.', kat: 'backen', tags: ['saisonal', 'kindergeburtstag'],
+    emoji: '🎄', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   // ── Brot & Hefeteig ──
   {
     slug: 'hotdog-broetchen',
     title: 'Hot Dog Brötchen',
     desc: 'Weich, luftig, mit Mohn – endlich Hot Dog ohne Kompromiss. Gleicher Teig wie die Hamburger Brötchen.',
-    time: '3 Std.', kat: 'hefeteig', tags: ['snacks'],
+    time: '2,5 Std.', kat: 'hefeteig', tags: ['snacks'],
     emoji: '🌭', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'hamburger-broetchen',
     title: 'Hamburger Brötchen',
-    desc: 'Goldbraun, mit Sesam, einfrierbar – der Burger kann kommen. Gleicher Teig wie die Hot Dog Brötchen.',
-    time: '3 Std.', kat: 'hefeteig', tags: ['snacks'],
+    desc: 'Goldbraun, mit Sesam, einfrierbar – der Burger kann kommen.',
+    time: '2,5 Std.', kat: 'hefeteig', tags: ['snacks'],
     emoji: '🍔', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'italienische-focaccia',
@@ -223,6 +268,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Luftig, knusprig, mit Knoblauchbutter und Parmesan – mit Caputo Fioreglut, kein Kneten.',
     time: '2 Std.', kat: 'hefeteig', tags: ['abendessen', 'backen'],
     emoji: '🫓', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'laugenbrezeln-glutenfrei',
@@ -230,6 +276,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Weich, salzig, original bayerisch – mit Natron-Lauge.',
     time: '2 Std.', kat: 'hefeteig', tags: ['backen', 'snacks'],
     emoji: '🥨', naturalGf: false, kleinkind: false,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   // ── Snacks & Brotdose ──
   {
@@ -238,6 +285,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Nur 4 Zutaten, kein Zucker – perfekte Schulmause.',
     time: '30 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
     emoji: '🧁', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
   {
     slug: 'energiebaellchen',
@@ -245,6 +293,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Ohne Backen, ohne Zucker – der Powerschnack.',
     time: '15 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
     emoji: '🟤', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: false, milchfrei: true, eierfrei: true,
   },
   // ── Desserts ──
   {
@@ -253,6 +302,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Eis ohne Eismaschine – Quark, Banane, Schokolade. Nur 83 kcal.',
     time: '15 Min. + 4h', kat: 'dessert', tags: ['snacks', 'kindergeburtstag'],
     emoji: '🍫', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
   },
   {
     slug: 'milchreis-kokos',
@@ -260,13 +310,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Cremig, leicht süß – macht sich fast von selbst.',
     time: '35 Min.', kat: 'dessert', tags: [],
     emoji: '🥥', naturalGf: true, kleinkind: true,
-  },
-  {
-    slug: 'lebkuchen-plaetzchen',
-    title: 'Lebkuchen-Plätzchen',
-    desc: 'Würzig, weich, hält die Form beim Ausstechen – ideal zum Verzieren mit Kindern.',
-    time: '4 Std.', kat: 'backen', tags: ['saisonal', 'kindergeburtstag'],
-    emoji: '🎄', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: true,
   },
   // ── Grundrezepte ──
   {
@@ -275,6 +319,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Die Basis für Zopf, Dampfnudeln, Schnecken und Zwetschgendatschi.',
     time: '90 Min.', kat: 'grundrezepte', tags: ['hefeteig', 'backen'],
     emoji: '🧑‍🍳', naturalGf: false, kleinkind: false,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
     slug: 'semmelknoedel',
@@ -282,6 +327,7 @@ const REZEPTE: Rezept[] = [
     desc: 'Das bayerische Grundrezept – zu Gulasch, Braten, Pilzsoße.',
     time: '35 Min.', kat: 'grundrezepte', tags: ['mittagessen', 'abendessen'],
     emoji: '🥟', naturalGf: false, kleinkind: false,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
 ];
 
@@ -289,10 +335,19 @@ const REZEPTE: Rezept[] = [
 
 export default function RezeptePage() {
   const [aktiv, setAktiv] = useState('alle');
+  const [ernaehrung, setErnaehrung] = useState('alle');
 
-  const gefiltert = aktiv === 'alle'
-    ? REZEPTE
-    : REZEPTE.filter(r => r.kat === aktiv || r.tags.includes(aktiv));
+  const gefiltert = REZEPTE.filter(r => {
+    const katMatch = aktiv === 'alle' || r.kat === aktiv || r.tags.includes(aktiv);
+    const dietMatch =
+      ernaehrung === 'alle' ||
+      (ernaehrung === 'vegetarisch' && r.vegetarisch) ||
+      (ernaehrung === 'vegan' && r.vegan) ||
+      (ernaehrung === 'zuckerfrei' && r.zuckerfrei) ||
+      (ernaehrung === 'milchfrei' && r.milchfrei) ||
+      (ernaehrung === 'eierfrei' && r.eierfrei);
+    return katMatch && dietMatch;
+  });
 
   return (
     <>
@@ -321,18 +376,15 @@ export default function RezeptePage() {
               <span style={{ background: 'var(--golden)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px' }}>👶</span>
               kleinkindtauglich
             </span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px', border: '1.5px dashed var(--border)', color: 'var(--text-light)' }}>kommt bald</span>
-              in Arbeit
-            </span>
           </div>
         </div>
       </section>
 
-      {/* Kategorie-Filter */}
+      {/* Filter */}
       <section style={{ background: 'white', padding: '1rem 0', borderBottom: '2px solid var(--border)', position: 'sticky', top: '96px', zIndex: 50 }}>
         <div className="container">
-          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          {/* Kategorie-Filter */}
+          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0.6rem' }}>
             {KATEGORIEN.map(({ id, label }) => (
               <button
                 key={id}
@@ -365,6 +417,32 @@ export default function RezeptePage() {
               A–Z →
             </Link>
           </div>
+
+          {/* Ernährungsfilter */}
+          <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <span style={{ fontSize: '0.72rem', color: 'var(--text-light)', marginRight: '0.25rem', whiteSpace: 'nowrap' }}>Ernährung:</span>
+            {ERNAEHRUNG.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => setErnaehrung(id)}
+                title={ERNAEHRUNG.find(e => e.id === id)?.desc}
+                style={{
+                  padding: '0.3rem 0.75rem',
+                  borderRadius: '999px',
+                  border: `1.5px solid ${ernaehrung === id ? 'var(--terracotta)' : 'var(--border)'}`,
+                  background: ernaehrung === id ? 'rgba(244,162,97,0.12)' : 'transparent',
+                  color: ernaehrung === id ? 'var(--terracotta)' : 'var(--text-mid)',
+                  fontSize: '0.75rem',
+                  fontWeight: ernaehrung === id ? 700 : 400,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -374,8 +452,8 @@ export default function RezeptePage() {
           {/* Anzahl */}
           <p style={{ fontSize: '0.82rem', color: 'var(--text-light)', marginBottom: '1.5rem' }}>
             {gefiltert.filter(r => !r.todo).length} Rezepte
-            {gefiltert.filter(r => r.todo).length > 0 && ` · ${gefiltert.filter(r => r.todo).length} in Arbeit`}
             {aktiv !== 'alle' && ` in „${KATEGORIEN.find(k => k.id === aktiv)?.label}"`}
+            {ernaehrung !== 'alle' && ` · ${ERNAEHRUNG.find(e => e.id === ernaehrung)?.label}`}
           </p>
 
           <div className="grid-3">

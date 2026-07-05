@@ -32,6 +32,32 @@ export default function LebkuchenPlaetzchen() {
       <section className="section">
         <div className="container" style={{ maxWidth: '720px' }}>
 
+          {/* Zeitplan */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: '0.65rem',
+            marginBottom: '2rem',
+          }}>
+            {[
+              { label: 'Vorbereitung', value: '30 Min.', icon: '🥣' },
+              { label: 'Kühlzeit', value: 'mind. 3 Std.', icon: '❄️' },
+              { label: 'Backzeit', value: '10 Min./Blech', icon: '🔥' },
+              { label: 'Gesamt', value: 'ca. 4 Std.', icon: '⏱' },
+            ].map(({ label, value, icon }) => (
+              <div key={label} style={{
+                padding: '0.875rem 0.75rem',
+                background: 'var(--cream-dark)',
+                borderRadius: '10px',
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>{icon}</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>{label}</div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)' }}>{value}</div>
+              </div>
+            ))}
+          </div>
+
           <div className="grid-2" style={{ marginBottom: '2.5rem' }}>
             <div className="card" style={{ borderLeft: '4px solid var(--golden)' }}>
               <h3 style={{ marginBottom: '1rem' }}>Zutaten (ca. 24 Stück)</h3>
@@ -65,15 +91,18 @@ export default function LebkuchenPlaetzchen() {
 
             <div className="card">
               <h3 style={{ marginBottom: '0.75rem' }}>Warum dieses Rezept?</h3>
-              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: '0 0 1.5rem' }}>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--text-mid)', lineHeight: 2.2, margin: '0 0 1.25rem' }}>
                 <li>Hält beim Backen exakt die Form</li>
                 <li>Weich und würzig – echter Lebkuchen-Geschmack</li>
                 <li>Kinderleicht auszustechen und zu verzieren</li>
                 <li>Teig 3 Tage im Kühlschrank haltbar</li>
                 <li>Fertige Plätzchen bis 1 Woche in der Dose</li>
               </ul>
-              <div style={{ padding: '0.875rem 1rem', background: 'rgba(233,196,106,0.1)', border: '1px solid rgba(233,196,106,0.3)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
+              <div style={{ padding: '0.875rem 1rem', background: 'rgba(233,196,106,0.1)', border: '1px solid rgba(233,196,106,0.3)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
                 <strong>⚠️ Kühlzeit:</strong> Der Teig braucht mindestens 3 Std. im Kühlschrank – am besten abends ansetzen, am nächsten Tag ausstechen.
+              </div>
+              <div style={{ padding: '0.875rem 1rem', background: 'var(--cream-dark)', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
+                <strong>Pro Plätzchen (ca.):</strong> 135 kcal · 23 g KH · 2 g Eiweiß · 5 g Fett
               </div>
             </div>
           </div>
