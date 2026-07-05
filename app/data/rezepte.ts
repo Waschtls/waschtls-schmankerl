@@ -133,6 +133,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Reiberdatschi',
     desc: 'Bayerische Kartoffelpuffer – von Natur aus GF, knusprig, mit Apfelmus.',
     time: '30 Min.', kat: 'mittagessen', tags: ['snacks', 'abendessen'],
+    image: '/images/reiberdatschi.jpg',
     emoji: '🥔', naturalGf: true, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
