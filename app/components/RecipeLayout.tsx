@@ -204,7 +204,7 @@ export default function RecipeLayout({
 
       {/* ── TAGLINE + USE CASES ── */}
       <section style={{ background: 'transparent', padding: heroImage ? '1rem 0' : '0', borderBottom: heroImage ? 'none' : '3px solid var(--golden)' }}>
-        <div className="container" style={{ maxWidth: '720px' }}>
+        <div className="container">
           <div style={heroImage ? {
             background: 'var(--cream-dark)',
             borderRadius: '12px',
@@ -237,14 +237,14 @@ export default function RecipeLayout({
 
       {/* ── INHALT ── */}
       <section className="section" style={{ background: 'transparent' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
+        <div className="container">
 
           {/* Info-Box */}
           {infoBox && (
             <div style={{
               padding: '0.9rem 1.25rem', marginBottom: '2rem',
               borderRadius: '10px', borderLeft: '4px solid var(--mint)',
-              background: 'rgba(149,213,178,0.18)',
+              background: '#ffffff',
               fontSize: '0.9rem', color: 'var(--green-deep)', lineHeight: 1.75,
             }}>
               {infoBox}
