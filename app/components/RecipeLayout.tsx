@@ -213,22 +213,6 @@ export default function RecipeLayout({
         </div>
       </section>
 
-      {/* ── HERO-BILD (optional) ── */}
-      {heroImage && (
-        <div style={{ background: 'var(--cream-dark)', padding: '1.5rem 0 0' }}>
-          <div className="container" style={{ maxWidth: '800px' }}>
-            <img
-              src={heroImage}
-              alt={title}
-              style={{
-                width: '100%', height: 'auto', borderRadius: '12px',
-                display: 'block', boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
-              }}
-            />
-          </div>
-        </div>
-      )}
-
       {/* ── INHALT ── */}
       <section className="section">
         <div className="container" style={{ maxWidth: '800px' }}>
@@ -345,6 +329,19 @@ export default function RecipeLayout({
               </div>
             </div>
           </div>
+
+          {/* Bild zwischen Zutaten und Zubereitung */}
+          {heroImage && (
+            <img
+              src={heroImage}
+              alt={title}
+              style={{
+                width: '100%', height: 'auto', borderRadius: '12px',
+                display: 'block', margin: '2rem 0',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+              }}
+            />
+          )}
 
           {/* Zubereitung */}
           <h2 style={{ fontSize: '1.25rem', marginBottom: '1.25rem' }}>Zubereitung</h2>
