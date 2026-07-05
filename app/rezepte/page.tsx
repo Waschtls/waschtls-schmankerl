@@ -390,7 +390,7 @@ export default function RezeptePage() {
       </section>
 
       {/* Filter */}
-      <section style={{ background: 'white', padding: '1rem 0', borderBottom: '2px solid var(--border)', position: 'sticky', top: '96px', zIndex: 50 }}>
+      <section style={{ background: 'white', padding: '1rem 0', borderBottom: '2px solid var(--border)' }}>
         <div className="container">
           {/* Kategorie-Filter */}
           <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0.6rem' }}>

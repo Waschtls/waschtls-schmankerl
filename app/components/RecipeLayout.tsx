@@ -252,7 +252,7 @@ export default function RecipeLayout({
           )}
 
           {/* Meta-Bar */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1.5rem', justifyContent: 'center' }}>
             {metaItems.map(({ icon, label }) => (
               <div key={label} style={{
                 display: 'flex', alignItems: 'center', gap: '0.45rem',
@@ -269,9 +269,12 @@ export default function RecipeLayout({
           {zeitplan && zeitplan.length > 0 && (
             <div style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${zeitplan.length}, 1fr)`,
+              gridTemplateColumns: `repeat(${zeitplan.length}, minmax(0, 1fr))`,
               gap: '0.65rem',
               marginBottom: '2rem',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}>
               {zeitplan.map(({ label, value, icon }) => (
                 <div key={label} style={{
