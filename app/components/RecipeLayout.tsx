@@ -123,18 +123,19 @@ export default function RecipeLayout({
   const warumText = warum ?? tagline.split(/(?<=\.)\s+/)[0];
 
   return (
-    <>
+    <div style={heroImage ? {
+      backgroundImage: `url(${heroImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+    } : {}}>
       {/* ── JSON-LD ── */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* ── HERO ── */}
       <section style={{
-        background: heroImage
-          ? `linear-gradient(rgba(27,67,50,0.82), rgba(27,67,50,0.88)), url(${heroImage})`
-          : 'var(--green-deep)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        background: heroImage ? 'rgba(27,67,50,0.88)' : 'var(--green-deep)',
         padding: '2.75rem 0 2.25rem',
       }}>
         <div className="container">
@@ -197,7 +198,8 @@ export default function RecipeLayout({
 
       {/* ── TAGLINE + USE CASES ── */}
       <section style={{
-        background: 'var(--cream-dark)', padding: '1.75rem 0 1.5rem',
+        background: heroImage ? 'rgba(245,240,208,0.93)' : 'var(--cream-dark)',
+        padding: '1.75rem 0 1.5rem',
         borderBottom: '3px solid var(--golden)',
       }}>
         <div className="container" style={{ maxWidth: '720px' }}>
@@ -477,6 +479,6 @@ export default function RecipeLayout({
           #zutaten { break-inside: avoid; }
         }
       `}</style>
-    </>
+    </div>
   );
 }
