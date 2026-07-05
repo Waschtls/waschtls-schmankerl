@@ -16,7 +16,6 @@ export default function DickePfannkuchenPage() {
       ]}
       tagline="Nicht die dünnen, die man zusammenrollt – sondern die dicken, fluffigen, die man aufeinander stapelt. Mit glutenfreiem Mehl werden sie genauso luftig wie das Original. Erdbeeren, Blaubeeren, Puderzucker, Ahornsirup. Fertig ist der beste Sonntagmorgen."
       useCases={['Sonntagsfrühstück', 'Kindergeburtstag-Buffet', 'Brunch', 'Dessert']}
-      heroImage="/images/dicke-pfannkuchen.jpg"
       minuten={20}
       portionen="8–10 Pancakes"
       schwierigkeit="Einfach"

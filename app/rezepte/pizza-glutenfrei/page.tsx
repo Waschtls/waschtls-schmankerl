@@ -17,7 +17,6 @@ export default function Pizza() {
       ]}
       tagline="Echter neapolitanischer Stil – nur mit den Händen ausbreiten, keine Teigrolle. Luftiger Rand, dünne Mitte, hohe Hitze. Mit dem Ooni geht das auch glutenfrei perfekt."
       useCases={['🍕 Freitagsabend', '👨‍👩‍👧 Familie', '🎉 Kindergeburtstag', '❄️ Einfrieren & Vorrat']}
-      heroImage="/images/pizza-glutenfrei.jpg"
       minuten={30}
       portionen="8 Pizzen"
       schwierigkeit="Mittel"
