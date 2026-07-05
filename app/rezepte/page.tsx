@@ -204,6 +204,27 @@ const REZEPTE: Rezept[] = [
   },
   // ── Brot & Hefeteig ──
   {
+    slug: 'hotdog-broetchen',
+    title: 'Hot Dog Brötchen',
+    desc: 'Weich, luftig, mit Mohn – endlich Hot Dog ohne Kompromiss. Gleicher Teig wie die Hamburger Brötchen.',
+    time: '3 Std.', kat: 'hefeteig', tags: ['snacks'],
+    emoji: '🌭', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'hamburger-broetchen',
+    title: 'Hamburger Brötchen',
+    desc: 'Goldbraun, mit Sesam, einfrierbar – der Burger kann kommen. Gleicher Teig wie die Hot Dog Brötchen.',
+    time: '3 Std.', kat: 'hefeteig', tags: ['snacks'],
+    emoji: '🍔', naturalGf: false, kleinkind: true,
+  },
+  {
+    slug: 'italienische-focaccia',
+    title: 'Italienische Focaccia',
+    desc: 'Luftig, knusprig, mit Knoblauchbutter und Parmesan – mit Caputo Fioreglut, kein Kneten.',
+    time: '2 Std.', kat: 'hefeteig', tags: ['abendessen', 'backen'],
+    emoji: '🫓', naturalGf: false, kleinkind: true,
+  },
+  {
     slug: 'laugenbrezeln-glutenfrei',
     title: 'Laugenbrezeln (glutenfrei)',
     desc: 'Weich, salzig, original bayerisch – mit Natron-Lauge.',
@@ -239,6 +260,13 @@ const REZEPTE: Rezept[] = [
     desc: 'Cremig, leicht süß – macht sich fast von selbst.',
     time: '35 Min.', kat: 'dessert', tags: [],
     emoji: '🥥', naturalGf: true, kleinkind: true,
+  },
+  {
+    slug: 'lebkuchen-plaetzchen',
+    title: 'Lebkuchen-Plätzchen',
+    desc: 'Würzig, weich, hält die Form beim Ausstechen – ideal zum Verzieren mit Kindern.',
+    time: '4 Std.', kat: 'backen', tags: ['saisonal', 'kindergeburtstag'],
+    emoji: '🎄', naturalGf: false, kleinkind: true,
   },
   // ── Grundrezepte ──
   {
