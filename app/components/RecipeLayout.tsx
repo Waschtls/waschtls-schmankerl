@@ -135,12 +135,15 @@ export default function RecipeLayout({
 
       {/* ── HERO ── */}
       <section style={{
-        background: heroImage ? 'rgba(27,67,50,0.78)' : 'var(--green-deep)',
-        backdropFilter: heroImage ? 'blur(12px)' : undefined,
-        WebkitBackdropFilter: heroImage ? 'blur(12px)' : undefined,
-        padding: '2.75rem 0 2.25rem',
+        background: heroImage ? 'transparent' : 'var(--green-deep)',
+        padding: heroImage ? '2rem 0' : '2.75rem 0 2.25rem',
       }}>
         <div className="container">
+          <div style={heroImage ? {
+            background: 'rgba(27,67,50,0.93)',
+            borderRadius: '16px',
+            padding: '1.75rem 2rem',
+          } : {}}>
           {/* Breadcrumb */}
           <div className="breadcrumb" style={{ color: 'var(--mint)' }}>
             <Link href="/" style={{ color: 'var(--mint)' }}>Startseite</Link> ›{' '}
@@ -195,43 +198,45 @@ export default function RecipeLayout({
               ↓ Direkt zum Rezept
             </a>
           </div>
+          </div>
         </div>
       </section>
 
       {/* ── TAGLINE + USE CASES ── */}
-      <section style={{
-        background: heroImage ? 'rgba(245,240,208,0.82)' : 'var(--cream-dark)',
-        backdropFilter: heroImage ? 'blur(12px)' : undefined,
-        WebkitBackdropFilter: heroImage ? 'blur(12px)' : undefined,
-        padding: '1.75rem 0 1.5rem',
-        borderBottom: '3px solid var(--golden)',
-      }}>
+      <section style={{ background: 'transparent', padding: heroImage ? '1rem 0' : '0', borderBottom: heroImage ? 'none' : '3px solid var(--golden)' }}>
         <div className="container" style={{ maxWidth: '720px' }}>
-          <p style={{
-            fontSize: 'clamp(0.98rem, 2vw, 1.15rem)',
-            lineHeight: 1.8, color: 'var(--text-dark)',
-            fontStyle: 'italic', margin: '0 0 1.1rem',
+          <div style={heroImage ? {
+            background: 'var(--cream-dark)',
+            borderRadius: '12px',
+            padding: '1.25rem 1.5rem',
+            borderBottom: '3px solid var(--golden)',
+          } : {
+            background: 'var(--cream-dark)',
+            padding: '1.75rem 0 1.5rem',
+            borderBottom: '3px solid var(--golden)',
           }}>
-            {tagline}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-            {useCases.map(u => (
-              <span key={u} style={{
-                padding: '0.3rem 0.85rem', borderRadius: '999px',
-                background: 'var(--cream)', border: '1.5px solid var(--border)',
-                fontSize: '0.8rem', color: 'var(--text-mid)', fontWeight: 500,
-              }}>{u}</span>
-            ))}
+            <p style={{
+              fontSize: 'clamp(0.98rem, 2vw, 1.15rem)',
+              lineHeight: 1.8, color: 'var(--text-dark)',
+              fontStyle: 'italic', margin: '0 0 1.1rem',
+            }}>
+              {tagline}
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+              {useCases.map(u => (
+                <span key={u} style={{
+                  padding: '0.3rem 0.85rem', borderRadius: '999px',
+                  background: 'var(--cream)', border: '1.5px solid var(--border)',
+                  fontSize: '0.8rem', color: 'var(--text-mid)', fontWeight: 500,
+                }}>{u}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── INHALT ── */}
-      <section className="section" style={heroImage ? {
-        background: 'rgba(254,250,224,0.82)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-      } : {}}>
+      <section className="section" style={{ background: 'transparent' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
 
           {/* Info-Box */}
@@ -239,7 +244,7 @@ export default function RecipeLayout({
             <div style={{
               padding: '0.9rem 1.25rem', marginBottom: '2rem',
               borderRadius: '10px', borderLeft: '4px solid var(--mint)',
-              background: 'rgba(149,213,178,0.1)',
+              background: 'rgba(149,213,178,0.18)',
               fontSize: '0.9rem', color: 'var(--green-deep)', lineHeight: 1.75,
             }}>
               {infoBox}
@@ -348,32 +353,34 @@ export default function RecipeLayout({
           </div>
 
           {/* Zubereitung */}
-          <h2 style={{ fontSize: '1.25rem', marginBottom: '1.25rem' }}>Zubereitung</h2>
-          <ol style={{ margin: '0 0 2.5rem', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {zubereitung.map((schritt, i) => (
-              <li key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <span style={{
-                  flexShrink: 0, width: '32px', height: '32px', borderRadius: '50%',
-                  background: 'var(--green-deep)', color: 'var(--golden)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: 800, fontSize: '0.85rem', lineHeight: 1,
-                  boxShadow: '0 2px 8px rgba(27,67,50,0.2)',
-                }}>
-                  {i + 1}
-                </span>
-                <p style={{ margin: 0, paddingTop: '0.35rem', fontSize: '0.95rem', lineHeight: 1.75, color: 'var(--text-dark)' }}>
-                  {schritt}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <div className="card" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1.25rem', marginBottom: '1.25rem', marginTop: 0 }}>Zubereitung</h2>
+            <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {zubereitung.map((schritt, i) => (
+                <li key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{
+                    flexShrink: 0, width: '32px', height: '32px', borderRadius: '50%',
+                    background: 'var(--green-deep)', color: 'var(--golden)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontWeight: 800, fontSize: '0.85rem', lineHeight: 1,
+                    boxShadow: '0 2px 8px rgba(27,67,50,0.2)',
+                  }}>
+                    {i + 1}
+                  </span>
+                  <p style={{ margin: 0, paddingTop: '0.35rem', fontSize: '0.95rem', lineHeight: 1.75, color: 'var(--text-dark)' }}>
+                    {schritt}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
 
           {/* Tipps */}
           {tipps && tipps.length > 0 && (
             <div style={{
               padding: '1.25rem 1.5rem', borderRadius: '12px',
-              background: 'rgba(233,196,106,0.08)',
-              border: '1.5px solid rgba(233,196,106,0.35)',
+              background: 'var(--cream)',
+              border: '1.5px solid rgba(233,196,106,0.5)',
               marginBottom: '2rem',
             }}>
               <h3 style={{ fontSize: '0.95rem', margin: '0 0 1rem', color: 'var(--green-deep)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
@@ -429,16 +436,15 @@ export default function RecipeLayout({
           )}
 
           {/* Social Share */}
-          <div style={{ paddingTop: '1.5rem', marginBottom: '1.5rem', borderTop: '1px solid var(--border)' }}>
+          <div className="card" style={{ padding: '1.25rem 1.5rem', marginBottom: '1.5rem' }}>
             <SocialShare title={title} />
           </div>
 
           {/* Vor/Zurück-Navigation */}
           {(prev || next) && (
-            <nav aria-label="Rezept-Navigation" style={{
+            <nav aria-label="Rezept-Navigation" className="card" style={{
               display: 'flex', justifyContent: 'space-between',
-              gap: '1rem', paddingTop: '1rem',
-              borderTop: '1px solid var(--border)', flexWrap: 'wrap',
+              gap: '1rem', padding: '1rem 1.5rem', flexWrap: 'wrap',
             }}>
               {prev ? (
                 <Link href={prev.href} style={{ fontSize: '0.875rem', color: 'var(--green-mid)', fontWeight: 500 }}>← {prev.title}</Link>
@@ -451,8 +457,8 @@ export default function RecipeLayout({
 
           {/* Ähnliche Rezepte */}
           {relatedRecipes && relatedRecipes.length > 0 && (
-            <div style={{ marginTop: '3rem' }}>
-              <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--green-deep)' }}>
+            <div className="card" style={{ marginTop: '1.5rem', padding: '1.5rem' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--green-deep)', marginTop: 0 }}>
                 Das könnte dir auch gefallen
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.75rem' }}>
