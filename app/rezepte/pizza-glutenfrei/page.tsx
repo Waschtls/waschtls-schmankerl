@@ -18,32 +18,33 @@ export default function Pizza() {
       tagline="Echter neapolitanischer Stil – nur mit den Händen ausbreiten, keine Teigrolle. Luftiger Rand, dünne Mitte, hohe Hitze. Mit dem Ooni geht das auch glutenfrei perfekt."
       useCases={['🍕 Freitagsabend', '👨‍👩‍👧 Familie', '🎉 Kindergeburtstag', '❄️ Einfrieren & Vorrat']}
       heroImage="/images/pizza-glutenfrei.jpg"
+      portionen={8}
+      einheit="Pizzen"
       minuten={30}
-      portionen="8 Pizzen"
       schwierigkeit="Mittel"
       warum="Neapolitanische Pizza lebt von drei Dingen: langer Gehzeit, viel Hitze und dem Ausbreiten mit den Händen. Kein Nudelholz – das drückt die Luft raus. Glutenfreier Teig braucht etwas mehr Wasser und Olivenöl beim Kneten, damit er nicht klebt."
-      infoBox="Rezept ergibt 8 Pizzaballen à 310 g. Nicht benötigte Ballen in der Pittaballen-Box oder in Frischhaltefolie einzeln einwickeln und einfrieren. Auftauen im Kühlschrank über Nacht."
+      infoBox="Nicht benötigte Ballen in der Pittaballen-Box oder in Frischhaltefolie einzeln einwickeln und einfrieren. Auftauen im Kühlschrank über Nacht."
       zutaten={[
-        '— Teig (8 Ballen à 310 g)',
-        '1.320 g glutenfreies Mehl (z. B. Schär Mix B oder Mix Pane)',
-        '1.122 g Wasser (lauwarm, ca. 30 °C)',
+        '— Teig',
+        '1320 g glutenfreies Mehl (z. B. Schär Mix B oder Mix Pane)',
+        '1122 g Wasser (lauwarm, ca. 30 °C)',
         '26 g Salz',
-        'Olivenöl (zum Kneten – nach Bedarf, ca. 40–50 g)',
-        '— Trockenhefe je nach Gehzeit:',
-        '5–6 g → heute Abend backen (4–6 Std. Raumtemperatur)',
-        '3–4 g → 8–12 Std.',
-        '1–2 g → 24 Std. oder länger im Kühlschrank',
-        '— Belag pro Pizza',
-        '80 ml passierte Tomaten',
+        'Olivenöl (zum Kneten – nach Bedarf)',
+        '— Hefe (Trockenhefe, je nach Gehzeit)',
+        '5 g → heute Abend backen (4–6 Std. Raumtemperatur)',
+        '3 g → 8–12 Std.',
+        '1 g → 24 Std. oder länger im Kühlschrank',
+        '— Belag (gesamt für alle Pizzen)',
+        '640 ml passierte Tomaten',
         'Salz, Oregano',
-        '100 g Mozzarella (Fior di Latte oder Büffelmozzarella)',
+        '800 g Mozzarella (Fior di Latte oder Büffelmozzarella)',
         'Frisches Basilikum, ein Schuss Olivenöl',
       ]}
       zubereitung={[
         'Mehl, Hefe und Salz trocken mischen.',
         'Wasser zugeben und mit dem Knethaken der Küchenmaschine auf mittlerer Stufe kneten. Nach und nach Olivenöl hinzufügen – das Öl dient als Gleitmittel, damit der Teig nicht an Händen und Schüssel klebt. Insgesamt 8–10 Minuten kneten bis der Teig glatt und homogen ist.',
         'Teig in einer leicht geölten Schüssel abgedeckt gehen lassen (Gehzeit laut Hefemenge, s. Zutaten).',
-        'Nach der Gehzeit: Teig auf eine bemehlte Arbeitsfläche geben und in 8 gleiche Portionen à ca. 310 g teilen. Jeden Ballen rundwirken (falten und unter der Hand drehen) bis er eine glatte, straffe Oberfläche hat.',
+        'Nach der Gehzeit: Teig auf eine bemehlte Arbeitsfläche geben und in gleiche Portionen à ca. 310 g teilen. Jeden Ballen rundwirken (falten und unter der Hand drehen) bis er eine glatte, straffe Oberfläche hat.',
         'Ballen in die Pittaballen-Box legen oder einzeln in Frischhaltefolie wickeln. 30–60 Minuten entspannen lassen.',
         'Nicht benötigte Ballen jetzt einfrieren.',
         'Ofen (oder Ooni) auf höchster Stufe vorheizen: Haushaltsbackofen mindestens 45 Min. bei 250–280 °C mit Backstein oder Pizzastahl. Ooni auf ca. 430–470 °C.',
