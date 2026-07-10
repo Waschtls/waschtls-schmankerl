@@ -96,7 +96,7 @@ export default function Datenschutz() {
           </p>
 
           <p style={{ marginTop: '2rem', fontSize: '0.85rem', color: 'var(--text-light)' }}>
-            Stand: Juni 2026
+            Stand: Juli 2026
           </p>
         </div>
       </section>

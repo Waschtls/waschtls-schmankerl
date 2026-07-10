@@ -33,7 +33,7 @@ export default function Impressum() {
             E-Mail: <a href="mailto:hallo@waschtls-schmankerl.de" style={{ color: 'var(--green-mid)' }}>hallo@waschtls-schmankerl.de</a>
           </p>
 
-          <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+          <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
           <p>
             Sebastian Klug<br />
             Friedrich-Ebert-Str. 15a<br />

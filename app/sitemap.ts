@@ -6,10 +6,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const rezepte = [
+    'apfel-zimt-baked-oats',
     'apfel-zimt-porridge',
     'pfannkuchen-klassisch',
+    'pfannkuchen-reismehl',
     'french-toast',
     'waffeln-klassisch',
+    'dicke-pfannkuchen',
+    'granola',
     'nudeln-mit-tomatensauce',
     'kuerbisrisotto',
     'rindergulasch',
@@ -20,9 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'schnitzel-kartoffelbrei',
     'kaesspatzen',
     'veganes-chili',
+    'quark-gemuese-fladen',
+    'flammkuchen-ofenpfannkuchen',
     'pizza-glutenfrei',
     'bananenmuffins',
     'energiebaellchen',
+    'frozen-banana-bites',
     'milchreis-kokos',
     'schokoladenkuchen-mandelmehl',
     'brownies-schokolade',
@@ -30,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'grundrezept-hefeteig-suess',
     'semmelknoedel',
     'laugenbrezeln-glutenfrei',
+    'hotdog-broetchen',
+    'hamburger-broetchen',
+    'italienische-focaccia',
+    'bananenbrot-nutella',
+    'lebkuchen-plaetzchen',
+    'protein-bagel',
   ];
 
   const wissen = [
