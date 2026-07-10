@@ -44,7 +44,10 @@ export default function Impressum() {
 
           <h2>Affiliate-Hinweis</h2>
           <p>
-            Diese Website enthält Affiliate-Links, insbesondere Links zum Amazon-Partnerprogramm. Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Alle Affiliate-Links sind auf der Website deutlich als „Anzeige" gekennzeichnet.
+            Sebastian Klug ist Teilnehmer des Partnerprogramms von Amazon Europe S.à.r.l., ein Partnerwerbeprogramm, das für Websites konzipiert wurde, mittels dessen durch die Platzierung von Werbeanzeigen und Links zu amazon.de Werbekosten verdient werden können.
+          </p>
+          <p>
+            Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Alle Affiliate-Links sind auf der Website deutlich als „Anzeige" gekennzeichnet.
           </p>
 
           <h2>Produktnennungen</h2>
