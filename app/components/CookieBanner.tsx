@@ -6,7 +6,7 @@ import Script from 'next/script';
 // ─── Tracking-IDs (hier eintragen wenn aktiv) ───────────────────────────────
 // Google Analytics 4:  G-XXXXXXXXXX
 // Google Ads:          AW-XXXXXXXXX
-const GA_ID  = 'G-XXXXXXXXXX';   // TODO: echte ID eintragen
+const GA_ID  = 'G-HY9BG8XDNJ';
 const ADS_ID = 'AW-XXXXXXXXX';   // TODO: echte ID eintragen
 // ─────────────────────────────────────────────────────────────────────────────
 
