@@ -44,15 +44,13 @@ export default function CookieBanner() {
     setVisible(true);
   }
 
-  // Google-Skripte nur laden wenn Zustimmung vorliegt
-  const loadGoogle = consent === 'all'
-    && GA_ID !== 'G-XXXXXXXXXX'   // nur wenn echte ID eingetragen
-    && ADS_ID !== 'AW-XXXXXXXXX';
+  const loadGA  = consent === 'all';
+  const loadAds = consent === 'all' && ADS_ID !== 'AW-XXXXXXXXX';
 
   return (
     <>
-      {/* ── Google Scripts (nur bei Einwilligung) ── */}
-      {loadGoogle && (
+      {/* ── Google Analytics (bei Einwilligung) ── */}
+      {loadGA && (
         <>
           <Script
             id="gtag-js"
@@ -64,7 +62,7 @@ export default function CookieBanner() {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_ID}', { anonymize_ip: true });
-            gtag('config', '${ADS_ID}');
+            ${loadAds ? `gtag('config', '${ADS_ID}');` : ''}
           `}</Script>
         </>
       )}
