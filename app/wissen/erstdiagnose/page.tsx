@@ -16,17 +16,12 @@ const sofortmassnahmen = [
   {
     icon: '🧴',
     titel: 'Saucen und Würzmittel',
-    text: 'Sojasoße (enthält Weizen), viele Fertigsaucen, Worcestershire-Sauce, Brühwürfel. Labels lesen – Gluten versteckt sich unter "Weizenstärke", "Malzextrakt" oder einfach "Mehl".',
+    text: 'Sojasoße (enthält Weizen), viele Fertigsaucen, Worcestershire-Sauce, Brühwürfel. Labels lesen – Gluten versteckt sich unter "Weizenstärke", "Malzextrakt" oder "Mehl". Auch Malzgetränke wie Vitamalz oder Gerstenmalz-Limonaden enthalten Gluten.',
   },
   {
     icon: '🥣',
     titel: 'Getreide & Müsli',
     text: 'Haferflocken (auch wenn "reiner Hafer" viel diskutiert wird – am Anfang erstmal weglassen und mit Arzt besprechen), normale Cornflakes, Müslis mit Weizen oder Gerste.',
-  },
-  {
-    icon: '🍺',
-    titel: 'Bier und Malzgetränke',
-    text: 'Normales Bier ist tabu. Auch Malzbier, viele Limonaden mit Gerstenmalz. Glutenfreies Bier gibt es – muss aber explizit so ausgewiesen sein.',
   },
 ];
 
@@ -183,7 +178,7 @@ export default function ErstdiagnosePage() {
               },
               {
                 alter: 'Schulkind (ab 7 Jahren)',
-                text: 'Kinder in dem Alter wollen verstehen. Erklärt kurz was Autoimmunerkrankung bedeutet. Zeigt ihnen das Ärchichen auf der Packung. Und gebt ihnen Antworten auf die Frage die kommt: „Warum darf ICH das nicht?" – damit sie selbst antworten können wenn Freunde fragen.',
+                text: 'Kinder in dem Alter wollen verstehen. Erklärt kurz was Autoimmunerkrankung bedeutet. Zeigt ihnen das Ährchen auf der Packung. Und gebt ihnen Antworten auf die Frage die kommt: „Warum darf ICH das nicht?" – damit sie selbst antworten können wenn Freunde fragen.',
               },
             ].map(a => (
               <div key={a.alter} className="card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
