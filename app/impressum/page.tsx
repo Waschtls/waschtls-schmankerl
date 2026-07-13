@@ -30,7 +30,7 @@ export default function Impressum() {
 
           <h3>Kontakt</h3>
           <p>
-            E-Mail: <a href="mailto:hallo@waschtls-schmankerl.de" style={{ color: 'var(--green-mid)' }}>hallo@waschtls-schmankerl.de</a>
+            E-Mail: <a href="mailto:waschtls.schmankerl@web.de" style={{ color: 'var(--green-mid)' }}>waschtls.schmankerl@web.de</a>
           </p>
 
           <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>

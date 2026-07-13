@@ -24,7 +24,7 @@ export default function Datenschutz() {
           <h2>1. Verantwortlicher</h2>
           <p>
             Sebastian Klug, Friedrich-Ebert-Str. 15a, 86199 Augsburg<br />
-            E-Mail: <a href="mailto:hallo@waschtls-schmankerl.de" style={{ color: 'var(--green-mid)' }}>hallo@waschtls-schmankerl.de</a>
+            E-Mail: <a href="mailto:waschtls.schmankerl@web.de" style={{ color: 'var(--green-mid)' }}>waschtls.schmankerl@web.de</a>
           </p>
 
           <h2>2. Hosting</h2>
