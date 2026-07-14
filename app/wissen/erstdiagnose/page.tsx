@@ -23,6 +23,11 @@ const sofortmassnahmen = [
     titel: 'Getreide & Müsli',
     text: 'Haferflocken (auch wenn "reiner Hafer" viel diskutiert wird – am Anfang erstmal weglassen und mit Arzt besprechen), normale Cornflakes, Müslis mit Weizen oder Gerste.',
   },
+  {
+    icon: '🔪',
+    titel: 'Küche & Utensilien',
+    text: 'Eigenes Schneidbrett (am besten markieren oder eine andere Farbe), eigener Toaster (Krümel!), eigenes Nudelsieb, eigene Butter damit niemand mit dem Messer nach dem Brotschneiden reingeht. Pfannen und Töpfe können bleiben – solange sie keine tiefen Kratzer haben und gründlich gespült werden.',
+  },
 ];
 
 const erstausstattung = [
