@@ -30,10 +30,14 @@ const sofortmassnahmen = [
   },
 ];
 
-const erstausstattung = [
-  { kat: 'Mehle', items: ['Reismehl (universal einsetzbar)', 'Maismehl / Polenta', 'Buchweizenmehl (für herzhafte Sachen)', 'Mandelmehl (fürs Backen)', 'Glutenfreie Mehlmischung (z.B. Schär Mix)'] },
+const erstausstattung: { kat: string; items: string[]; note?: string }[] = [
+  {
+    kat: 'Mehl',
+    items: ['Schär Mix It – für Pfannkuchen, Kuchen, Saucen, fast alles'],
+    note: 'Das reicht für den Start. Macht nicht den Fehler und kauft 7 verschiedene Mehle auf einmal – das überfordert und die meisten verstauben. In den kommenden Wochen werdet ihr von selbst merken was ihr noch braucht.',
+  },
   { kat: 'Bindemittel', items: ['Xanthan (Tipp: nur kleine Mengen nötig)', 'Flohsamenschalen (für Brot)'] },
-  { kat: 'Grundnahrung', items: ['Glutenfreie Pasta (Schär, Barilla GF, Reispasta)', 'Glutenfreies Brot (anfangs Fertigware ok)', 'Glutenfreie Haferflocken (zertifiziert, nach Rücksprache Arzt)', 'Tamari statt Sojasoße', 'Glutenfreie Brühwürfel'] },
+  { kat: 'Grundnahrung', items: ['Glutenfreie Pasta (Schär, Barilla GF, Reispasta)', 'Glutenfreies Brot (anfangs Fertigware ok)', 'Glutenfreie Haferflocken (zertifiziert, nach Rücksprache Arzt)', 'Tamari oder glutenfreie Sojasoße', 'Glutenfreie Brühwürfel'] },
   { kat: 'Küche', items: ['Eigenes Schneidbrett (markieren!)', 'Eigener Toaster', 'Eigene Nudelsiebe / Abtropfgitter', 'Alufolie für den Grill'] },
 ];
 
@@ -184,6 +188,11 @@ export default function ErstdiagnosePage() {
                     </li>
                   ))}
                 </ul>
+                {k.note && (
+                  <p style={{ margin: '0.75rem 0 0', fontSize: '0.8rem', lineHeight: 1.8, color: 'var(--text-light)', fontStyle: 'italic' }}>
+                    {k.note}
+                  </p>
+                )}
               </div>
             ))}
           </div>
