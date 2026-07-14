@@ -64,6 +64,14 @@ export const REZEPTE: Rezept[] = [
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
+    slug: 'pfannkuchen-reismehl',
+    title: 'Pfannkuchen aus Reismehl',
+    desc: 'Hauchdünn, goldbraun – kein Unterschied zum Original, nur mit feinem Reismehl.',
+    time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
+    emoji: '🥞', naturalGf: false, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+  },
+  {
     slug: 'apfel-zimt-porridge',
     title: 'Apfel-Zimt-Porridge',
     desc: 'Cremig, warm, 10 Minuten – perfekt für den Schulmorgen.',
