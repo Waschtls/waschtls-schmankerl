@@ -64,6 +64,13 @@ const naechsteSchritte = [
     link: '/wissen/schule-kita',
     linkText: 'Zu Kita & Schule →',
   },
+  {
+    nr: '05',
+    titel: 'Geschwister und Eltern testen lassen',
+    text: 'Erstgradige Verwandte (Eltern, Geschwister) haben ein bis zu 10-fach erhöhtes Risiko, ebenfalls Zöliakie zu entwickeln – auch ohne Symptome. Eine einfache Blutuntersuchung beim Kinder- oder Hausarzt reicht als Screening. Fragt aktiv danach.',
+    link: undefined,
+    linkText: undefined,
+  },
 ];
 
 export default function ErstdiagnosePage() {
@@ -131,6 +138,32 @@ export default function ErstdiagnosePage() {
         </div>
       </section>
 
+      {/* Gluten versteckt sich auch hier */}
+      <section className="section" style={{ background: 'rgba(233,196,106,0.06)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+        <div className="container" style={{ maxWidth: '740px' }}>
+          <h2 style={{ marginBottom: '0.4rem' }}>Gluten steckt auch hier – das überrascht fast alle</h2>
+          <p style={{ color: 'var(--text-mid)', marginBottom: '1.75rem' }}>
+            Nicht nur Essen. Gluten taucht an Stellen auf, an die niemand sofort denkt.
+          </p>
+          <div className="grid-2">
+            {[
+              { icon: '🧸', titel: 'Knetmasse (Play-Doh)', text: 'Play-Doh enthält Weizenmehl. Hände danach waschen reicht nicht – Gluten kann beim Spielen über Mund und Augen aufgenommen werden. Glutenfreie Knete gibt es (z.B. von Ailefo) oder selbst machen aus Reismehl.' },
+              { icon: '🎨', titel: 'Straßenmalkreide & Fingerfarben', text: 'Manche Marken enthalten Weizenstärke als Binder, besonders günstiger Schulbedarf. Bei unbekannten Produkten Hersteller anfragen oder auf zertifiziert glutenfreie Alternativen setzen.' },
+              { icon: '💊', titel: 'Medikamente & Kapseln', text: 'Tablettenhüllen und Kapselkörper können Weizenstärke als Hilfsstoff enthalten. Immer die Apotheke aktiv fragen: „Enthält dieses Medikament Gluten?" – das steht nicht immer drauf.' },
+              { icon: '👄', titel: 'Zahnpasta & Lippenpflege', text: 'Was auf die Lippen kommt, wird geschluckt. Manche Zahnpasten (v.a. Kinder-Zahnpasten mit Aromastoffen) enthalten Weizenstärke. Lippenpflege bei Kindern ebenfalls prüfen.' },
+              { icon: '🍟', titel: 'Pommes aus geteiltem Frittierfett', text: 'Eines der häufigsten Fallen beim Essen gehen. Pommes die im selben Fett wie paniertes Schnitzel oder Frühlingsrollen frittiert wurden sind nicht glutenfrei – egal was auf der Karte steht.' },
+              { icon: '⛪', titel: 'Hostien bei der Kommunion', text: 'Klassische Hostien enthalten Weizen. Glutenfreie Oblaten gibt es (z.B. über die DZG), aber die Gemeinde muss rechtzeitig informiert und das mit dem Pfarrer besprochen werden.' },
+            ].map(item => (
+              <div key={item.titel} className="card">
+                <div style={{ fontSize: '1.75rem', marginBottom: '0.6rem' }}>{item.icon}</div>
+                <h4 style={{ marginBottom: '0.4rem', color: 'var(--green-deep)' }}>{item.titel}</h4>
+                <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.75 }}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Erste Einkaufsliste */}
       <section className="section" style={{ background: 'var(--cream-dark)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
@@ -159,6 +192,31 @@ export default function ErstdiagnosePage() {
             Online (z.B. glutenfreier.de) ist das Sortiment breiter – aber am Anfang erstmal schauen was
             lokal verfügbar ist.
           </p>
+        </div>
+      </section>
+
+      {/* Häufige Anfängerfehler */}
+      <section className="section" style={{ paddingTop: '0', paddingBottom: '2.5rem' }}>
+        <div className="container" style={{ maxWidth: '740px' }}>
+          <div className="card" style={{ background: 'rgba(220,53,69,0.04)', border: '1.5px solid rgba(220,53,69,0.2)' }}>
+            <h4 style={{ marginBottom: '1rem', color: 'var(--green-deep)' }}>⚠️ Häufige Fehler in den ersten Wochen</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {[
+                { fehler: '„Einmal ist keinmal"', erklaerung: 'Gibt es bei Zöliakie nicht. Schon kleinste Mengen reichen aus, um die Darmschleimhaut zu reizen – selbst wenn keine sofortigen Symptome spürbar sind.' },
+                { fehler: '„Ich hab die Soße abgemacht"', erklaerung: 'Kreuzkontamination reicht. Ein Löffel der vorher in normaler Pasta war, kontaminiert die ganze Soße. Nicht abmachen – separat kochen.' },
+                { fehler: 'Im Restaurant nur „glutenfrei" fragen', erklaerung: 'Viele Köche denken „wenig" ist okay. Immer explizit sagen: „Mein Kind hat Zöliakie – das ist eine Erkrankung, keine Diät. Kreuzkontamination muss ausgeschlossen sein."' },
+                { fehler: '„Spuren von Weizen" ignorieren', erklaerung: '„Enthält Weizen" ist klares No-Go. „Kann Spuren enthalten" ist ein Hinweis auf Produktionsbedingungen – individuell unterschiedlich, Ernährungsberatung fragen.' },
+              ].map(f => (
+                <div key={f.fehler} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'rgba(220,53,69,0.8)', flexShrink: 0, marginTop: '0.2rem', minWidth: '16px' }}>✕</span>
+                  <div>
+                    <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>{f.fehler}: </span>
+                    <span style={{ fontSize: '0.875rem', lineHeight: 1.75, color: 'var(--text-mid)' }}>{f.erklaerung}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -198,6 +256,35 @@ export default function ErstdiagnosePage() {
               <strong>Was wirklich hilft:</strong> Zeigen dass glutenfrei nicht Verzicht bedeutet.
               Das erste selbst gebackene glutenfreie Pizzabrot, der erste Schokokuchen der genauso gut schmeckt –
               das sind Momente die mehr bewirken als jede Erklärung.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Was wird sich bessern */}
+      <section className="section" style={{ background: 'rgba(149,213,178,0.06)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+        <div className="container" style={{ maxWidth: '740px' }}>
+          <h2 style={{ marginBottom: '0.4rem' }}>Was wird sich bessern – und wann?</h2>
+          <p style={{ color: 'var(--text-mid)', marginBottom: '1.75rem' }}>
+            Das ist die Frage die uns am meisten beschäftigt hat. Die kurze Antwort: ja, es wird besser.
+            Und zwar schneller als man denkt.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+            {[
+              { zeit: 'Erste 1–2 Wochen', text: 'Bauchschmerzen, Blähungen und Erschöpfung lassen spürbar nach. Das Verdauungssystem erholt sich schnell wenn kein Gluten mehr reinkommt.' },
+              { zeit: '1–3 Monate', text: 'Energie kommt zurück, Appetit steigt, die allgemeine Stimmung verbessert sich. Bei Kleinkindern fällt der Unterschied oft am deutlichsten auf.' },
+              { zeit: '6–12 Monate', text: 'Die Antikörperwerte (TTG-IgA) normalisieren sich – das zeigt die erste Kontrolluntersuchung beim Gastroenterologen. Die Darmschleimhaut ist weitgehend regeneriert.' },
+              { zeit: '1–2 Jahre', text: 'Bei Kindern oft vollständige Erholung: Wachstum, Gewicht und Nährstoffaufnahme normalisieren sich komplett. Je früher die Diagnose, desto vollständiger die Erholung.' },
+            ].map(s => (
+              <div key={s.zeit} className="card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <span className="tag" style={{ flexShrink: 0, marginTop: '0.1rem', background: 'rgba(149,213,178,0.2)', color: 'var(--green-deep)' }}>{s.zeit}</span>
+                <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.8 }}>{s.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="card" style={{ marginTop: '1.25rem', background: 'rgba(149,213,178,0.1)', border: '1.5px solid rgba(149,213,178,0.35)' }}>
+            <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.85 }}>
+              <strong>Wichtig:</strong> Das funktioniert nur bei konsequent glutenfreier Ernährung. „Meistens glutenfrei" reicht nicht – die Darmschleimhaut kann sich nicht erholen, wenn immer wieder kleine Mengen dazukommen.
             </p>
           </div>
         </div>
