@@ -47,6 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const wissen = [
     'erstdiagnose',
+    'gluten-versteckte-quellen',
     'schule-kita',
     'kreuzkontamination',
     'kindern-erklaeren',

@@ -93,6 +93,13 @@ const themen = [
     tag: 'Warenkunde',
   },
   {
+    icon: '🕵️',
+    title: 'Gluten – wo niemand es vermutet',
+    desc: 'Von Play-Doh bis Zahnpasta, von Hostien bis Frittierfett: Wo überall Gluten drinsteckt, obwohl man es nicht erwarten würde.',
+    href: '/wissen/gluten-versteckte-quellen',
+    tag: 'Sicherheit',
+  },
+  {
     icon: '⚠️',
     title: 'Kreuzkontamination',
     desc: 'Was ist Kontamination, warum reichen Spuren für eine Reaktion – und wie schützt man das Kind zuhause und unterwegs?',
