@@ -76,7 +76,7 @@ export default function NcgsPage() {
               </thead>
               <tbody>
                 {[
-                  ['Ursache', 'Autoimmun', 'Unklar', 'Allergie (IgE)'],
+                  ['Ursache', 'Autoimmun', 'Nicht autoimmun; Mechanismus ungeklärt', 'Allergie (IgE)'],
                   ['Darmschaden', 'Ja (Zottenatrophie)', 'Nein', 'Nein'],
                   ['Antikörper im Blut', 'Ja (tTGA, EMA)', 'Nein', 'IgE-Antikörper'],
                   ['Diagnose durch', 'Bluttest + Biopsie', 'Ausschluss', 'Allergietest'],
