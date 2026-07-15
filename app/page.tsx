@@ -80,7 +80,6 @@ export default function Home() {
       }}>
         <div className="container" style={{ maxWidth: '760px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '2.25rem', flexShrink: 0 }}>👨‍👦</span>
             <p style={{ flex: 1, minWidth: '200px', margin: 0, fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>
               Wie kochen wir jetzt? Was passiert im Kindergarten? Wie gehen wir ins Restaurant? Diese Fragen haben wir uns gestellt – und stellen sie uns zum Teil immer noch. Aber wir bekommen immer mehr Routine.
             </p>
