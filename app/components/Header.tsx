@@ -59,10 +59,6 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Schokoladen-Granola',          desc: 'Frühstück · 20 Min. · vegan · milchfrei · 1 Woche haltbar',  href: '/rezepte/granola',                      type: 'Rezept', tags: 'granola müsli haferflocken kokosfett ahornsirup schokomus schokolade vegan milchfrei frühstück joghurt skyr batch' },
   { title: 'Zähne & Zahnschmelz bei Zöliakie', desc: 'Zahnschmelzdefekte, Zahnarzt, Frühwarnzeichen', href: '/wissen/zaehne-zoeliakiie', type: 'Wissen', tags: 'zähne zahnschmelz defekte schmelz zahnarzt milchzähne bleibende karies aphten mund fluorid prophylaxe' },
   { title: 'NCGS – Glutenunverträglichkeit ohne Zöliakie', desc: 'Glutensensitivität: Symptome, Diagnose, Unterschied zu Zöliakie', href: '/wissen/ncgs-glutenunvertraeglichkeit', type: 'Wissen', tags: 'ncgs glutensensitivität glutenunverträglichkeit weizenallergie fodmap diagnose ausschluss test bauchschmerzen' },
-  { title: 'Avocado-Schoko-Creme',          desc: 'Snacks · 5 Min · ohne Zucker · kleinkind · vegan',           href: '/rezepte/avocado-schoko-creme',         type: 'Rezept', tags: 'avocado schoko schokolade banane creme snack kleinkind vegan zuckerfrei ohne backen schnell' },
-  { title: 'Apfelringe mit Frischkäse',     desc: 'Snacks · 5 Min · kleinkind · Brotdose',                      href: '/rezepte/apfelringe-frischkaese',       type: 'Rezept', tags: 'apfel ringe frischkäse snack kleinkind brotdose blaubeeren schnell vegetarisch' },
-  { title: 'Apfelspalten mit Himbeer-Dip',  desc: 'Snacks · 5 Min · ohne Zucker · kleinkind · vegan',           href: '/rezepte/apfelspalten-himbeer-dip',    type: 'Rezept', tags: 'apfel spalten himbeere dip snack kleinkind vegan zuckerfrei schnell tk tiefkühl' },
-  { title: 'Kleinkind-Rezepte',             desc: 'Glutenfreie Rezepte für Kinder ab 1 Jahr',                   href: '/rezepte/kleinkind',                   type: 'Seite',  tags: 'kleinkind kinder ab 1 jahr snack frühstück hauptgericht zuckerfrei einfach schnell' },
 ];
 
 function searchText(query: string): SearchItem[] {

@@ -43,9 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'bananenbrot-nutella',
     'lebkuchen-plaetzchen',
     'protein-bagel',
-    'avocado-schoko-creme',
-    'apfelringe-frischkaese',
-    'apfelspalten-himbeer-dip',
   ];
 
   const wissen = [
@@ -89,7 +86,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/rezepte/alle`,             lastModified: now, changeFrequency: 'weekly',  priority: 0.8 },
     { url: `${BASE}/rezepte/nach-zutaten`,     lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/rezepte/feste-geburtstage`,lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE}/rezepte/kleinkind`,        lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
 
     // Einzelne Rezepte
     ...rezepte.map(slug => ({
