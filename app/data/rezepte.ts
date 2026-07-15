@@ -309,6 +309,31 @@ export const REZEPTE: Rezept[] = [
     emoji: '🥥', naturalGf: true, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: true,
   },
+  // ── Kleinkind-Snacks ──
+  {
+    slug: 'avocado-schoko-creme',
+    title: 'Avocado-Schoko-Creme',
+    desc: '5 Minuten, kein Backen – cremig wie Mousse, ohne Zucker.',
+    time: '5 Min.', kat: 'snacks', tags: [],
+    emoji: '🥑', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+  },
+  {
+    slug: 'apfelringe-frischkaese',
+    title: 'Apfelringe mit Frischkäse',
+    desc: 'Apfel in Ringe, Frischkäse drauf – Brotdosen-Snack in 5 Minuten.',
+    time: '5 Min.', kat: 'snacks', tags: [],
+    emoji: '🍎', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
+  },
+  {
+    slug: 'apfelspalten-himbeer-dip',
+    title: 'Apfelspalten mit Himbeer-Dip',
+    desc: 'Apfelspalten als Pommes, Himbeer-Dip als Ketchup – kein Zucker, kein Gluten.',
+    time: '5 Min.', kat: 'snacks', tags: [],
+    emoji: '🍎', naturalGf: true, kleinkind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+  },
   // ── Grundrezepte ──
   {
     slug: 'grundrezept-hefeteig-suess',
