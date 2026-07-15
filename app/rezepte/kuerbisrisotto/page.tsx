@@ -13,7 +13,8 @@ export default function KuerbisrisottoPage() {
       title="Kürbisrisotto"
       kat="Mittagessen"
       badges={[
-        { type: 'mint', label: '💚 ohne Spezialmehl' },
+        { type: 'mint',   label: '💚 ohne Spezialmehl' },
+        { type: 'golden', label: '👶 Beikost' },
       ]}
       tagline="Cremig ohne Sahne, von Natur aus glutenfrei – und Kinder mögen die goldene Farbe des Kürbis. Lässt sich gut vorkochen und schmeckt aufgewärmt genauso gut."
       useCases={['🍂 Herbst & Winter', '❄️ Einfrierbar', '🍱 Vorkochen', '💚 Ohne Spezialmehl']}

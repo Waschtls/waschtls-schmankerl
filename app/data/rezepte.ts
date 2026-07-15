@@ -15,7 +15,8 @@ export type Rezept = {
   emoji: string;
   image?: string;
   naturalGf: boolean;
-  kleinkind: boolean;
+  beikost: boolean;  // unter 1 Jahr / püriert – Kleinkind
+  kind: boolean;     // ab ~1 Jahr / kann kauen – Kind
   vegetarisch: boolean;
   vegan: boolean;
   zuckerfrei: boolean;
@@ -44,7 +45,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Apfel-Zimt Baked Oats',
     desc: 'Warmes Frühstück wie ein Mini-Crumble – 44 g Eiweiß, nur GF-Haferflocken.',
     time: '40 Min.', kat: 'fruehstueck', tags: ['snacks'],
-    emoji: '🍎', naturalGf: false, kleinkind: true,
+    emoji: '🍎', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -52,7 +53,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Protein-Bagel',
     desc: 'Quark-Teig, kein Hefe-Warten – 22 g Eiweiß pro Bagel.',
     time: '30 Min.', kat: 'fruehstueck', tags: ['hefeteig'],
-    emoji: '🥯', naturalGf: false, kleinkind: true,
+    emoji: '🥯', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -60,7 +61,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Pfannkuchen (klassisch)',
     desc: 'Mit Schär Mix It – hauchdünn, goldbraun, hält beim Wenden.',
     time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
-    emoji: '🫓', naturalGf: false, kleinkind: true,
+    emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -68,7 +69,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Apfel-Zimt-Porridge',
     desc: 'Cremig, warm, 10 Minuten – perfekt für den Schulmorgen.',
     time: '10 Min.', kat: 'fruehstueck', tags: [],
-    emoji: '🍎', naturalGf: true, kleinkind: true,
+    emoji: '🍎', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
   },
   {
@@ -76,7 +77,7 @@ export const REZEPTE: Rezept[] = [
     title: 'French Toast',
     desc: 'Goldbraun, vanillig – Frühstück und süßes Mittagessen in einem.',
     time: '20 Min.', kat: 'fruehstueck', tags: ['mittagessen', 'kindergeburtstag'],
-    emoji: '🍞', naturalGf: false, kleinkind: true,
+    emoji: '🍞', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -84,7 +85,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Waffeln (klassisch)',
     desc: 'Knusprig, einfrierbar, mit jedem Waffeleisen – immer ein Erfolg.',
     time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
-    emoji: '🧇', image: '/images/waffeln-klassisch.jpg', naturalGf: false, kleinkind: true,
+    emoji: '🧇', image: '/images/waffeln-klassisch.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -92,7 +93,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Pancakes',
     desc: 'Fluffige amerikanische Pancakes – glutenfrei, mit Früchten und Ahornsirup.',
     time: '20 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
-    emoji: '🥞', image: '/images/dicke-pfannkuchen.jpg', naturalGf: false, kleinkind: true,
+    emoji: '🥞', image: '/images/dicke-pfannkuchen.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -100,7 +101,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Schokoladen-Granola',
     desc: 'Knuspriges GF-Granola mit Kokosfett, Ahornsirup & Schokomus – hält 1 Woche.',
     time: '20 Min.', kat: 'fruehstueck', tags: ['snacks'],
-    emoji: '🥣', image: '/images/granola.jpg', naturalGf: true, kleinkind: true,
+    emoji: '🥣', image: '/images/granola.jpg', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: false, milchfrei: true, eierfrei: true,
   },
   // ── Mittagessen ──
@@ -109,7 +110,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Rindergulasch',
     desc: 'Sämig, ohne Stärke – schmort sich von selbst. Zu Semmelknödeln ein Traum.',
     time: '2 Std.', kat: 'mittagessen', tags: ['abendessen'],
-    emoji: '🥘', naturalGf: true, kleinkind: false,
+    emoji: '🥘', naturalGf: true, beikost: false, kind: false,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   {
@@ -117,7 +118,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Spaghetti Bolognese',
     desc: 'Der Familienklassiker – Soße einfrieren, Pasta frisch kochen.',
     time: '45 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
-    emoji: '🍝', naturalGf: false, kleinkind: true,
+    emoji: '🍝', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   {
@@ -125,7 +126,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Fleischküchle',
     desc: 'Bayerische Frikadellen – saftig, würzig, einfrierbar.',
     time: '30 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
-    emoji: '🍖', naturalGf: false, kleinkind: true,
+    emoji: '🍖', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
@@ -133,7 +134,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Chicken Nuggets (selbstgemacht)',
     desc: 'Aus dem Ofen, knuspriger als tiefgekühlt – Kindergeburtstagsgarant.',
     time: '30 Min.', kat: 'mittagessen', tags: ['kindergeburtstag'],
-    emoji: '🐔', naturalGf: false, kleinkind: true,
+    emoji: '🐔', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
@@ -141,7 +142,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Reiberdatschi',
     desc: 'Bayerische Kartoffelpuffer – von Natur aus GF, knusprig, mit Apfelmus.',
     time: '30 Min.', kat: 'mittagessen', tags: ['snacks', 'abendessen'],
-    emoji: '🥔', image: '/images/reiberdatschi.jpg', naturalGf: true, kleinkind: true,
+    emoji: '🥔', image: '/images/reiberdatschi.jpg', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
   {
@@ -149,7 +150,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Nudeln mit Tomatensauce',
     desc: 'Der Alltagsklassiker – mit Reisnudeln genauso lecker.',
     time: '25 Min.', kat: 'mittagessen', tags: ['abendessen'],
-    emoji: '🍝', naturalGf: false, kleinkind: true,
+    emoji: '🍝', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   {
@@ -157,7 +158,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Kürbisrisotto',
     desc: 'Cremig, herbstlich, von Natur aus glutenfrei.',
     time: '40 Min.', kat: 'mittagessen', tags: ['abendessen'],
-    emoji: '🎃', naturalGf: true, kleinkind: false,
+    emoji: '🎃', naturalGf: true, beikost: true, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
   },
   // ── Abendessen ──
@@ -166,7 +167,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Quark-Gemüse-Fladen',
     desc: 'Fluffig, herzhaft, hochprotein – mit Paprika, Salami und Käse.',
     time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
-    emoji: '🫓', naturalGf: false, kleinkind: true,
+    emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
@@ -174,7 +175,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Flammkuchen-Ofenpfannkuchen',
     desc: 'Quark-Basis, Schinken und Käse – wie ein Flammkuchen, nur einfacher.',
     time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
-    emoji: '🧀', naturalGf: false, kleinkind: true,
+    emoji: '🧀', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
@@ -182,7 +183,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Neapolitanische Pizza (glutenfrei)',
     desc: 'Echter Hefeteig, 8 Ballen à 310 g – mit dem Ooni oder Backofen.',
     time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
-    emoji: '🍕', image: '/images/pizza-glutenfrei.jpg', naturalGf: false, kleinkind: true,
+    emoji: '🍕', image: '/images/pizza-glutenfrei.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -190,7 +191,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Schnitzel mit Kartoffelbrei',
     desc: 'Knusprig paniert, cremiger Brei – der Lieblings-Freitag.',
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen', 'kindergeburtstag'],
-    emoji: '🥩', image: '/images/schnitzel-kartoffelbrei.jpg', naturalGf: false, kleinkind: true,
+    emoji: '🥩', image: '/images/schnitzel-kartoffelbrei.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
@@ -198,7 +199,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Kässpatzen',
     desc: 'Echtes bayerisches Schmankerl – mit Schär Mix It genauso cremig.',
     time: '40 Min.', kat: 'abendessen', tags: ['mittagessen'],
-    emoji: '🧀', naturalGf: false, kleinkind: false,
+    emoji: '🧀', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   {
@@ -206,7 +207,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Veganes Chili con Carne',
     desc: 'Mit DM veganem Hack – herzhaft, sättigend, glutenfrei.',
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen'],
-    emoji: '🌶', naturalGf: true, kleinkind: false,
+    emoji: '🌶', naturalGf: true, beikost: false, kind: false,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   // ── Backen & Kuchen ──
@@ -215,7 +216,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Bananenbrot mit Nutella-Füllung',
     desc: 'Saftiger Kuchen mit Nutella-Kern – einfrierbar, für die Brotdose.',
     time: '60 Min.', kat: 'backen', tags: ['dessert', 'snacks'],
-    emoji: '🍌', naturalGf: false, kleinkind: true,
+    emoji: '🍌', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -223,7 +224,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Brownies (Schokolade)',
     desc: 'Saftig, dunkel, mit echter Schokolade – Kindergeburtstagsklassiker.',
     time: '40 Min.', kat: 'backen', tags: ['kindergeburtstag', 'dessert'],
-    emoji: '🍫', naturalGf: false, kleinkind: false,
+    emoji: '🍫', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -231,7 +232,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Zwetschgendatschi',
     desc: 'Echter bayerischer Pflaumenkuchen – saisonal, auf Hefeteig.',
     time: '100 Min.', kat: 'backen', tags: ['saisonal', 'dessert', 'hefeteig'],
-    emoji: '🍑', naturalGf: false, kleinkind: true,
+    emoji: '🍑', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -239,7 +240,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Schokoladenkuchen (Mandelmehl)',
     desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
     time: '50 Min.', kat: 'backen', tags: ['kindergeburtstag'],
-    emoji: '🍫', naturalGf: false, kleinkind: true,
+    emoji: '🍫', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   // ── Brot & Hefeteig ──
@@ -248,7 +249,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Hot Dog Brötchen',
     desc: 'Weich, luftig, einfrierbar – gleicher Teig wie die Hamburger Brötchen.',
     time: '2,5 Std.', kat: 'hefeteig', tags: ['snacks'],
-    emoji: '🌭', naturalGf: false, kleinkind: true,
+    emoji: '🌭', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -256,7 +257,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Hamburger Brötchen',
     desc: 'Goldbraun, mit Sesam, einfrierbar – der Burger kann kommen.',
     time: '2,5 Std.', kat: 'hefeteig', tags: ['snacks'],
-    emoji: '🍔', naturalGf: false, kleinkind: true,
+    emoji: '🍔', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -264,7 +265,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Italienische Focaccia',
     desc: 'Luftig, knusprig, mit Knoblauchbutter und Parmesan – kein Kneten.',
     time: '2 Std.', kat: 'hefeteig', tags: ['abendessen', 'backen'],
-    emoji: '🫓', naturalGf: false, kleinkind: true,
+    emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -272,7 +273,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Laugenbrezeln (glutenfrei)',
     desc: 'Weich, salzig, original bayerisch – mit Natron-Lauge.',
     time: '2 Std.', kat: 'hefeteig', tags: ['backen', 'snacks'],
-    emoji: '🥨', naturalGf: false, kleinkind: false,
+    emoji: '🥨', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
   // ── Snacks & Brotdose ──
@@ -281,7 +282,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Bananenmuffins (ohne Mehl)',
     desc: 'Nur 4 Zutaten, kein Zucker – perfekte Schulmause.',
     time: '30 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
-    emoji: '🧁', naturalGf: true, kleinkind: true,
+    emoji: '🧁', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
   {
@@ -289,7 +290,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Energiebällchen',
     desc: 'Ohne Backen, ohne Zucker – der Powerschnack.',
     time: '15 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
-    emoji: '🟤', naturalGf: true, kleinkind: true,
+    emoji: '🟤', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: false, milchfrei: true, eierfrei: true,
   },
   // ── Desserts ──
@@ -298,7 +299,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Frozen Banana Bites',
     desc: 'Eis ohne Eismaschine – Quark, Banane, Schokolade. Nur 83 kcal.',
     time: '15 Min. + 4h', kat: 'dessert', tags: ['snacks', 'kindergeburtstag'],
-    emoji: '🍫', naturalGf: true, kleinkind: true,
+    emoji: '🍫', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
   },
   {
@@ -306,8 +307,33 @@ export const REZEPTE: Rezept[] = [
     title: 'Kokos-Milchreis',
     desc: 'Cremig, leicht süß – macht sich fast von selbst.',
     time: '35 Min.', kat: 'dessert', tags: [],
-    emoji: '🥥', naturalGf: true, kleinkind: true,
+    emoji: '🥥', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: true,
+  },
+  // ── Beikost ──
+  {
+    slug: 'avocado-schoko-creme',
+    title: 'Avocado-Schoko-Creme',
+    desc: 'Cremig, schokoladig, 3 Zutaten – natürlich süß ohne Zucker. Funktioniert als Brei oder Dessert.',
+    time: '5 Min.', kat: 'dessert', tags: ['snacks'],
+    emoji: '🥑', naturalGf: true, beikost: true, kind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+  },
+  {
+    slug: 'apfelspalten',
+    title: 'Gedünstete Apfelspalten',
+    desc: 'Weich, süß, ohne alles – das erste Fingerfood. 5 Minuten, 1 Zutat.',
+    time: '8 Min.', kat: 'snacks', tags: ['dessert'],
+    emoji: '🍎', naturalGf: true, beikost: true, kind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+  },
+  {
+    slug: 'apfelringe',
+    title: 'Gebackene Apfelringe',
+    desc: 'Weiches Fingerfood aus dem Ofen – mit Zimt, ohne Zucker. Kinder lieben sie.',
+    time: '20 Min.', kat: 'snacks', tags: ['dessert'],
+    emoji: '🍏', naturalGf: true, beikost: true, kind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
   },
   // ── Grundrezepte ──
   {
@@ -315,7 +341,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Grundrezept: Süßer Hefeteig',
     desc: 'Die Basis für Zopf, Dampfnudeln, Schnecken und Zwetschgendatschi.',
     time: '90 Min.', kat: 'grundrezepte', tags: ['hefeteig', 'backen'],
-    emoji: '🧑‍🍳', naturalGf: false, kleinkind: false,
+    emoji: '🧑‍🍳', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
@@ -323,7 +349,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Semmelknödel',
     desc: 'Das bayerische Grundrezept – zu Gulasch, Braten, Pilzsoße.',
     time: '35 Min.', kat: 'grundrezepte', tags: ['mittagessen', 'abendessen'],
-    emoji: '🥟', naturalGf: false, kleinkind: false,
+    emoji: '🥟', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
 ];

@@ -22,6 +22,8 @@ const KATEGORIEN = [
 
 const ERNAEHRUNG = [
   { id: 'alle',          label: 'Alle', desc: '' },
+  { id: 'kind',          label: '🧒 Kind', desc: 'ab ~1 Jahr – kann kauen' },
+  { id: 'beikost',       label: '👶 Kleinkind', desc: 'unter 1 Jahr – püriert / Beikost' },
   { id: 'vegetarisch',   label: '🌿 Vegetarisch', desc: 'kein Fleisch, kein Fisch' },
   { id: 'vegan',         label: '🌱 Vegan', desc: 'keine tierischen Produkte' },
   { id: 'zuckerfrei',    label: '🚫🍬 Zuckerfrei', desc: 'kein zugesetzter Zucker' },
@@ -42,6 +44,8 @@ export default function RezeptePage() {
     const katMatch = aktiv === 'alle' || r.kat === aktiv || r.tags.includes(aktiv);
     const dietMatch =
       ernaehrung === 'alle' ||
+      (ernaehrung === 'kind' && r.kind) ||
+      (ernaehrung === 'beikost' && r.beikost) ||
       (ernaehrung === 'vegetarisch' && r.vegetarisch) ||
       (ernaehrung === 'vegan' && r.vegan) ||
       (ernaehrung === 'zuckerfrei' && r.zuckerfrei) ||
@@ -74,8 +78,12 @@ export default function RezeptePage() {
               von Natur aus glutenfrei
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ background: 'var(--golden)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px' }}>👶</span>
-              kleinkindtauglich
+              <span style={{ background: 'var(--golden)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px' }}>🧒 Kind</span>
+              ab ~1 Jahr, kaubar
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <span style={{ background: 'var(--terracotta)', color: '#fff', fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: '999px' }}>👶 Kleinkind</span>
+              unter 1 Jahr / Beikost
             </span>
           </div>
         </div>
@@ -147,6 +155,20 @@ export default function RezeptePage() {
         </div>
       </section>
 
+      {/* Beikost-Disclaimer */}
+      {ernaehrung === 'beikost' && (
+        <section style={{ background: 'rgba(233,196,106,0.1)', borderBottom: '1.5px solid rgba(233,196,106,0.4)', padding: '0.875rem 0' }}>
+          <div className="container">
+            <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--green-deep)', lineHeight: 1.75 }}>
+              <strong>⚠️ Sicherheitshinweis Beikost:</strong>{' '}
+              Babys und Kleinkinder beim Essen nie alleine lassen. Stücke immer kindgerecht klein schneiden oder weich dünsten.
+              Keine ganzen Trauben, Nüsse, harte Rohkost oder runde Stücke. Ab wann welche Lebensmittel eingeführt werden,
+              richtet sich nach der Entwicklung des Kindes – bei Unsicherheit immer die Kinderärztin fragen.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Ergebnis */}
       <section className="section">
         <div className="container">
@@ -158,7 +180,7 @@ export default function RezeptePage() {
           </p>
 
           <div className="grid-3">
-            {gefiltert.map(({ slug, title, desc, time, emoji, image, naturalGf, kleinkind, todo }) => (
+            {gefiltert.map(({ slug, title, desc, time, emoji, image, naturalGf, kind, beikost, todo }) => (
               todo ? (
                 /* Platzhalter-Karte */
                 <div key={slug} className="card" style={{
@@ -210,9 +232,14 @@ export default function RezeptePage() {
                         ohne Spezialmehl
                       </span>
                     )}
-                    {kleinkind && (
+                    {beikost && (
+                      <span style={{ background: 'var(--terracotta)', color: '#fff', fontSize: '0.65rem', fontWeight: 700, padding: '0.1rem 0.45rem', borderRadius: '999px' }}>
+                        👶 Kleinkind
+                      </span>
+                    )}
+                    {kind && (
                       <span style={{ background: 'var(--golden)', color: 'var(--green-deep)', fontSize: '0.65rem', fontWeight: 700, padding: '0.1rem 0.45rem', borderRadius: '999px' }}>
-                        👶
+                        🧒 Kind
                       </span>
                     )}
                   </div>

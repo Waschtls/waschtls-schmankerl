@@ -43,6 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'bananenbrot-nutella',
     'lebkuchen-plaetzchen',
     'protein-bagel',
+    'avocado-schoko-creme',
+    'apfelspalten',
+    'apfelringe',
   ];
 
   const wissen = [

@@ -14,7 +14,7 @@ export default function MilchreisKokosPage() {
       kat="Dessert"
       badges={[
         { type: 'mint',   label: '💚 ohne Spezialmehl' },
-        { type: 'golden', label: '👶 kleinkindtauglich' },
+        { type: 'golden', label: '👶 Beikost & Kind' },
       ]}
       tagline="Macht sich fast von selbst, schmeckt wie Urlaub und Kinder lieben ihn. Funktioniert warm als Mittagessen oder kalt als Dessert – und schmeckt am nächsten Tag genauso gut."
       useCases={['🍽 Mittagessen oder Dessert', '❄️ Kalt genauso lecker', '👶 Kleinkind', '🍱 Vorbereiten']}

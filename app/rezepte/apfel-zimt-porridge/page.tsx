@@ -14,7 +14,7 @@ export default function ApfelZimtPorridgePage() {
       kat="Frühstück"
       badges={[
         { type: 'mint',   label: '💚 ohne Spezialmehl' },
-        { type: 'golden', label: '👶 kleinkindtauglich' },
+        { type: 'golden', label: '👶 Beikost & Kind' },
       ]}
       tagline="Warm, sättigend und in 10 Minuten auf dem Tisch – perfekt für Schultage wenn es schnell gehen muss. Der Apfel sorgt für natürliche Süße, kein zusätzlicher Zucker nötig."
       useCases={['🏫 Schultag', '⏱ Unter 15 Min', '👶 Kleinkind', '❄️ Vorbereiten möglich']}
