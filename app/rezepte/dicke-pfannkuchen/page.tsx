@@ -2,7 +2,7 @@ import RecipeLayout from '@/app/components/RecipeLayout';
 
 export const metadata = {
   title: 'Pancakes glutenfrei – Waschtls Schmankerl',
-  description: 'Fluffige, dicke Pancakes – glutenfrei und in 20 Minuten fertig. Mit Erdbeeren, Blaubeeren und Ahornsirup der perfekte Sonntagsmorgen.',
+  description: 'Fluffige, dicke Pancakes – glutenfrei, mit steif geschlagenem Eiweiß extra luftig. Mit Erdbeeren, Blaubeeren und Ahornsirup.',
 };
 
 export default function DickePfannkuchenPage() {
@@ -14,42 +14,45 @@ export default function DickePfannkuchenPage() {
         { type: 'golden', label: '👶 kleinkindtauglich' },
         { type: 'mint', label: '☀️ Sonntagsfrühstück' },
       ]}
-      tagline="Nicht die dünnen, die man zusammenrollt – sondern die dicken, fluffigen, die man aufeinander stapelt. Mit glutenfreiem Mehl werden sie genauso luftig wie das Original. Erdbeeren, Blaubeeren, Puderzucker, Ahornsirup. Fertig ist der beste Sonntagmorgen."
+      tagline="Dick, fluffig, goldbraun – und der Trick steckt im Eiweiß. Wer es steif schlägt und am Schluss unterhebt, bekommt Pancakes die sich kaum vom Original unterscheiden. Mit Erdbeeren, Blaubeeren und Ahornsirup der perfekte Sonntagmorgen."
       useCases={['Sonntagsfrühstück', 'Kindergeburtstag-Buffet', 'Brunch', 'Dessert']}
       heroImage="/images/dicke-pfannkuchen.jpg"
-      minuten={20}
-      portionen="8–10 Pancakes"
+      minuten={25}
+      portionen={10}
+      einheit="Pancakes"
+      schritt={5}
       schwierigkeit="Einfach"
-      infoBox="Dicke Pancakes brauchen Backpulver für den Auftrieb. Glutenfreies Mehl funktioniert hier gut – wichtig ist, den Teig nicht zu lange zu rühren (Klümpchen sind okay) und die Pfanne nicht zu heiß zu machen."
+      infoBox="Der Trick für extra fluffige Pancakes: Eigelb und Eiweiß trennen, das Eiweiß steif schlagen und am Schluss vorsichtig unterheben. Das bringt Luft in den Teig – ohne Übermixen, das macht sie zäh."
       zutaten={[
-        '200 g glutenfreies Mehl (Schär Mix It oder Mix B)',
+        '150 g glutenfreies Mehl (Schär Mix It)',
         '2 TL Backpulver (GF)',
         '1 EL Zucker',
         '1 Prise Salz',
-        '2 Eier (Gr. M)',
-        '200 ml Milch (oder Hafermilch)',
-        '2 EL Butter, geschmolzen',
+        '2 Eier (Gr. M), getrennt',
+        '200 ml Milch (oder Hafermilch GF)',
+        '2 EL Butterschmalz (oder Butter), geschmolzen',
         '1 TL Vanilleextrakt',
         '— Zum Servieren —',
-        'Erdbeeren, Blaubeeren',
-        'Puderzucker, Ahornsirup',
+        'Erdbeeren, Blaubeeren oder anderes Obst',
+        'Ahornsirup, Puderzucker',
       ]}
       zubereitung={[
-        'Trockene Zutaten (Mehl, Backpulver, Zucker, Salz) in einer Schüssel mischen.',
-        'In einer zweiten Schüssel: Eier verquirlen, Milch, geschmolzene Butter und Vanille dazugeben.',
-        'Flüssiges zu Trockenem geben und nur kurz verrühren – es dürfen Klümpchen bleiben. Nicht übermixen, sonst werden die Pancakes zäh.',
-        'Teig 5 Minuten ruhen lassen.',
-        'Beschichtete Pfanne bei mittlerer Hitze erhitzen (nicht zu heiß!). Einen Klecks Butter oder Öl hinein.',
-        'Je 2–3 EL Teig pro Pancake hineingeben. Sobald die Oberfläche Blasen bildet und die Ränder fest werden (ca. 2 Min.), wenden.',
-        'Weitere 1–2 Minuten backen, bis die Unterseite goldbraun ist.',
-        'Warm halten im Ofen bei 80 °C oder sofort servieren.',
+        'Trockene Zutaten (Mehl, Backpulver, Zucker, Salz) in einer großen Schüssel mischen.',
+        'Eigelb, Milch, geschmolzenes Butterschmalz und Vanille verrühren – zu den trockenen Zutaten geben und nur kurz vermengen. Klümpchen sind okay.',
+        'Eiweiß in einer sauberen, fettfreien Schüssel mit dem Mixer steif schlagen – es soll schnittfeste Spitzen bilden.',
+        'Eischnee in zwei Portionen vorsichtig unter den Teig heben – nicht rühren, sondern mit einem Teigschaber von unten nach oben falten. Luft erhalten!',
+        'Pfanne bei niedriger bis mittlerer Hitze erhitzen, etwas Butterschmalz darin schmelzen.',
+        'Je 2–3 EL Teig pro Pancake hineingeben. Warten bis sich an der Oberfläche kleine Luftbläschen bilden und die Ränder fest werden – erst dann wenden (ca. 2–3 Min.).',
+        'Weitere 1–2 Minuten backen bis die Unterseite goldbraun ist.',
+        'Sofort servieren mit frischen Früchten und Ahornsirup.',
       ]}
-      naehrwerte={{ kalorien: 165, kohlenhydrate: 24, protein: 5, fett: 5, ballaststoffe: 1 }}
+      naehrwerte={{ kalorien: 120, kohlenhydrate: 18, protein: 4, fett: 4, ballaststoffe: 1 }}
       tipps={[
-        'Mittlere Hitze ist entscheidend: zu heiß = außen verbrannt, innen roh. Die Pfanne sollte nach dem Einbuttern nicht rauchen.',
-        'Den Teig nicht zu dünn machen – er soll dickflüssig sein. Dann werden die Pancakes automatisch dick und fluffig.',
-        'Für Kleinkinder: ohne Zucker, als Finger-Food mit weichen Früchten anbieten.',
-        'Reste lassen sich gut einfrieren und im Toaster aufwärmen.',
+        'Teig zu zäh? Einfach etwas Milch nachschütten und kurz verrühren – der Teig soll dickflüssig fließen, nicht klumpen.',
+        'Niedrige Temperatur ist entscheidend: die Pfanne darf nach dem Einfetten nicht rauchen. Lieber länger warten als zu heiß.',
+        'Pancakes schmecken frisch am besten – am Tisch stapeln und sofort essen. Wer warten muss: bei 80 °C im Ofen warm halten, aber nicht länger als 15 Minuten.',
+        'Butterschmalz hat einen höheren Rauchpunkt als Butter und gibt den Pancakes einen leicht nussigen Geschmack – sehr empfehlenswert.',
+        'Reste lassen sich einfrieren und im Toaster aufwärmen.',
       ]}
       affiliate={undefined}
       warenkundeLink={{ label: 'Welches glutenfreie Mehl wofür – die große Übersicht', href: '/wissen/welches-mehl-wofuer' }}

@@ -6,6 +6,7 @@ type Props = {
   portionen: number | string;
   zutaten: string[];
   einheit?: string; // z.B. 'Stücke', 'Muffins', 'Kugeln' — default 'Portionen'
+  schritt?: number; // Schrittgröße für +/- Buttons, default 1
 };
 
 // Skaliert eine Zutatenzeile anhand eines Faktors.
@@ -28,7 +29,7 @@ function scaleIngredient(text: string, factor: number): string {
   );
 }
 
-export default function PortionenScaler({ portionen, zutaten, einheit = 'Portionen' }: Props) {
+export default function PortionenScaler({ portionen, zutaten, einheit = 'Portionen', schritt = 1 }: Props) {
   const isNumeric = typeof portionen === 'number';
   const base = isNumeric ? (portionen as number) : 1;
   const [count, setCount] = useState(base);
@@ -53,7 +54,7 @@ export default function PortionenScaler({ portionen, zutaten, einheit = 'Portion
             {einheit}:
           </span>
           <button
-            onClick={() => setCount(c => Math.max(1, c - 1))}
+            onClick={() => setCount(c => Math.max(schritt, c - schritt))}
             aria-label={`Weniger ${einheit}`}
             style={{
               width: 28, height: 28, borderRadius: '50%',
@@ -68,7 +69,7 @@ export default function PortionenScaler({ portionen, zutaten, einheit = 'Portion
             fontWeight: 800, fontSize: '1.05rem', color: 'var(--green-deep)',
           }}>{count}</span>
           <button
-            onClick={() => setCount(c => Math.min(c + 1, base * 4))}
+            onClick={() => setCount(c => Math.min(c + schritt, base * 4))}
             aria-label={`Mehr ${einheit}`}
             style={{
               width: 28, height: 28, borderRadius: '50%',

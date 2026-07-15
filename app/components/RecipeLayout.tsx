@@ -30,6 +30,7 @@ type RecipeLayoutProps = {
   minuten: number | string;
   portionen: number | string;
   einheit?: string;              // 'Stücke' | 'Muffins' | 'Portionen' (default)
+  schritt?: number;              // Schrittgröße für Portionenregler, default 1
   schwierigkeit?: string;
   publishDate?: string;
   zeitplan?: ZeitplanItem[];     // Vorbereitung / Gehzeit / Backzeit / Gesamt
@@ -304,7 +305,7 @@ export default function RecipeLayout({
               }}>
                 🧺 Zutaten
               </h2>
-              <PortionenScaler portionen={portionen} zutaten={zutaten} einheit={einheit} />
+              <PortionenScaler portionen={portionen} zutaten={zutaten} einheit={einheit} schritt={schritt} />
             </div>
 
             {/* Rechts: Nährwerte + Warum */}
