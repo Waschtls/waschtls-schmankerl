@@ -229,16 +229,18 @@ export default function ErstdiagnosePage() {
 
           <div className="grid-2" style={{ gap: '1rem' }}>
 
-            {/* Sofort raus */}
+            {/* GF-Versionen anschaffen */}
             <div className="card" style={{ borderLeft: '3px solid #dc3545' }}>
-              <h4 style={{ color: 'var(--green-deep)', marginBottom: '0.875rem' }}>🗑 Sofort ersetzen</h4>
+              <h4 style={{ color: 'var(--green-deep)', marginBottom: '0.4rem' }}>➕ GF-Version dazukaufen</h4>
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-light)', marginBottom: '0.75rem', lineHeight: 1.5 }}>
+                Nichts wegwerfen – aber für glutenfreie Zubereitung braucht ihr eigene Utensilien, die klar getrennt bleiben.
+              </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {[
-                  'Toaster → eigenen GF-Toaster kaufen',
-                  'Holzlöffel & Holzschneidebrett',
-                  'Teflonpfannen mit tiefen Kratzern',
-                  'Nudelsiebe & Abtropfgitter',
-                  'Knetmasse (Play-Doh enthält Weizen)',
+                  'Toaster → eigenen GF-Toaster (Krümel lassen sich nicht entfernen)',
+                  'Holzschneidebrett → neues GF-Brett kaufen & markieren',
+                  'Nudelsiebe & Abtropfgitter → eigene GF-Version',
+                  'Teflonpfannen mit tiefen Kratzern → ersetzen (Rückstände in Rillen)',
                 ].map(item => (
                   <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-mid)' }}>
                     <span style={{ flexShrink: 0, marginTop: '0.05rem' }}>☐</span>
