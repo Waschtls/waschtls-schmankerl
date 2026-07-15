@@ -31,7 +31,7 @@ export default function Footer() {
               Glutenfreie Rezepte und ehrliche Tipps von einer Familie, die Zöliakie kennt.
             </p>
             <a
-              href="https://www.instagram.com/waschtls_schmankerl"
+              href="https://www.instagram.com/waschtls__schmankerl"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -45,7 +45,7 @@ export default function Footer() {
                 <circle cx="12" cy="12" r="4"/>
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
               </svg>
-              @waschtls_schmankerl
+              @waschtls__schmankerl
             </a>
           </div>
 

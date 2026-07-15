@@ -143,7 +143,7 @@ export default function UeberUns() {
               Rezepte, Alltag und Neues aus der glutenfreien Familienküche – auch auf Instagram.
             </p>
             <a
-              href="https://www.instagram.com/waschtls_schmankerl"
+              href="https://www.instagram.com/waschtls__schmankerl"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-golden"
@@ -154,7 +154,7 @@ export default function UeberUns() {
                 <circle cx="12" cy="12" r="4"/>
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
               </svg>
-              @waschtls_schmankerl folgen
+              @waschtls__schmankerl folgen
             </a>
           </div>
 
