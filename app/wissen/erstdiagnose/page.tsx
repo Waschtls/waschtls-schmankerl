@@ -11,7 +11,7 @@ const sofortmassnahmen = [
   {
     icon: '🍞',
     titel: 'Brot, Nudeln, Mehl',
-    text: 'Alle glutenhaltigen Grundnahrungsmittel entweder in eine separate Ecke räumen oder – wenn ihr komplett umstellt – aussortieren. Wichtig: eigene Schneidbretter, eigener Toaster.',
+    text: 'Alle glutenhaltigen Grundnahrungsmittel entweder in eine separate Ecke räumen oder – wenn ihr komplett umstellt – aussortieren.',
   },
   {
     icon: '🧴',
@@ -33,7 +33,6 @@ const erstausstattung: { kat: string; items: string[]; note?: string }[] = [
   },
   { kat: 'Bindemittel', items: ['Xanthan (Tipp: nur kleine Mengen nötig)', 'Flohsamenschalen (für Brot)'] },
   { kat: 'Grundnahrung', items: ['Glutenfreie Pasta (Schär, Barilla GF, Reispasta)', 'Glutenfreies Brot (anfangs Fertigware ok)', 'Glutenfreie Haferflocken (zertifiziert, nach Rücksprache Arzt)', 'Tamari oder glutenfreie Sojasoße', 'Glutenfreie Brühwürfel'] },
-  { kat: 'Küche', items: ['Eigenes Schneidbrett (markieren!)', 'Eigener Toaster', 'Eigene Nudelsiebe / Abtropfgitter', 'Alufolie für den Grill'] },
 ];
 
 const naechsteSchritte = [
