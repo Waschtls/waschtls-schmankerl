@@ -204,6 +204,128 @@ export default function ErstdiagnosePage() {
         </div>
       </section>
 
+      {/* Küche einrichten Checkliste */}
+      <section className="section" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+        <div className="container" style={{ maxWidth: '740px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.4rem' }}>
+            <h2 style={{ margin: 0 }}>Küche einrichten – die Checkliste</h2>
+            <a
+              href="/downloads/kueche-checkliste.pdf"
+              download
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                padding: '0.5rem 1rem', borderRadius: '8px',
+                background: 'var(--golden)', color: 'var(--green-deep)',
+                fontWeight: 700, fontSize: '0.82rem', textDecoration: 'none',
+                flexShrink: 0,
+              }}
+            >
+              ↓ Als PDF herunterladen
+            </a>
+          </div>
+          <p style={{ color: 'var(--text-mid)', marginBottom: '1.75rem' }}>
+            Was in den ersten Tagen wirklich umgestellt werden muss – und was bleiben kann.
+          </p>
+
+          <div className="grid-2" style={{ gap: '1rem' }}>
+
+            {/* Sofort raus */}
+            <div className="card" style={{ borderLeft: '3px solid #dc3545' }}>
+              <h4 style={{ color: 'var(--green-deep)', marginBottom: '0.875rem' }}>🗑 Sofort ersetzen</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {[
+                  'Toaster → eigenen GF-Toaster kaufen',
+                  'Holzlöffel & Holzschneidebrett',
+                  'Teflonpfannen mit tiefen Kratzern',
+                  'Nudelsiebe & Abtropfgitter',
+                  'Knetmasse (Play-Doh enthält Weizen)',
+                ].map(item => (
+                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-mid)' }}>
+                    <span style={{ flexShrink: 0, marginTop: '0.05rem' }}>☐</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Was bleiben kann */}
+            <div className="card" style={{ borderLeft: '3px solid var(--mint)' }}>
+              <h4 style={{ color: 'var(--green-deep)', marginBottom: '0.875rem' }}>✅ Kann bleiben</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {[
+                  'Töpfe & Pfannen (ohne tiefe Kratzer)',
+                  'Backofen (einmal heiß ausgebrannt)',
+                  'Glasschüsseln & Edelstahl',
+                  'Gewürze (nur wenn kein Füllstoff)',
+                  'Öle, Essig, die meisten Milchprodukte',
+                ].map(item => (
+                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-mid)' }}>
+                    <span style={{ flexShrink: 0, marginTop: '0.05rem' }}>☐</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Neu kaufen */}
+            <div className="card" style={{ borderLeft: '3px solid var(--golden)' }}>
+              <h4 style={{ color: 'var(--green-deep)', marginBottom: '0.875rem' }}>🛒 Neu kaufen</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {[
+                  'Eigener Toaster (oder Toasterbeutel)',
+                  'Farbiges Schneidbrett für GF',
+                  'Eigene Nudelsiebe / Abtropfgitter',
+                  'Schär Mix It – reicht für den Start',
+                  'GF-Pasta, GF-Brot (Fertigware ok)',
+                  'Tamari / glutenfreie Sojasoße',
+                  'GF-Brühwürfel',
+                ].map(item => (
+                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-mid)' }}>
+                    <span style={{ flexShrink: 0, marginTop: '0.05rem' }}>☐</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Farbsystem */}
+            <div className="card" style={{ borderLeft: '3px solid var(--green-mid)' }}>
+              <h4 style={{ color: 'var(--green-deep)', marginBottom: '0.875rem' }}>🎨 Farbsystem einrichten</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {[
+                  'GF-Utensilien farbig markieren (z.B. grün)',
+                  'Eigene Butter-/Marmeladendose für GF',
+                  'GF-Fach im Kühlschrank festlegen',
+                  'Eigene Brotdose fürs Kind (Schule/Kita)',
+                  'Snacks immer in separatem GF-Behälter',
+                ].map(item => (
+                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-mid)' }}>
+                    <span style={{ flexShrink: 0, marginTop: '0.05rem' }}>☐</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          <div style={{ marginTop: '1.25rem', display: 'flex', justifyContent: 'center' }}>
+            <a
+              href="/downloads/kueche-checkliste.pdf"
+              download
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                padding: '0.7rem 1.5rem', borderRadius: '8px',
+                background: 'var(--green-deep)', color: 'var(--golden)',
+                fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none',
+              }}
+            >
+              ↓ Checkliste als PDF herunterladen
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Häufige Anfängerfehler */}
       <section className="section" style={{ paddingTop: '0', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
