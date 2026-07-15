@@ -9,19 +9,34 @@ export const metadata: Metadata = {
 
 const sofortmassnahmen = [
   {
-    icon: '🍞',
-    titel: 'Brot, Nudeln, Mehl',
-    text: 'Alle glutenhaltigen Grundnahrungsmittel entweder in eine separate Ecke räumen oder – wenn ihr komplett umstellt – aussortieren.',
+    icon: '🌾',
+    titel: 'Brot, Nudeln & Mehl',
+    text: 'Weizenbrot, normale Brötchen, alle glutenhaltigen Nudeln, Couscous, Bulgur, Dinkelprodukte, Roggenknäckebrot. Alles was Weizen, Dinkel, Roggen, Gerste oder Triticale enthält – raus oder klar trennen.',
   },
   {
-    icon: '🧴',
-    titel: 'Saucen und Würzmittel',
-    text: 'Sojasoße (enthält Weizen), viele Fertigsaucen, Worcestershire-Sauce, Brühwürfel. Labels lesen – Gluten versteckt sich unter "Weizenstärke", "Malzextrakt" oder "Mehl". Auch Malzgetränke wie Vitamalz oder Gerstenmalz-Limonaden enthalten Gluten.',
+    icon: '🥐',
+    titel: 'Backwaren vom Bäcker',
+    text: 'Croissants, Brezeln, normaler Kuchen, Teilchen – alles vom konventionellen Bäcker ist tabu. Auch viele Müsliriegel und Haferkekse. Beim GF-Bäcker oder selbst backen ist die sicherste Option.',
   },
   {
     icon: '🥣',
-    titel: 'Getreide & Müsli',
-    text: 'Haferflocken (auch wenn "reiner Hafer" viel diskutiert wird – am Anfang erstmal weglassen und mit Arzt besprechen), normale Cornflakes, Müslis mit Weizen oder Gerste.',
+    titel: 'Cerealien & Frühstücksflocken',
+    text: 'Normale Cornflakes enthalten oft Gerstenmalz. Haferflocken: auch wenn „reiner Hafer" diskutiert wird – am Anfang komplett weglassen und mit dem Arzt besprechen. Müslis mit Weizen oder Gerste aussortieren.',
+  },
+  {
+    icon: '🧴',
+    titel: 'Saucen & Würzmittel',
+    text: 'Sojasoße enthält standardmäßig Weizen. Worcestershire-Sauce, viele Fertigsaucen, Brühwürfel und Instant-Suppen ebenfalls prüfen. Gluten versteckt sich unter „Weizenstärke", „Malzextrakt" oder einfach nur „Mehl".',
+  },
+  {
+    icon: '🍺',
+    titel: 'Bier & Malzgetränke',
+    text: 'Normales Bier wird aus Gerste gebraut – klar tabu. Aber auch Malzbier wie Vitamalz, Gerstenmalz-Limonaden und manche Malzkaffeesorten enthalten Gluten. Glutenfreie Biere gibt es von verschiedenen Herstellern.',
+  },
+  {
+    icon: '🍗',
+    titel: 'Paniertes & Fertigprodukte',
+    text: 'Paniermehl, fertig panierte Schnitzel, klassische Fischstäbchen, viele Tiefkühlprodukte. Grundregel: Zutatenliste lesen. „Kann Spuren von Weizen enthalten" ist ein anderer Hinweis als „enthält Weizen" – aber am Anfang lieber beides meiden.',
   },
 ];
 
@@ -141,23 +156,53 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Was sofort raus muss */}
-      <section id="sofort" className="section">
+      <section id="sofort" className="section" style={{ paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Was sofort aus dem Speiseplan fliegt</h2>
-          <p style={{ color: 'var(--text-mid)', marginBottom: '2rem' }}>
-            Diese Lebensmittel müssen sofort aussortiert oder klar getrennt aufbewahrt werden –
-            alles andere darf bleiben.
+          <p style={{ color: 'var(--text-mid)', marginBottom: '1.5rem' }}>
+            Diese Lebensmittel müssen sofort aussortiert oder klar getrennt aufbewahrt werden.
+            Alles andere darf bleiben – ihr müsst nicht die halbe Küche ausräumen.
           </p>
+
+          {/* Merkebox */}
+          <div style={{
+            background: 'rgba(220,53,69,0.06)', border: '1.5px solid rgba(220,53,69,0.25)',
+            borderRadius: '12px', padding: '1rem 1.25rem', marginBottom: '1.75rem',
+            display: 'flex', gap: '0.75rem', alignItems: 'flex-start',
+          }}>
+            <span style={{ fontSize: '1.2rem', flexShrink: 0, marginTop: '0.1rem' }}>🚫</span>
+            <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.8, color: 'var(--green-deep)' }}>
+              <strong>Die Regel ist einfach:</strong> Alles was Weizen, Dinkel, Roggen, Gerste oder Triticale enthält ist tabu –
+              egal ob als Mehl, Malz, Stärke oder Extrakt. Im Zweifel: Zutatenliste lesen, bevor es auf den Teller kommt.
+            </p>
+          </div>
+
           <div className="grid-2">
             {sofortmassnahmen.map(m => (
-              <div key={m.titel} className="card">
-                <div style={{ fontSize: '1.75rem', marginBottom: '0.6rem' }}>{m.icon}</div>
-                <h4 style={{ marginBottom: '0.4rem', color: 'var(--green-deep)' }}>{m.titel}</h4>
-                <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.75 }}>{m.text}</p>
+              <div key={m.titel} className="card" style={{
+                borderTop: '3px solid rgba(220,53,69,0.35)',
+                padding: '1.25rem',
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.65rem' }}>{m.icon}</div>
+                <h4 style={{ marginBottom: '0.5rem', color: 'var(--green-deep)', fontSize: '0.95rem' }}>{m.titel}</h4>
+                <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>{m.text}</p>
               </div>
             ))}
           </div>
 
+          {/* Gute Nachricht */}
+          <div style={{
+            marginTop: '1.5rem', background: 'rgba(149,213,178,0.1)',
+            border: '1.5px solid rgba(149,213,178,0.35)', borderRadius: '12px',
+            padding: '1rem 1.25rem', display: 'flex', gap: '0.75rem', alignItems: 'flex-start',
+          }}>
+            <span style={{ fontSize: '1.1rem', flexShrink: 0, marginTop: '0.1rem' }}>✅</span>
+            <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.8 }}>
+              <strong>Das muss nicht weg:</strong> Fleisch, Fisch, Eier, Milchprodukte, Gemüse, Obst, Reis, Kartoffeln,
+              Hülsenfrüchte, Öle – von Natur aus alles glutenfrei. Die Küche wird sich schnell anfühlen wie früher,
+              nur mit anderen Grundprodukten.
+            </p>
+          </div>
         </div>
       </section>
 

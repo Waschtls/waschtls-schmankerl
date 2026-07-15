@@ -71,10 +71,10 @@ export default function Home() {
                 href: '/wissen',
               },
               {
-                emoji: '👶',
-                title: 'Beikost',
-                desc: 'Glutenfreie Beikost-Rezepte: Apfelspalten, Avocado-Schoko-Creme, Porridge und mehr – mit Sicherheitshinweisen.',
-                href: '/rezepte',
+                emoji: '🥦',
+                title: 'Glutenfreie Lebensmittel',
+                desc: 'Was darf rein, was muss raus? Alle sicheren Lebensmittel, Mehle, verstecktes Gluten und die große Übersicht.',
+                href: '/wissen/glutenfreie-lebensmittel',
               },
               {
                 emoji: '📅',
