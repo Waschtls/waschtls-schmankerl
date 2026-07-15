@@ -27,9 +27,26 @@ export default function Footer() {
                 Waschtls Schmankerl
               </span>
             </div>
-            <p style={{ color: 'var(--mint)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0, opacity: 0.8 }}>
+            <p style={{ color: 'var(--mint)', fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 0.75rem', opacity: 0.8 }}>
               Glutenfreie Rezepte und ehrliche Tipps von einer Familie, die Zöliakie kennt.
             </p>
+            <a
+              href="https://www.instagram.com/waschtls_schmankerl"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                fontSize: '0.82rem', color: 'var(--golden)', opacity: 0.9,
+                textDecoration: 'none', fontWeight: 600,
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+              @waschtls_schmankerl
+            </a>
           </div>
 
           {/* Navigation – horizontal */}

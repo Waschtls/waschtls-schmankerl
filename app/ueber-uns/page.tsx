@@ -139,6 +139,28 @@ export default function UeberUns() {
             man liebt neu zu entdecken."
           </blockquote>
 
+          <div className="card" style={{ background: 'var(--green-deep)', border: 'none', textAlign: 'center' }}>
+            <p style={{ margin: '0 0 0.75rem', fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7 }}>
+              Rezepte, Alltag und Neues aus der glutenfreien Familienküche – auch auf Instagram.
+            </p>
+            <a
+              href="https://www.instagram.com/waschtls_schmankerl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-golden"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+              @waschtls_schmankerl folgen
+            </a>
+          </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '2rem 0' }} />
+
           <div className="card" style={{ background: 'var(--cream-dark)' }}>
             <h3 style={{ fontSize: '1rem', marginBottom: '0.75rem', color: 'var(--green-deep)' }}>
               🔗 Transparenz: Affiliate-Links
