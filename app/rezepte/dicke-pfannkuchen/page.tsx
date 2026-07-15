@@ -20,7 +20,7 @@ export default function DickePfannkuchenPage() {
       minuten={25}
       portionen={10}
       einheit="Pancakes"
-      schritt={5}
+      portionenSchritt={5}
       schwierigkeit="Einfach"
       infoBox="Der Trick für extra fluffige Pancakes: Eigelb und Eiweiß trennen, das Eiweiß steif schlagen und am Schluss vorsichtig unterheben. Das bringt Luft in den Teig – ohne Übermixen, das macht sie zäh."
       zutaten={[

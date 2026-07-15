@@ -30,7 +30,7 @@ type RecipeLayoutProps = {
   minuten: number | string;
   portionen: number | string;
   einheit?: string;              // 'Stücke' | 'Muffins' | 'Portionen' (default)
-  schritt?: number;              // Schrittgröße für Portionenregler, default 1
+  portionenSchritt?: number;     // Schrittgröße für Portionenregler, default 1
   schwierigkeit?: string;
   publishDate?: string;
   zeitplan?: ZeitplanItem[];     // Vorbereitung / Gehzeit / Backzeit / Gesamt
@@ -55,7 +55,7 @@ type NwItem   = { label: string; value: string; accent?: boolean };
 
 export default function RecipeLayout({
   title, kat, badges, breadcrumbParent, tagline, useCases,
-  minuten, portionen, einheit = 'Portionen', schwierigkeit, publishDate,
+  minuten, portionen, einheit = 'Portionen', portionenSchritt, schwierigkeit, publishDate,
   zeitplan, warum, heroImage,
   zutaten, zubereitung, naehrwerte, infoBox, tipps,
   affiliate, warenkundeLink, relatedRecipes, prev, next,
@@ -305,7 +305,7 @@ export default function RecipeLayout({
               }}>
                 🧺 Zutaten
               </h2>
-              <PortionenScaler portionen={portionen} zutaten={zutaten} einheit={einheit} schritt={schritt} />
+              <PortionenScaler portionen={portionen} zutaten={zutaten} einheit={einheit} schritt={portionenSchritt} />
             </div>
 
             {/* Rechts: Nährwerte + Warum */}
