@@ -90,68 +90,85 @@ export default function RezeptePage() {
       </section>
 
       {/* Filter */}
-      <section style={{ background: 'white', padding: '1rem 0', borderBottom: '2px solid var(--border)' }}>
+      <section style={{ background: 'white', padding: '0.875rem 0', borderBottom: '2px solid var(--border)' }}>
         <div className="container">
-          {/* Kategorie-Filter */}
-          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0.6rem' }}>
-            {KATEGORIEN.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => setAktiv(id)}
-                style={{
-                  padding: '0.4rem 0.875rem',
-                  borderRadius: '999px',
-                  border: `1.5px solid ${aktiv === id ? 'var(--green-deep)' : 'var(--border)'}`,
-                  background: aktiv === id ? 'var(--green-deep)' : 'transparent',
-                  color: aktiv === id ? 'var(--golden)' : 'var(--text-mid)',
-                  fontSize: '0.8rem',
-                  fontWeight: aktiv === id ? 700 : 400,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {label}
-              </button>
-            ))}
-            <Link
-              href="/rezepte/alle"
-              style={{
-                padding: '0.4rem 0.875rem', fontSize: '0.8rem', fontWeight: 600,
-                color: 'var(--green-mid)', textDecoration: 'none',
-                borderRadius: '999px', border: '1.5px solid var(--green-mid)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              A–Z →
-            </Link>
+
+          {/* Zeile 1: Kategorie */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+            <span style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
+              textTransform: 'uppercase', color: 'var(--text-light)',
+              whiteSpace: 'nowrap', minWidth: '68px',
+            }}>
+              Kategorie
+            </span>
+            <div style={{ overflow: 'hidden', flex: 1 }}>
+              <div style={{ display: 'flex', gap: '0.35rem', overflowX: 'auto', paddingBottom: '2px' }}>
+                {KATEGORIEN.map(({ id, label }) => (
+                  <button
+                    key={id}
+                    onClick={() => setAktiv(id)}
+                    style={{
+                      padding: '0.35rem 0.8rem', borderRadius: '999px', whiteSpace: 'nowrap',
+                      border: `1.5px solid ${aktiv === id ? 'var(--green-deep)' : 'var(--border)'}`,
+                      background: aktiv === id ? 'var(--green-deep)' : 'transparent',
+                      color: aktiv === id ? 'var(--golden)' : 'var(--text-mid)',
+                      fontSize: '0.8rem', fontWeight: aktiv === id ? 700 : 400,
+                      cursor: 'pointer', transition: 'all 0.15s', flexShrink: 0,
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
+                <Link
+                  href="/rezepte/alle"
+                  style={{
+                    padding: '0.35rem 0.8rem', fontSize: '0.8rem', fontWeight: 600,
+                    color: 'var(--green-mid)', textDecoration: 'none', whiteSpace: 'nowrap',
+                    borderRadius: '999px', border: '1.5px solid var(--green-mid)', flexShrink: 0,
+                  }}
+                >
+                  A–Z →
+                </Link>
+              </div>
+            </div>
           </div>
 
-          {/* Ernährungsfilter */}
-          <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', color: 'var(--text-light)', marginRight: '0.25rem', whiteSpace: 'nowrap' }}>Ernährung:</span>
-            {ERNAEHRUNG.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => setErnaehrung(id)}
-                title={ERNAEHRUNG.find(e => e.id === id)?.desc}
-                style={{
-                  padding: '0.3rem 0.75rem',
-                  borderRadius: '999px',
-                  border: `1.5px solid ${ernaehrung === id ? 'var(--terracotta)' : 'var(--border)'}`,
-                  background: ernaehrung === id ? 'rgba(244,162,97,0.12)' : 'transparent',
-                  color: ernaehrung === id ? 'var(--terracotta)' : 'var(--text-mid)',
-                  fontSize: '0.75rem',
-                  fontWeight: ernaehrung === id ? 700 : 400,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {label}
-              </button>
-            ))}
+          {/* Trennlinie */}
+          <div style={{ height: '1px', background: 'var(--border)', margin: '0.4rem 0' }} />
+
+          {/* Zeile 2: Ernährung */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
+              textTransform: 'uppercase', color: 'var(--text-light)',
+              whiteSpace: 'nowrap', minWidth: '68px',
+            }}>
+              Ernährung
+            </span>
+            <div style={{ overflow: 'hidden', flex: 1 }}>
+              <div style={{ display: 'flex', gap: '0.35rem', overflowX: 'auto', paddingBottom: '2px' }}>
+                {ERNAEHRUNG.map(({ id, label }) => (
+                  <button
+                    key={id}
+                    onClick={() => setErnaehrung(id)}
+                    title={ERNAEHRUNG.find(e => e.id === id)?.desc}
+                    style={{
+                      padding: '0.3rem 0.75rem', borderRadius: '999px', whiteSpace: 'nowrap',
+                      border: `1.5px solid ${ernaehrung === id ? 'var(--terracotta)' : 'var(--border)'}`,
+                      background: ernaehrung === id ? 'rgba(244,162,97,0.12)' : 'transparent',
+                      color: ernaehrung === id ? 'var(--terracotta)' : 'var(--text-mid)',
+                      fontSize: '0.75rem', fontWeight: ernaehrung === id ? 700 : 400,
+                      cursor: 'pointer', transition: 'all 0.15s', flexShrink: 0,
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 
