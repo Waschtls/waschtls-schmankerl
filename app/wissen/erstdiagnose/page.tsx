@@ -23,11 +23,6 @@ const sofortmassnahmen = [
     titel: 'Getreide & Müsli',
     text: 'Haferflocken (auch wenn "reiner Hafer" viel diskutiert wird – am Anfang erstmal weglassen und mit Arzt besprechen), normale Cornflakes, Müslis mit Weizen oder Gerste.',
   },
-  {
-    icon: '🔪',
-    titel: 'Küche & Utensilien',
-    text: 'Eigenes Schneidbrett (am besten markieren oder eine andere Farbe), eigener Toaster (Krümel!), eigenes Nudelsieb, eigene Butter damit niemand mit dem Messer nach dem Brotschneiden reingeht. Pfannen und Töpfe können bleiben – solange sie keine tiefen Kratzer haben und gründlich gespült werden.',
-  },
 ];
 
 const erstausstattung: { kat: string; items: string[]; note?: string }[] = [
@@ -115,10 +110,10 @@ export default function ErstdiagnosePage() {
       {/* Was sofort raus muss */}
       <section className="section">
         <div className="container" style={{ maxWidth: '740px' }}>
-          <h2 style={{ marginBottom: '0.4rem' }}>Was sofort weg muss – und was warten kann</h2>
+          <h2 style={{ marginBottom: '0.4rem' }}>Was sofort aus dem Speiseplan fliegt</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '2rem' }}>
-            Keine Panik – ihr müsst nicht die ganze Küche neu kaufen. Aber ein paar Dinge sollten
-            sofort aussortiert oder getrennt aufbewahrt werden.
+            Diese Lebensmittel müssen sofort aussortiert oder klar getrennt aufbewahrt werden –
+            alles andere darf bleiben.
           </p>
           <div className="grid-2">
             {sofortmassnahmen.map(m => (
@@ -130,15 +125,6 @@ export default function ErstdiagnosePage() {
             ))}
           </div>
 
-          <div className="card" style={{ marginTop: '1.5rem', background: 'var(--cream-dark)', border: '1.5px solid var(--border)' }}>
-            <h4 style={{ marginBottom: '0.5rem', color: 'var(--green-deep)' }}>🍳 Was kann bleiben?</h4>
-            <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.85 }}>
-              Alle Töpfe und Pfannen die ihr gründlich spülen kannst (Teflonpfannen ohne
-              Kratzer halten). Dosen mit natürlich glutenfreien Inhalten (Tomaten, Hülsenfrüchte,
-              Fisch in Öl). Alle Gewürze die nur Gewürz enthalten. Öle, Essig, die meisten
-              Milchprodukte. Das meiste bleibt – der Schrank muss nicht leer.
-            </p>
-          </div>
         </div>
       </section>
 
