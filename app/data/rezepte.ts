@@ -64,14 +64,6 @@ export const REZEPTE: Rezept[] = [
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   {
-    slug: 'pfannkuchen-reismehl',
-    title: 'Pfannkuchen aus Reismehl',
-    desc: 'Hauchdünn, goldbraun – kein Unterschied zum Original, nur mit feinem Reismehl.',
-    time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
-    emoji: '🥞', naturalGf: false, kleinkind: true,
-    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
-  },
-  {
     slug: 'apfel-zimt-porridge',
     title: 'Apfel-Zimt-Porridge',
     desc: 'Cremig, warm, 10 Minuten – perfekt für den Schulmorgen.',
@@ -248,14 +240,6 @@ export const REZEPTE: Rezept[] = [
     desc: 'Der saftigste Schokokuchen – garantiert gelingend.',
     time: '50 Min.', kat: 'backen', tags: ['kindergeburtstag'],
     emoji: '🍫', naturalGf: false, kleinkind: true,
-    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
-  },
-  {
-    slug: 'lebkuchen-plaetzchen',
-    title: 'Lebkuchen-Plätzchen',
-    desc: 'Würzig, weich, hält die Form beim Ausstechen – ideal zum Verzieren mit Kindern.',
-    time: '4 Std.', kat: 'backen', tags: ['saisonal', 'kindergeburtstag'],
-    emoji: '🎄', naturalGf: false, kleinkind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
   },
   // ── Brot & Hefeteig ──

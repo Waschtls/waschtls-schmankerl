@@ -34,10 +34,9 @@ export default function UeberUns() {
       <section className="section">
         <div className="container" style={{ maxWidth: '680px' }}>
 
-          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>👨‍👦</div>
           <h2>Hallo, ich bin Waschtl</h2>
           <p>
-            Ich bin Vater, Augsburger und Fan von gutem Essen – egal ob klassisch bayerisch oder
+            Ich bin Vater aus Augsburg und Fan von gutem Essen – egal ob klassisch bayerisch oder
             international. Bei uns zuhause gab es die Armen Ritter die die Oma uns Kindern immer
             gemacht hat, Schnitzel mit Kartoffelbrei, Fleischküchler, Spaghetti Bolognese, Pizza
             vom Blech. Eine echte Familienküche – bunt, unkompliziert, immer mit Herzblut gekocht.
