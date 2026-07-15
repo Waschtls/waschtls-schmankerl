@@ -127,6 +127,20 @@ const themen = [
     href: '/wissen/vorlagen',
     tag: 'Alltag',
   },
+  {
+    icon: '🦷',
+    title: 'Zähne & Zahnschmelz bei Zöliakie',
+    desc: '40–50 % der Kinder mit Zöliakie haben Zahnschmelzdefekte. Was der Zahnarzt wissen muss – und warum Zöliakie manchmal zuerst am Zahn auffällt.',
+    href: '/wissen/zaehne-zoeliakiie',
+    tag: 'Gesundheit',
+  },
+  {
+    icon: '🌾',
+    title: 'NCGS – Glutenunverträglichkeit ohne Zöliakie',
+    desc: 'Kein Test kann sie beweisen, kein Darmschaden, keine Antikörper – und trotzdem real. Was NCGS ist, wie sie sich zeigt und was das für den Alltag bedeutet.',
+    href: '/wissen/ncgs-glutenunvertraeglichkeit',
+    tag: 'Grundlagen',
+  },
 ];
 
 export default function WissenPage() {

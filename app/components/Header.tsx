@@ -57,6 +57,8 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Hamburger Brötchen',           desc: 'Brot & Hefeteig · 3 Std. · Grill · einfrierbar',            href: '/rezepte/hamburger-broetchen',          type: 'Rezept', tags: 'hamburger burger brötchen brot hefeteig grill sommer einfrieren sesam flohsamenschalen reismehl' },
 { title: 'Italienische Focaccia',        desc: 'Brot & Hefeteig · 2 Std. · kein Kneten · Caputo',           href: '/rezepte/italienische-focaccia',        type: 'Rezept', tags: 'focaccia italienisch brot knoblauch knoblauchbutter parmesan caputo fioreglut hefeteig' },
   { title: 'Schokoladen-Granola',          desc: 'Frühstück · 20 Min. · vegan · milchfrei · 1 Woche haltbar',  href: '/rezepte/granola',                      type: 'Rezept', tags: 'granola müsli haferflocken kokosfett ahornsirup schokomus schokolade vegan milchfrei frühstück joghurt skyr batch' },
+  { title: 'Zähne & Zahnschmelz bei Zöliakie', desc: 'Zahnschmelzdefekte, Zahnarzt, Frühwarnzeichen', href: '/wissen/zaehne-zoeliakiie', type: 'Wissen', tags: 'zähne zahnschmelz defekte schmelz zahnarzt milchzähne bleibende karies aphten mund fluorid prophylaxe' },
+  { title: 'NCGS – Glutenunverträglichkeit ohne Zöliakie', desc: 'Glutensensitivität: Symptome, Diagnose, Unterschied zu Zöliakie', href: '/wissen/ncgs-glutenunvertraeglichkeit', type: 'Wissen', tags: 'ncgs glutensensitivität glutenunverträglichkeit weizenallergie fodmap diagnose ausschluss test bauchschmerzen' },
 ];
 
 function searchText(query: string): SearchItem[] {

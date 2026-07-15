@@ -62,6 +62,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'geburtstage',
     'reisen',
     'produkte-einkauf',
+    'zaehne-zoeliakiie',
+    'ncgs-glutenunvertraeglichkeit',
   ];
 
   return [
