@@ -47,27 +47,68 @@ export default function Home() {
       </section>
 
       {/* ── Was du hier findest ── */}
-      <section style={{ background: '#fff', padding: '2.5rem 0', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: '680px' }}>
+      <section style={{ background: '#fff', padding: '2.5rem 0 2rem', borderBottom: '1px solid var(--border)' }}>
+        <div className="container">
           <p style={{
             fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
             textTransform: 'uppercase', color: 'var(--green-mid)',
-            margin: '0 0 1rem',
+            margin: '0 0 1.25rem',
           }}>
             Was du hier findest
           </p>
-          <p style={{ fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.9, margin: 0 }}>
-            Der Kern der Website sind <Link href="/rezepte" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Rezepte</Link> – echte Alltagsküche, die bei uns täglich funktioniert, vom schnellen Mittagessen bis zum{' '}
-            <Link href="/rezepte/feste-geburtstage" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Kindergeburtstagskuchen</Link>.
-            Daneben gibt es einen <Link href="/wissen" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Wissensbereich</Link> für alle die gerade frisch diagnostiziert sind oder konkrete Fragen haben –
-            etwa wie man das Thema{' '}
-            <Link href="/wissen/schule-kita" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>in der Kita oder Schule</Link> angeht,
-            oder was es mit <Link href="/wissen/kreuzkontamination" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Kreuzkontamination im Alltag</Link> auf sich hat.
-            Wer nicht jeden Tag neu überlegen möchte was auf den Tisch kommt, findet beim{' '}
-            <Link href="/wochenplan" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Speiseplan</Link> eine fertige Wochenstruktur.
-            Und für alles außerhalb der eigenen Küche – Restaurants, Reisen, Bäckereien – ist die{' '}
-            <Link href="/unterwegs" style={{ color: 'var(--green-mid)', fontWeight: 600 }}>Unterwegs</Link>-Seite der richtige Einstieg.
-          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.75rem' }}>
+            {[
+              {
+                emoji: '🍝',
+                title: 'Rezepte',
+                desc: 'Echte Alltagsküche – vom schnellen Mittagessen bis zum Kindergeburtstagskuchen. Mit Filter nach Kategorie, Ernährung und Alter.',
+                href: '/rezepte',
+              },
+              {
+                emoji: '📚',
+                title: 'Wissen',
+                desc: 'Gerade diagnostiziert? Hier bekommst du ehrliche Antworten: Erstdiagnose, Kreuzkontamination, Schule & Kita, und mehr.',
+                href: '/wissen',
+              },
+              {
+                emoji: '👶',
+                title: 'Beikost',
+                desc: 'Glutenfreie Beikost-Rezepte: Apfelspalten, Avocado-Schoko-Creme, Porridge und mehr – mit Sicherheitshinweisen.',
+                href: '/rezepte',
+              },
+              {
+                emoji: '📅',
+                title: 'Wochenplan',
+                desc: 'Keine Lust jeden Tag neu zu überlegen? Ein fertiger glutenfreier Speiseplan für die Woche.',
+                href: '/wochenplan',
+              },
+              {
+                emoji: '✈️',
+                title: 'Unterwegs',
+                desc: 'Restaurants, Reisen, Urlaub – wie wir das mit Zöliakie angehen und was uns wirklich hilft.',
+                href: '/unterwegs',
+              },
+              {
+                emoji: '🛒',
+                title: 'Produkte',
+                desc: 'Welche glutenfreien Produkte wir wirklich kaufen – ehrlich und ohne Werbung.',
+                href: '/produkte',
+              },
+            ].map(({ emoji, title, desc, href }) => (
+              <Link key={href + title} href={href} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  background: 'var(--cream-dark)', borderRadius: '12px',
+                  padding: '1.1rem 1.25rem', height: '100%',
+                  border: '1.5px solid var(--border)',
+                  transition: 'border-color 0.15s',
+                }}>
+                  <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{emoji}</div>
+                  <p style={{ fontWeight: 700, margin: '0 0 0.3rem', fontSize: '0.95rem', color: 'var(--green-deep)' }}>{title}</p>
+                  <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -88,6 +129,46 @@ export default function Home() {
               color: 'var(--green-mid)', fontWeight: 700,
             }}>
               Über uns →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Etwas fehlt? ── */}
+      <section style={{ background: 'var(--green-deep)', padding: '2.5rem 0' }}>
+        <div className="container" style={{ maxWidth: '640px', textAlign: 'center' }}>
+          <p style={{ fontSize: '1.5rem', margin: '0 0 0.5rem' }}>💬</p>
+          <h2 style={{ color: 'var(--golden)', fontSize: '1.3rem', margin: '0 0 0.6rem' }}>
+            Etwas fehlt?
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.9rem', lineHeight: 1.8, margin: '0 0 1.5rem' }}>
+            Kein Rezept für deine Lieblingsküche? Eine Frage, die noch nicht beantwortet ist?
+            Schreib uns – wir freuen uns über jedes Feedback und versuchen, die Lücken zu füllen.
+          </p>
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a
+              href="https://www.instagram.com/waschtls__schmankerl"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                padding: '0.6rem 1.25rem', borderRadius: '999px',
+                background: 'var(--golden)', color: 'var(--green-deep)',
+                fontWeight: 700, fontSize: '0.875rem', textDecoration: 'none',
+              }}
+            >
+              📸 Instagram
+            </a>
+            <Link
+              href="/kontakt"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                padding: '0.6rem 1.25rem', borderRadius: '999px',
+                border: '1.5px solid var(--mint)', color: 'var(--mint)',
+                fontWeight: 700, fontSize: '0.875rem', textDecoration: 'none',
+              }}
+            >
+              ✉️ Kontakt
             </Link>
           </div>
         </div>

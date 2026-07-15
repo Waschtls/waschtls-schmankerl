@@ -106,8 +106,42 @@ export default function ErstdiagnosePage() {
         </div>
       </section>
 
+      {/* Sprungmarken-Navigation */}
+      <section style={{ background: 'var(--cream-dark)', padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: '740px' }}>
+          <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--text-light)', margin: '0 0 0.875rem' }}>
+            Auf dieser Seite
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', gap: '0.5rem' }}>
+            {[
+              { href: '#sofort',          emoji: '🚫', label: 'Was sofort weg muss' },
+              { href: '#versteckt',       emoji: '🕵️', label: 'Verstecktes Gluten' },
+              { href: '#einkaufsliste',   emoji: '🛒', label: 'Erste Einkaufsliste' },
+              { href: '#kueche',          emoji: '🍳', label: 'Küche einrichten' },
+              { href: '#fehler',          emoji: '⚠️', label: 'Häufige Fehler' },
+              { href: '#erklaeren',       emoji: '💬', label: 'Dem Kind erklären' },
+              { href: '#erholung',        emoji: '📈', label: 'Wann wird es besser?' },
+              { href: '#naechste-schritte', emoji: '📋', label: 'Nächste Schritte' },
+            ].map(({ href, emoji, label }) => (
+              <a key={href} href={href} style={{
+                display: 'flex', alignItems: 'center', gap: '0.5rem',
+                padding: '0.5rem 0.75rem',
+                background: '#fff', borderRadius: '8px',
+                border: '1px solid var(--border)',
+                textDecoration: 'none', fontSize: '0.82rem', color: 'var(--text-mid)',
+                fontWeight: 500,
+                transition: 'border-color 0.15s',
+              }}>
+                <span>{emoji}</span>
+                <span>{label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Was sofort raus muss */}
-      <section className="section">
+      <section id="sofort" className="section">
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Was sofort aus dem Speiseplan fliegt</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '2rem' }}>
@@ -128,7 +162,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Gluten versteckt sich auch hier */}
-      <section className="section" style={{ background: 'rgba(233,196,106,0.06)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+      <section id="versteckt" className="section" style={{ background: 'rgba(233,196,106,0.06)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Gluten steckt auch hier – das überrascht fast alle</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '1.75rem' }}>
@@ -154,7 +188,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Erste Einkaufsliste */}
-      <section className="section" style={{ background: 'var(--cream-dark)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+      <section id="einkaufsliste" className="section" style={{ background: 'var(--cream-dark)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Die erste Einkaufsliste</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '2rem' }}>
@@ -195,7 +229,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Küche einrichten Checkliste */}
-      <section className="section" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+      <section id="kueche" className="section" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.4rem' }}>
             <h2 style={{ margin: 0 }}>Küche einrichten – die Checkliste</h2>
@@ -298,7 +332,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Häufige Anfängerfehler */}
-      <section className="section" style={{ paddingTop: '0', paddingBottom: '2.5rem' }}>
+      <section id="fehler" className="section" style={{ paddingTop: '0', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <div className="card" style={{ background: 'rgba(220,53,69,0.04)', border: '1.5px solid rgba(220,53,69,0.2)' }}>
             <h4 style={{ marginBottom: '1rem', color: 'var(--green-deep)' }}>⚠️ Häufige Fehler in den ersten Wochen</h4>
@@ -323,7 +357,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Dem Kind erklären */}
-      <section className="section">
+      <section id="erklaeren" className="section">
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Was sagen wir dem Kind?</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '1.5rem' }}>
@@ -364,7 +398,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Was wird sich bessern */}
-      <section className="section" style={{ background: 'rgba(149,213,178,0.06)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+      <section id="erholung" className="section" style={{ background: 'rgba(149,213,178,0.06)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Was wird sich bessern – und wann?</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '1.75rem' }}>
@@ -393,7 +427,7 @@ export default function ErstdiagnosePage() {
       </section>
 
       {/* Nächste Schritte */}
-      <section className="section" style={{ background: 'var(--cream-dark)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+      <section id="naechste-schritte" className="section" style={{ background: 'var(--cream-dark)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.4rem' }}>Die nächsten Schritte</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '2rem' }}>
