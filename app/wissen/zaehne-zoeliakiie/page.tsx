@@ -198,11 +198,9 @@ export default function ZaehneZoeliakiePage() {
               Unsere Erfahrung
             </p>
             <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.75, fontStyle: 'italic', color: 'var(--text-mid)' }}>
-              Bei unserem Sohn hat die Zahnärztin die typischen weißlichen Stellen auf den ersten
-              bleibenden Schneidezähnen entdeckt. Sie kannte die Verbindung zu Zöliakie und hat
-              uns direkt auf die Möglichkeit hingewiesen. Wir haben dann konsequent auf Fluoridlack
-              gesetzt und lassen die Zähne jetzt alle sechs Monate checken. Die neuen Backenzähne
-              sehen bisher gut aus – die GF-Ernährung hat also ihren Teil getan.
+              Für uns waren das tatsächlich neue Informationen. Wir werden das Thema beim nächsten
+              Zahnarztbesuch gezielt ansprechen und fragen, worauf bei Zöliakie-Kindern besonders zu
+              achten ist. Die Rückmeldung und etwaige Empfehlungen posten wir dann hier.
             </p>
           </div>
 
