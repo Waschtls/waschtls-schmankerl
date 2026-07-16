@@ -49,75 +49,203 @@ type RecipeEntry = {
   kat: string;
   minuten: number;
   naturalGf: boolean;
-  kleinkind: boolean;
+  beikost: boolean;
   keyIngredients: string[];
 };
 
 const RECIPES: RecipeEntry[] = [
+  // ── Frühstück ──
   {
     title: 'Apfel-Zimt-Porridge', slug: '/rezepte/apfel-zimt-porridge',
-    kat: 'Frühstück', minuten: 10, naturalGf: true, kleinkind: true,
+    kat: 'Frühstück', minuten: 10, naturalGf: true, beikost: true,
     keyIngredients: ['Haferflocken (GF)', 'Apfel', 'Milch'],
   },
   {
+    title: 'Apfel-Zimt Baked Oats', slug: '/rezepte/apfel-zimt-baked-oats',
+    kat: 'Frühstück', minuten: 30, naturalGf: true, beikost: false,
+    keyIngredients: ['Haferflocken (GF)', 'Apfel', 'Milch', 'Eier', 'Backpulver'],
+  },
+  {
     title: 'Pfannkuchen (Reismehl)', slug: '/rezepte/pfannkuchen-reismehl',
-    kat: 'Frühstück', minuten: 20, naturalGf: false, kleinkind: true,
+    kat: 'Frühstück', minuten: 20, naturalGf: false, beikost: true,
     keyIngredients: ['Reismehl', 'Eier', 'Milch'],
   },
   {
     title: 'Pfannkuchen (klassisch)', slug: '/rezepte/pfannkuchen-klassisch',
-    kat: 'Frühstück', minuten: 25, naturalGf: false, kleinkind: true,
+    kat: 'Frühstück', minuten: 25, naturalGf: false, beikost: true,
     keyIngredients: ['Schär Mix It', 'Eier', 'Milch'],
   },
   {
+    title: 'Dicke Pfannkuchen', slug: '/rezepte/dicke-pfannkuchen',
+    kat: 'Frühstück', minuten: 25, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Eier', 'Milch', 'Backpulver', 'Vanillezucker'],
+  },
+  {
+    title: 'French Toast', slug: '/rezepte/french-toast',
+    kat: 'Frühstück', minuten: 15, naturalGf: false, beikost: false,
+    keyIngredients: ['Eier', 'Milch', 'Vanillezucker', 'Butter'],
+  },
+  {
+    title: 'Waffeln klassisch', slug: '/rezepte/waffeln-klassisch',
+    kat: 'Frühstück', minuten: 30, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Eier', 'Milch', 'Butter', 'Backpulver'],
+  },
+  {
+    title: 'Granola', slug: '/rezepte/granola',
+    kat: 'Frühstück', minuten: 25, naturalGf: true, beikost: false,
+    keyIngredients: ['Haferflocken (GF)', 'Honig', 'Kürbiskerne', 'Leinsamen', 'Walnüsse'],
+  },
+  {
+    title: 'Protein-Bagel', slug: '/rezepte/protein-bagel',
+    kat: 'Frühstück', minuten: 30, naturalGf: false, beikost: false,
+    keyIngredients: ['Joghurt', 'GF Mehlmischung', 'Backpulver', 'Eier', 'Sesam'],
+  },
+  // ── Mittagessen ──
+  {
     title: 'Nudeln mit Tomatensauce', slug: '/rezepte/nudeln-mit-tomatensauce',
-    kat: 'Mittagessen', minuten: 25, naturalGf: false, kleinkind: true,
-    keyIngredients: ['GF Nudeln', 'Tomaten', 'Knoblauch', 'Zwiebel'],
+    kat: 'Mittagessen', minuten: 25, naturalGf: false, beikost: true,
+    keyIngredients: ['GF Nudeln', 'Tomaten passiert (Dose)', 'Knoblauch', 'Zwiebel'],
+  },
+  {
+    title: 'Spaghetti Bolognese', slug: '/rezepte/spaghetti-bolognese',
+    kat: 'Mittagessen', minuten: 40, naturalGf: false, beikost: false,
+    keyIngredients: ['GF Nudeln', 'Rinderhack', 'Tomaten passiert (Dose)', 'Zwiebel', 'Knoblauch'],
   },
   {
     title: 'Kürbisrisotto', slug: '/rezepte/kuerbisrisotto',
-    kat: 'Mittagessen', minuten: 40, naturalGf: true, kleinkind: false,
+    kat: 'Mittagessen', minuten: 40, naturalGf: true, beikost: true,
     keyIngredients: ['Kürbis', 'Risottoreis', 'GF Gemüsebrühe', 'Zwiebel', 'Parmesan'],
   },
   {
+    title: 'Rindergulasch', slug: '/rezepte/rindergulasch',
+    kat: 'Mittagessen', minuten: 90, naturalGf: true, beikost: false,
+    keyIngredients: ['Zwiebel', 'Tomaten gehackt (Dose)', 'GF Gemüsebrühe', 'Kartoffeln'],
+  },
+  {
+    title: 'Fleischküchle', slug: '/rezepte/fleischkuechle',
+    kat: 'Mittagessen', minuten: 30, naturalGf: false, beikost: false,
+    keyIngredients: ['Rinderhack', 'Eier', 'GF Paniermehl', 'Zwiebel'],
+  },
+  {
+    title: 'Chicken Nuggets', slug: '/rezepte/chicken-nuggets-selbstgemacht',
+    kat: 'Mittagessen', minuten: 30, naturalGf: false, beikost: false,
+    keyIngredients: ['Hähnchenbrust', 'GF Paniermehl', 'Eier', 'GF Mehlmischung'],
+  },
+  {
+    title: 'Reiberdatschi', slug: '/rezepte/reiberdatschi-kartoffelpuffer',
+    kat: 'Mittagessen', minuten: 30, naturalGf: true, beikost: false,
+    keyIngredients: ['Kartoffeln', 'Eier', 'Zwiebel'],
+  },
+  // ── Abendessen ──
+  {
     title: 'Schnitzel mit Kartoffelbrei', slug: '/rezepte/schnitzel-kartoffelbrei',
-    kat: 'Abendessen', minuten: 35, naturalGf: false, kleinkind: true,
+    kat: 'Abendessen', minuten: 35, naturalGf: false, beikost: true,
     keyIngredients: ['Schweineschnitzel', 'GF Paniermehl', 'Kartoffeln', 'Eier', 'Butter', 'Milch'],
   },
   {
     title: 'Kässpatzen', slug: '/rezepte/kaesspatzen',
-    kat: 'Abendessen', minuten: 40, naturalGf: false, kleinkind: false,
+    kat: 'Abendessen', minuten: 40, naturalGf: false, beikost: false,
     keyIngredients: ['Schär Mix It', 'Eier', 'Käse'],
   },
   {
     title: 'Veganes Chili', slug: '/rezepte/veganes-chili',
-    kat: 'Abendessen', minuten: 35, naturalGf: true, kleinkind: false,
+    kat: 'Abendessen', minuten: 35, naturalGf: true, beikost: false,
     keyIngredients: ['Veganes Hack (DM)', 'Kidneybohnen (Dose)', 'Mais (Dose)', 'Tomaten passiert (Dose)', 'Tomaten gehackt (Dose)'],
   },
   {
-    title: 'Pizza glutenfrei', slug: '/rezepte/pizza-glutenfrei',
-    kat: 'Abendessen', minuten: 60, naturalGf: false, kleinkind: false,
-    keyIngredients: ['GF Mehlmischung', 'Hefe', 'Tomaten', 'Käse'],
+    title: 'Quark-Gemüse-Fladen', slug: '/rezepte/quark-gemuese-fladen',
+    kat: 'Abendessen', minuten: 25, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Frischkäse', 'Eier', 'Zucchini', 'Paprika'],
   },
   {
+    title: 'Flammkuchen / Ofenpfannkuchen', slug: '/rezepte/flammkuchen-ofenpfannkuchen',
+    kat: 'Abendessen', minuten: 35, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Eier', 'Milch', 'Schmand', 'Zwiebel'],
+  },
+  {
+    title: 'Pizza glutenfrei', slug: '/rezepte/pizza-glutenfrei',
+    kat: 'Abendessen', minuten: 60, naturalGf: false, beikost: false,
+    keyIngredients: ['GF Mehlmischung', 'Hefe', 'Tomaten passiert (Dose)', 'Mozzarella'],
+  },
+  // ── Snacks ──
+  {
     title: 'Bananenmuffins', slug: '/rezepte/bananenmuffins',
-    kat: 'Snacks', minuten: 30, naturalGf: true, kleinkind: true,
+    kat: 'Snacks', minuten: 30, naturalGf: true, beikost: true,
     keyIngredients: ['Banane', 'Eier', 'Mandelmehl', 'Backpulver'],
   },
   {
     title: 'Energiebällchen', slug: '/rezepte/energiebaellchen',
-    kat: 'Snacks', minuten: 15, naturalGf: true, kleinkind: true,
+    kat: 'Snacks', minuten: 15, naturalGf: true, beikost: false,
     keyIngredients: ['Haferflocken (GF)', 'Erdnussbutter', 'Honig', 'Kakao'],
   },
   {
-    title: 'Kokos-Milchreis', slug: '/rezepte/milchreis-kokos',
-    kat: 'Dessert', minuten: 35, naturalGf: true, kleinkind: true,
-    keyIngredients: ['Milchreis', 'Kokosmilch'],
+    title: 'Frozen Banana Bites', slug: '/rezepte/frozen-banana-bites',
+    kat: 'Snacks', minuten: 10, naturalGf: true, beikost: false,
+    keyIngredients: ['Banane', 'Schokolade', 'Joghurt'],
   },
   {
-    title: 'Schokoladenkuchen', slug: '/rezepte/schokoladenkuchen-mandelmehl',
-    kat: 'Backen', minuten: 50, naturalGf: false, kleinkind: false,
+    title: 'Bananenbrot mit Nutella', slug: '/rezepte/bananenbrot-nutella',
+    kat: 'Snacks', minuten: 55, naturalGf: true, beikost: false,
+    keyIngredients: ['Banane', 'Eier', 'Mandelmehl', 'Backpulver', 'Honig'],
+  },
+  // ── Dessert ──
+  {
+    title: 'Kokos-Milchreis', slug: '/rezepte/milchreis-kokos',
+    kat: 'Dessert', minuten: 35, naturalGf: true, beikost: true,
+    keyIngredients: ['Milchreis', 'Kokosmilch (Dose)', 'Milch'],
+  },
+  // ── Backen ──
+  {
+    title: 'Schokoladenkuchen (Mandelmehl)', slug: '/rezepte/schokoladenkuchen-mandelmehl',
+    kat: 'Backen', minuten: 50, naturalGf: false, beikost: false,
     keyIngredients: ['Mandelmehl', 'Schokolade', 'Eier', 'Butter'],
+  },
+  {
+    title: 'Brownies', slug: '/rezepte/brownies-schokolade',
+    kat: 'Backen', minuten: 40, naturalGf: false, beikost: false,
+    keyIngredients: ['Schokolade', 'Butter', 'Eier', 'Mandelmehl', 'Kakao'],
+  },
+  {
+    title: 'Zwetschgendatschi', slug: '/rezepte/zwetschgendatschi',
+    kat: 'Backen', minuten: 60, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Hefe', 'Butter', 'Eier', 'Milch'],
+  },
+  {
+    title: 'Lebkuchen-Plätzchen', slug: '/rezepte/lebkuchen-plaetzchen',
+    kat: 'Backen', minuten: 45, naturalGf: false, beikost: false,
+    keyIngredients: ['GF Mehlmischung', 'Eier', 'Honig', 'Butter', 'Kakao'],
+  },
+  // ── Brot & Hefeteig ──
+  {
+    title: 'Grundrezept Hefeteig (süß)', slug: '/rezepte/grundrezept-hefeteig-suess',
+    kat: 'Hefeteig', minuten: 90, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Hefe', 'Eier', 'Butter', 'Milch', 'Vanillezucker'],
+  },
+  {
+    title: 'Laugenbrezeln', slug: '/rezepte/laugenbrezeln-glutenfrei',
+    kat: 'Hefeteig', minuten: 60, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Hefe', 'Butter'],
+  },
+  {
+    title: 'Hotdog-Brötchen', slug: '/rezepte/hotdog-broetchen',
+    kat: 'Hefeteig', minuten: 60, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Hefe', 'Eier', 'Butter', 'Milch'],
+  },
+  {
+    title: 'Hamburger-Brötchen', slug: '/rezepte/hamburger-broetchen',
+    kat: 'Hefeteig', minuten: 60, naturalGf: false, beikost: false,
+    keyIngredients: ['Schär Mix It', 'Hefe', 'Eier', 'Butter', 'Milch', 'Sesam'],
+  },
+  {
+    title: 'Italienische Focaccia', slug: '/rezepte/italienische-focaccia',
+    kat: 'Hefeteig', minuten: 50, naturalGf: false, beikost: false,
+    keyIngredients: ['GF Mehlmischung', 'Hefe', 'Olivenöl'],
+  },
+  // ── Beilagen ──
+  {
+    title: 'Semmelknödel', slug: '/rezepte/semmelknoedel',
+    kat: 'Beilagen', minuten: 40, naturalGf: false, beikost: false,
+    keyIngredients: ['GF Paniermehl', 'Eier', 'Milch', 'Zwiebel', 'Butter'],
   },
 ];
 
@@ -294,7 +422,7 @@ export default function NachZutatenPage() {
                       </span>
                     </div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-light)', marginBottom: r.missing.length > 0 ? '0.5rem' : 0 }}>
-                      {r.kat} · ⏱ {r.minuten} Min.{r.naturalGf ? ' · ohne Spezialmehl' : ''}{r.kleinkind ? ' · 👶' : ''}
+                      {r.kat} · ⏱ {r.minuten} Min.{r.naturalGf ? ' · ohne Spezialmehl' : ''}{r.beikost ? ' · 👶' : ''}
                     </div>
                     {r.missing.length > 0 && (
                       <div style={{ fontSize: '0.72rem', color: 'var(--terracotta)', fontWeight: 500 }}>

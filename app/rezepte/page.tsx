@@ -38,19 +38,28 @@ const ERNAEHRUNG = [
 
 export default function RezeptePage() {
   const [aktiv, setAktiv] = useState('alle');
-  const [ernaehrung, setErnaehrung] = useState('alle');
+  const [ernaehrung, setErnaehrung] = useState<string[]>([]);
+
+  const toggleErnaehrung = (id: string) => {
+    if (id === 'alle') { setErnaehrung([]); return; }
+    setErnaehrung(prev =>
+      prev.includes(id) ? prev.filter(e => e !== id) : [...prev, id]
+    );
+  };
 
   const gefiltert = REZEPTE.filter(r => {
     const katMatch = aktiv === 'alle' || r.kat === aktiv || r.tags.includes(aktiv);
     const dietMatch =
-      ernaehrung === 'alle' ||
-      (ernaehrung === 'kind' && r.kind) ||
-      (ernaehrung === 'beikost' && r.beikost) ||
-      (ernaehrung === 'vegetarisch' && r.vegetarisch) ||
-      (ernaehrung === 'vegan' && r.vegan) ||
-      (ernaehrung === 'zuckerfrei' && r.zuckerfrei) ||
-      (ernaehrung === 'milchfrei' && r.milchfrei) ||
-      (ernaehrung === 'eierfrei' && r.eierfrei);
+      ernaehrung.length === 0 ||
+      ernaehrung.every(f =>
+        (f === 'kind'        && r.kind)        ||
+        (f === 'beikost'     && r.beikost)     ||
+        (f === 'vegetarisch' && r.vegetarisch) ||
+        (f === 'vegan'       && r.vegan)       ||
+        (f === 'zuckerfrei'  && r.zuckerfrei)  ||
+        (f === 'milchfrei'   && r.milchfrei)   ||
+        (f === 'eierfrei'    && r.eierfrei)
+      );
     return katMatch && dietMatch;
   });
 
@@ -151,14 +160,14 @@ export default function RezeptePage() {
                 {ERNAEHRUNG.map(({ id, label }) => (
                   <button
                     key={id}
-                    onClick={() => setErnaehrung(id)}
+                    onClick={() => toggleErnaehrung(id)}
                     title={ERNAEHRUNG.find(e => e.id === id)?.desc}
                     style={{
                       padding: '0.3rem 0.75rem', borderRadius: '999px', whiteSpace: 'nowrap',
-                      border: `1.5px solid ${ernaehrung === id ? 'var(--terracotta)' : 'var(--border)'}`,
-                      background: ernaehrung === id ? 'rgba(244,162,97,0.12)' : 'transparent',
-                      color: ernaehrung === id ? 'var(--terracotta)' : 'var(--text-mid)',
-                      fontSize: '0.75rem', fontWeight: ernaehrung === id ? 700 : 400,
+                      border: `1.5px solid ${(id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 'var(--terracotta)' : 'var(--border)'}`,
+                      background: (id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 'rgba(244,162,97,0.12)' : 'transparent',
+                      color: (id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 'var(--terracotta)' : 'var(--text-mid)',
+                      fontSize: '0.75rem', fontWeight: (id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 700 : 400,
                       cursor: 'pointer', transition: 'all 0.15s', flexShrink: 0,
                     }}
                   >
@@ -173,7 +182,7 @@ export default function RezeptePage() {
       </section>
 
       {/* Beikost-Disclaimer */}
-      {ernaehrung === 'beikost' && (
+      {ernaehrung.includes('beikost') && (
         <section style={{ background: 'rgba(233,196,106,0.1)', borderBottom: '1.5px solid rgba(233,196,106,0.4)', padding: '0.875rem 0' }}>
           <div className="container">
             <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--green-deep)', lineHeight: 1.75 }}>
@@ -193,7 +202,7 @@ export default function RezeptePage() {
           <p style={{ fontSize: '0.82rem', color: 'var(--text-light)', marginBottom: '1.5rem' }}>
             {gefiltert.filter(r => !r.todo).length} Rezepte
             {aktiv !== 'alle' && ` in „${KATEGORIEN.find(k => k.id === aktiv)?.label}"`}
-            {ernaehrung !== 'alle' && ` · ${ERNAEHRUNG.find(e => e.id === ernaehrung)?.label}`}
+            {ernaehrung.length > 0 && ` · ${ernaehrung.map(f => ERNAEHRUNG.find(e => e.id === f)?.label).join(' + ')}`}
           </p>
 
           <div className="grid-3">
