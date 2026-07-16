@@ -79,7 +79,7 @@ export default function Home() {
               {
                 emoji: '📅',
                 title: 'Wochenplan',
-                desc: 'Keine Lust jeden Tag neu zu überlegen? Ein fertiger glutenfreier Speiseplan für die Woche.',
+                desc: 'Keine Lust, jeden Tag neu zu überlegen? Ein fertiger glutenfreier Speiseplan für die Woche.',
                 href: '/wochenplan',
               },
               {

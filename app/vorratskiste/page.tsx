@@ -184,7 +184,7 @@ const SEKTIONEN: Sektion[] = [
       },
       {
         emoji: '🥞', name: 'Pancake-/Pfannkuchen-Mix', marke: 'Schär, Alnavit',
-        status: 'gf', statusText: 'Glutenfrei zertifiziert – auf Fertigmixe aus dem normalen Backabteilung achten, die sind NICHT GF.',
+        status: 'gf', statusText: 'Glutenfrei zertifiziert – auf Fertigmixe aus der normalen Backabteilung achten, die sind NICHT GF.',
         sterne: 4,
         desc: 'Für Sonntagsfrühstück ohne Aufwand. Die GF-Fertigmixe brauchen meist nur Milch und Ei – in 15 Minuten fertig.',
         tipp: 'Mit TK-Beeren (aufgetaut) und Ahornsirup – Kinder sind begeistert. Reste lassen sich einfrieren.',

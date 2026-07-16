@@ -29,10 +29,10 @@ export default function KontaktPage() {
               {
                 icon: '✉️',
                 titel: 'E-Mail',
-                text: 'Für alle Anfragen – wir antworten so schnell wie es der Alltag mit einem Zöliakie-Kind zulässt.',
-                action: <a href="mailto:hallo@waschtls-schmankerl.de"
+                text: 'Für alle Anfragen – wir antworten so schnell wie es der Alltag mit Kids zulässt.',
+                action: <a href="mailto:waschtls.schmankerl@web.de"
                   style={{ display: 'inline-block', marginTop: '0.75rem', fontWeight: 700, color: 'var(--green-mid)', fontSize: '0.9rem' }}>
-                  hallo@waschtls-schmankerl.de
+                  waschtls.schmankerl@web.de
                 </a>,
               },
               {

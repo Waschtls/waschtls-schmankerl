@@ -42,9 +42,9 @@ export default function KreuzkontaminationPage() {
         <div className="container" style={{ maxWidth: '740px' }}>
           <h2 style={{ marginBottom: '0.75rem' }}>Was ist Kreuzverunreinigung?</h2>
           <p style={{ color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: '1rem' }}>
-            Kreuzverunreinigung (oder Kreuzkontamination) entsteht wenn glutenfreie Lebensmittel
+            Kreuzverunreinigung (oder Kreuzkontamination) entsteht, wenn glutenfreie Lebensmittel
             mit Gluten in Berührung kommen – auch wenn das Gluten selbst nicht mehr sichtbar ist.
-            Das können Krümel auf dem Schneidebrett sein, Mehlstaub in der Luft, ein Löffel der
+            Das können Krümel auf dem Schneidebrett sein, Mehlstaub in der Luft, ein Löffel, der
             vorher in der Weizennudelsoße war, oder Nudeln die im selben Topf wie Weizennudeln
             gekocht wurden.
           </p>
@@ -141,7 +141,7 @@ export default function KreuzkontaminationPage() {
               },
               {
                 situation: 'Restaurant fragt ob GF-Speisekarte reicht',
-                erklaerung: '„Wir brauchen auch sicheres Zubereitung – getrennte Töpfe, saubere Flächen. Wird das so gehandhabt? Wir fragen nicht um schwierig zu sein, sondern weil es medizinisch notwendig ist."',
+                erklaerung: '„Wir brauchen auch sichere Zubereitung – getrennte Töpfe, saubere Flächen. Wird das so gehandhabt? Wir fragen nicht um schwierig zu sein, sondern weil es medizinisch notwendig ist."',
               },
             ].map(s => (
               <div key={s.situation} className="card" style={{ background: 'var(--cream-dark)' }}>

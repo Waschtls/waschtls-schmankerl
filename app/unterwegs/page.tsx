@@ -260,7 +260,7 @@ export default function UnterwegsPage() {
               🍽 Restaurants in Augsburg
             </h2>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', marginBottom: '1.5rem', maxWidth: '600px' }}>
-              Restaurants wo wir mit unserem Sohn problemlos essen können – d.h. die das Thema ernst nehmen
+              Restaurants, wo wir mit unserem Sohn problemlos essen können – d.h. die das Thema ernst nehmen
               und nicht nur „weglassen".
             </p>
             <div className="grid-2">
@@ -428,9 +428,9 @@ export default function UnterwegsPage() {
               Wenn du ein Restaurant, eine Bäckerei oder einen Laden kennst der es verdient hier zu stehen –
               schreib uns! Wir freuen uns über jede Empfehlung aus der Community.
             </p>
-            <a href="mailto:hallo@waschtls-schmankerl.de"
+            <a href="mailto:waschtls.schmankerl@web.de"
               style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--green-mid)' }}>
-              hallo@waschtls-schmankerl.de →
+              waschtls.schmankerl@web.de →
             </a>
           </div>
 

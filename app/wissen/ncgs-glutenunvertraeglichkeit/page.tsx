@@ -198,7 +198,7 @@ export default function NcgsPage() {
               {
                 icon: '🧪',
                 titel: 'Zöliakie erst ausschließen lassen',
-                text: 'Das ist wirklich wichtig: Wer "einfach mal" glutenfrei lebt ohne Test, kann eine Zöliakie nicht mehr sauber nachweisen – die Antikörper verschwinden. Erst testen, dann diät.',
+                text: 'Das ist wirklich wichtig: Wer "einfach mal" glutenfrei lebt ohne Test, kann eine Zöliakie nicht mehr sauber nachweisen – die Antikörper verschwinden. Erst testen, dann Diät.',
               },
               {
                 icon: '👨‍⚕️',

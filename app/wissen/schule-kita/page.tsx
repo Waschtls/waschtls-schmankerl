@@ -64,7 +64,7 @@ export default function SchuleKitaPage() {
               <p style={{ margin: '0 0 0.5rem' }}>Für den Alltag bei Ihnen bedeutet das bitte Folgendes zu beachten:</p>
               <ul style={{ margin: '0 0 0.75rem', paddingLeft: '1.25rem' }}>
                 <li style={{ marginBottom: '0.4rem' }}>[Name] bringt sein/ihr eigenes Essen mit und darf nichts von anderen Kindern essen.</li>
-                <li style={{ marginBottom: '0.4rem' }}>Bitte darauf achten dass Besteck, Hände und Tische sauber sind bevor [Name] isst.</li>
+                <li style={{ marginBottom: '0.4rem' }}>Bitte darauf achten, dass Besteck, Hände und Tische sauber sind, bevor [Name] isst.</li>
                 <li style={{ marginBottom: '0.4rem' }}>Bei Backen oder Basteln mit Mehl/Teig bitte glutenfreies Material für [Name] bereitstellen oder uns vorher Bescheid geben.</li>
                 <li style={{ marginBottom: '0.4rem' }}>Wir hinterlegen eine kleine Box mit sicheren glutenfreien Snacks für Situationen wie Geburtstage oder spontane Naschereien.</li>
               </ul>

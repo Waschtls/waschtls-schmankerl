@@ -87,7 +87,7 @@ const fragen = [
   {
     frage: 'Wo finde ich gute glutenfreie Produkte?',
     antwort:
-      'Im Reformhaus, in Bio-Supermärkten und in der Freifon-Abteilung großer Supermärkte. Online (z.B. Amazon) ist die Auswahl am größten. Wir haben für euch die Produkte zusammengestellt die wir selbst zuhause verwenden und unseren Sohn mögen.',
+      'Im Reformhaus, in Bio-Supermärkten und in der Freifon-Abteilung großer Supermärkte. Online (z.B. Amazon) ist die Auswahl am größten. Wir haben für euch die Produkte zusammengestellt, die wir selbst zu Hause verwenden und die unserem Sohn schmecken.',
     link: { text: 'Unsere Produktempfehlungen', href: '/produkte' },
   },
 ];

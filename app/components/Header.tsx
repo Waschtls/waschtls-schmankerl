@@ -17,7 +17,7 @@ type SearchItem = {
 
 const SEARCH_INDEX: SearchItem[] = [
   { title: 'Apfel-Zimt-Porridge',          desc: 'Frühstück · 10 Min · ohne Spezialmehl',          href: '/rezepte/apfel-zimt-porridge',         type: 'Rezept', tags: 'apfel zimt porridge haferflocken frühstück schnell kleinkind' },
-  { title: 'Vorratskiste & Convenience',     desc: 'GF Fertigprodukte die wirklich funktionieren',   href: '/vorratskiste',                        type: 'Seite',  tags: 'schnell fertig convenience falafel gnocchi fischstäbchen tk pizza nuggets blätterteig schlemmerfilet dm iglo schär' },
+  { title: 'Vorratskiste & Convenience',     desc: 'GF Fertigprodukte, die wirklich funktionieren',   href: '/vorratskiste',                        type: 'Seite',  tags: 'schnell fertig convenience falafel gnocchi fischstäbchen tk pizza nuggets blätterteig schlemmerfilet dm iglo schär' },
   { title: 'Nudeln mit Tomatensauce',       desc: 'Mittagessen · 25 Min · kleinkindtauglich',       href: '/rezepte/nudeln-mit-tomatensauce',      type: 'Rezept', tags: 'nudeln pasta tomaten mittagessen kinder schnell' },
   { title: 'Kürbisrisotto',                 desc: 'Mittagessen · 40 Min · ohne Spezialmehl',        href: '/rezepte/kuerbisrisotto',               type: 'Rezept', tags: 'kürbis risotto reis mittagessen herbst' },
   { title: 'Pizza glutenfrei',              desc: 'Brot & Hefeteig · 60 Min',                       href: '/rezepte/pizza-glutenfrei',             type: 'Rezept', tags: 'pizza hefeteig brot abendessen belag' },
@@ -44,7 +44,7 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Unterwegs',                     desc: 'Restaurants, Bäckereien & Tipps in Augsburg und Bayern',   href: '/unterwegs',                   type: 'Seite', tags: 'unterwegs restaurant augsburg münchen reisen urlaub bäckerei' },
   { title: 'Feste & Kindergeburtstag',      desc: 'Party-Rezepte, Checklisten und Tipps fürs Feiern',         href: '/rezepte/feste-geburtstage',   type: 'Seite', tags: 'geburtstag party fest kindergeburtstag backen kuchen' },
   { title: 'FAQ – Häufige Fragen',          desc: 'Antworten auf die häufigsten Elternfragen',      href: '/faq',                                  type: 'Seite', tags: 'faq fragen antworten häufig' },
-  { title: 'Produkte & Empfehlungen',       desc: 'Produkte die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
+  { title: 'Produkte & Empfehlungen',       desc: 'Produkte, die wir selbst verwenden',              href: '/produkte',                             type: 'Seite', tags: 'produkte empfehlungen amazon einkauf' },
   { title: 'Nach Zutaten suchen',           desc: 'Welche Rezepte kann ich mit meinen Zutaten kochen?', href: '/rezepte/nach-zutaten',             type: 'Seite', tags: 'zutaten kühlschrank zutatenliste rezept finden' },
   { title: 'Vorlagen & Vordrucke',          desc: 'Musterbriefe, Notfallkarten und Checklisten für Kita & Schule', href: '/wissen/vorlagen', type: 'Wissen', tags: 'vorlagen vordrucke musterbrief brief kita schule erzieher lehrer formular notfallkarte checkliste ausflug ausflugskarte' },
   { title: 'Quark-Gemüse-Fladen',           desc: 'Snacks & Abendessen · 30 Min · hochprotein',               href: '/rezepte/quark-gemuese-fladen',        type: 'Rezept', tags: 'quark fladen gemüse paprika käse salami backen snack abendessen protein' },
@@ -257,7 +257,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                   Was habe ich zu Hause?
                 </p>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-mid)', margin: 0, lineHeight: 1.6 }}>
-                  Wähle auf der nächsten Seite die Zutaten aus die du da hast – wir zeigen welche Rezepte du damit kochen kannst.
+                  Wähle auf der nächsten Seite die Zutaten aus, die du da hast – wir zeigen, welche Rezepte du damit kochen kannst.
                 </p>
               </div>
               <button

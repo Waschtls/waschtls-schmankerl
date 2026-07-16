@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Über uns – Waschtls Schmankerl',
   description:
-    'Eine Augsburger Familie, ein Kind mit Zöliakie – wie wir gelernt haben das glutenfreie Leben in Küche, Kita, Schule und Urlaub zu meistern.',
+    'Eine Augsburger Familie, ein Kind mit Zöliakie – wie wir gelernt haben, das glutenfreie Leben in Küche, Kita, Schule und Urlaub zu meistern.',
 };
 
 export default function UeberUns() {
@@ -37,19 +37,19 @@ export default function UeberUns() {
           <h2>Hallo, ich bin Waschtl</h2>
           <p>
             Ich bin Vater aus Augsburg und Fan von gutem Essen – egal ob klassisch bayerisch oder
-            international. Bei uns zuhause gab es die Armen Ritter die die Oma uns Kindern immer
+            international. Bei uns zu Hause gab es die Armen Ritter, die die Oma uns Kindern immer
             gemacht hat, Schnitzel mit Kartoffelbrei, Fleischküchler, Spaghetti Bolognese, Pizza
             vom Blech. Eine echte Familienküche – bunt, unkompliziert, immer mit Herzblut gekocht.
           </p>
           <p>
-            Dann kam die Diagnose: Mein Sohn hat Zöliakie. Er war noch klein als wir es herausfanden –
+            Dann kam die Diagnose: Mein Sohn hat Zöliakie. Er war noch klein, als wir es herausfanden –
             und mit der Diagnose kam das große Umdenken. Kein Weizen mehr. Kein normaler Knödel.
             Keine Brezel vom Bäcker. Kein Schnitzel ohne Nachfragen.
           </p>
           <p>
-            Was danach kam war gleichzeitig mühsam und überraschend schön: Wir haben nicht einfach
+            Was danach kam, war gleichzeitig mühsam und überraschend schön: Wir haben nicht einfach
             auf Genuss verzichtet – wir haben ihn neu entdeckt. Rezept für Rezept, Zutat für Zutat.
-            Und wir haben festgestellt, dass glutenfrei kochen nicht bedeutet auf Geschmack zu
+            Und wir haben festgestellt, dass glutenfrei kochen nicht bedeutet, auf Geschmack zu
             verzichten. Es bedeutet nur, anders zu denken.
           </p>
 
@@ -58,19 +58,19 @@ export default function UeberUns() {
           <h2>Warum diese Website mehr ist als ein Rezeptblog</h2>
           <p>
             Am Anfang dachten wir: wir brauchen neue Rezepte. Stimmt – aber das war nur ein
-            Bruchteil des Lebens das sich verändert hat.
+            Bruchteil des Lebens, das sich verändert hat.
           </p>
           <p>
-            Wir mussten verstehen wie Kreuzkontamination funktioniert und warum „die nehmen einfach
+            Wir mussten verstehen, wie Kreuzkontamination funktioniert und warum „die nehmen einfach
             kein Mehl" nicht reicht. Wir mussten der Kita erklären was Zöliakie ist –
             und zwar so, dass es beim Geburtstagskuchen der anderen Kinder auch wirklich umgesetzt
-            wird. Wir mussten lernen wie man im Restaurant fragt ohne jeden Kellner zu überfordern.
-            Und wir mussten herausfinden wie Urlaub mit einem Zöliakie-Kind geht, ohne ständig
+            wird. Wir mussten lernen, wie man im Restaurant fragt ohne jeden Kellner zu überfordern.
+            Und wir mussten herausfinden, wie Urlaub mit einem Zöliakie-Kind geht, ohne ständig
             Angst zu haben.
           </p>
           <p>
             All das steht hier – nicht als Ratgeber von Experten, sondern als ehrliche
-            Erfahrungssammlung einer Familie die es selbst täglich lebt.
+            Erfahrungssammlung einer Familie, die es selbst täglich lebt.
           </p>
 
           <div style={{
@@ -111,13 +111,13 @@ export default function UeberUns() {
           <h2>Warum „Waschtl" – und warum „Schmankerl"?</h2>
           <p>
             Waschtl ist mein Spitzname – den hab ich von meinen Kumpels bekommen. Ein Schmankerl
-            ist im Bayerischen eine besondere Gaumenfreude, etwas Feines das man mit Herzblut kocht
+            ist im Bayerischen eine besondere Gaumenfreude, etwas Feines, das man mit Herzblut kocht
             und gerne teilt. Der Name war eigentlich für einen klassischen Foodblog gedacht.
             Die Diagnose hat den Blog zu etwas anderem gemacht.
           </p>
           <p>
             Mittlerweile isst die ganze Familie glutenfrei. Nicht weil wir müssen – sondern weil
-            wir gemerkt haben, dass es einfacher und schöner ist wenn alle das Gleiche essen.
+            wir gemerkt haben, dass es einfacher und schöner ist, wenn alle das Gleiche essen.
             Keine zwei Töpfe. Kein Aufpassen am Tisch. Einfach Essen.
           </p>
 
@@ -134,8 +134,7 @@ export default function UeberUns() {
             color: 'var(--text-dark)',
             lineHeight: 1.8,
           }}>
-            „Glutenfrei kochen bedeutet nicht auf Genuss verzichten – es bedeutet, die Küche die
-            man liebt neu zu entdecken."
+            „Glutenfrei kochen bedeutet nicht auf Genuss verzichten – es bedeutet, die Küche, die man liebt, neu zu entdecken."
           </blockquote>
 
           <div className="card" style={{ background: 'var(--green-deep)', border: 'none', textAlign: 'center' }}>
@@ -168,7 +167,7 @@ export default function UeberUns() {
               Einige Produktlinks auf dieser Website führen zu Amazon und sind Affiliate-Links –
               erkennbar am Hinweis „Anzeige". Wenn ihr über diese Links einkauft, erhalten wir eine
               kleine Provision. Für euch entstehen dabei keine Mehrkosten. Wir empfehlen
-              ausschließlich Produkte die wir selbst im Einsatz haben.
+              ausschließlich Produkte, die wir selbst im Einsatz haben.
               Produktnennungen ohne „Anzeige"-Kennzeichnung (z.&nbsp;B. Mehlmarken in Rezepten)
               sind redaktionelle Empfehlungen ohne Gegenleistung.
             </p>

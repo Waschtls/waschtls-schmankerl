@@ -28,7 +28,7 @@ export default function Geburtstage() {
 
           <h2>Der eigene Geburtstag</h2>
           <p>
-            Hier habt ihr volle Kontrolle – und das ist gut so. Ein glutenfreier Geburtstagskuchen muss nicht weniger lecker sein als ein normaler. Viele unserer Lieblingsrezepte basieren auf Mandelmehl oder Reismehl und sind sogar saftig als klassische Varianten.
+            Hier habt ihr volle Kontrolle – und das ist gut so. Ein glutenfreier Geburtstagskuchen muss nicht weniger lecker sein als ein normaler. Viele unserer Lieblingsrezepte basieren auf Mandelmehl oder Reismehl und sind sogar saftiger als klassische Varianten.
           </p>
           <p>
             Wenn ihr Freunde einladet: Einfach alle Snacks glutenfrei gestalten. Chips, Obst, glutenfreie Mini-Pizzen, Popcorn – kein Kind wird vermissen, dass kein normales Brot dabei ist.

@@ -28,7 +28,7 @@ export default function KindernErklaeren() {
 
           <h2>Warum es wichtig ist, ehrlich zu sein</h2>
           <p>
-            Viele Eltern wollen ihr Kind schützen und sprechen die Diagnose nur zögerlich an. Das Gegenteil hilft mehr: Kinder die verstehen warum sie anders essen, entwickeln ein gesundes Selbstbewusstsein damit. Kinder die es nicht verstehen, fühlen sich ausgeschlossen – und schummeln öfter.
+            Viele Eltern wollen ihr Kind schützen und sprechen die Diagnose nur zögerlich an. Das Gegenteil hilft mehr: Kinder, die verstehen, warum sie anders essen, entwickeln ein gesundes Selbstbewusstsein damit. Kinder die es nicht verstehen, fühlen sich ausgeschlossen – und schummeln öfter.
           </p>
 
           <h2>Erklärungen nach Alter</h2>
