@@ -30,20 +30,19 @@ export default function DickePfannkuchenPage() {
         '1 Prise Salz',
         '2 Eier (Gr. M), getrennt',
         '200 ml Milch (oder Hafermilch GF)',
-        '2 EL Butterschmalz (oder Butter), geschmolzen',
-        '1 TL Vanilleextrakt',
+        '1 TL Vanillearoma (oder 1 EL Vanillezucker)',
         '— Zum Servieren —',
         'Erdbeeren, Blaubeeren oder anderes Obst',
         'Ahornsirup, Puderzucker',
       ]}
       zubereitung={[
         'Trockene Zutaten (Mehl, Backpulver, Zucker, Salz) in einer großen Schüssel mischen.',
-        'Eigelb, Milch, geschmolzenes Butterschmalz und Vanille verrühren – zu den trockenen Zutaten geben und nur kurz vermengen. Klümpchen sind okay.',
+        'Eigelb, Milch und Vanille verrühren – zu den trockenen Zutaten geben und nur kurz vermengen. Klümpchen sind okay.',
         'Eiweiß in einer sauberen, fettfreien Schüssel mit dem Mixer steif schlagen – es soll schnittfeste Spitzen bilden.',
         'Eischnee in zwei Portionen vorsichtig unter den Teig heben – nicht rühren, sondern mit einem Teigschaber von unten nach oben falten. Luft erhalten!',
-        'Pfanne bei niedriger bis mittlerer Hitze erhitzen, etwas Butterschmalz darin schmelzen.',
-        'Je 2–3 EL Teig pro Pancake hineingeben. Warten bis sich an der Oberfläche kleine Luftbläschen bilden und die Ränder fest werden – erst dann wenden (ca. 2–3 Min.).',
-        'Weitere 1–2 Minuten backen bis die Unterseite goldbraun ist.',
+        'Pfanne bei niedriger bis mittlerer Hitze erhitzen, etwas Butterschmalz zum Ausbraten darin schmelzen.',
+        'Je 2–3 EL Teig pro Pancake hineingeben. Deckel auflegen – so gart auch das aufgeschlagene Eiweiß sicher durch. Warten bis sich an der Oberfläche kleine Luftbläschen bilden und die Ränder fest werden – erst dann wenden (ca. 2–3 Min.).',
+        'Weitere 1–2 Minuten ohne Deckel backen bis die Unterseite goldbraun ist.',
         'Sofort servieren mit frischen Früchten und Ahornsirup.',
       ]}
       naehrwerte={{ kalorien: 120, kohlenhydrate: 18, protein: 4, fett: 4, ballaststoffe: 1 }}
@@ -51,7 +50,7 @@ export default function DickePfannkuchenPage() {
         'Teig zu zäh? Einfach etwas Milch nachschütten und kurz verrühren – der Teig soll dickflüssig fließen, nicht klumpen.',
         'Niedrige Temperatur ist entscheidend: die Pfanne darf nach dem Einfetten nicht rauchen. Lieber länger warten als zu heiß.',
         'Pancakes schmecken frisch am besten – am Tisch stapeln und sofort essen. Wer warten muss: bei 80 °C im Ofen warm halten, aber nicht länger als 15 Minuten.',
-        'Butterschmalz hat einen höheren Rauchpunkt als Butter und gibt den Pancakes einen leicht nussigen Geschmack – sehr empfehlenswert.',
+        'Butterschmalz zum Ausbraten hat einen höheren Rauchpunkt als Butter und gibt den Pancakes einen leicht nussigen Geschmack – sehr empfehlenswert.',
         'Reste lassen sich einfrieren und im Toaster aufwärmen.',
       ]}
       affiliate={undefined}
