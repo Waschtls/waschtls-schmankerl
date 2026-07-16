@@ -31,13 +31,15 @@ export default function DickePfannkuchenPage() {
         '2 Eier (Gr. M), getrennt',
         '200 ml Milch (oder Hafermilch GF)',
         '1 TL Vanillearoma (oder 1 EL Vanillezucker)',
+        '— Zum Braten —',
+        'Butterschmalz (oder Butter)',
         '— Zum Servieren —',
         'Erdbeeren, Blaubeeren oder anderes Obst',
         'Ahornsirup, Puderzucker',
       ]}
       zubereitung={[
         'Trockene Zutaten (Mehl, Backpulver, Zucker, Salz) in einer großen Schüssel mischen.',
-        'Eigelb, Milch und Vanille verrühren – zu den trockenen Zutaten geben und nur kurz vermengen. Klümpchen sind okay.',
+        'Eigelb, Milch und Vanille verrühren – zu den trockenen Zutaten geben und nur kurz vermengen.',
         'Eiweiß in einer sauberen, fettfreien Schüssel mit dem Mixer steif schlagen – es soll schnittfeste Spitzen bilden.',
         'Eischnee in zwei Portionen vorsichtig unter den Teig heben – nicht rühren, sondern mit einem Teigschaber von unten nach oben falten. Luft erhalten!',
         'Pfanne bei niedriger bis mittlerer Hitze erhitzen, etwas Butterschmalz zum Ausbraten darin schmelzen.',
