@@ -310,6 +310,23 @@ export const REZEPTE: Rezept[] = [
     emoji: '🥥', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: true,
   },
+  // ── Desserts ohne Zucker ──
+  {
+    slug: 'kokos-schoko-mousse',
+    title: 'Kokos-Schoko-Mousse',
+    desc: '3 Zutaten, 5 Minuten Arbeit – cremiges Schoko-Mousse mit Datteln, ohne raffinierten Zucker.',
+    time: '5 Min. + 2 Std. kühlen', kat: 'dessert', tags: [],
+    emoji: '🍫', naturalGf: true, beikost: false, kind: true,
+    vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+  },
+  {
+    slug: 'bananenwaffeln-datteln',
+    title: 'Bananenwaffeln mit Datteln',
+    desc: 'Glutenfreie Waffeln aus gemahlenen Haferflocken – ohne Spezialmehl, ohne raffinierten Zucker.',
+    time: '30 Min.', kat: 'fruehstueck', tags: ['dessert'],
+    emoji: '🧇', naturalGf: false, beikost: false, kind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+  },
   // ── Beikost ──
   {
     slug: 'avocado-schoko-creme',
