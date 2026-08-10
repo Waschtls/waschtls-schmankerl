@@ -16,6 +16,7 @@ export default function LachskuechlerPage() {
       ]}
       tagline="Saftige Lachsküchler, die auch Kinder lieben – kein Spezialmehl, kein Aufwand. Einfach alles zusammenmischen und rausbraten."
       useCases={['Schnelles Mittagessen', 'Wenn Reste eingefroren werden sollen', 'Für die ganze Familie', 'Fischfreitag']}
+      heroImage="/images/lachskuechler.jpg"
       minuten={35}
       portionen={4}
       schwierigkeit="Einfach"
@@ -38,9 +39,9 @@ export default function LachskuechlerPage() {
       ]}
       naehrwerte={{ kalorien: 490, kohlenhydrate: 14, protein: 38, fett: 28, ballaststoffe: 1 }}
       tipps={[
-        'Die Masse sollte sich gut formen lassen – falls sie zu weich ist, noch etwas mehr Toast einarbeiten.',
+        'Falls die Masse zu weich ist: glutenfreie Semmelbrösel einarbeiten bis sie sich gut formen lässt.',
         'Kokosfett gibt einen leicht nussigen Geschmack; Butter macht die Küchler besonders knusprig.',
-        'Lachsküchler lassen sich super einfrieren (roh oder fertig gebraten) und später direkt in der Pfanne erhitzen.',
+        'Am nächsten Tag kalt oder kurz aufgebraten – schmecken als Mittagessen genauso gut.',
         'Dazu passen: Gurkensalat, Joghurt-Dip mit Dill oder einfach Kartoffeln.',
       ]}
       prev={{ title: 'Bananenwaffeln mit Datteln', href: '/rezepte/bananenwaffeln-datteln' }}

@@ -59,6 +59,9 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Schokoladen-Granola',          desc: 'Frühstück · 20 Min. · vegan · milchfrei · 1 Woche haltbar',  href: '/rezepte/granola',                      type: 'Rezept', tags: 'granola müsli haferflocken kokosfett ahornsirup schokomus schokolade vegan milchfrei frühstück joghurt skyr batch' },
   { title: 'Zähne & Zahnschmelz bei Zöliakie', desc: 'Zahnschmelzdefekte, Zahnarzt, Frühwarnzeichen', href: '/wissen/zaehne-zoeliakiie', type: 'Wissen', tags: 'zähne zahnschmelz defekte schmelz zahnarzt milchzähne bleibende karies aphten mund fluorid prophylaxe' },
   { title: 'NCGS – Glutenunverträglichkeit ohne Zöliakie', desc: 'Glutensensitivität: Symptome, Diagnose, Unterschied zu Zöliakie', href: '/wissen/ncgs-glutenunvertraeglichkeit', type: 'Wissen', tags: 'ncgs glutensensitivität glutenunverträglichkeit weizenallergie fodmap diagnose ausschluss test bauchschmerzen' },
+  { title: 'Lachsküchler',                desc: 'Mittagessen · 35 Min · ohne Spezialmehl · kleinkindtauglich',  href: '/rezepte/lachskuechler',               type: 'Rezept', tags: 'lachs küchler fisch toast ei petersilie zwiebel pfanne braten milchfrei' },
+  { title: 'Kokos-Schoko-Mousse',         desc: 'Dessert · 5 Min · vegan · ohne raffinierten Zucker',           href: '/rezepte/kokos-schoko-mousse',          type: 'Rezept', tags: 'kokos schokolade mousse dessert vegan datteln kokosmilch kakao schnell' },
+  { title: 'Bananenwaffeln mit Datteln',  desc: 'Frühstück · 30 Min · ohne Spezialmehl · zuckerfrei',           href: '/rezepte/bananenwaffeln-datteln',       type: 'Rezept', tags: 'banane waffeln datteln haferflocken frühstück dessert zuckerfrei ohne mehl' },
 ];
 
 function searchText(query: string): SearchItem[] {
