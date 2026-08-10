@@ -332,7 +332,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Lachsküchler',
     desc: 'Saftige Lachsküchler aus Lachs, GF-Toast und Ei – schnell in der Pfanne, kein Spezialmehl nötig.',
     time: '35 Min.', kat: 'mittagessen', tags: [],
-    emoji: '🐟', naturalGf: false, beikost: false, kind: true,
+    emoji: '🐟', image: '/images/lachskuechler.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
   },
   // ── Beikost ──
