@@ -327,6 +327,14 @@ export const REZEPTE: Rezept[] = [
     emoji: '🧇', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
+  {
+    slug: 'lachskuechler',
+    title: 'Lachsküchler',
+    desc: 'Saftige Lachsküchler aus Lachs, GF-Toast und Ei – schnell in der Pfanne, kein Spezialmehl nötig.',
+    time: '35 Min.', kat: 'mittagessen', tags: [],
+    emoji: '🐟', naturalGf: false, beikost: false, kind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
+  },
   // ── Beikost ──
   {
     slug: 'avocado-schoko-creme',
