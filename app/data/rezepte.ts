@@ -378,3 +378,4 @@ export const REZEPTE: Rezept[] = [
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
   },
 ];
+
