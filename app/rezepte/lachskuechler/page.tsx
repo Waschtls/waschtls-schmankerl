@@ -36,6 +36,7 @@ export default function LachskuechlerPage() {
         'Fett in einer Pfanne auf mittlerer Hitze erhitzen. Küchler portionsweise von jeder Seite ca. 3–4 Minuten goldbraun braten – nicht zu heiß, damit sie innen durchgaren.',
         'Auf Küchenpapier abtropfen lassen und heiß servieren.',
       ]}
+      naehrwerte={{ kalorien: 490, kohlenhydrate: 14, protein: 38, fett: 28, ballaststoffe: 1 }}
       tipps={[
         'Die Masse sollte sich gut formen lassen – falls sie zu weich ist, noch etwas mehr Toast einarbeiten.',
         'Kokosfett gibt einen leicht nussigen Geschmack; Butter macht die Küchler besonders knusprig.',
