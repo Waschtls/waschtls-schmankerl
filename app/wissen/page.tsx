@@ -141,6 +141,20 @@ const themen = [
     href: '/wissen/ncgs-glutenunvertraeglichkeit',
     tag: 'Grundlagen',
   },
+  {
+    icon: '🧬',
+    title: 'Zöliakie & Genetik',
+    desc: 'Muss ich meine anderen Kinder testen lassen? Was HLA-DQ2/DQ8 bedeutet, welches Risiko Geschwister haben und wann ein Gentest sinnvoll ist.',
+    href: '/wissen/zoeliakie-genetik',
+    tag: 'Grundlagen',
+  },
+  {
+    icon: '🔭',
+    title: 'Neue Therapien & Forschung 2026',
+    desc: 'Was gerade in klinischen Studien getestet wird, warum ein "Impfansatz" Hoffnung macht – und eine Petition an den Bundestag die Unterstützung braucht.',
+    href: '/wissen/neue-therapien-2026',
+    tag: 'Aktuell',
+  },
 ];
 
 export default function WissenPage() {
