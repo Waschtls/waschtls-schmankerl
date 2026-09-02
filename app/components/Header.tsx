@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 // ── Such-Index ─────────────────────────────────────────────────────────────────
@@ -329,7 +328,8 @@ export default function Header() {
         <div className="container header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '128px' }}>
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Image src="/logo.png" alt="Waschtls Schmankerl Logo" width={240} height={240} className="site-logo" style={{ objectFit: 'contain', height: 'auto' }} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Waschtls Schmankerl Logo" className="site-logo" style={{ objectFit: 'contain', height: 'auto' }} />
             <div>
               <span style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--golden)', display: 'block', lineHeight: 1.1 }}>
                 Waschtl&apos;s Schmankerl
