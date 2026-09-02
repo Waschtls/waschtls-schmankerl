@@ -23,6 +23,8 @@ export type Rezept = {
   milchfrei: boolean;
   eierfrei: boolean;
   todo?: boolean;
+  published: string;   // 'YYYY-MM' – Veröffentlichungsdatum
+  beliebtheit: number; // 1–10, höher = beliebter (für manuelle Sortierung)
 };
 
 export const KAT_LABELS: Record<string, string> = {
@@ -47,6 +49,7 @@ export const REZEPTE: Rezept[] = [
     time: '40 Min.', kat: 'fruehstueck', tags: ['snacks'],
     emoji: '🍎', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2024-02', beliebtheit: 6,
   },
   {
     slug: 'protein-bagel',
@@ -55,6 +58,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'fruehstueck', tags: ['hefeteig'],
     emoji: '🥯', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2024-03', beliebtheit: 6,
   },
   {
     slug: 'pfannkuchen-klassisch',
@@ -63,6 +67,7 @@ export const REZEPTE: Rezept[] = [
     time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
     emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2024-01', beliebtheit: 8,
   },
   {
     slug: 'apfel-zimt-porridge',
@@ -71,6 +76,7 @@ export const REZEPTE: Rezept[] = [
     time: '10 Min.', kat: 'fruehstueck', tags: [],
     emoji: '🍎', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
+    published: '2024-01', beliebtheit: 7,
   },
   {
     slug: 'french-toast',
@@ -79,6 +85,7 @@ export const REZEPTE: Rezept[] = [
     time: '20 Min.', kat: 'fruehstueck', tags: ['mittagessen', 'kindergeburtstag'],
     emoji: '🍞', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-01', beliebtheit: 7,
   },
   {
     slug: 'waffeln-klassisch',
@@ -87,6 +94,7 @@ export const REZEPTE: Rezept[] = [
     time: '25 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
     emoji: '🧇', image: '/images/waffeln-klassisch.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-02', beliebtheit: 8,
   },
   {
     slug: 'dicke-pfannkuchen',
@@ -95,6 +103,7 @@ export const REZEPTE: Rezept[] = [
     time: '20 Min.', kat: 'fruehstueck', tags: ['dessert', 'kindergeburtstag'],
     emoji: '🥞', image: '/images/dicke-pfannkuchen.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-03', beliebtheit: 9,
   },
   {
     slug: 'granola',
@@ -103,6 +112,7 @@ export const REZEPTE: Rezept[] = [
     time: '20 Min.', kat: 'fruehstueck', tags: ['snacks'],
     emoji: '🥣', image: '/images/granola.jpg', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: false, milchfrei: true, eierfrei: true,
+    published: '2026-07', beliebtheit: 7,
   },
   // ── Mittagessen ──
   {
@@ -112,6 +122,7 @@ export const REZEPTE: Rezept[] = [
     time: '2 Std.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🥘', naturalGf: true, beikost: false, kind: false,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2024-08', beliebtheit: 8,
   },
   {
     slug: 'spaghetti-bolognese',
@@ -120,6 +131,7 @@ export const REZEPTE: Rezept[] = [
     time: '45 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
     emoji: '🍝', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2024-04', beliebtheit: 9,
   },
   {
     slug: 'fleischkuechle',
@@ -128,6 +140,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'mittagessen', tags: ['abendessen', 'kindergeburtstag'],
     emoji: '🍖', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2025-04', beliebtheit: 8,
   },
   {
     slug: 'chicken-nuggets-selbstgemacht',
@@ -136,6 +149,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'mittagessen', tags: ['kindergeburtstag'],
     emoji: '🐔', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2025-05', beliebtheit: 9,
   },
   {
     slug: 'reiberdatschi-kartoffelpuffer',
@@ -144,6 +158,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'mittagessen', tags: ['snacks', 'abendessen'],
     emoji: '🥔', image: '/images/reiberdatschi.jpg', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
+    published: '2025-06', beliebtheit: 8,
   },
   {
     slug: 'nudeln-mit-tomatensauce',
@@ -152,6 +167,7 @@ export const REZEPTE: Rezept[] = [
     time: '25 Min.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🍝', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2024-02', beliebtheit: 8,
   },
   {
     slug: 'kuerbisrisotto',
@@ -160,6 +176,7 @@ export const REZEPTE: Rezept[] = [
     time: '40 Min.', kat: 'mittagessen', tags: ['abendessen'],
     emoji: '🎃', naturalGf: true, beikost: true, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
+    published: '2024-09', beliebtheit: 6,
   },
   // ── Abendessen ──
   {
@@ -169,6 +186,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
     emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2024-05', beliebtheit: 7,
   },
   {
     slug: 'flammkuchen-ofenpfannkuchen',
@@ -177,6 +195,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'abendessen', tags: ['snacks'],
     emoji: '🧀', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2024-06', beliebtheit: 7,
   },
   {
     slug: 'pizza-glutenfrei',
@@ -185,6 +204,7 @@ export const REZEPTE: Rezept[] = [
     time: '45 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
     emoji: '🍕', image: '/images/pizza-glutenfrei.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2024-07', beliebtheit: 10,
   },
   {
     slug: 'schnitzel-kartoffelbrei',
@@ -193,6 +213,7 @@ export const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen', 'kindergeburtstag'],
     emoji: '🥩', image: '/images/schnitzel-kartoffelbrei.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2024-07', beliebtheit: 9,
   },
   {
     slug: 'kaesspatzen',
@@ -201,6 +222,7 @@ export const REZEPTE: Rezept[] = [
     time: '40 Min.', kat: 'abendessen', tags: ['mittagessen'],
     emoji: '🧀', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2024-03', beliebtheit: 7,
   },
   {
     slug: 'veganes-chili',
@@ -209,6 +231,7 @@ export const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'abendessen', tags: ['mittagessen'],
     emoji: '🌶', naturalGf: true, beikost: false, kind: false,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2024-05', beliebtheit: 6,
   },
   // ── Backen & Kuchen ──
   {
@@ -218,6 +241,7 @@ export const REZEPTE: Rezept[] = [
     time: '60 Min.', kat: 'backen', tags: ['dessert', 'snacks'],
     emoji: '🍌', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2024-04', beliebtheit: 7,
   },
   {
     slug: 'brownies-schokolade',
@@ -226,6 +250,7 @@ export const REZEPTE: Rezept[] = [
     time: '40 Min.', kat: 'backen', tags: ['kindergeburtstag', 'dessert'],
     emoji: '🍫', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-07', beliebtheit: 8,
   },
   {
     slug: 'zwetschgendatschi',
@@ -234,6 +259,7 @@ export const REZEPTE: Rezept[] = [
     time: '100 Min.', kat: 'backen', tags: ['saisonal', 'dessert', 'hefeteig'],
     emoji: '🍑', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-08', beliebtheit: 7,
   },
   {
     slug: 'schokoladenkuchen-mandelmehl',
@@ -242,6 +268,7 @@ export const REZEPTE: Rezept[] = [
     time: '50 Min.', kat: 'backen', tags: ['kindergeburtstag'],
     emoji: '🍫', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2024-06', beliebtheit: 8,
   },
   // ── Brot & Hefeteig ──
   {
@@ -251,6 +278,7 @@ export const REZEPTE: Rezept[] = [
     time: '2,5 Std.', kat: 'hefeteig', tags: ['snacks'],
     emoji: '🌭', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-10', beliebtheit: 7,
   },
   {
     slug: 'hamburger-broetchen',
@@ -259,6 +287,7 @@ export const REZEPTE: Rezept[] = [
     time: '2,5 Std.', kat: 'hefeteig', tags: ['snacks'],
     emoji: '🍔', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-10', beliebtheit: 8,
   },
   {
     slug: 'italienische-focaccia',
@@ -267,6 +296,7 @@ export const REZEPTE: Rezept[] = [
     time: '2 Std.', kat: 'hefeteig', tags: ['abendessen', 'backen'],
     emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-11', beliebtheit: 7,
   },
   {
     slug: 'laugenbrezeln-glutenfrei',
@@ -275,6 +305,7 @@ export const REZEPTE: Rezept[] = [
     time: '2 Std.', kat: 'hefeteig', tags: ['backen', 'snacks'],
     emoji: '🥨', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2025-09', beliebtheit: 7,
   },
   // ── Snacks & Brotdose ──
   {
@@ -284,6 +315,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
     emoji: '🧁', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
+    published: '2024-03', beliebtheit: 8,
   },
   {
     slug: 'energiebaellchen',
@@ -292,6 +324,7 @@ export const REZEPTE: Rezept[] = [
     time: '15 Min.', kat: 'snacks', tags: ['kindergeburtstag'],
     emoji: '🟤', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: false, milchfrei: true, eierfrei: true,
+    published: '2024-04', beliebtheit: 6,
   },
   // ── Desserts ──
   {
@@ -301,6 +334,7 @@ export const REZEPTE: Rezept[] = [
     time: '15 Min. + 4h', kat: 'dessert', tags: ['snacks', 'kindergeburtstag'],
     emoji: '🍫', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: true,
+    published: '2024-06', beliebtheit: 7,
   },
   {
     slug: 'milchreis-kokos',
@@ -309,8 +343,8 @@ export const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'dessert', tags: [],
     emoji: '🥥', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: true,
+    published: '2024-05', beliebtheit: 6,
   },
-  // ── Desserts ohne Zucker ──
   {
     slug: 'kokos-schoko-mousse',
     title: 'Kokos-Schoko-Mousse',
@@ -318,6 +352,7 @@ export const REZEPTE: Rezept[] = [
     time: '5 Min. + 2 Std. kühlen', kat: 'dessert', tags: [],
     emoji: '🍫', naturalGf: true, beikost: false, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2026-08', beliebtheit: 7,
   },
   {
     slug: 'bananenwaffeln-datteln',
@@ -326,6 +361,7 @@ export const REZEPTE: Rezept[] = [
     time: '30 Min.', kat: 'fruehstueck', tags: ['dessert'],
     emoji: '🧇', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2026-08', beliebtheit: 7,
   },
   {
     slug: 'lachskuechler',
@@ -334,6 +370,7 @@ export const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'mittagessen', tags: [],
     emoji: '🐟', image: '/images/lachskuechler.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: true, eierfrei: false,
+    published: '2026-09', beliebtheit: 7,
   },
   // ── Beikost ──
   {
@@ -343,6 +380,7 @@ export const REZEPTE: Rezept[] = [
     time: '5 Min.', kat: 'dessert', tags: ['snacks'],
     emoji: '🥑', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2026-02', beliebtheit: 6,
   },
   {
     slug: 'apfelspalten',
@@ -351,6 +389,7 @@ export const REZEPTE: Rezept[] = [
     time: '8 Min.', kat: 'snacks', tags: ['dessert'],
     emoji: '🍎', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2026-01', beliebtheit: 5,
   },
   {
     slug: 'apfelringe',
@@ -359,6 +398,7 @@ export const REZEPTE: Rezept[] = [
     time: '20 Min.', kat: 'snacks', tags: ['dessert'],
     emoji: '🍏', naturalGf: true, beikost: true, kind: true,
     vegetarisch: true, vegan: true, zuckerfrei: true, milchfrei: true, eierfrei: true,
+    published: '2026-01', beliebtheit: 6,
   },
   // ── Grundrezepte ──
   {
@@ -368,6 +408,7 @@ export const REZEPTE: Rezept[] = [
     time: '90 Min.', kat: 'grundrezepte', tags: ['hefeteig', 'backen'],
     emoji: '🧑‍🍳', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2025-07', beliebtheit: 6,
   },
   {
     slug: 'semmelknoedel',
@@ -376,6 +417,6 @@ export const REZEPTE: Rezept[] = [
     time: '35 Min.', kat: 'grundrezepte', tags: ['mittagessen', 'abendessen'],
     emoji: '🥟', naturalGf: false, beikost: false, kind: false,
     vegetarisch: true, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2025-06', beliebtheit: 7,
   },
 ];
-

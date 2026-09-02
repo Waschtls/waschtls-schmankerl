@@ -39,6 +39,8 @@ const ERNAEHRUNG = [
 export default function RezeptePage() {
   const [aktiv, setAktiv] = useState('alle');
   const [ernaehrung, setErnaehrung] = useState<string[]>([]);
+  type Sortierung = 'standard' | 'az' | 'za' | 'neu' | 'alt' | 'beliebt-desc' | 'beliebt-asc';
+  const [sortierung, setSortierung] = useState<Sortierung>('standard');
 
   const toggleErnaehrung = (id: string) => {
     if (id === 'alle') { setErnaehrung([]); return; }
@@ -61,6 +63,16 @@ export default function RezeptePage() {
         (f === 'eierfrei'    && r.eierfrei)
       );
     return katMatch && dietMatch;
+  }).sort((a, b) => {
+    switch (sortierung) {
+      case 'az':          return a.title.localeCompare(b.title, 'de');
+      case 'za':          return b.title.localeCompare(a.title, 'de');
+      case 'neu':         return b.published.localeCompare(a.published);
+      case 'alt':         return a.published.localeCompare(b.published);
+      case 'beliebt-desc': return b.beliebtheit - a.beliebtheit;
+      case 'beliebt-asc': return a.beliebtheit - b.beliebtheit;
+      default:            return 0;
+    }
   });
 
   return (
@@ -168,6 +180,48 @@ export default function RezeptePage() {
                       background: (id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 'rgba(244,162,97,0.12)' : 'transparent',
                       color: (id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 'var(--terracotta)' : 'var(--text-mid)',
                       fontSize: '0.75rem', fontWeight: (id === 'alle' ? ernaehrung.length === 0 : ernaehrung.includes(id)) ? 700 : 400,
+                      cursor: 'pointer', transition: 'all 0.15s', flexShrink: 0,
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Trennlinie */}
+          <div style={{ height: '1px', background: 'var(--border)', margin: '0.4rem 0' }} />
+
+          {/* Zeile 3: Sortierung */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
+              textTransform: 'uppercase', color: 'var(--text-light)',
+              whiteSpace: 'nowrap', minWidth: '68px',
+            }}>
+              Sortierung
+            </span>
+            <div style={{ overflow: 'hidden', flex: 1 }}>
+              <div style={{ display: 'flex', gap: '0.35rem', overflowX: 'auto', paddingBottom: '2px' }}>
+                {([
+                  { id: 'standard',     label: 'Standard' },
+                  { id: 'az',           label: 'A → Z' },
+                  { id: 'za',           label: 'Z → A' },
+                  { id: 'neu',          label: 'Neueste zuerst' },
+                  { id: 'alt',          label: 'Älteste zuerst' },
+                  { id: 'beliebt-desc', label: '⭐ Beliebteste' },
+                  { id: 'beliebt-asc',  label: '⭐ Unbekanntere' },
+                ] as { id: Sortierung; label: string }[]).map(({ id, label }) => (
+                  <button
+                    key={id}
+                    onClick={() => setSortierung(id)}
+                    style={{
+                      padding: '0.3rem 0.75rem', borderRadius: '999px', whiteSpace: 'nowrap',
+                      border: `1.5px solid ${sortierung === id ? 'var(--green-mid)' : 'var(--border)'}`,
+                      background: sortierung === id ? 'rgba(88,163,102,0.12)' : 'transparent',
+                      color: sortierung === id ? 'var(--green-mid)' : 'var(--text-mid)',
+                      fontSize: '0.75rem', fontWeight: sortierung === id ? 700 : 400,
                       cursor: 'pointer', transition: 'all 0.15s', flexShrink: 0,
                     }}
                   >

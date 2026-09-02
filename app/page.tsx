@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { NEUIGKEITEN } from '@/app/data/neuigkeiten';
 
 export const metadata: Metadata = {
   title: "Waschtl's Schmankerl – Glutenfreie Rezepte aus Augsburg",
@@ -108,6 +109,59 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Neu auf der Seite ── */}
+      <section style={{ background: '#fff', padding: '2.5rem 0', borderBottom: '1px solid var(--border)' }}>
+        <div className="container">
+          <p style={{
+            fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.07em',
+            textTransform: 'uppercase', color: 'var(--green-mid)',
+            margin: '0 0 1.25rem',
+          }}>
+            Neu auf der Seite
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+            {NEUIGKEITEN.slice(0, 5).map(({ datum, typ, titel, desc, href }) => {
+              const typColor: Record<string, string> = {
+                Rezept: 'var(--golden)',
+                Wissen: 'var(--mint)',
+                Seite: 'var(--green-mid)',
+              };
+              return (
+                <Link key={href} href={href} style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '1rem',
+                    padding: '0.875rem 1.125rem',
+                    background: 'var(--cream-dark)',
+                    borderRadius: '10px',
+                    border: '1.5px solid var(--border)',
+                    transition: 'border-color 0.15s',
+                  }}>
+                    <span style={{
+                      flexShrink: 0, fontSize: '0.65rem', fontWeight: 700,
+                      letterSpacing: '0.06em', textTransform: 'uppercase',
+                      color: typColor[typ] ?? 'var(--green-mid)',
+                      minWidth: '48px',
+                    }}>{typ}</span>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <p style={{ margin: '0 0 0.15rem', fontWeight: 700, fontSize: '0.9rem', color: 'var(--green-deep)' }}>
+                        {titel}
+                      </p>
+                      <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.5 }}>
+                        {desc}
+                      </p>
+                    </div>
+                    <span style={{ flexShrink: 0, fontSize: '0.78rem', color: 'var(--text-mid)', whiteSpace: 'nowrap' }}>
+                      {datum}
+                    </span>
+                    <span style={{ flexShrink: 0, color: 'var(--green-mid)', fontWeight: 700 }}>→</span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
