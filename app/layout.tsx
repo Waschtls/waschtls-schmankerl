@@ -35,6 +35,13 @@ export const metadata: Metadata = {
     title: "Waschtls Schmankerl – Glutenfreie Rezepte für Familien",
     description: 'Glutenfreie Rezepte und ehrliche Tipps von einer Augsburger Familie mit Zöliakie.',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   robots: {
     index: true,
     follow: true,
