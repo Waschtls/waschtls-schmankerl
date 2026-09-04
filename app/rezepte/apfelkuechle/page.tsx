@@ -16,10 +16,10 @@ export default function Apfelkuechle() {
         { type: 'golden', label: '☕ Kaffee & Kuchen' },
         { type: 'mint',   label: '🎉 Kindergeburtstag' },
       ]}
-      tagline="Apfelscheiben in fluffigem Ausbackteig – goldbraun in der Pfanne, mit Puderzucker bestäubt. Ein bayerischer Klassiker, ohne Rum, der ganzen Familie."
+      tagline="Apfelscheiben in fluffigem Ausbackteig – goldbraun in der Pfanne, mit Puderzucker bestäubt. Ein bayerischer Klassiker für die ganze Familie."
       useCases={['🍎 Herbst & Ernte', '🎉 Kindergeburtstag', '☕ Kaffee & Kuchen', '👨‍👩‍👧 Familienklassiker']}
-      portionen={4}
-      einheit="Portionen (ca. 3–4 Küchle pro Person)"
+      portionen={16}
+      einheit="Küchler"
       minuten={30}
       schwierigkeit="Einfach"
       warum="Ausbackteig ist nichts anderes als Pfannkuchenteig – wer also schon glutenfreie Pfannkuchen gebacken hat, hat das Prinzip drauf. Der Teig muss etwas dicker sein als für normale Pfannkuchen, damit er an den Apfelscheiben haftet. Ohne Rum bleibt er für Kinder geeignet – der Geschmack kommt komplett vom Apfel und dem Zimt-Zucker."
@@ -35,7 +35,7 @@ export default function Apfelkuechle() {
         '— Äpfel',
         '3–4 mittelgroße Äpfel (z. B. Boskop oder Braeburn – säuerliche Sorten)',
         '— Ausbacken & Servieren',
-        'Neutrales Öl zum Ausbacken (ca. 1–2 cm hoch in der Pfanne)',
+        'Neutrales Öl mit Butter oder Butterschmalz zum Ausbacken (ca. 1–2 cm hoch in der Pfanne)',
         'Puderzucker zum Bestäuben',
         'Zimt nach Geschmack',
       ]}
@@ -52,7 +52,7 @@ export default function Apfelkuechle() {
       tipps={[
         'Teig etwas dicker als Pfannkuchenteig: er soll an der Scheibe haften und nicht abtropfen – bei Bedarf noch 1–2 EL Mehl einrühren.',
         'Säuerliche Äpfel (Boskop, Braeburn, Elstar) halten besser die Form und geben mehr Geschmack als süße Sorten wie Golden Delicious.',
-        'Öl-Temperatur ist entscheidend: zu kalt = fettig, zu heiß = Teig verbrennt außen bevor der Apfel weich ist. 170–180 °C ist ideal.',
+        'Öl-Temperatur ist entscheidend: zu kalt = fettig, zu heiß = Teig verbrennt außen bevor der Apfel weich ist. 170–180 °C ist ideal. Butter oder Butterschmalz gibt extra Geschmack – Temperatur dabei gut im Auge behalten, da Butter schneller verbrennt als reines Öl.',
         'Für Kleinkinder: etwas dünner schneiden und etwas länger backen damit der Apfel weicher wird.',
         'Vanillezucker statt normalen Zucker im Teig gibt eine extra Aromatiefe.',
         'Alle Zutaten auf Glutenfreiheit prüfen – auch Backpulver kann Spuren enthalten.',
