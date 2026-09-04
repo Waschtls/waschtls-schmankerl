@@ -184,12 +184,6 @@ export default function NeueTherapien2026Page() {
             Arzt über die laufenden Studien sprechen. Vielleicht kommt eine Studienteilnahme
             in Frage.
           </p>
-          <p style={{ color: 'var(--text-mid)', lineHeight: 1.9 }}>
-            Und was wir uns wünschen: dass in ein paar Jahren eine Mutter einem anderen
-            frisch betroffenen Kind nicht mehr erklären muss, warum es auf der Schulparty
-            keinen Kuchen essen darf.
-          </p>
-
           <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/wissen/zoeliakie-genetik" className="btn btn-outline" style={{ fontSize: '0.9rem' }}>
               ← Zöliakie & Genetik

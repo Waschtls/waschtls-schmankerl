@@ -120,6 +120,14 @@ const kategorien: Kategorie[] = [
         internerLinkLabel: 'Zum Waffeln-Rezept',
       },
       {
+        name: 'Einstellbarer Edelstahl-Teigroller',
+        desc: 'Für glutenfreie Blechpizza und Fladen. Mit abnehmbaren Ringen für gleichmäßige Teigdicke – besonders praktisch weil GF-Teig beim Ausrollen schnell reißt wenn er zu dünn wird. Packpapier auf die Arbeitsfläche legen, etwas GF-Mehl drauf, und den Teig portionsweise ausrollen.',
+        bezugsquellen: 'Amazon – in normalen Haushaltswarengeschäften selten erhältlich.',
+        link: amz('B08HD21DY1'),
+        internerLink: '/rezepte/blechpizza-glutenfrei',
+        internerLinkLabel: 'Zum Blechpizza-Rezept',
+      },
+      {
         name: 'Toasttaschen (wiederverwendbar)',
         desc: 'Glutenfreies Brot in eine Toasttasche stecken und im normalen Toaster toasten – keine Kreuzverunreinigung durch Krümel, kein Extra-Gerät.',
         bezugsquellen: 'dm, Rossmann, Kaufland – lokal fast immer günstiger als online.',

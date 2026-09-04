@@ -63,6 +63,7 @@ const SEARCH_INDEX: SearchItem[] = [
   { title: 'Neue Therapien & Forschung',  desc: 'ZED 1227, Amletilimab, VTP-1000, DZG-Petition 2026',           href: '/wissen/neue-therapien-2026',           type: 'Wissen', tags: 'therapie forschung medikament studie impfung petition dzg 2026 behandlung' },
   { title: 'Kokos-Schoko-Mousse',         desc: 'Dessert · 5 Min · vegan · ohne raffinierten Zucker',           href: '/rezepte/kokos-schoko-mousse',          type: 'Rezept', tags: 'kokos schokolade mousse dessert vegan datteln kokosmilch kakao schnell' },
   { title: 'Bananenwaffeln mit Datteln',  desc: 'Frühstück · 30 Min · ohne Spezialmehl · zuckerfrei',           href: '/rezepte/bananenwaffeln-datteln',       type: 'Rezept', tags: 'banane waffeln datteln haferflocken frühstück dessert zuckerfrei ohne mehl' },
+  { title: 'Blechpizza glutenfrei',       desc: 'Abendessen · 30 Min · 4 Bleche · Familienrezept',               href: '/rezepte/blechpizza-glutenfrei',         type: 'Rezept', tags: 'blechpizza pizza blech hefeteig backofen ausrollen teigroller familie abendessen freitag' },
 ];
 
 function searchText(query: string): SearchItem[] {
@@ -327,17 +328,9 @@ export default function Header() {
       }}>
         <div className="container header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="Waschtls Schmankerl Logo" className="site-logo" style={{ objectFit: 'contain', height: 'auto' }} />
-            <div>
-              <span style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--golden)', display: 'block', lineHeight: 1.1 }}>
-                Waschtl&apos;s Schmankerl
-              </span>
-              <span style={{ fontSize: '0.68rem', color: 'var(--mint)', fontWeight: 500, letterSpacing: '0.04em' }}>
-                glutenfrei &amp; aus Augsburg
-              </span>
-            </div>
+            <img src="/logo-header.svg" alt="Waschtls Schmankerl Logo" className="site-logo" style={{ objectFit: 'contain', height: 'auto' }} />
           </Link>
 
           {/* Desktop Nav + Suche */}
@@ -452,13 +445,13 @@ export default function Header() {
         )}
 
         <style>{`
-          .site-logo { width: 120px; }
+          .site-logo { width: 240px; }
           @media (max-width: 640px) {
             .desktop-nav { display: none !important; }
             .desktop-search-btn { display: none !important; }
             .mobile-actions { display: flex !important; }
             .search-label, .search-shortcut { display: none; }
-            .site-logo { width: 36px !important; }
+            .site-logo { width: 46px !important; }
             .header-inner { height: 64px !important; }
           }
         `}</style>
