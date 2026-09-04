@@ -1,11 +1,6 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Glutenfreie Vorratskiste – Convenience-Produkte für Zöliakie-Familien',
-  description:
-    'Glutenfreie Fertigprodukte die wirklich funktionieren: Falafel, Gnocchi, Schlemmerfilet, TK-Pizza und mehr. Mit Nährwertinfos und ehrlichen Einschätzungen.',
-};
+import Link from 'next/link';
 
 const AMZ_TAG = 'waschtls-schmankerl-21';
 
