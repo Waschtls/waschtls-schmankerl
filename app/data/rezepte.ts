@@ -364,6 +364,15 @@ export const REZEPTE: Rezept[] = [
     published: '2026-08', beliebtheit: 7,
   },
   {
+    slug: 'blechpizza-glutenfrei',
+    title: 'Blechpizza glutenfrei',
+    desc: 'Teig gemeinsam gehen lassen, dann ausrollen – 4 Bleche, normaler Backofen, 210 °C.',
+    time: '30 Min.', kat: 'abendessen', tags: ['hefeteig', 'kindergeburtstag'],
+    emoji: '🍕', naturalGf: false, beikost: false, kind: true,
+    vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
+    published: '2026-09', beliebtheit: 8,
+  },
+  {
     slug: 'lachskuechler',
     title: 'Lachsküchler',
     desc: 'Saftige Lachsküchler aus Lachs, GF-Toast und Ei – schnell in der Pfanne, kein Spezialmehl nötig.',

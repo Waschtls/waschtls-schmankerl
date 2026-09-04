@@ -16,6 +16,13 @@ export type Neuigkeit = {
 export const NEUIGKEITEN: Neuigkeit[] = [
   {
     datum: 'September 2026',
+    typ: 'Rezept',
+    titel: 'Blechpizza glutenfrei',
+    desc: 'Teig gemeinsam gehen lassen, dann portionieren und ausrollen – 4 Bleche, kein Ooni nötig.',
+    href: '/rezepte/blechpizza-glutenfrei',
+  },
+  {
+    datum: 'September 2026',
     typ: 'Wissen',
     titel: 'Neue Therapien & Forschung 2026',
     desc: 'Was in klinischen Studien getestet wird – und eine Petition die Unterstützung braucht.',
