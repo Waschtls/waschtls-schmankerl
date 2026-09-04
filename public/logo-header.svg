@@ -4,7 +4,6 @@
       <path d="M 45,4 C 63,22 76,42 76,67 A 31,31 0 1,1 14,67 C 14,42 27,22 45,4 Z"/>
     </clipPath>
   </defs>
-  <path d="M 45,4 C 63,22 76,42 76,67 A 31,31 0 1,1 14,67 C 14,42 27,22 45,4 Z" fill="white" opacity="0.1"/>
   <path d="M 45,18 L 67,62 L 45,106 L 23,62 Z" fill="#007CB0" clip-path="url(#drop-h)"/>
   <path d="M 45,4 C 63,22 76,42 76,67 A 31,31 0 1,1 14,67 C 14,42 27,22 45,4 Z" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
   <line x1="98" y1="12" x2="98" y2="78" stroke="#e9c46a" stroke-width="1.5"/>

@@ -17,6 +17,13 @@ export const NEUIGKEITEN: Neuigkeit[] = [
   {
     datum: 'September 2026',
     typ: 'Rezept',
+    titel: 'Apfelküchle (glutenfrei)',
+    desc: 'Apfelscheiben in Ausbackteig – goldbraun, mit Puderzucker, ohne Rum. Bayerischer Klassiker für die ganze Familie.',
+    href: '/rezepte/apfelkuechle',
+  },
+  {
+    datum: 'September 2026',
+    typ: 'Rezept',
     titel: 'Blechpizza glutenfrei',
     desc: 'Teig gemeinsam gehen lassen, dann portionieren und ausrollen – 4 Bleche, kein Ooni nötig.',
     href: '/rezepte/blechpizza-glutenfrei',

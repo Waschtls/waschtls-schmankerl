@@ -364,6 +364,15 @@ export const REZEPTE: Rezept[] = [
     published: '2026-08', beliebtheit: 7,
   },
   {
+    slug: 'apfelkuechle',
+    title: 'Apfelküchle (glutenfrei)',
+    desc: 'Apfelscheiben in Ausbackteig – goldbraun, mit Puderzucker und Zimt, ohne Rum.',
+    time: '30 Min.', kat: 'backen', tags: ['kindergeburtstag', 'saisonal'],
+    emoji: '🍎', naturalGf: false, beikost: false, kind: true,
+    vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
+    published: '2026-09', beliebtheit: 8,
+  },
+  {
     slug: 'blechpizza-glutenfrei',
     title: 'Blechpizza glutenfrei',
     desc: 'Teig gemeinsam gehen lassen, dann ausrollen – 4 Bleche, normaler Backofen, 210 °C.',

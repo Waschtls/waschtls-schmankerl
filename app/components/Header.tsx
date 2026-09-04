@@ -328,9 +328,18 @@ export default function Header() {
       }}>
         <div className="container header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-header.svg" alt="Waschtls Schmankerl Logo" className="site-logo" style={{ objectFit: 'contain', height: 'auto' }} />
+            <img src="/logo-icon.svg" alt="" className="site-logo" style={{ objectFit: 'contain', height: 'auto', flexShrink: 0 }} />
+            <div style={{ width: '1.5px', background: 'var(--golden)', alignSelf: 'stretch', margin: '12px 0' }} />
+            <div>
+              <span style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontWeight: 700, fontSize: '1.15rem', color: 'var(--golden)', display: 'block', lineHeight: 1.15, letterSpacing: '0.02em' }}>
+                WASCHTL&apos;S
+              </span>
+              <span style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontSize: '0.62rem', color: 'var(--mint)', display: 'block', letterSpacing: '0.35em', fontWeight: 400 }}>
+                SCHMANKERL
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav + Suche */}
@@ -445,13 +454,13 @@ export default function Header() {
         )}
 
         <style>{`
-          .site-logo { width: 240px; }
+          .site-logo { width: 52px; height: 52px; }
           @media (max-width: 640px) {
             .desktop-nav { display: none !important; }
             .desktop-search-btn { display: none !important; }
             .mobile-actions { display: flex !important; }
             .search-label, .search-shortcut { display: none; }
-            .site-logo { width: 46px !important; }
+            .site-logo { width: 38px !important; height: 38px !important; }
             .header-inner { height: 64px !important; }
           }
         `}</style>
