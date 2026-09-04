@@ -14,6 +14,7 @@ export default function ChickenNuggetsSelbstgemachtPage() {
         { type: 'golden', label: '👶 kleinkindtauglich' },
         { type: 'mint', label: '🎂 Kindergeburtstag' },
       ]}
+      heroImage="/images/chicken-nuggets.jpg"
       tagline="Chicken Nuggets aus dem Ofen, mit echtem Hähnchenfleisch und GF-Paniermehl – knuspriger als die Tiefkühlvariante und in 30 Minuten auf dem Tisch. Bei Kindergeburtstagen verschwinden sie als erstes vom Buffet."
       useCases={['Mittagessen', 'Kindergeburtstag-Buffet', 'Einfrieren', 'Meal Prep für die Woche']}
       minuten={30}

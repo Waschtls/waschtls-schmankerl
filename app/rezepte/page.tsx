@@ -40,7 +40,7 @@ export default function RezeptePage() {
   const [aktiv, setAktiv] = useState('alle');
   const [ernaehrung, setErnaehrung] = useState<string[]>([]);
   type Sortierung = 'standard' | 'az' | 'za' | 'neu' | 'alt' | 'beliebt-desc' | 'beliebt-asc';
-  const [sortierung, setSortierung] = useState<Sortierung>('standard');
+  const [sortierung, setSortierung] = useState<Sortierung>('neu');
 
   const toggleErnaehrung = (id: string) => {
     if (id === 'alle') { setErnaehrung([]); return; }

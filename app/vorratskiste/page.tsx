@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     'Glutenfreie Fertigprodukte die wirklich funktionieren: Falafel, Gnocchi, Schlemmerfilet, TK-Pizza und mehr. Mit Nährwertinfos und ehrlichen Einschätzungen.',
 };
 
+const AMZ_TAG = 'waschtls-schmankerl-21';
+
+function amzImg(asin: string) {
+  return `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=DE&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL160_&tag=${AMZ_TAG}`;
+}
+
 type Produkt = {
   emoji: string;
   name: string;
@@ -19,6 +25,7 @@ type Produkt = {
   kaufen: string;
   naehrwerte?: string;
   amazonLink?: string;
+  amazonAsin?: string;
 };
 
 type Sektion = {
@@ -49,7 +56,8 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'In Butter mit Salbei anbraten bis leicht knusprig – schneller als jede Pasta. Oder mit pürierter Tomatensauce.',
         kaufen: 'Rewe, Edeka, dm, Online',
         naehrwerte: 'Pro 100 g ca. 355 kcal · 3 g Eiweiß · 79 g KH · laktosefrei',
-        amazonLink: 'https://www.amazon.de/s?k=schär+gnocchi+glutenfrei&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=schär+gnocchi+glutenfrei&tag=waschtls-schmankerl-21',
+        amazonAsin: 'B0195RJ1SU',
       },
       {
         emoji: '🐟', name: 'Schlemmerfilet (Spinat-Käse)', marke: 'iglo',
@@ -68,7 +76,8 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Mit Schinken und Käse zu Röllchen formen, einfrieren, bei Bedarf direkt in den Ofen. Perfekt für Geburtstage.',
         kaufen: 'Online, ausgewählte Rewe/Edeka, Reformhaus',
         naehrwerte: 'Pro 100 g ca. 370 kcal · 4 g Eiweiß · 38 g KH · enthält Milch, Ei',
-        amazonLink: 'https://www.amazon.de/s?k=glutenfreier+blätterteig&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=glutenfreier+blätterteig&tag=waschtls-schmankerl-21',
+        amazonAsin: 'B00I1WJAJQ',
       },
       {
         emoji: '🍗', name: 'TK-Chicken Nuggets', marke: 'Schär / Rewe Bio',
@@ -93,7 +102,8 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Den Rand kurz vor Ende mit Olivenöl bepinseln – wird dann goldbraun statt blass.',
         kaufen: 'Rewe, Edeka, Online',
         naehrwerte: 'Pro Pizza (300 g) ca. 690 kcal · 28 g Eiweiß · 88 g KH · enthält Milch',
-        amazonLink: 'https://www.amazon.de/s?k=schär+pizza+glutenfrei&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=schär+pizza+glutenfrei&tag=waschtls-schmankerl-21',
+        amazonAsin: 'B06ZY5HBBQ',
       },
       {
         emoji: '🥣', name: 'Fertig-Risotto / Reisgerichte', marke: 'verschiedene Bio-Marken',
@@ -145,7 +155,8 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Ideal fürs Restaurant mitgenommen – asiatisches Essen wird erst mit GF-Sojasoße wirklich genießbar.',
         kaufen: 'Bioladen, Rewe Bio, Reformhaus, Online',
         naehrwerte: 'Pro 100 ml ca. 60 kcal · 10 g Eiweiß · 5 g KH · enthält Soja',
-        amazonLink: 'https://www.amazon.de/s?k=tamari+glutenfrei&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=tamari+glutenfrei&tag=waschtls-schmankerl-21',
+        amazonAsin: 'B01CQE03RM',
       },
       {
         emoji: '🥫', name: 'Hülsenfrüchte aus der Dose', marke: 'Rewe Bio, dm Bio, Alnatura',
@@ -170,7 +181,8 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Tiefgekühlt kaufen und einzelne Scheiben direkt in den Toaster – hält sich viel länger und ist frischer.',
         kaufen: 'Rewe, Edeka, dm, Online',
         naehrwerte: 'Pro Scheibe (25 g) ca. 55 kcal · 1 g Eiweiß · 12 g KH · enthält Ei, Milchspuren',
-        amazonLink: 'https://www.amazon.de/s?k=schär+toast+glutenfrei&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=schär+toast+glutenfrei&tag=waschtls-schmankerl-21',
+        amazonAsin: 'B0F38LBN47',
       },
       {
         emoji: '🥖', name: 'Brötchen (TK)', marke: 'Schär / Alnavit',
@@ -180,7 +192,7 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Abends antauen, morgens 10 Min bei 180 °C – schmeckt fast frisch gebacken.',
         kaufen: 'Online, Reformhaus, vereinzelt dm',
         naehrwerte: 'Pro Brötchen (60 g) ca. 145 kcal · 2 g Eiweiß · 30 g KH',
-        amazonLink: 'https://www.amazon.de/s?k=glutenfreie+brötchen+tk&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=glutenfreie+brötchen+tk&tag=waschtls-schmankerl-21',
       },
       {
         emoji: '🥞', name: 'Pancake-/Pfannkuchen-Mix', marke: 'Schär, Alnavit',
@@ -190,7 +202,7 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Mit TK-Beeren (aufgetaut) und Ahornsirup – Kinder sind begeistert. Reste lassen sich einfrieren.',
         kaufen: 'Online, Reformhaus, dm (saisonal)',
         naehrwerte: 'Pro 100 g Mix ca. 360 kcal · 5 g Eiweiß · 75 g KH',
-        amazonLink: 'https://www.amazon.de/s?k=glutenfreier+pancake+mix&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=glutenfreier+pancake+mix&tag=waschtls-schmankerl-21',
       },
     ],
   },
@@ -248,7 +260,7 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Mit laktosefreier Milch oder Hafermilch (GF-zertifiziert) servieren. Frische Beeren drauf – fertig.',
         kaufen: 'dm, Rewe Bio, Online',
         naehrwerte: 'Pro 100 g ca. 380 kcal · 6 g Eiweiß · 82 g KH · meist laktosefrei',
-        amazonLink: 'https://www.amazon.de/s?k=glutenfreie+cornflakes&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=glutenfreie+cornflakes&tag=waschtls-schmankerl-21',
       },
       {
         emoji: '🥣', name: 'GF-Müsli / Porridge-Mix', marke: 'Alnavit, Seitenbacher (GF), dm Bio',
@@ -258,7 +270,7 @@ const SEKTIONEN: Sektion[] = [
         tipp: 'Über Nacht mit Milch oder Joghurt quellen lassen – morgens fertig, keine Kochzeit. Mit Obst abrunden.',
         kaufen: 'Bioladen, dm, Reformhaus, Online',
         naehrwerte: 'Pro 100 g ca. 370 kcal · 8 g Eiweiß · 60 g KH · auf GF-Zertifizierung achten',
-        amazonLink: 'https://www.amazon.de/s?k=glutenfreies+müsli&tag=waschtl-21',
+        amazonLink: 'https://www.amazon.de/s?k=glutenfreies+müsli&tag=waschtls-schmankerl-21',
       },
     ],
   },
@@ -323,26 +335,61 @@ export default function VorratskistePage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {sektion.produkte.map(p => (
                   <div key={p.name} className="card" style={{ padding: '1.25rem 1.5rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{p.emoji}</span>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-                          <h3 style={{ fontSize: '0.975rem', margin: 0, color: 'var(--text-dark)' }}>{p.name}</h3>
-                          <span style={{ fontSize: '0.72rem', color: 'var(--text-light)' }}>{p.marke}</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.3rem', flexWrap: 'wrap' }}>
-                          <SterneBewertung n={p.sterne} />
-                          <span style={{
-                            fontSize: '0.65rem', padding: '0.1rem 0.5rem', borderRadius: '999px',
-                            background: p.status === 'gf' ? 'rgba(45,106,79,0.1)' : 'rgba(233,196,106,0.2)',
-                            color: p.status === 'gf' ? 'var(--green-mid)' : '#a87f00',
-                            border: `1px solid ${p.status === 'gf' ? 'rgba(45,106,79,0.25)' : 'rgba(233,196,106,0.4)'}`,
-                            fontWeight: 700,
-                          }}>
-                            {p.status === 'gf' ? '✅ Glutenfrei' : '⚠️ Etikett prüfen'}
-                          </span>
+
+                    {/* Header: Emoji/Name links, Produktbild rechts */}
+                    <div style={{ display: 'flex', gap: '1rem', marginBottom: '0.5rem', alignItems: 'flex-start' }}>
+
+                      {/* Linke Spalte: Emoji + Infos */}
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{p.emoji}</span>
+                          <div style={{ flex: 1 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                              <h3 style={{ fontSize: '0.975rem', margin: 0, color: 'var(--text-dark)' }}>{p.name}</h3>
+                              <span style={{ fontSize: '0.72rem', color: 'var(--text-light)' }}>{p.marke}</span>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.3rem', flexWrap: 'wrap' }}>
+                              <SterneBewertung n={p.sterne} />
+                              <span style={{
+                                fontSize: '0.65rem', padding: '0.1rem 0.5rem', borderRadius: '999px',
+                                background: p.status === 'gf' ? 'rgba(45,106,79,0.1)' : 'rgba(233,196,106,0.2)',
+                                color: p.status === 'gf' ? 'var(--green-mid)' : '#a87f00',
+                                border: `1px solid ${p.status === 'gf' ? 'rgba(45,106,79,0.25)' : 'rgba(233,196,106,0.4)'}`,
+                                fontWeight: 700,
+                              }}>
+                                {p.status === 'gf' ? '✅ Glutenfrei' : '⚠️ Etikett prüfen'}
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
+
+                      {/* Rechte Spalte: Produktbild */}
+                      {p.amazonAsin && (
+                        <a
+                          href={p.amazonLink || `https://www.amazon.de/dp/${p.amazonAsin}?tag=${AMZ_TAG}`}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored"
+                          style={{ flexShrink: 0 }}
+                          title={`${p.name} auf Amazon ansehen`}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={amzImg(p.amazonAsin)}
+                            alt={p.name}
+                            width={80}
+                            height={80}
+                            style={{
+                              objectFit: 'contain',
+                              borderRadius: '8px',
+                              border: '1px solid rgba(0,0,0,0.08)',
+                              background: '#fff',
+                              display: 'block',
+                            }}
+                            loading="lazy"
+                          />
+                        </a>
+                      )}
                     </div>
 
                     <p style={{ fontSize: '0.72rem', color: 'var(--text-light)', margin: '0 0 0.75rem', fontStyle: 'italic', lineHeight: 1.55 }}>
@@ -483,6 +530,15 @@ export default function VorratskistePage() {
 
         </div>
       </section>
+
+      {/* Affiliate-Hinweis */}
+      <div style={{ background: 'rgba(0,0,0,0.03)', borderTop: '1px solid rgba(0,0,0,0.06)', padding: '1rem 0' }}>
+        <div className="container" style={{ maxWidth: '820px' }}>
+          <p style={{ fontSize: '0.7rem', color: 'var(--text-light)', margin: 0, lineHeight: 1.6 }}>
+            * Produktbilder und Links mit „Anzeige" sind Amazon-Affiliate-Links (Partnerprogramm). Beim Kauf über diese Links erhalten wir eine kleine Provision – für euch entstehen keine Mehrkosten. Wir empfehlen nur Produkte, die wir selbst verwenden.
+          </p>
+        </div>
+      </div>
     </>
   );
 }

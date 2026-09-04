@@ -147,7 +147,7 @@ export const REZEPTE: Rezept[] = [
     title: 'Chicken Nuggets (selbstgemacht)',
     desc: 'Aus dem Ofen, knuspriger als tiefgekühlt – Kindergeburtstagsgarant.',
     time: '30 Min.', kat: 'mittagessen', tags: ['kindergeburtstag'],
-    emoji: '🐔', naturalGf: false, beikost: false, kind: true,
+    emoji: '🐔', image: '/images/chicken-nuggets.jpg', naturalGf: false, beikost: false, kind: true,
     vegetarisch: false, vegan: false, zuckerfrei: true, milchfrei: false, eierfrei: false,
     published: '2025-05', beliebtheit: 9,
   },
