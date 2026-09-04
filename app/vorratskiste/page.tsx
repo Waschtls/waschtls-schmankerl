@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const AMZ_TAG = 'waschtls-schmankerl-21';
 
 function amzImg(asin: string) {
-  return `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=DE&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL160_&tag=${AMZ_TAG}`;
+  return `https://m.media-amazon.com/images/P/${asin}.01.SCLZZZZZZZ.jpg`;
 }
 
 type Produkt = {
@@ -26,6 +26,7 @@ type Produkt = {
   naehrwerte?: string;
   amazonLink?: string;
   amazonAsin?: string;
+  productImage?: string;
 };
 
 type Sektion = {
@@ -58,6 +59,7 @@ const SEKTIONEN: Sektion[] = [
         naehrwerte: 'Pro 100 g ca. 355 kcal · 3 g Eiweiß · 79 g KH · laktosefrei',
         amazonLink: 'https://www.amazon.de/s?k=schär+gnocchi+glutenfrei&tag=waschtls-schmankerl-21',
         amazonAsin: 'B0195RJ1SU',
+        productImage: 'https://imgs1.schaer.com/de/image/product/gnocchi/_p880_gnocchi_1004150004_14966.jpg',
       },
       {
         emoji: '🐟', name: 'Schlemmerfilet (Spinat-Käse)', marke: 'iglo',
@@ -183,6 +185,7 @@ const SEKTIONEN: Sektion[] = [
         naehrwerte: 'Pro Scheibe (25 g) ca. 55 kcal · 1 g Eiweiß · 12 g KH · enthält Ei, Milchspuren',
         amazonLink: 'https://www.amazon.de/s?k=schär+toast+glutenfrei&tag=waschtls-schmankerl-21',
         amazonAsin: 'B0F38LBN47',
+        productImage: 'https://imgs1.schaer.com/de/image/product/meisterbaeckers_classic/_p880_meisterbaeckers_classic_1036-1_14186.jpg',
       },
       {
         emoji: '🥖', name: 'Brötchen (TK)', marke: 'Schär / Alnavit',
@@ -365,9 +368,9 @@ export default function VorratskistePage() {
                       </div>
 
                       {/* Rechte Spalte: Produktbild */}
-                      {p.amazonAsin && (
+                      {(p.productImage || p.amazonAsin) && (
                         <a
-                          href={p.amazonLink || `https://www.amazon.de/dp/${p.amazonAsin}?tag=${AMZ_TAG}`}
+                          href={p.amazonLink || (p.amazonAsin ? `https://www.amazon.de/dp/${p.amazonAsin}?tag=${AMZ_TAG}` : '#')}
                           target="_blank"
                           rel="noopener noreferrer sponsored"
                           style={{ flexShrink: 0 }}
@@ -375,7 +378,7 @@ export default function VorratskistePage() {
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={amzImg(p.amazonAsin)}
+                            src={p.productImage || amzImg(p.amazonAsin!)}
                             alt={p.name}
                             width={80}
                             height={80}
@@ -386,6 +389,7 @@ export default function VorratskistePage() {
                               background: '#fff',
                               display: 'block',
                             }}
+                            onError={e => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none'; }}
                             loading="lazy"
                           />
                         </a>
