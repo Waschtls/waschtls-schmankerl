@@ -18,6 +18,7 @@ export default function Apfelkuechle() {
       ]}
       tagline="Apfelscheiben in fluffigem Ausbackteig – goldbraun in der Pfanne, mit Puderzucker bestäubt. Ein bayerischer Klassiker für die ganze Familie."
       useCases={['🍎 Herbst & Ernte', '🎉 Kindergeburtstag', '☕ Kaffee & Kuchen', '👨‍👩‍👧 Familienklassiker']}
+      heroImage="/images/apfelkuechle.jpg"
       portionen={16}
       einheit="Küchler"
       minuten={30}
