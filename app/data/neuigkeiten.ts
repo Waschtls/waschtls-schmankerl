@@ -17,6 +17,13 @@ export const NEUIGKEITEN: Neuigkeit[] = [
   {
     datum: 'September 2026',
     typ: 'Rezept',
+    titel: 'Pfannkuchen (klassisch)',
+    desc: 'Der Samstagsklassiker – 9 Stück, hauchdünn, goldbraun. Jetzt mit Foto und überarbeiteter Zubereitung.',
+    href: '/rezepte/pfannkuchen-klassisch',
+  },
+  {
+    datum: 'September 2026',
+    typ: 'Rezept',
     titel: 'Apfelküchle (glutenfrei)',
     desc: 'Apfelscheiben in Ausbackteig – goldbraun, mit Puderzucker, ohne Rum. Bayerischer Klassiker für die ganze Familie.',
     href: '/rezepte/apfelkuechle',
