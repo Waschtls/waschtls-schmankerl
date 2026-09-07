@@ -190,6 +190,22 @@ const themen: Thema[] = [
     tag: 'Alltag',
     published: '2026-09', beliebtheit: 7,
   },
+  {
+    icon: '🥪',
+    title: 'Pausenbrot & Snacks für Schule und Kita',
+    desc: 'Was kommt morgens in die Brotdose? Konkrete Ideen, Wochenplan, häufige Fehler – und Rezepte zum Vorbacken.',
+    href: '/wissen/schule-kita/pausenbrot-snacks',
+    tag: 'Schule',
+    published: '2026-09', beliebtheit: 8,
+  },
+  {
+    icon: '🎒',
+    title: 'Klassenfahrt mit Zöliakie',
+    desc: 'Unterkunft kontaktieren, Lehrer-Brief, Packliste, Notfallplan und Notfallkarte fürs Kind – Schritt für Schritt.',
+    href: '/wissen/schule-kita/klassenfahrt',
+    tag: 'Schule',
+    published: '2026-09', beliebtheit: 7,
+  },
 ];
 
 type WissenSort = 'standard' | 'az' | 'za' | 'neu' | 'alt' | 'beliebt-desc' | 'beliebt-asc';

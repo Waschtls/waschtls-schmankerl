@@ -17,6 +17,13 @@ export const NEUIGKEITEN: Neuigkeit[] = [
   {
     datum: 'September 2026',
     typ: 'Wissen',
+    titel: 'Klassenfahrt mit Zöliakie',
+    desc: 'Unterkunft kontaktieren, Lehrer-Brief, Packliste und Notfallkarte fürs Kind – Schritt für Schritt.',
+    href: '/wissen/schule-kita/klassenfahrt',
+  },
+  {
+    datum: 'September 2026',
+    typ: 'Wissen',
     titel: 'Pausenbrot & Snacks für Schule und Kita',
     desc: 'Was in die Brotdose kommt, was hält, was das Kind isst – mit Wochenplan und den häufigsten Fehlern.',
     href: '/wissen/schule-kita/pausenbrot-snacks',

@@ -21,11 +21,64 @@ export default function SchuleKitaPage() {
             Zöliakie in Kita & Schule
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.82)', maxWidth: '600px', fontSize: '1.05rem', lineHeight: 1.8 }}>
-            Das Gespräch mit Erziehern, Lehrern und anderen Eltern muss kein Drama sein.
-            Hier bekommst du konkrete Texte und Checklisten die du direkt verwenden kannst.
+            Kommunikation, Brotdose, Ausflüge – alles was Eltern für den glutenfreien Schulalltag brauchen.
           </p>
         </div>
       </section>
+
+      {/* Themen-Hub */}
+      <section style={{ background: 'var(--cream-dark)', padding: '1.75rem 0', borderBottom: '1px solid var(--border)' }}>
+        <div className="container">
+          <p style={{
+            fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
+            textTransform: 'uppercase', color: 'var(--green-mid)',
+            margin: '0 0 1rem',
+          }}>Alle Themen in diesem Bereich</p>
+          <div className="grid-3" style={{ gap: '0.75rem' }}>
+            {[
+              {
+                icon: '✉️',
+                title: 'Kommunikation & Briefe',
+                desc: 'Musterbrief für Erzieher & Lehrer, Checkliste vor dem ersten Tag, Notfallbox – und was tun wenn die Einrichtung nicht mitspielt.',
+                href: '#kommunikation',
+                isAnchor: true,
+              },
+              {
+                icon: '🥪',
+                title: 'Pausenbrot & Snacks',
+                desc: 'Was kommt in die Brotdose? Ideen, Wochenplan, häufige Fehler und Rezepte zum Vorbacken.',
+                href: '/wissen/schule-kita/pausenbrot-snacks',
+                isAnchor: false,
+              },
+              {
+                icon: '🎒',
+                title: 'Klassenfahrt',
+                desc: '3 Tage Jugendherberge mit Zöliakie – Vorbereitung, Unterkunft klären, Packliste und Notfallplan.',
+                href: '/wissen/schule-kita/klassenfahrt',
+                isAnchor: false,
+              },
+            ].map(item => (
+              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
+                <div className="card" style={{
+                  height: '100%', display: 'flex', flexDirection: 'column', gap: '0.4rem',
+                  border: '1.5px solid var(--border)',
+                  transition: 'border-color 0.15s',
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>{item.icon}</span>
+                  <h3 style={{ fontSize: '0.95rem', color: 'var(--green-deep)', margin: '0.1rem 0 0.25rem' }}>{item.title}</h3>
+                  <p style={{ margin: 0, fontSize: '0.8rem', lineHeight: 1.75, color: 'var(--text-mid)', flex: 1 }}>{item.desc}</p>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--green-mid)', fontWeight: 700, marginTop: '0.5rem' }}>
+                    {item.isAnchor ? 'Auf dieser Seite ↓' : 'Zur Seite →'}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Anker für Kommunikation */}
+      <div id="kommunikation" style={{ scrollMarginTop: '80px' }} />
 
       {/* Warum das so wichtig ist */}
       <section className="section" style={{ paddingBottom: '1rem' }}>
@@ -235,27 +288,34 @@ export default function SchuleKitaPage() {
             </p>
           </div>
 
-          {/* Weiterführend */}
-          <div className="card" style={{ marginTop: '2rem', background: 'rgba(149,213,178,0.08)', border: '1.5px solid rgba(149,213,178,0.3)' }}>
-            <h3 style={{ fontSize: '1rem', color: 'var(--green-deep)', margin: '0 0 0.75rem' }}>
-              🥪 Mehr zum Thema Verpflegung
-            </h3>
-            <p style={{ margin: '0 0 1rem', fontSize: '0.875rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
-              Was kommt morgens in die Brotdose? Konkrete Ideen für Pausenbrot und Snacks –
-              mit Wochenplan, Tipps gegen Kreuzverunreinigung in der Küche und Rezept-Empfehlungen
-              zum Vorbacken.
-            </p>
-            <Link href="/wissen/schule-kita/pausenbrot-snacks" className="btn btn-primary" style={{ fontSize: '0.875rem' }}>
-              Pausenbrot & Snacks für Schule und Kita →
-            </Link>
+          {/* Weiterführend – Sub-Pages */}
+          <div style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '0.875rem' }}>
+            <div className="card" style={{ background: 'rgba(149,213,178,0.08)', border: '1.5px solid rgba(149,213,178,0.3)' }}>
+              <h3 style={{ fontSize: '0.9rem', color: 'var(--green-deep)', margin: '0 0 0.5rem' }}>🥪 Pausenbrot & Snacks</h3>
+              <p style={{ margin: '0 0 1rem', fontSize: '0.82rem', lineHeight: 1.75, color: 'var(--text-mid)' }}>
+                Ideen, Wochenplan, Fehler vermeiden – was in die Brotdose kommt.
+              </p>
+              <Link href="/wissen/schule-kita/pausenbrot-snacks" className="btn btn-primary" style={{ fontSize: '0.8rem' }}>
+                Zur Seite →
+              </Link>
+            </div>
+            <div className="card" style={{ background: 'rgba(149,213,178,0.08)', border: '1.5px solid rgba(149,213,178,0.3)' }}>
+              <h3 style={{ fontSize: '0.9rem', color: 'var(--green-deep)', margin: '0 0 0.5rem' }}>🎒 Klassenfahrt</h3>
+              <p style={{ margin: '0 0 1rem', fontSize: '0.82rem', lineHeight: 1.75, color: 'var(--text-mid)' }}>
+                Unterkunft, Packliste, Lehrer-Brief, Notfallkarte – Schritt für Schritt.
+              </p>
+              <Link href="/wissen/schule-kita/klassenfahrt" className="btn btn-primary" style={{ fontSize: '0.8rem' }}>
+                Zur Seite →
+              </Link>
+            </div>
           </div>
 
           <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/wissen/erstdiagnose" className="btn btn-outline" style={{ fontSize: '0.9rem' }}>
               ← Erstdiagnose
             </Link>
-            <Link href="/wissen/kreuzkontamination" className="btn btn-primary" style={{ fontSize: '0.9rem' }}>
-              Kreuzverunreinigung erklären →
+            <Link href="/wissen/kreuzkontamination" className="btn btn-outline" style={{ fontSize: '0.9rem' }}>
+              Kreuzverunreinigung →
             </Link>
           </div>
         </div>

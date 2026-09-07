@@ -47,6 +47,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Back to School Banner ── */}
+      <section style={{
+        background: 'rgba(45,106,79,0.06)',
+        borderBottom: '1px solid rgba(45,106,79,0.15)',
+        padding: '0.875rem 0',
+      }}>
+        <div className="container">
+          <Link href="/wissen/schule-kita" style={{ textDecoration: 'none', display: 'block' }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '0.875rem', flexWrap: 'wrap',
+            }}>
+              <span style={{ fontSize: '1.3rem', lineHeight: 1 }}>🎒 ✏️ 🥡</span>
+              <div style={{ flex: 1, minWidth: '180px' }}>
+                <span style={{
+                  fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
+                  textTransform: 'uppercase', color: 'var(--green-mid)', display: 'block', marginBottom: '0.1rem',
+                }}>Back to School</span>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-mid)', fontWeight: 500 }}>
+                  Alles für Kita & Schule: Musterbrief, Brotdose-Ideen, Klassenfahrt →
+                </span>
+              </div>
+              <span style={{ color: 'var(--green-mid)', fontWeight: 700, fontSize: '1.1rem', flexShrink: 0 }}>→</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* ── Neu auf der Seite ── */}
       <section style={{ background: '#fff', padding: '2.5rem 0', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
