@@ -235,7 +235,22 @@ export default function SchuleKitaPage() {
             </p>
           </div>
 
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {/* Weiterführend */}
+          <div className="card" style={{ marginTop: '2rem', background: 'rgba(149,213,178,0.08)', border: '1.5px solid rgba(149,213,178,0.3)' }}>
+            <h3 style={{ fontSize: '1rem', color: 'var(--green-deep)', margin: '0 0 0.75rem' }}>
+              🥪 Mehr zum Thema Verpflegung
+            </h3>
+            <p style={{ margin: '0 0 1rem', fontSize: '0.875rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+              Was kommt morgens in die Brotdose? Konkrete Ideen für Pausenbrot und Snacks –
+              mit Wochenplan, Tipps gegen Kreuzverunreinigung in der Küche und Rezept-Empfehlungen
+              zum Vorbacken.
+            </p>
+            <Link href="/wissen/schule-kita/pausenbrot-snacks" className="btn btn-primary" style={{ fontSize: '0.875rem' }}>
+              Pausenbrot & Snacks für Schule und Kita →
+            </Link>
+          </div>
+
+          <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/wissen/erstdiagnose" className="btn btn-outline" style={{ fontSize: '0.9rem' }}>
               ← Erstdiagnose
             </Link>

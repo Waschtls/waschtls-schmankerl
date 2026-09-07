@@ -16,6 +16,20 @@ export type Neuigkeit = {
 export const NEUIGKEITEN: Neuigkeit[] = [
   {
     datum: 'September 2026',
+    typ: 'Wissen',
+    titel: 'Pausenbrot & Snacks für Schule und Kita',
+    desc: 'Was in die Brotdose kommt, was hält, was das Kind isst – mit Wochenplan und den häufigsten Fehlern.',
+    href: '/wissen/schule-kita/pausenbrot-snacks',
+  },
+  {
+    datum: 'September 2026',
+    typ: 'Wissen',
+    titel: 'GdB bei Zöliakie – lohnt sich der Antrag?',
+    desc: 'Was GdB 20 wirklich bringt (384€ Pauschbetrag), was nicht – und wie der Antrag beim ZBFS Bayern bei uns lief.',
+    href: '/wissen/grad-der-behinderung-zoeliakiie',
+  },
+  {
+    datum: 'September 2026',
     typ: 'Rezept',
     titel: 'Pfannkuchen (klassisch)',
     desc: 'Der Samstagsklassiker – 9 Stück, hauchdünn, goldbraun. Jetzt mit Foto und überarbeiteter Zubereitung.',

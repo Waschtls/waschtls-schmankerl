@@ -182,6 +182,14 @@ const themen: Thema[] = [
     tag: 'Aktuell',
     published: '2026-09', beliebtheit: 8,
   },
+  {
+    icon: '📋',
+    title: 'GdB bei Zöliakie – lohnt sich der Antrag?',
+    desc: 'GdB 20, Versorgungsamt, Behinderten-Pauschbetrag: was wirklich drin ist, was nicht – und wie der Antrag beim ZBFS Bayern bei uns gelaufen ist.',
+    href: '/wissen/grad-der-behinderung-zoeliakiie',
+    tag: 'Alltag',
+    published: '2026-09', beliebtheit: 7,
+  },
 ];
 
 type WissenSort = 'standard' | 'az' | 'za' | 'neu' | 'alt' | 'beliebt-desc' | 'beliebt-asc';
