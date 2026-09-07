@@ -67,7 +67,8 @@ export const REZEPTE: Rezept[] = [
     time: '25 Min.', kat: 'fruehstueck', tags: ['kindergeburtstag'],
     emoji: '🫓', naturalGf: false, beikost: false, kind: true,
     vegetarisch: true, vegan: false, zuckerfrei: false, milchfrei: false, eierfrei: false,
-    published: '2024-01', beliebtheit: 8,
+    published: '2026-09', beliebtheit: 8,
+    image: '/images/pfannkuchen-klassisch.jpg',
   },
   {
     slug: 'apfel-zimt-porridge',

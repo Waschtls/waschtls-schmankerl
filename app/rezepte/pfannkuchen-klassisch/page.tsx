@@ -14,18 +14,22 @@ export default function PfannkuchenKlassischPage() {
         { type: 'golden', label: '👶 kleinkindtauglich' },
         { type: 'mint',   label: '⚡ schnell' },
       ]}
+      heroImage="/images/pfannkuchen-klassisch.jpg"
       tagline="Der Klassiker, der bei uns samstags auf den Tisch kommt. Mit Schär Mix It werden sie hauchdünn, goldbraun und halten beim Wenden problemlos – genauso wie früher."
       useCases={['Samstagfrühstück', 'Brunch', 'Süßes Abendessen', 'Kindergeburtstag-Buffet']}
       minuten={25}
-      portionen={4}
+      portionen={9}
+      einheit="Stücke"
+      portionenSchritt={3}
       schwierigkeit="Einfach"
       infoBox="Anders als die Reismehl-Variante werden diese Pfannkuchen mit Schär Mix It etwas stabiler und klassischer im Geschmack. Ideal wenn man dünne Crepe-artige Pfannkuchen möchte."
       zutaten={[
         '200 g Schär Mix It Universal',
         '3 Eier (Größe M)',
-        '400 ml Milch (ggf. laktosefrei)',
+        '1 TL Zucker',
         '1 Prise Salz',
-        '1 TL Zucker (optional)',
+        '400 ml Milch (ggf. laktosefrei) – bei Bedarf etwas nachschütten',
+        '1 Pck. Vanillezucker (optional)',
         'Butter oder Kokosöl zum Ausbacken',
         '— Klassische Toppings —',
         'Apfelmus, Marmelade, Nutella',
@@ -33,8 +37,10 @@ export default function PfannkuchenKlassischPage() {
         'Puderzucker, Ahornsirup',
       ]}
       zubereitung={[
-        'Mehl, Eier, Milch, Salz und ggf. Zucker mit dem Schneebesen zu einem glatten, dünnflüssigen Teig verrühren. Keine Klümpchen – bei Bedarf kurz durch ein Sieb streichen.',
-        'Teig mindestens 15 Minuten (besser 30 Min.) ruhen lassen – das Mehl quillt auf und der Teig wird geschmeidiger.',
+        'Eier mit Zucker und einer Prise Salz in einer Schüssel mit dem Schneebesen aufschlagen bis alles gut vermischt ist.',
+        'Mehl (und optional Vanillezucker) zur Ei-Zucker-Mischung geben und glatt rühren – es darf noch etwas dickflüssig sein.',
+        'Milch nach und nach zugeben und dabei ständig rühren bis ein glatter, dünnflüssiger Teig entsteht. Ist er zu dick, noch etwas Milch nachschütten.',
+        'Teig 5–10 Minuten ruhen lassen – das Mehl quillt leicht auf und der Teig wird geschmeidiger.',
         'Eine beschichtete Pfanne (ca. 24–26 cm) bei mittlerer Hitze erhitzen. Wenig Butter darin schmelzen.',
         'Eine Kelle Teig in die Pfanne gießen und sofort durch Schwenken gleichmäßig verteilen. Der Teig soll dünn sein.',
         'Ca. 2 Minuten backen bis die Oberfläche matt ist und die Ränder sich leicht lösen. Wenden und weitere 1 Minute backen.',
