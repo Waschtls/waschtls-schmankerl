@@ -37,25 +37,22 @@ export default function SchuleKitaPage() {
           <div className="grid-3" style={{ gap: '0.75rem' }}>
             {[
               {
-                icon: '✉️',
-                title: 'Kommunikation & Briefe',
-                desc: 'Musterbrief für Erzieher & Lehrer, Checkliste vor dem ersten Tag, Notfallbox – und was tun wenn die Einrichtung nicht mitspielt.',
-                href: '#kommunikation',
-                isAnchor: true,
+                icon: '📄',
+                title: 'Vorlagen: Brief & Checkliste',
+                desc: 'Musterbrief für Erzieher & Lehrer + erweiterte Checkliste – Text kopieren oder als Word herunterladen.',
+                href: '/wissen/schule-kita/vorlagen',
               },
               {
                 icon: '🥪',
                 title: 'Pausenbrot & Snacks',
                 desc: 'Was kommt in die Brotdose? Ideen, Wochenplan, häufige Fehler und Rezepte zum Vorbacken.',
                 href: '/wissen/schule-kita/pausenbrot-snacks',
-                isAnchor: false,
               },
               {
                 icon: '🎒',
                 title: 'Klassenfahrt',
                 desc: '3 Tage Jugendherberge mit Zöliakie – Vorbereitung, Unterkunft klären, Packliste und Notfallplan.',
                 href: '/wissen/schule-kita/klassenfahrt',
-                isAnchor: false,
               },
             ].map(item => (
               <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
@@ -67,9 +64,7 @@ export default function SchuleKitaPage() {
                   <span style={{ fontSize: '1.5rem' }}>{item.icon}</span>
                   <h3 style={{ fontSize: '0.95rem', color: 'var(--green-deep)', margin: '0.1rem 0 0.25rem' }}>{item.title}</h3>
                   <p style={{ margin: 0, fontSize: '0.8rem', lineHeight: 1.75, color: 'var(--text-mid)', flex: 1 }}>{item.desc}</p>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--green-mid)', fontWeight: 700, marginTop: '0.5rem' }}>
-                    {item.isAnchor ? 'Auf dieser Seite ↓' : 'Zur Seite →'}
-                  </span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--green-mid)', fontWeight: 700, marginTop: '0.5rem' }}>Zur Seite →</span>
                 </div>
               </Link>
             ))}
@@ -93,83 +88,22 @@ export default function SchuleKitaPage() {
         </div>
       </section>
 
-      {/* Musterbrief */}
-      <section className="section" style={{ paddingTop: '1rem' }}>
+      {/* Vorlagen-Teaser */}
+      <section className="section" style={{ paddingTop: '1rem', paddingBottom: '1.5rem' }}>
         <div className="container" style={{ maxWidth: '740px' }}>
-          <h2 style={{ marginBottom: '0.5rem' }}>Musterbrief für Erzieher & Lehrer</h2>
-          <p style={{ color: 'var(--text-mid)', marginBottom: '1.25rem', fontSize: '0.9rem' }}>
-            Den Text einfach kopieren, Namen und Details anpassen und ausdrucken oder per E-Mail schicken.
-          </p>
-
-          <div className="card" style={{ background: 'var(--cream-dark)', border: '1.5px solid var(--border)' }}>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '1.25rem', marginTop: 0 }}>
-              — Kopiervorlage: Text markieren → kopieren → anpassen —
-            </p>
-            <div style={{ fontSize: '0.9rem', lineHeight: 2, color: 'var(--text-dark)' }}>
-              <p style={{ margin: '0 0 0.75rem' }}>Betreff: Zöliakie-Erkrankung von [Name des Kindes]</p>
-              <p style={{ margin: '0 0 0.75rem' }}>Sehr geehrte [Frau / Herr …],</p>
-              <p style={{ margin: '0 0 0.75rem' }}>
-                unser Kind [Name] leidet an Zöliakie – einer Autoimmunerkrankung bei der der Körper
-                auf Gluten reagiert. Gluten steckt in Weizen, Roggen, Gerste und Dinkel. Schon kleinste
-                Mengen – auch unsichtbare Spuren – können den Darm dauerhaft schädigen.
-                Es ist keine vorübergehende Unverträglichkeit.
-              </p>
-              <p style={{ margin: '0 0 0.5rem' }}>Für den Alltag bei Ihnen bedeutet das bitte Folgendes zu beachten:</p>
-              <ul style={{ margin: '0 0 0.75rem', paddingLeft: '1.25rem' }}>
-                <li style={{ marginBottom: '0.4rem' }}>[Name] bringt sein/ihr eigenes Essen mit und darf nichts von anderen Kindern essen.</li>
-                <li style={{ marginBottom: '0.4rem' }}>Bitte darauf achten, dass Besteck, Hände und Tische sauber sind, bevor [Name] isst.</li>
-                <li style={{ marginBottom: '0.4rem' }}>Bei Backen oder Basteln mit Mehl/Teig bitte glutenfreies Material für [Name] bereitstellen oder uns vorher Bescheid geben.</li>
-                <li style={{ marginBottom: '0.4rem' }}>Wir hinterlegen eine kleine Box mit sicheren glutenfreien Snacks für Situationen wie Geburtstage oder spontane Naschereien.</li>
-              </ul>
-              <p style={{ margin: '0 0 0.75rem' }}>
-                Zöliakie ist medizinisch diagnostiziert. Wir stehen jederzeit für Rückfragen zur Verfügung –
-                am liebsten per E-Mail an [eure E-Mail-Adresse].
-              </p>
-              <p style={{ margin: '0 0 0.75rem' }}>
-                Herzlichen Dank für Ihr Verständnis und Ihre Unterstützung.
-              </p>
-              <p style={{ margin: 0 }}>
-                Mit freundlichen Grüßen,<br />
-                [Eure Namen], Eltern von [Name des Kindes]
+          <div className="card" style={{ background: 'rgba(45,106,79,0.05)', border: '1.5px solid rgba(45,106,79,0.2)', display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div style={{ flex: 1, minWidth: '220px' }}>
+              <h3 style={{ margin: '0 0 0.4rem', fontSize: '1rem', color: 'var(--green-deep)' }}>
+                📄 Musterbrief & Checkliste zum Kopieren
+              </h3>
+              <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                Musterbrief für Erzieher/Lehrer und die vollständige Checkliste – direkt kopieren
+                oder als Word-Datei herunterladen.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Checkliste erster Tag */}
-      <section className="section" style={{ background: 'var(--cream-dark)', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
-        <div className="container" style={{ maxWidth: '740px' }}>
-          <h2 style={{ marginBottom: '0.5rem' }}>Checkliste: Was vor dem ersten Tag geregelt sein sollte</h2>
-          <p style={{ color: 'var(--text-mid)', marginBottom: '1.75rem' }}>
-            Was sollte geregelt sein bevor euer Kind wieder in die Einrichtung geht?
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-            {[
-              { prio: true,  text: 'Brief / E-Mail an Gruppenerzieher oder Klassenlehrer schicken' },
-              { prio: true,  text: 'Kurzes persönliches Gespräch vereinbaren – Vertrauen aufbauen ist wichtiger als jeder Brief' },
-              { prio: true,  text: 'Notfall-Snackbox abgeben (beschriftet, Ablaufdaten gecheckt)' },
-              { prio: true,  text: 'Mittagessen-Situation klären: Kind bringt eigenes mit, oder gibt es eine glutenfreie Option?' },
-              { prio: true,  text: 'Backen und Basteln mit Mehl ansprechen: Wann kommt das vor? Alternative für euer Kind besprechen.' },
-              { prio: true,  text: 'Kontaktmöglichkeit hinterlassen für kurzfristige Fragen' },
-              { prio: false, text: 'Bei Kitaküche oder Schulkantine: Anfrage stellen ob glutenfreies Essen möglich ist – manchmal geht das schon, fragen lohnt sich' },
-              { prio: false, text: 'Andere Eltern: Nicht sofort nötig, aber beim nächsten Geburtstag proaktiv ansprechen' },
-            ].map((item, i) => (
-              <div key={i} style={{
-                display: 'flex', gap: '0.75rem', alignItems: 'flex-start',
-                padding: '0.75rem 1rem',
-                background: item.prio ? 'rgba(45,106,79,0.06)' : 'rgba(255,255,255,0.5)',
-                borderRadius: '8px',
-                border: `1px solid ${item.prio ? 'rgba(45,106,79,0.15)' : 'var(--border)'}`,
-              }}>
-                <span style={{ fontSize: '1rem', flexShrink: 0, marginTop: '0.05rem' }}>
-                  {item.prio ? '✅' : '📋'}
-                </span>
-                <span style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--text-mid)' }}>
-                  {item.text}
-                </span>
-              </div>
-            ))}
+            <Link href="/wissen/schule-kita/vorlagen" className="btn btn-primary" style={{ flexShrink: 0, fontSize: '0.875rem' }}>
+              Zu den Vorlagen →
+            </Link>
           </div>
         </div>
       </section>
@@ -218,7 +152,11 @@ export default function SchuleKitaPage() {
               },
               {
                 szenario: 'Euer Kind feiert Geburtstag',
-                text: 'Einfach alles glutenfrei backen. Niemand schmeckt den Unterschied bei einem guten Schokoladenkuchen. Unsere glutenfreien Kuchen waren auf keiner Party je ein Thema.',
+                text: 'Einfach alles glutenfrei backen – niemand schmeckt den Unterschied bei einem guten Schokoladenkuchen. Wer noch unsicher ist: es gibt sehr gute glutenfreie Backmischungen (auch in Bio-Qualität) die genauso lecker werden wie selbst zusammengestellt. Unsere glutenfreien Kuchen waren auf keiner Party je ein Thema.',
+              },
+              {
+                szenario: 'Notfall-Reserve für spontane Feiern',
+                text: 'Wir backen regelmäßig mehr Schoko-Muffins, schokolieren sie und frieren sie portionsweise ein. So liegt immer eine Reserve zuhause – oder in der Garderobenbox in der Kita. Alternativ: Schär-Muffins gibt es einzeln verpackt und halten lange.',
               },
               {
                 szenario: 'Geburtstag beim Freund oder der Freundin',
@@ -226,7 +164,7 @@ export default function SchuleKitaPage() {
               },
               {
                 szenario: 'Spontane Nascherei in der Gruppe',
-                text: 'Genau dafür ist die Notfallbox. Das Kind greift in die eigene Box statt zuzuschauen. Das funktioniert – wenn die Box wirklich leckere Sachen enthält.',
+                text: 'Genau dafür ist die Notfallbox. Das Kind greift in die eigene Box statt zuzuschauen. Tipp: Wenn die Box Gummibärchen enthält, kann das Kind die auch den Freunden anbieten – die darf nämlich jeder essen. Das macht einen Unterschied für das Zugehörigkeitsgefühl.',
               },
             ].map(s => (
               <div key={s.szenario} className="card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
@@ -254,9 +192,10 @@ export default function SchuleKitaPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
                 'Ich darf das nicht essen, ich hab Zöliakie.',
-                'Ich hab eine besondere Krankheit – von Weizen wird mir krank.',
+                'Ich hab eine besondere Krankheit – von Weizen werde ich krank.',
                 'Ich hab meinen eigenen Snack dabei, danke!',
                 'Nein danke, ich darf das nicht – aber das ist ok.',
+                'Ich hab sogar Gummibärchen dabei – die kannst du auch essen!',
               ].map((satz, i) => (
                 <div key={i} style={{
                   padding: '0.6rem 0.875rem',
