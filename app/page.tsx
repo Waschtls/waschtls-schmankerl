@@ -48,21 +48,21 @@ export default function Home() {
       </section>
 
       {/* ── Back to School Banner ── */}
-      <section style={{
-        background: 'rgba(45,106,79,0.06)',
-        borderBottom: '1px solid rgba(45,106,79,0.15)',
-        padding: '0.875rem 0',
-      }}>
+      <section style={{ background: '#fff', padding: '1.75rem 0' }}>
         <div className="container">
           <Link href="/wissen/schule-kita" style={{ textDecoration: 'none', display: 'block' }}>
             <div style={{
-              display: 'flex', alignItems: 'center', gap: '0.875rem', flexWrap: 'wrap',
+              display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap',
+              padding: '0.875rem 1.25rem',
+              background: 'rgba(249,194,60,0.1)',
+              borderRadius: '14px',
+              boxShadow: '0 0 0 2.5px #f9c23c, 0 0 0 5px #5ba36a, 0 0 0 7.5px #e07b54',
             }}>
-              <span style={{ fontSize: '1.3rem', lineHeight: 1 }}>🎒 ✏️ 🥡</span>
+              <span style={{ fontSize: '1.4rem', lineHeight: 1, letterSpacing: '0.1em' }}>🎒✏️🥡</span>
               <div style={{ flex: 1, minWidth: '180px' }}>
                 <span style={{
                   fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.07em',
-                  textTransform: 'uppercase', color: 'var(--green-mid)', display: 'block', marginBottom: '0.1rem',
+                  textTransform: 'uppercase', color: 'var(--green-mid)', display: 'block', marginBottom: '0.15rem',
                 }}>Back to School</span>
                 <span style={{ fontSize: '0.875rem', color: 'var(--text-mid)', fontWeight: 500 }}>
                   Alles für Kita & Schule: Musterbrief, Brotdose-Ideen, Klassenfahrt →
